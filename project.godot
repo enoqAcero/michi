@@ -11,9 +11,18 @@ config_version=5
 [application]
 
 config/name="michi"
+run/main_scene="res://ShopButton.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=854
+window/size/borderless=true
+window/handheld/orientation=1
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"

@@ -1,0 +1,5 @@
+res://inicio.tscn
+res://ShopButton.tscn
+res://Shop.tscn
+res://GUI/Scripts/ShopButton.gd
+res://GUI/Scripts/Shop.gd

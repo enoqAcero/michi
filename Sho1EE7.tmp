@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvdhkktr22hk2"]
+
+[ext_resource type="Texture2D" uid="uid://eac0jk2n3sqq" path="res://GUI/Assets/shopIcon.png" id="1_ef42d"]
+[ext_resource type="Script" path="res://GUI/Scripts/ShopButton.gd" id="2_ti3ir"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="OpenShop" type="TextureButton" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_ef42d")
+texture_pressed = ExtResource("1_ef42d")
+texture_hover = ExtResource("1_ef42d")
+texture_disabled = ExtResource("1_ef42d")
+texture_focused = ExtResource("1_ef42d")
+stretch_mode = 0
+script = ExtResource("2_ti3ir")
+
+[connection signal="pressed" from="OpenShop" to="OpenShop" method="_on_pressed"]

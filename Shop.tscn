@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://qtwndjqyub13"]
+
+[ext_resource type="Script" path="res://GUI/Scripts/Shop.gd" id="1_0mwgk"]
+[ext_resource type="Texture2D" uid="uid://c44wgpdnw8bgb" path="res://GUI/Assets/bg-store.png" id="1_qhle5"]
+[ext_resource type="Texture2D" uid="uid://cn80ky8jlijf0" path="res://GUI/Assets/close.png" id="3_7da6m"]
+[ext_resource type="Texture2D" uid="uid://eac0jk2n3sqq" path="res://GUI/Assets/shopIcon.png" id="4_n2oe0"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0mwgk")
+
+[node name="Bg-store" type="Sprite2D" parent="."]
+position = Vector2(240, 416)
+scale = Vector2(15, 18)
+texture = ExtResource("1_qhle5")
+
+[node name="Button" type="TextureButton" parent="Bg-store"]
+z_as_relative = false
+offset_left = 11.7333
+offset_top = -16.0
+offset_right = 15.7333
+offset_bottom = -13.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(458, 149)
+texture = ExtResource("3_7da6m")
+
+[node name="ShopIcon" type="Sprite2D" parent="."]
+position = Vector2(415, 779)
+scale = Vector2(1.985, 2.235)
+texture = ExtResource("4_n2oe0")
+offset = Vector2(16, 16)
+
+[connection signal="pressed" from="Bg-store/Button" to="." method="_on_button_pressed"]
