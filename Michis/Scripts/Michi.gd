@@ -15,6 +15,10 @@ var walkingUp = false
 var walkingSide = false
 var walking = false
 
+#variable para ver si el michi esta seleccionado con el mouse
+var selected = false
+var offset: Vector2
+
 #movimento del michi
 var xdir = 1 #1 = right, -1 = left
 var ydir = 1 #1 = down, -1 = up
@@ -39,6 +43,18 @@ func _physics_process(_delta):
 		$StatusGood.modulate = Color("e00000")
 	
 	
+	#DRAG & DROP
+	if selected == true:
+		if Input.is_action_just_pressed("click"):
+			offset = get_global_mouse_position() - global_position
+		if Input.is_action_pressed("click"):
+			global_position = get_global_mouse_position() - offset
+		elif Input.is_action_just_released("click"):
+			global_position = get_global_mouse_position()
+		walking = false
+		idle = true
+		
+		
 	#MOVIMIENTO
 	#al estar en idle, decidir si se ve a mover vertical o horizontal
 	if walking == false:
@@ -141,3 +157,15 @@ func _on_area_2d_body_entered(body):
 	elif ydir == -1:
 		ydir = 1
 """
+
+
+func _on_area_2d_mouse_entered():
+	selected = true
+	$AnimatedSprite2D.scale.x = 3
+	$AnimatedSprite2D.scale.y = 3
+	
+	
+func _on_area_2d_mouse_exited():
+	selected = false
+	$AnimatedSprite2D.scale.x = 2
+	$AnimatedSprite2D.scale.y = 2

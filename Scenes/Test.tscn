@@ -109,25 +109,25 @@ shape = SubResource("RectangleShape2D_aa6xu")
 debug_color = Color(0.00784314, 0.00392157, 0.0705882, 1)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_pp3np")]
-position = Vector2(128, 352)
+position = Vector2(86, 315)
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("2_pp3np")]
-position = Vector2(224, 608)
+position = Vector2(313, 596)
 
 [node name="CharacterBody2D3" parent="." instance=ExtResource("2_pp3np")]
-position = Vector2(352, 448)
+position = Vector2(312, 452)
 
 [node name="CharacterBody2D4" parent="." instance=ExtResource("2_pp3np")]
-position = Vector2(64, 480)
+position = Vector2(77, 445)
 
 [node name="CharacterBody2D5" parent="." instance=ExtResource("2_pp3np")]
-position = Vector2(352, 224)
+position = Vector2(309, 179)
 
 [node name="CharacterBody2D6" parent="." instance=ExtResource("2_pp3np")]
-position = Vector2(96, 224)
+position = Vector2(80, 189)
 
 [node name="CharacterBody2D7" parent="." instance=ExtResource("2_pp3np")]
-position = Vector2(288, 352)
+position = Vector2(316, 319)
 
 [node name="CharacterBody2D8" parent="." instance=ExtResource("2_pp3np")]
-position = Vector2(96, 640)
+position = Vector2(69, 588)
