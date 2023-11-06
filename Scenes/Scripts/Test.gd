@@ -7,8 +7,6 @@ var michiData = MichiData.new()
 
 var tiempo = 0.0
 
-#var items = load("res://GlobalAssets/Scripts/items.gd").new()
-
 
 func _ready():
 	SignalManager.fishBought.connect(editCoinCounter)
