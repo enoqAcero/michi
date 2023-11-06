@@ -16,6 +16,7 @@ var walkingSide = false
 var walking = false
 
 #variable para ver si el michi esta seleccionado con el mouse
+var click_duration = 0.0
 var selected = false
 var offset: Vector2
 
@@ -75,17 +76,22 @@ func _physics_process(_delta):
 				$AnimatedSprite2D.flip_h = false
 				$CollisionPolygon2DNormal.disabled = false
 				$CollisionPolygon2DFlip.disabled = true
-				$StatusGood.offset.x = 0
+				$StatusGood.position.x = -20
+				$StatusGood.position.y = -36
 			if xdir == 1:
 				$AnimatedSprite2D.flip_h = true
 				$CollisionPolygon2DNormal.disabled = true
 				$CollisionPolygon2DFlip.disabled = false
-				$StatusGood.offset.x = 30
+				$StatusGood.position.x = 2
+				$StatusGood.position.y = -36
 			velocity.x = speed * xdir
 			velocity.y = 0
 			
 		#Si se mueve vertical decidir que animacion usar
 		elif movingVerticalHorizontal == 2:
+			$AnimatedSprite2D.flip_h = false
+			$StatusGood.position.x = -17
+			$StatusGood.position.y = -36
 			if walkingDown == true:
 				$AnimatedSprite2D.play("WalkingDown")
 			elif walkingUp == true:
@@ -145,27 +151,29 @@ func _on_walking_timer_timeout():
 	$WalkingTimer.start()
 
 
-"""
-func _on_area_2d_body_entered(body):
-	if xdir == 1 and $AnimatedSprite2D.flip_h == false:
-		xdir = -1
-	elif xdir == -1 and $AnimatedSprite2D.flip_h == true:
-		xdir = 1
-	
-	if ydir == 1:
-		ydir = -1
-	elif ydir == -1:
-		ydir = 1
-"""
 
-
+#Escalar michi y posicionar status cuando el mouse entra al michi 
 func _on_area_2d_mouse_entered():
 	selected = true
+	$AnimatedSprite2D.flip_h = false
 	$AnimatedSprite2D.scale.x = 3
 	$AnimatedSprite2D.scale.y = 3
+	$StatusGood.scale.x = 1
+	$StatusGood.scale.y = 1
+	$StatusGood.position.x = -29
+	$StatusGood.position.y = -55
 	
 	
+
+#Escalar michi y posicionar status cuando el mouse sale del michi 
 func _on_area_2d_mouse_exited():
 	selected = false
 	$AnimatedSprite2D.scale.x = 2
 	$AnimatedSprite2D.scale.y = 2
+	$StatusGood.scale.x = 0.6
+	$StatusGood.scale.y = 0.6
+	$StatusGood.position.x = -17
+	$StatusGood.position.y = -36
+
+
+	
