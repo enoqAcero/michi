@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dg2rf8of102bf"]
+[gd_scene load_steps=15 format=3 uid="uid://dg2rf8of102bf"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/Test.gd" id="1_1kxl6"]
 [ext_resource type="Texture2D" uid="uid://bbda6m3rkng0e" path="res://Scenes/Assets/Temp/tileset_forest.png" id="1_8dyok"]
 [ext_resource type="PackedScene" uid="uid://c6puxvq25ce6f" path="res://Michis/michiNaranja.tscn" id="2_pp3np"]
+[ext_resource type="Texture2D" uid="uid://d2mklqt1svgdv" path="res://GUI/Assets/shopIcon.png" id="4_x1ng5"]
+[ext_resource type="Texture2D" uid="uid://bsvet88t05jsy" path="res://GlobalAssets/Assets/michiCoin.png" id="5_eyy15"]
+[ext_resource type="PackedScene" uid="uid://qtwndjqyub13" path="res://Scenes/Shop.tscn" id="6_jcj4f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5x20"]
 texture = ExtResource("1_8dyok")
@@ -156,6 +159,33 @@ text = "Comida"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TextureButton" type="TextureButton" parent="."]
+process_mode = 3
+offset_left = 425.0
+offset_top = 788.0
+offset_right = 458.0
+offset_bottom = 820.0
+texture_normal = ExtResource("4_x1ng5")
+texture_pressed = ExtResource("4_x1ng5")
+texture_hover = ExtResource("4_x1ng5")
+texture_focused = ExtResource("4_x1ng5")
+
+[node name="MichiCoin" type="Sprite2D" parent="."]
+position = Vector2(24, 98)
+texture = ExtResource("5_eyy15")
+hframes = 4
+
+[node name="coinCounter" type="Label" parent="."]
+offset_left = 47.0
+offset_top = 86.0
+offset_right = 87.0
+offset_bottom = 112.0
+text = "100
+"
+
+[node name="Shop" parent="." instance=ExtResource("6_jcj4f")]
+position = Vector2(0, 13)
+
 [connection signal="input_event" from="Michi1/Area2D2" to="." method="_on_area_2d_2_input_event"]
-[connection signal="input_event" from="Michi2/Area2D3" to="." method="_on_area_2d_3_input_event"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

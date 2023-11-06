@@ -7,13 +7,18 @@ var michiData = MichiData.new()
 
 var tiempo = 0.0
 
+#var items = load("res://GlobalAssets/Scripts/items.gd").new()
+
 
 func _ready():
+	SignalManager.fishBought.connect(editCoinCounter)
 	#checar que el directorio y archivo existen
 	verifySaveDirectory()
 	loadData()
 	
 func _process(_delta):
+	
+	
 	tiempo = Time.get_ticks_usec() / 1000000
 	print(tiempo)
 	
@@ -48,3 +53,11 @@ func loadData():
 func _on_button_pressed():
 	ResourceSaver.save(michiData, savePath + saveFileName)
 	print ("saving...")
+	
+
+func _on_texture_button_pressed():
+	$Shop.set_visible(true)
+	get_tree().paused =true
+	
+func editCoinCounter(coins : int):
+	$coinCounter.text = str(coins)
