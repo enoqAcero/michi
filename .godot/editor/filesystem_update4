@@ -1,6 +1,9 @@
-res://Scenes/Scripts/Test.gd
 res://Scenes/Test.tscn
 res://Michis/michiNaranja.tscn
-res://GUI/Scripts/Shop.gd
-res://GlobalAssets/Scripts/SignalManager.gd
 res://Scenes/Shop.tscn
+res://Save/MichiData.gd
+res://Scenes/Scripts/Test.gd
+res://Michis/Scripts/Michi.gd
+res://GUI/Scripts/BarraPromedio.gd
+res://GlobalAssets/Scripts/SignalManager.gd
+res://GUI/Scripts/StatusMichi.gd

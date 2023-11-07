@@ -162,6 +162,8 @@ func _on_area_2d_mouse_entered():
 	$StatusGood.scale.y = 1
 	$StatusGood.position.x = -29
 	$StatusGood.position.y = -55
+	$Area2D/CollisionShape2D.scale.x = 5
+	$Area2D/CollisionShape2D.scale.y = 5
 	
 	
 
@@ -174,6 +176,8 @@ func _on_area_2d_mouse_exited():
 	$StatusGood.scale.y = 0.6
 	$StatusGood.position.x = -17
 	$StatusGood.position.y = -36
+	$Area2D/CollisionShape2D.scale.x = 1
+	$Area2D/CollisionShape2D.scale.y = 1
 
 
 	
