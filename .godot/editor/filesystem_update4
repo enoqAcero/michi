@@ -1,10 +1,8 @@
-res://ShopButton.tscn
-res://Shop.tscn
 res://Scenes/Test.tscn
-res://GUI/Scripts/Shop.gd
-res://GUI/Scripts/ShopButton.gd
-res://Scenes/Test.gd
-res://Bg-store.gd
+res://Save/MichiData.gd
+res://Scenes/Scripts/Test.gd
+res://Michis/michiNaranja.tscn
+res://Scenes/Shop.tscn
+res://GlobalAssets/Scripts/Inventory.gd
 res://GlobalAssets/Scripts/items.gd
-res://Scenes/Scripts/test.gd
-res://GlobalAssets/Scripts/globalSignal.gd
+res://GlobalAssets/Scripts/furnitures.gd

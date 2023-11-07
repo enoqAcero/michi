@@ -2,7 +2,6 @@ extends Node2D
 
 var items = load("res://GlobalAssets/Scripts/items.gd").new()
 
-signal fish_bought
 
 func _ready():
 	set_visible(false)
@@ -16,6 +15,6 @@ func _on_buy_fish_pressed():
 	if items.coins >= fishCost:
 		items.coins -= fishCost
 		print("Compraste un pez! Te quedan " + str(items.coins) + " monedas.")
-		emit_signal("fish_bought")
+		SignalManager.fishBought.emit(items.coins)
 	else:
 		print("No tienes suficientes monedas para comprar un pez.")
