@@ -1,8 +1,4 @@
 res://Scenes/Test.tscn
-res://Save/MichiData.gd
-res://Scenes/Scripts/Test.gd
 res://Michis/michiNaranja.tscn
 res://Scenes/Shop.tscn
-res://GlobalAssets/Scripts/Inventory.gd
 res://GlobalAssets/Scripts/items.gd
-res://GlobalAssets/Scripts/furnitures.gd

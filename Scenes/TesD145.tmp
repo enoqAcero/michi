@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c6puxvq25ce6f" path="res://Michis/michiNaranja.tscn" id="2_pp3np"]
 [ext_resource type="Texture2D" uid="uid://d2mklqt1svgdv" path="res://GUI/Assets/shopIcon.png" id="4_x1ng5"]
 [ext_resource type="Texture2D" uid="uid://bsvet88t05jsy" path="res://GlobalAssets/Assets/michiCoin.png" id="5_eyy15"]
-[ext_resource type="PackedScene" uid="uid://qtwndjqyub13" path="res://Shop.tscn" id="6_jcj4f"]
+[ext_resource type="PackedScene" uid="uid://qtwndjqyub13" path="res://Scenes/Shop.tscn" id="6_jcj4f"]
 [ext_resource type="Script" path="res://GUI/Scripts/StatusMichi.gd" id="7_a6r6s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5x20"]
@@ -170,56 +170,25 @@ text = "100
 [node name="Shop" parent="." instance=ExtResource("6_jcj4f")]
 position = Vector2(0, 13)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("7_a6r6s")
-
-[node name="Nombre" type="Label" parent="CanvasLayer"]
+[node name="Nombre" type="Label" parent="."]
 offset_left = 164.0
 offset_top = 65.0
 offset_right = 297.0
 offset_bottom = 110.0
 text = "Nombre"
 horizontal_alignment = 1
+script = ExtResource("7_a6r6s")
 
-[node name="promedio" type="ProgressBar" parent="CanvasLayer"]
+[node name="Promedio" type="ProgressBar" parent="Nombre"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -82.0
-offset_top = 103.0
-offset_right = 59.0
-offset_bottom = 130.0
+offset_left = -72.5
+offset_top = 38.0
+offset_right = 68.5
+offset_bottom = 65.0
 grow_horizontal = 2
-
-[node name="food" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 355.0
-offset_top = 223.0
-offset_right = 433.0
-offset_bottom = 250.0
-
-[node name="fun" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 354.0
-offset_top = 260.0
-offset_right = 432.0
-offset_bottom = 287.0
-
-[node name="clean" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 355.0
-offset_top = 299.0
-offset_right = 431.0
-offset_bottom = 326.0
-
-[node name="comfort" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 356.0
-offset_top = 338.0
-offset_right = 430.0
-offset_bottom = 365.0
-
-[node name="exercise" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 358.0
-offset_top = 376.0
-offset_right = 431.0
-offset_bottom = 403.0
 
 [connection signal="input_event" from="Michi1/Area2D2" to="." method="_on_area_2d_2_input_event"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -5,6 +5,7 @@ var savePath = "user://Save/"
 var saveFileName = "MichiSave.tres"
 var michiData = MichiData.new()
 
+
 var tiempo = 0.0
 
 
@@ -16,12 +17,15 @@ func _ready():
 	
 func _process(_delta):
 	
-	
 	tiempo = Time.get_ticks_usec() / 1000000
 	print(tiempo)
 	
 	if tiempo % 5 == 0.0:
-		michiData.comida = michiData.comida - 0.02
+		michiData.food = michiData.food - 0.02
+		michiData.fun = michiData.fun - 0.02
+		michiData.comfort = michiData.comfort - 0.02
+		michiData.exercise = michiData.exercise - 0.02
+		michiData.clean = michiData.clean - 0.02
 		
 	
 	
@@ -29,11 +33,10 @@ func _process(_delta):
 #cuando se apieta el michi aparece su nombre en el label
 func _on_area_2d_2_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_pressed("click"):
-		updateLabel()
+		updateMichiStatus()
 
-func updateLabel():
-	$Nombre.text = michiData.nombre
-	$Comida.text = str(int(michiData.comida))
+func updateMichiStatus():
+	SignalManager.manageStatusBars.emit(michiData)
 
 #garantizar que el archivo existe
 func verifySaveDirectory():

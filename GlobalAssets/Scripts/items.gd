@@ -53,4 +53,3 @@ extends Node
 		"clean":10
 	}
 }
-
