@@ -35,6 +35,7 @@ func _ready():
 	#Iniciar movimento y randomizar el estado de idle y walking
 	idle = true
 	randomize()
+	#obtener el nombre del nodo michi# y obtener solo su numero
 	numeroMichi = get_name()
 	numeroMichi = getNumbersFromString(numeroMichi)
 
@@ -54,7 +55,7 @@ func _physics_process(_delta):
 		if Input.is_action_just_pressed("click"):
 			offset = get_global_mouse_position() - global_position
 		if Input.is_action_pressed("click"):
-			SignalManager.michiNumber.emit(numeroMichi)
+			SignalManager.michiNumber.emit(numeroMichi) #mandar una senial con el numero del michi que se esta apretando
 			global_position = get_global_mouse_position() - offset
 		elif Input.is_action_just_released("click"):
 			global_position = get_global_mouse_position()
@@ -114,7 +115,7 @@ func _physics_process(_delta):
 	
 	move_and_slide()
 
-
+#funcion para cambiar de caminar a idle basado en un timer random
 func _on_change_state_timer_timeout():
 	var waitTime = 1
 	#Condiciones para cambiar de estado de idle a walking
@@ -185,7 +186,7 @@ func _on_area_2d_mouse_exited():
 	$Area2D/CollisionShape2D.scale.x = 1
 	$Area2D/CollisionShape2D.scale.y = 1
 
-
+#obtener solo los numeros de un string
 func getNumbersFromString(input_string: String) -> String:
 	var result = ""
 	for letter in input_string:
