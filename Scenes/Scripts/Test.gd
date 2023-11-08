@@ -12,6 +12,7 @@ var tiempo = 0.0
 
 
 func _ready():
+	#for para cargar todos los michis en un arreglo
 	for i in range(0, maxMichiNumber+1):
 		loadData(i)
 		
@@ -34,23 +35,22 @@ func _process(_delta):
 	
 	
 
-#cuando se apieta el michi aparece su nombre en el label
+#cuando se apieta el michi aparecen sus stats
 func _on_area_michi_1_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_pressed("click"):
 		updateMichiStatus()
-		
-		
 func _on_area_michi_2_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_pressed("click"):
 		updateMichiStatus()
 		
 
+#emitir una senal al scipt en CanvasLayer para cambiar los stats del michi
 func updateMichiStatus():
 	SignalManager.manageStatusBars.emit(michiData[michiNumber])
 	#print("numero: ", michiNumber)
 
 	
-#cargar el archivo
+#cargar el archivo y verificar que existe. si no, crear uno nuevo
 func loadData(number : int):
 	if ResourceLoader.exists(savePath + saveFileName + str(number) + ".tres"):
 		michiData.append(ResourceLoader.load(savePath + saveFileName + str(number) + ".tres"))
@@ -59,13 +59,12 @@ func loadData(number : int):
 		ResourceSaver.save(newMichiData, (savePath + saveFileName + str(number) + ".tres" ))
 		michiData.append(ResourceLoader.load(savePath + saveFileName + str(number) + ".tres"))
 	print("Se cargo el michi: ", number)
-	#michiData.append(load(savePath + saveFileName + str(number) + ".tres"))
+
 	
 	
 #salvear el juego
 func _on_button_pressed():
-	michiNumber = michiNumber+1
-	#ResourceSaver.save(michiData[michiNumber], savePath + saveFileName + str(michiNumber) + ".tres")
+	ResourceSaver.save(michiData[michiNumber], savePath + saveFileName + str(michiNumber) + ".tres")
 	print ("saving...")
 
 func _on_texture_button_pressed():
@@ -75,6 +74,7 @@ func _on_texture_button_pressed():
 func editCoinCounter(coins : int):
 	$coinCounter.text = str(coins)
 
+#obtener el numero de michi desde el script de michis
 func getMichiNumber(number : String):
 	michiNumber = number.to_int() - 1
 	#print("michi numero: ", michiNumber)
