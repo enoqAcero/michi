@@ -11,3 +11,5 @@ func update(michi : MichiData):
 	$clean.value = michi.clean
 	$comfort.value = michi.comfort
 	$exercise.value = michi.exercise
+	
+

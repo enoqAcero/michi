@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var numeroMichi
+
 #Stats del michi
 var comida = 100
 var diversion = 100
@@ -33,6 +35,9 @@ func _ready():
 	#Iniciar movimento y randomizar el estado de idle y walking
 	idle = true
 	randomize()
+	numeroMichi = get_name()
+	numeroMichi = getNumbersFromString(numeroMichi)
+
 	
 func _physics_process(_delta):
 	#ESTADO DE ANIMO
@@ -49,6 +54,7 @@ func _physics_process(_delta):
 		if Input.is_action_just_pressed("click"):
 			offset = get_global_mouse_position() - global_position
 		if Input.is_action_pressed("click"):
+			SignalManager.michiNumber.emit(numeroMichi)
 			global_position = get_global_mouse_position() - offset
 		elif Input.is_action_just_released("click"):
 			global_position = get_global_mouse_position()
@@ -180,4 +186,9 @@ func _on_area_2d_mouse_exited():
 	$Area2D/CollisionShape2D.scale.y = 1
 
 
-	
+func getNumbersFromString(input_string: String) -> String:
+	var result = ""
+	for letter in input_string:
+		if letter.is_valid_int():
+			result += letter
+	return result

@@ -121,20 +121,20 @@ debug_color = Color(0.00784314, 0.00392157, 0.0705882, 1)
 [node name="Michi1" parent="." instance=ExtResource("2_pp3np")]
 position = Vector2(125, 337)
 
-[node name="AreaMichi1" type="Area2D" parent="Michi1"]
+[node name="Area2D2" type="Area2D" parent="Michi1"]
 position = Vector2(-125, -337)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Michi1/AreaMichi1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Michi1/Area2D2"]
 position = Vector2(122, 343)
 shape = SubResource("CircleShape2D_lxofa")
 
 [node name="Michi2" parent="." instance=ExtResource("2_pp3np")]
 position = Vector2(313, 596)
 
-[node name="AreaMichi2" type="Area2D" parent="Michi2"]
+[node name="Area2D3" type="Area2D" parent="Michi2"]
 position = Vector2(-313, -596)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Michi2/AreaMichi2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Michi2/Area2D3"]
 position = Vector2(316, 603)
 shape = SubResource("CircleShape2D_lxofa")
 
@@ -222,7 +222,6 @@ offset_top = 376.0
 offset_right = 431.0
 offset_bottom = 403.0
 
-[connection signal="input_event" from="Michi1/AreaMichi1" to="." method="_on_area_michi_1_input_event"]
-[connection signal="input_event" from="Michi2/AreaMichi2" to="." method="_on_area_michi_2_input_event"]
+[connection signal="input_event" from="Michi1/Area2D2" to="." method="_on_area_2d_2_input_event"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://c4cpj7s54e0fa"]
+
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_j4pa8"]
+
+[resource]
+script = ExtResource("1_j4pa8")
+name = "Michi1"
+food = 87.5
+fun = 87.5
+clean = 87.5
+comfort = 87.5
+exercise = 87.5
