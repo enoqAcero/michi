@@ -198,5 +198,6 @@ offset_top = 376.0
 offset_right = 431.0
 offset_bottom = 403.0
 
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
