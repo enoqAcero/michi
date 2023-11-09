@@ -8,10 +8,10 @@ func _ready():
 	
 func _process(_delta):
 	if selected == true:
-		if Input.is_action_pressed("click"):
+		if Input.is_action_just_pressed("click"):
 			SignalManager.huevoNumber.emit(numeroHuevo, 1) #mandar una senial con el numero del huevo que se esta apretando
 	
-	#obtener solo los numeros de un string
+#obtener solo los numeros de un string
 func getNumbersFromString(input_string: String) -> String:
 	var result = ""
 	for letter in input_string:
