@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="HuevoData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="HuevoData" load_steps=2 format=3 uid="uid://pdmqqg04xgcr"]
 
-[ext_resource type="Script" path="res://Save/HuevoData.gd" id="1_ia8g1"]
+[ext_resource type="Script" path="res://Save/HuevoData.gd" id="1_7iphj"]
 
 [resource]
-script = ExtResource("1_ia8g1")
+script = ExtResource("1_7iphj")
+active = 1
 categoria = 1
 id = 0
-taps = 1000
+taps = 5

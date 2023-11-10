@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+var maxMichiNumber = GlobalVariables.maxMichiNumber
+var maxHuevoNumber = GlobalVariables.maxHuevoNumber
+
 var numeroMichi
 
 #Stats del michi
@@ -54,6 +57,7 @@ func _physics_process(_delta):
 	if selected == true:
 		if Input.is_action_just_pressed("click"):
 			offset = get_global_mouse_position() - global_position
+			print("dese michi: ", get_name())
 			SignalManager.michiNumber.emit(numeroMichi, 0) #mandar una senial con el numero del michi que se esta apretando
 		if Input.is_action_pressed("click"):
 			#print("michi number from michi script: ", numeroMichi)
@@ -172,6 +176,8 @@ func _on_area_2d_mouse_entered():
 	$StatusGood.position.y = -55
 	$Area2D/CollisionShape2D.scale.x = 5
 	$Area2D/CollisionShape2D.scale.y = 5
+	$CollisionPolygon2DNormal.disabled = true
+	$CollisionPolygon2DFlip.disabled = true
 	
 	
 
@@ -186,6 +192,8 @@ func _on_area_2d_mouse_exited():
 	$StatusGood.position.y = -36
 	$Area2D/CollisionShape2D.scale.x = 1
 	$Area2D/CollisionShape2D.scale.y = 1
+	$CollisionPolygon2DNormal.disabled = false
+	$CollisionPolygon2DFlip.disabled = false
 
 #obtener solo los numeros de un string
 func getNumbersFromString(input_string: String) -> String:
@@ -194,3 +202,12 @@ func getNumbersFromString(input_string: String) -> String:
 		if letter.is_valid_int():
 			result += letter
 	return result
+
+
+func _on_area_2d_2_body_entered(body):
+	if selected == true:
+		for i in range(0, maxMichiNumber):
+			if body.get_name() == ("michi"+str(i)):
+				print("colliding")
+				SignalManager.merge.emit(i) #mandar una senial con el numero del michi que se esta apretando
+				break

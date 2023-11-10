@@ -1,16 +1,17 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://b8b0axsd13q4r"]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://bu8gk6gu6kqhx"]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_evnqq"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_ck3t5"]
 
 [resource]
-script = ExtResource("1_evnqq")
-category = ""
-type = ""
-categoryLevel = 1
+script = ExtResource("1_ck3t5")
+active = 1
+category = "categoria3"
+type = "Lentes"
+categoryLevel = 3
 fusionLevel = 1
-name = "Michi 0"
-food = 100
-fun = 100
-clean = 100
-comfort = 100
-exercise = 100
+name = "Lentes0"
+food = 86.48
+fun = 86.48
+clean = 86.48
+comfort = 86.48
+exercise = 86.48

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://hur85gk23xkx"]
+
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_615kj"]
+
+[resource]
+script = ExtResource("1_615kj")
+active = 1
+category = "categoria2"
+type = "Calico"
+categoryLevel = 2
+fusionLevel = 1
+name = "Calico5"
+food = 100
+fun = 100
+clean = 100
+comfort = 100
+exercise = 100

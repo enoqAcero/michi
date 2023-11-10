@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://cslb6dx1uqv6n"]
+
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_qxukt"]
+
+[resource]
+script = ExtResource("1_qxukt")
+active = 1
+category = "categoria2"
+type = "Siames"
+categoryLevel = 2
+fusionLevel = 1
+name = "Siames4"
+food = 95.2
+fun = 95.2
+clean = 95.2
+comfort = 95.2
+exercise = 95.2

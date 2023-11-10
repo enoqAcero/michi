@@ -1,16 +1,17 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://0ajcwj76ahan"]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://db0qttrqdwdcn"]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_24a7u"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_o0biu"]
 
 [resource]
-script = ExtResource("1_24a7u")
-category = ""
-type = ""
+script = ExtResource("1_o0biu")
+active = 0
+category = "categoria1"
+type = "Cafe"
 categoryLevel = 1
 fusionLevel = 1
-name = "Michi 1 "
-food = 100
-fun = 100
-clean = 100
-comfort = 100
-exercise = 100
+name = "Cafe1"
+food = 98.78
+fun = 98.78
+clean = 98.78
+comfort = 98.78
+exercise = 98.78

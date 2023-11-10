@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://cfypph3xcy7ds"]
+
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_4tqlj"]
+
+[resource]
+script = ExtResource("1_4tqlj")
+active = 1
+category = "categoria1"
+type = "Naranja"
+categoryLevel = 1
+fusionLevel = 1
+name = "michi9"
+food = 100
+fun = 100
+clean = 100
+comfort = 100
+exercise = 100

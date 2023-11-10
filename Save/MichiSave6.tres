@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://b44u8nkrkbimr"]
+
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_jd4ql"]
+
+[resource]
+script = ExtResource("1_jd4ql")
+active = 1
+category = "categoria3"
+type = "Bufanda"
+categoryLevel = 3
+fusionLevel = 1
+name = "Bufanda6"
+food = 97.6
+fun = 97.6
+clean = 97.6
+comfort = 97.6
+exercise = 97.6
