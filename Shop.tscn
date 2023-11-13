@@ -1,0 +1,550 @@
+[gd_scene load_steps=29 format=3 uid="uid://qtwndjqyub13"]
+
+[ext_resource type="Script" path="res://GUI/Scripts/Shop.gd" id="1_0mwgk"]
+[ext_resource type="Texture2D" uid="uid://blv5qr387wde2" path="res://GUI/Assets/bg-store.png" id="1_qhle5"]
+[ext_resource type="Texture2D" uid="uid://cynebuccpnmck" path="res://GUI/Assets/close.png" id="3_7da6m"]
+[ext_resource type="Texture2D" uid="uid://bqsyfna1e17lo" path="res://GUI/Assets/tabItemsN.png" id="5_8av0w"]
+[ext_resource type="Texture2D" uid="uid://fp2m277tc4hv" path="res://GUI/Assets/tabFurnituresN.png" id="6_seme4"]
+[ext_resource type="Texture2D" uid="uid://byydnwmknsvsv" path="res://GUI/Assets/tabItemsP.png" id="6_u0j1u"]
+[ext_resource type="Texture2D" uid="uid://bg0vqx2wbxfx5" path="res://GUI/Assets/tabFurnituresP.png" id="7_2m5l0"]
+[ext_resource type="Texture2D" uid="uid://4wbknax3rg5w" path="res://Items/Assets/fish.png" id="8_7lixr"]
+[ext_resource type="Texture2D" uid="uid://b0c2juy08dxjs" path="res://Items/Assets/Kibble.png" id="8_s26xb"]
+[ext_resource type="Texture2D" uid="uid://bkljwms08vqbs" path="res://GUI/Assets/buyN.png" id="9_uednt"]
+[ext_resource type="Texture2D" uid="uid://cnf16sdumiprn" path="res://GUI/Assets/buyP.png" id="10_8irbi"]
+[ext_resource type="Texture2D" uid="uid://bsvet88t05jsy" path="res://GlobalAssets/Assets/michiCoin.png" id="11_ryjyc"]
+[ext_resource type="Texture2D" uid="uid://8kmk6a6jj61g" path="res://Items/Assets/TunaCan.png" id="12_1se1l"]
+[ext_resource type="Texture2D" uid="uid://esdmpocsp8wd" path="res://Items/Assets/inventory.png" id="12_my0hn"]
+[ext_resource type="Texture2D" uid="uid://b6lntnyi7c8eg" path="res://Items/Assets/Ball.png" id="13_kxer1"]
+[ext_resource type="Texture2D" uid="uid://ncq7es2mmal0" path="res://GUI/Assets/buyD.png" id="14_psrg0"]
+[ext_resource type="Texture2D" uid="uid://c0omnjhf4at0u" path="res://Items/Assets/Laser.png" id="14_texej"]
+[ext_resource type="Texture2D" uid="uid://b4ena7sjxyl4p" path="res://Items/Assets/Comb.png" id="15_fr1h5"]
+[ext_resource type="Texture2D" uid="uid://brtguq2yk1a6c" path="res://Items/Assets/Brush.png" id="16_ojpov"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fwt36"]
+font_size = 20
+font_color = Color(0.92549, 0.729412, 0.321569, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxrid"]
+font_color = Color(0, 0.0117647, 0.00784314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j481c"]
+font_size = 20
+font_color = Color(0.92549, 0.729412, 0.321569, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wfr8g"]
+font_size = 20
+font_color = Color(0.92549, 0.729412, 0.321569, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5fp3x"]
+font_size = 20
+font_color = Color(0.92549, 0.729412, 0.321569, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1tsek"]
+font_size = 20
+font_color = Color(0.92549, 0.729412, 0.321569, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8no6y"]
+font_size = 20
+font_color = Color(0.92549, 0.729412, 0.321569, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6nd3d"]
+font_size = 20
+font_color = Color(0.92549, 0.729412, 0.321569, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_icknn"]
+font_size = 20
+font_color = Color(0.92549, 0.729412, 0.321569, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_offset = Vector2(5, 5)
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_0mwgk")
+metadata/_edit_vertical_guides_ = [128.0, 160.0, 256.0, 32.0, 288.0]
+metadata/_edit_horizontal_guides_ = [384.0, 288.0, 480.0]
+
+[node name="Bg-store" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.917647)
+position = Vector2(240, 448)
+scale = Vector2(15, 20)
+texture = ExtResource("1_qhle5")
+
+[node name="Button" type="TextureButton" parent="Bg-store"]
+process_mode = 2
+z_as_relative = false
+offset_left = 11.7333
+offset_top = -16.0
+offset_right = 15.7333
+offset_bottom = -13.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(458, 149)
+texture = ExtResource("3_7da6m")
+
+[node name="Items" type="TextureButton" parent="."]
+process_mode = 3
+offset_left = 64.0
+offset_top = 96.0
+offset_right = 128.0
+offset_bottom = 160.0
+scale = Vector2(2.5, 2.5)
+tooltip_text = "Items"
+texture_normal = ExtResource("5_8av0w")
+texture_pressed = ExtResource("6_u0j1u")
+texture_hover = ExtResource("6_u0j1u")
+texture_focused = ExtResource("6_u0j1u")
+metadata/_edit_use_anchors_ = true
+
+[node name="Furnitures" type="TextureButton" parent="."]
+process_mode = 3
+offset_left = 256.0
+offset_top = 96.0
+offset_right = 320.0
+offset_bottom = 160.0
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("6_seme4")
+texture_pressed = ExtResource("7_2m5l0")
+texture_hover = ExtResource("7_2m5l0")
+texture_disabled = ExtResource("7_2m5l0")
+texture_focused = ExtResource("7_2m5l0")
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 32.0
+offset_top = 224.0
+offset_right = 448.0
+offset_bottom = 672.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="kibble" type="Sprite2D" parent="GridContainer"]
+position = Vector2(26, 36)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_s26xb")
+
+[node name="buykibble" type="TextureButton" parent="GridContainer/kibble"]
+process_mode = 2
+offset_left = 50.6667
+offset_top = -9.33334
+offset_right = 114.667
+offset_bottom = 54.6667
+texture_normal = ExtResource("9_uednt")
+texture_pressed = ExtResource("10_8irbi")
+texture_hover = ExtResource("10_8irbi")
+texture_disabled = ExtResource("14_psrg0")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer/kibble"]
+offset_left = 78.0
+offset_top = -28.0
+offset_right = 118.0
+offset_bottom = 12.0
+scale = Vector2(1, 0.7)
+size_flags_stretch_ratio = 0.0
+
+[node name="kibbleLabelCost" type="Label" parent="GridContainer/kibble"]
+offset_left = 78.0
+offset_top = -31.0
+offset_right = 118.0
+offset_bottom = 3.0
+label_settings = SubResource("LabelSettings_fwt36")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="kibbleLabelInv" type="Label" parent="GridContainer/kibble"]
+offset_left = 71.065
+offset_top = 41.0
+offset_right = 111.065
+offset_bottom = 64.0
+label_settings = SubResource("LabelSettings_mxrid")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MichiCoin" type="Sprite2D" parent="GridContainer/kibble"]
+position = Vector2(56, -15)
+texture = ExtResource("11_ryjyc")
+hframes = 4
+
+[node name="backpack" type="Sprite2D" parent="GridContainer/kibble"]
+position = Vector2(64, 51.6667)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_my0hn")
+
+[node name="fish" type="Sprite2D" parent="GridContainer"]
+position = Vector2(169, 36)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_7lixr")
+
+[node name="buyFish" type="TextureButton" parent="GridContainer/fish"]
+process_mode = 2
+offset_left = 50.6667
+offset_top = -9.33334
+offset_right = 114.667
+offset_bottom = 54.6667
+texture_normal = ExtResource("9_uednt")
+texture_pressed = ExtResource("10_8irbi")
+texture_hover = ExtResource("10_8irbi")
+texture_disabled = ExtResource("14_psrg0")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer/fish"]
+offset_left = 78.0
+offset_top = -28.0
+offset_right = 118.0
+offset_bottom = 12.0
+scale = Vector2(1, 0.7)
+size_flags_stretch_ratio = 0.0
+
+[node name="fishLabelCost" type="Label" parent="GridContainer/fish"]
+offset_left = 78.0
+offset_top = -31.0
+offset_right = 118.0
+offset_bottom = 3.0
+label_settings = SubResource("LabelSettings_j481c")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="fishLabelInv" type="Label" parent="GridContainer/fish"]
+offset_left = 71.065
+offset_top = 41.0
+offset_right = 111.065
+offset_bottom = 64.0
+label_settings = SubResource("LabelSettings_mxrid")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MichiCoin" type="Sprite2D" parent="GridContainer/fish"]
+position = Vector2(56, -15)
+texture = ExtResource("11_ryjyc")
+hframes = 4
+
+[node name="backpack" type="Sprite2D" parent="GridContainer/fish"]
+position = Vector2(64, 51.6667)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_my0hn")
+
+[node name="tunacan" type="Sprite2D" parent="GridContainer"]
+position = Vector2(313, 36)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("12_1se1l")
+
+[node name="buytunacan" type="TextureButton" parent="GridContainer/tunacan"]
+process_mode = 2
+offset_left = 50.6667
+offset_top = -9.33334
+offset_right = 114.667
+offset_bottom = 54.6667
+texture_normal = ExtResource("9_uednt")
+texture_pressed = ExtResource("10_8irbi")
+texture_hover = ExtResource("10_8irbi")
+texture_disabled = ExtResource("14_psrg0")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer/tunacan"]
+offset_left = 78.0
+offset_top = -28.0
+offset_right = 118.0
+offset_bottom = 12.0
+scale = Vector2(1, 0.7)
+size_flags_stretch_ratio = 0.0
+
+[node name="tunacanLabelCost" type="Label" parent="GridContainer/tunacan"]
+offset_left = 78.0
+offset_top = -31.0
+offset_right = 118.0
+offset_bottom = 3.0
+label_settings = SubResource("LabelSettings_wfr8g")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="tunacanLabelInv" type="Label" parent="GridContainer/tunacan"]
+offset_left = 71.065
+offset_top = 41.0
+offset_right = 111.065
+offset_bottom = 64.0
+label_settings = SubResource("LabelSettings_mxrid")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MichiCoin" type="Sprite2D" parent="GridContainer/tunacan"]
+position = Vector2(56, -15)
+texture = ExtResource("11_ryjyc")
+hframes = 4
+
+[node name="backpack" type="Sprite2D" parent="GridContainer/tunacan"]
+position = Vector2(64, 51.6667)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_my0hn")
+
+[node name="ball" type="Sprite2D" parent="GridContainer"]
+position = Vector2(26, 132)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("13_kxer1")
+
+[node name="buyball" type="TextureButton" parent="GridContainer/ball"]
+process_mode = 2
+offset_left = 50.6667
+offset_top = -9.33334
+offset_right = 114.667
+offset_bottom = 54.6667
+texture_normal = ExtResource("9_uednt")
+texture_pressed = ExtResource("10_8irbi")
+texture_hover = ExtResource("10_8irbi")
+texture_disabled = ExtResource("14_psrg0")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer/ball"]
+offset_left = 78.0
+offset_top = -28.0
+offset_right = 118.0
+offset_bottom = 12.0
+scale = Vector2(1, 0.7)
+size_flags_stretch_ratio = 0.0
+
+[node name="ballLabelCost" type="Label" parent="GridContainer/ball"]
+offset_left = 78.0
+offset_top = -31.0
+offset_right = 118.0
+offset_bottom = 3.0
+label_settings = SubResource("LabelSettings_5fp3x")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ballLabelInv" type="Label" parent="GridContainer/ball"]
+offset_left = 71.065
+offset_top = 41.0
+offset_right = 111.065
+offset_bottom = 64.0
+label_settings = SubResource("LabelSettings_mxrid")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MichiCoin" type="Sprite2D" parent="GridContainer/ball"]
+position = Vector2(56, -15)
+texture = ExtResource("11_ryjyc")
+hframes = 4
+
+[node name="backpack" type="Sprite2D" parent="GridContainer/ball"]
+position = Vector2(64, 51.6667)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_my0hn")
+
+[node name="laser" type="Sprite2D" parent="GridContainer"]
+position = Vector2(169, 132)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("14_texej")
+
+[node name="buylaser" type="TextureButton" parent="GridContainer/laser"]
+process_mode = 2
+offset_left = 50.6667
+offset_top = -9.33334
+offset_right = 114.667
+offset_bottom = 54.6667
+texture_normal = ExtResource("9_uednt")
+texture_pressed = ExtResource("10_8irbi")
+texture_hover = ExtResource("10_8irbi")
+texture_disabled = ExtResource("14_psrg0")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer/laser"]
+offset_left = 78.0
+offset_top = -28.0
+offset_right = 118.0
+offset_bottom = 12.0
+scale = Vector2(1, 0.7)
+size_flags_stretch_ratio = 0.0
+
+[node name="laserLabelCost" type="Label" parent="GridContainer/laser"]
+offset_left = 78.0
+offset_top = -31.0
+offset_right = 118.0
+offset_bottom = 3.0
+label_settings = SubResource("LabelSettings_1tsek")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="laserLabelInv" type="Label" parent="GridContainer/laser"]
+offset_left = 71.065
+offset_top = 41.0
+offset_right = 111.065
+offset_bottom = 64.0
+label_settings = SubResource("LabelSettings_mxrid")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MichiCoin" type="Sprite2D" parent="GridContainer/laser"]
+position = Vector2(56, -15)
+texture = ExtResource("11_ryjyc")
+hframes = 4
+
+[node name="backpack" type="Sprite2D" parent="GridContainer/laser"]
+position = Vector2(64, 51.6667)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_my0hn")
+
+[node name="comb" type="Sprite2D" parent="GridContainer"]
+position = Vector2(26, 228)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_fr1h5")
+
+[node name="buycomb" type="TextureButton" parent="GridContainer/comb"]
+process_mode = 2
+offset_left = 50.6667
+offset_top = -9.33334
+offset_right = 114.667
+offset_bottom = 54.6667
+texture_normal = ExtResource("9_uednt")
+texture_pressed = ExtResource("10_8irbi")
+texture_hover = ExtResource("10_8irbi")
+texture_disabled = ExtResource("14_psrg0")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer/comb"]
+offset_left = 78.0
+offset_top = -28.0
+offset_right = 118.0
+offset_bottom = 12.0
+scale = Vector2(1, 0.7)
+size_flags_stretch_ratio = 0.0
+
+[node name="combLabelCost" type="Label" parent="GridContainer/comb"]
+offset_left = 78.0
+offset_top = -31.0
+offset_right = 118.0
+offset_bottom = 3.0
+label_settings = SubResource("LabelSettings_8no6y")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="combLabelInv" type="Label" parent="GridContainer/comb"]
+offset_left = 71.065
+offset_top = 41.0
+offset_right = 111.065
+offset_bottom = 64.0
+label_settings = SubResource("LabelSettings_mxrid")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MichiCoin" type="Sprite2D" parent="GridContainer/comb"]
+position = Vector2(56, -15)
+texture = ExtResource("11_ryjyc")
+hframes = 4
+
+[node name="backpack" type="Sprite2D" parent="GridContainer/comb"]
+position = Vector2(64, 51.6667)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_my0hn")
+
+[node name="brush" type="Sprite2D" parent="GridContainer"]
+position = Vector2(169, 228)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("16_ojpov")
+
+[node name="buybrush" type="TextureButton" parent="GridContainer/brush"]
+process_mode = 2
+offset_left = 50.6667
+offset_top = -9.33334
+offset_right = 114.667
+offset_bottom = 54.6667
+texture_normal = ExtResource("9_uednt")
+texture_pressed = ExtResource("10_8irbi")
+texture_hover = ExtResource("10_8irbi")
+texture_disabled = ExtResource("14_psrg0")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer/brush"]
+offset_left = 78.0
+offset_top = -28.0
+offset_right = 118.0
+offset_bottom = 12.0
+scale = Vector2(1, 0.7)
+size_flags_stretch_ratio = 0.0
+
+[node name="brushLabelCost" type="Label" parent="GridContainer/brush"]
+offset_left = 78.0
+offset_top = -31.0
+offset_right = 118.0
+offset_bottom = 3.0
+label_settings = SubResource("LabelSettings_6nd3d")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="brushLabelInv" type="Label" parent="GridContainer/brush"]
+offset_left = 71.065
+offset_top = 41.0
+offset_right = 111.065
+offset_bottom = 64.0
+label_settings = SubResource("LabelSettings_mxrid")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MichiCoin" type="Sprite2D" parent="GridContainer/brush"]
+position = Vector2(56, -15)
+texture = ExtResource("11_ryjyc")
+hframes = 4
+
+[node name="backpack" type="Sprite2D" parent="GridContainer/brush"]
+position = Vector2(64, 51.6667)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_my0hn")
+
+[node name="MichiCoin" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 98)
+texture = ExtResource("11_ryjyc")
+hframes = 4
+
+[node name="coinCounter" type="Label" parent="MichiCoin"]
+offset_left = 18.0
+offset_top = -16.0
+offset_right = 58.0
+offset_bottom = 10.0
+label_settings = SubResource("LabelSettings_icknn")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="FurnituresContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Bg-store/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Items" to="." method="_on_items_pressed"]
+[connection signal="pressed" from="Furnitures" to="." method="_on_furnitures_pressed"]
+[connection signal="pressed" from="GridContainer/kibble/buykibble" to="." method="_on_buykibble_pressed"]
+[connection signal="pressed" from="GridContainer/fish/buyFish" to="." method="_on_buy_fish_pressed"]
+[connection signal="pressed" from="GridContainer/tunacan/buytunacan" to="." method="_on_buytunacan_pressed"]
+[connection signal="pressed" from="GridContainer/ball/buyball" to="." method="_on_buyball_pressed"]
+[connection signal="pressed" from="GridContainer/laser/buylaser" to="." method="_on_buylaser_pressed"]
+[connection signal="pressed" from="GridContainer/comb/buycomb" to="." method="_on_buycomb_pressed"]
+[connection signal="pressed" from="GridContainer/brush/buybrush" to="." method="_on_buybrush_pressed"]

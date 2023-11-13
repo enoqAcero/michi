@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bha8r34m1oban"]
+
+[ext_resource type="Script" path="res://inventoryItem.gd" id="1_ou1qt"]
+[ext_resource type="Texture2D" uid="uid://c0omnjhf4at0u" path="res://Items/Assets/Laser.png" id="2_6gfic"]
+
+[resource]
+script = ExtResource("1_ou1qt")
+name = "laser"
+texture = ExtResource("2_6gfic")
+count = 0
+item_index = 0
+price = 20
