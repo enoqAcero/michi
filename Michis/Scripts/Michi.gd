@@ -208,7 +208,6 @@ func getNumbersFromString(input_string: String) -> String:
 
 func _on_area_2d_2_body_entered(body):
 	if selected == true:
-		$CollisionShape2D.disabled = true
 		for i in range(0, maxMichiNumber):
 			if body.get_name() == ("michi"+str(i)):
 				print("colliding")

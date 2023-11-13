@@ -1,2 +1,7 @@
 res://Scenes/Test.tscn
 res://Scenes/Scripts/Test.gd
+res://Scenes/Shop.tscn
+res://Eggs/Egg.tscn
+res://GUI/ConfirmMerge.tscn
+res://Michis/michiArcoiris.tscn
+res://Michis/Scripts/Michi.gd
