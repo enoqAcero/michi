@@ -5,13 +5,13 @@
 [resource]
 script = ExtResource("1_ck3t5")
 active = 1
-category = "categoria3"
-type = "Lentes"
-categoryLevel = 3
+category = "categoria1"
+type = "Naranja"
+categoryLevel = 1
 fusionLevel = 1
-name = "Lentes0"
-food = 86.48
-fun = 86.48
-clean = 86.48
-comfort = 86.48
-exercise = 86.48
+name = "michi0"
+food = 86.76
+fun = 86.76
+clean = 86.76
+comfort = 86.76
+exercise = 86.76

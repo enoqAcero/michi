@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_o0biu")
-active = 0
+active = 1
 category = "categoria1"
-type = "Cafe"
+type = "Naranja"
 categoryLevel = 1
 fusionLevel = 1
-name = "Cafe1"
+name = "michi1"
 food = 98.78
 fun = 98.78
 clean = 98.78

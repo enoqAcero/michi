@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_hqpvu")
-active = 0
+active = 1
 category = "categoria1"
 type = "Naranja"
 categoryLevel = 1
 fusionLevel = 1
-name = "Naranja7"
+name = "michi7"
 food = 100
 fun = 100
 clean = 100

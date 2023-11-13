@@ -89,7 +89,16 @@ func _ready():
 					michi = load("res://Michis/michiMonio.tscn").instantiate()
 			#cargar todos los michis de la cuarta categoria
 			elif michiData[i].categoryLevel == 4:
-				pass
+				if michiData[i].type == "Neon":
+					michi = load("res://Michis/michiNeon.tscn").instantiate()
+				if michiData[i].type == "Estrellas":
+					michi = load("res://Michis/michiEstrellas.tscn").instantiate()
+				if michiData[i].type == "Dorado":
+					michi = load("res://Michis/michiDorado.tscn").instantiate()
+				if michiData[i].type == "Cristal":
+					michi = load("res://Michis/michiCristal.tscn").instantiate()
+				if michiData[i].type == "Arcoiris":
+					michi = load("res://Michis/michiArcoiris.tscn").instantiate()
 		#cargar fusiones lvl 2		
 		elif michiData[i].fusionLevel == 2:
 			pass
@@ -423,31 +432,30 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 				michiData[NumeroMichi1].categoryLevel = sumaCategorias - 1
 				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias - 1))
 			elif probNewMichi >= 85:
-				pass
-			"""
-			elif probNewMichi >= 85:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
-					michi = load("res://Michis/michiBufanda.tscn").instantiate()
-					michiData[NumeroMichi1].type = "Bufanda"
-					michiData[NumeroMichi1].name = "Bufanda" + str(NumeroMichi1)
+					michi = load("res://Michis/michiNeon.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Neon"
+					michiData[NumeroMichi1].name = "Neon" + str(NumeroMichi1)
 				if probNewMichiType == 2:
-					michi = load("res://Michis/michiGirly.tscn").instantiate()
-					michiData[NumeroMichi1].type = "Girly"
-					michiData[NumeroMichi1].name = "Girly" + str(NumeroMichi1)
+					michi = load("res://Michis/michiEstrellas.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Estrellas"
+					michiData[NumeroMichi1].name = "Estrellas" + str(NumeroMichi1)
 				if probNewMichiType == 3:
-					michi = load("res://Michis/michiHipster.tscn").instantiate()
-					michiData[NumeroMichi1].type = "Hipster"
-					michiData[NumeroMichi1].name = "Hipster" + str(NumeroMichi1)
+					michi = load("res://Michis/michiDorado.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Dorado"
+					michiData[NumeroMichi1].name = "Dorado" + str(NumeroMichi1)
 				if probNewMichiType == 4:
-					michi = load("res://Michis/michiLentes.tscn").instantiate()
-					michiData[NumeroMichi1].type = "Lentes"
-					michiData[NumeroMichi1].name = "Lentes" + str(NumeroMichi1)
+					michi = load("res://Michis/michiCristal.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cristal"
+					michiData[NumeroMichi1].name = "Cristal" + str(NumeroMichi1)
 				if probNewMichiType == 5:
-					michi = load("res://Michis/michiMonio.tscn").instantiate()
-					michiData[NumeroMichi1].type = "Monio"
-					michiData[NumeroMichi1].name = "Monio" + str(NumeroMichi1)
-				"""
+					michi = load("res://Michis/michiArcoiris.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Arcoiris"
+					michiData[NumeroMichi1].name = "Arcoiris" + str(NumeroMichi1)
+					michiData[NumeroMichi1].categoryLevel = sumaCategorias + 1
+					michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias + 1))
+		
 		#hacer nuevo michi categoria 4
 		if sumaCategorias == 4:
 			if probNewMichi > 25 and probNewMichi < 85:
@@ -461,10 +469,10 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 		#agrega al michi a la escena
 		pos_x = rng.randi_range(30,450)
 		pos_y = rng.randi_range(160, 734)
-		var path = michiInstance[NumeroMichi1].get_path()
-		var node = get_node(path)
-		if not node == null:
+		if michiInstance[NumeroMichi1] and michiInstance[NumeroMichi2]:
 			michi.global_position = Vector2(pos_x,pos_y) #verificar que la pos no este ocupada
+		else: 
+			print("Un michi no existe")
 		michi.name = "michi"+str(NumeroMichi1)
 		michiInstance[NumeroMichi1].name = "tempName"
 		add_child(michi)

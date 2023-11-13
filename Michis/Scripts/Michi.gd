@@ -180,6 +180,7 @@ func _on_area_2d_mouse_entered():
 	$CollisionPolygon2DFlip.disabled = true
 	
 	
+	
 
 #Escalar michi y posicionar status cuando el mouse sale del michi 
 func _on_area_2d_mouse_exited():
@@ -194,6 +195,7 @@ func _on_area_2d_mouse_exited():
 	$Area2D/CollisionShape2D.scale.y = 1
 	$CollisionPolygon2DNormal.disabled = false
 	$CollisionPolygon2DFlip.disabled = false
+	$CollisionShape2D.disabled = false
 
 #obtener solo los numeros de un string
 func getNumbersFromString(input_string: String) -> String:
@@ -206,6 +208,7 @@ func getNumbersFromString(input_string: String) -> String:
 
 func _on_area_2d_2_body_entered(body):
 	if selected == true:
+		$CollisionShape2D.disabled = true
 		for i in range(0, maxMichiNumber):
 			if body.get_name() == ("michi"+str(i)):
 				print("colliding")
