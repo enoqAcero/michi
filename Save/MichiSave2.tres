@@ -5,13 +5,13 @@
 [resource]
 script = ExtResource("1_ngat0")
 active = 1
-category = "categoria1"
-type = "Blanco"
-categoryLevel = 1
+category = "categoria3"
+type = "Lentes"
+categoryLevel = 3
 fusionLevel = 1
-name = "Blanco2"
-food = 100
-fun = 100
-clean = 100
-comfort = 100
-exercise = 100
+name = "Lentes2"
+food = 96.7
+fun = 96.7
+clean = 96.7
+comfort = 96.7
+exercise = 96.7

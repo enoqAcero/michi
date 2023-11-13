@@ -8,3 +8,5 @@ signal merge
 signal mergeConfirm
 signal michiEggShowHide
 signal itemsCoinSave
+signal updateItems
+signal save

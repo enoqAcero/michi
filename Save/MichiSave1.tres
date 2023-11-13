@@ -5,13 +5,13 @@
 [resource]
 script = ExtResource("1_o0biu")
 active = 1
-category = "categoria1"
-type = "Cafe"
-categoryLevel = 1
+category = "categoria3"
+type = "Monio"
+categoryLevel = 3
 fusionLevel = 1
-name = "Cafe1"
-food = 97.58
-fun = 97.58
-clean = 97.58
-comfort = 97.58
-exercise = 97.58
+name = "Monio1"
+food = 96.68
+fun = 96.68
+clean = 96.68
+comfort = 96.68
+exercise = 96.68

@@ -105,7 +105,7 @@ func _ready():
 		
 				
 		pos_x = rng.randi_range(30,450)
-		pos_y = rng.randi_range(160, 734)
+		pos_y = rng.randi_range(260, 734)
 		michi.global_position = Vector2(pos_x,pos_y)
 		michi.name = ("michi"+str(i))
 		if michiData[i].active == 1:
@@ -118,7 +118,7 @@ func _ready():
 	for i in range(0, maxHuevoNumber):
 		var huevo = load("res://Eggs/Egg.tscn").instantiate()
 		pos_x = rng.randi_range(30,450)
-		pos_y = rng.randi_range(160, 734)
+		pos_y = rng.randi_range(260, 734)
 		huevo.global_position = Vector2(pos_x,pos_y)
 		huevo.name = ("huevo"+str(i))
 		if huevoData[i].active == 1:
@@ -136,6 +136,7 @@ func _ready():
 	SignalManager.merge.connect(merge)
 	SignalManager.mergeConfirm.connect(confirmarMerge)
 	SignalManager.michiEggShowHide.connect(michiEggShowHide)
+	
 
 	
 
@@ -199,7 +200,7 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 		elif controlMichiData == 1:
 			if ResourceLoader.exists(savePathMichi + saveFileNameMichi + str(number) + ".tres"):
 				michiData[number]=(ResourceLoader.load(savePathMichi + saveFileNameMichi + str(number) + ".tres"))
-		print("Se cargo el michi: ", number)
+		#print("Se cargo el michi: ", number)
 	#cargar los huevos
 	elif typeLocal == 1:
 		if ResourceLoader.exists(savePathHuevo + saveFileNameHuevo + str(number) + ".tres"):
@@ -208,7 +209,7 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 			var newHuevoData = HuevoData.new()
 			ResourceSaver.save(newHuevoData, (savePathHuevo + saveFileNameHuevo + str(number) + ".tres" ))
 			huevoData.append(ResourceLoader.load(savePathHuevo + saveFileNameHuevo + str(number) + ".tres"))
-		print("Se cargo el huevo: ", number)
+		#print("Se cargo el huevo: ", number)
 
 	
 	
@@ -296,7 +297,7 @@ func confirmarMerge(confirmar : int):
 	confirmInstance[confirmN].queue_free()
 	
 func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#if control == 0 se fusionaron michis, control == 1 nace huevo
-	#randomize()
+	randomize()
 	var michi
 	var huevoIndex = 101
 
@@ -481,7 +482,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 			
 		#agrega al michi a la escena
 		pos_x = rng.randi_range(30,450)
-		pos_y = rng.randi_range(160, 734)
+		pos_y = rng.randi_range(260, 734)
 		if michiInstance[NumeroMichi1] and michiInstance[NumeroMichi2]:
 			michi.global_position = Vector2(pos_x,pos_y) #verificar que la pos no este ocupada
 		else: 
@@ -498,7 +499,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 		#agregar el huevo
 		var huevo = load("res://Eggs/Egg.tscn").instantiate()
 		pos_x = rng.randi_range(30,450)
-		pos_y = rng.randi_range(160, 734)
+		pos_y = rng.randi_range(260, 734)
 		huevo.global_position = Vector2(pos_x,pos_y)
 		huevo.name = "huevo"+str(huevoIndex)
 		add_child(huevo)
@@ -511,7 +512,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 
 #Funcion cuando un huevo llego a 0 taps para hacer nacer un nuevo michi
 func naceMichi(huevoN : int):
-
+	randomize()
 	var michiIndex = 101
 	var michi
 	var probNewMichiType = rng.randi_range(1,5)
@@ -547,7 +548,7 @@ func naceMichi(huevoN : int):
 	
 	#agrega al michi a la escena
 	pos_x = rng.randi_range(30,450)
-	pos_y = rng.randi_range(160, 734)
+	pos_y = rng.randi_range(260, 734)
 	michi.global_position = Vector2(pos_x,pos_y)
 	michi.name = "michi"+str(michiIndex)
 	add_child(michi)

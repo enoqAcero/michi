@@ -5,13 +5,13 @@
 [resource]
 script = ExtResource("1_jd4ql")
 active = 1
-category = "categoria2"
-type = "Manchado"
-categoryLevel = 2
+category = "categoria1"
+type = "Naranja"
+categoryLevel = 1
 fusionLevel = 1
-name = "Manchado6"
-food = 100
-fun = 100
-clean = 100
-comfort = 100
-exercise = 100
+name = "Naranja6"
+food = 98.92
+fun = 98.92
+clean = 98.92
+comfort = 98.92
+exercise = 98.92

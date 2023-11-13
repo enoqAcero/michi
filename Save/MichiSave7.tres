@@ -5,13 +5,13 @@
 [resource]
 script = ExtResource("1_hqpvu")
 active = 1
-category = "categoria2"
-type = "Siames"
-categoryLevel = 2
+category = "categoria3"
+type = "Hipster"
+categoryLevel = 3
 fusionLevel = 1
-name = "Siames7"
-food = 100
-fun = 100
-clean = 100
-comfort = 100
-exercise = 100
+name = "Hipster7"
+food = 98.52
+fun = 98.52
+clean = 98.52
+comfort = 98.52
+exercise = 98.52

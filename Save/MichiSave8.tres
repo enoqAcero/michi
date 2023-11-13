@@ -4,14 +4,14 @@
 
 [resource]
 script = ExtResource("1_qwaqc")
-active = 0
-category = "categoria1"
-type = "Negro"
-categoryLevel = 1
+active = 1
+category = "categoria3"
+type = "Bufanda"
+categoryLevel = 3
 fusionLevel = 1
-name = "Negro8"
-food = 97.5
-fun = 97.5
-clean = 97.5
-comfort = 97.5
-exercise = 97.5
+name = "Bufanda8"
+food = 96.84
+fun = 96.84
+clean = 96.84
+comfort = 96.84
+exercise = 96.84

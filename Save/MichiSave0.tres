@@ -5,13 +5,13 @@
 [resource]
 script = ExtResource("1_ck3t5")
 active = 1
-category = "categoria2"
-type = "Egipcio"
-categoryLevel = 2
+category = "categoria4"
+type = "Arcoiris"
+categoryLevel = 4
 fusionLevel = 1
-name = "Egipcio0"
-food = 77.64
-fun = 77.64
-clean = 77.64
-comfort = 77.64
-exercise = 77.64
+name = "Arcoiris0"
+food = 61.04
+fun = 61.04
+clean = 61.04
+comfort = 61.04
+exercise = 61.04

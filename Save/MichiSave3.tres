@@ -5,13 +5,13 @@
 [resource]
 script = ExtResource("1_qo86p")
 active = 1
-category = "categoria1"
-type = "Naranja"
-categoryLevel = 1
+category = "categoria3"
+type = "Monio"
+categoryLevel = 3
 fusionLevel = 1
-name = "Naranja3"
-food = 83.2
-fun = 83.2
-clean = 83.2
-comfort = 83.2
-exercise = 83.2
+name = "Monio3"
+food = 98.8
+fun = 98.8
+clean = 98.8
+comfort = 98.8
+exercise = 98.8

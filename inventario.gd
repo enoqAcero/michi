@@ -6,56 +6,60 @@ var inventory_resource
 var items = []
 var sprite_node
 var count_label
-var kibble_item =preload("res://Inventory/Items/kibble.tres")
-var fish_item = preload("res://Inventory/Items/Fish.tres")
-var tunacan_item=preload("res://Inventory/Items/tunacan.tres")
-var ball_item = preload("res://Inventory/Items/ball.tres")
-var laser_item = preload("res://Inventory/Items/laser.tres")
-var comb_item = preload("res://Inventory/Items/comb.tres")
-var brush_item = preload("res://Inventory/Items/brush.tres")
+
+
+
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	loadItems()
-	sprite_node = $PanelContainer/HBoxContainer/Sprite2D
+	sprite_node = get_node("CharacterBody2D/Sprite2D")
 	inventory_resource = Inventory.new()  # Crea una nueva instancia de Inventory.
-	count_label = $PanelContainer/HBoxContainer/Sprite2D/ItemCounter
+	count_label = $Label
+	print(count_label)
 	#salvar Items
 	SignalManager.itemsCoinSave.connect(itemsCoinSave)
 	# Carga los items "fish" y "ball".
 	
 	
 	# Agrega los items a tu inventario.
-	inventory_resource.items.append(kibble_item)
-	inventory_resource.items.append(fish_item)
-	inventory_resource.items.append(tunacan_item)
-	inventory_resource.items.append(ball_item)
-	inventory_resource.items.append(laser_item)
-	inventory_resource.items.append(comb_item)
-	inventory_resource.items.append(brush_item)
+	inventory_resource.items.append(items[0])
+	inventory_resource.items.append(items[1])
+	inventory_resource.items.append(items[2])
+	inventory_resource.items.append(items[3])
+	inventory_resource.items.append(items[4])
+	inventory_resource.items.append(items[5])
+	inventory_resource.items.append(items[6])
 	
 	items = inventory_resource.items
 	update_item()  # Actualiza el sprite y el contador de items.
-	pass # Replace with function body.
+	
+	SignalManager.updateItems.connect(update_item)
+	
 
 func itemsCoinSave():
-	ResourceSaver.save( kibble_item, "res://Save/kibble_item.tres")
-	ResourceSaver.save( fish_item, "res://Save/fish_item.tres") 
-	ResourceSaver.save( tunacan_item, "res://Save/tunacan_item.tres") 
-	ResourceSaver.save( ball_item, "res://Save/ball_item.tres") 
-	ResourceSaver.save( laser_item, "res://Save/laser_item.tres") 
-	ResourceSaver.save( comb_item, "res://Save/comb_item.tres") 
-	ResourceSaver.save( brush_item, "res://Save/brush_item.tres") 
+	ResourceSaver.save(items[0], "res://Save/kibble_item.tres")
+	ResourceSaver.save(items[1], "res://Save/fish_item.tres") 
+	ResourceSaver.save(items[2], "res://Save/tunacan_item.tres") 
+	ResourceSaver.save(items[3], "res://Save/ball_item.tres") 
+	ResourceSaver.save(items[4], "res://Save/laser_item.tres") 
+	ResourceSaver.save(items[5], "res://Save/comb_item.tres") 
+	ResourceSaver.save(items[6], "res://Save/brush_item.tres") 
 	
 func loadItems():
-	items.append(ResourceLoader.load ("res://Save/kibble_item.tres"))
-	print(items.append())
+	for i in range (0,7):
+		if i == 0: items.append(ResourceLoader.load ("res://Save/kibble_item.tres"))
+		if i == 1: items.append(ResourceLoader.load ("res://Save/fish_item.tres"))
+		if i == 2: items.append(ResourceLoader.load ("res://Save/tunacan_item.tres"))
+		if i == 3: items.append(ResourceLoader.load ("res://Save/ball_item.tres"))
+		if i == 4: items.append(ResourceLoader.load ("res://Save/laser_item.tres"))
+		if i == 5: items.append(ResourceLoader.load ("res://Save/comb_item.tres"))
+		if i == 6: items.append(ResourceLoader.load ("res://Save/brush_item.tres"))
 	
-
-
-
+	
+	
 func next_item():
 	if item_index < items.size() - 1:
 		item_index += 1
@@ -70,15 +74,14 @@ func previous_item():
 	else:
 		item_index = items.size() - 1  # Vuelve al último item si ya estás en el primero.
 	update_item()
-	loadItems()
+	
 	
 
 
 
 func update_item():
-	var item = items[item_index]
-	sprite_node.texture = items[0].texture
-	count_label.text =str(items[0].count)
+	sprite_node.texture = items[item_index].texture
+	count_label.text =str(items[item_index].count)
 	
 	
 
@@ -96,3 +99,6 @@ func _on_next_pressed():
 func _on_back_pressed():
 	previous_item()
 	pass # Replace with function body.
+
+
+

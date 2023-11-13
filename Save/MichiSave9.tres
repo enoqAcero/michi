@@ -5,13 +5,13 @@
 [resource]
 script = ExtResource("1_4tqlj")
 active = 1
-category = "categoria2"
-type = "Egipcio"
-categoryLevel = 2
+category = "categoria1"
+type = "Gris"
+categoryLevel = 1
 fusionLevel = 1
-name = "Egipcio9"
-food = 97.62
-fun = 97.62
-clean = 97.62
-comfort = 97.62
-exercise = 97.62
+name = "Gris9"
+food = 90.1
+fun = 90.1
+clean = 90.1
+comfort = 90.1
+exercise = 90.1

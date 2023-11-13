@@ -1,6 +1,6 @@
 extends Node2D
 var Inventory = preload("res://Inventory/inventory.gd")
-var moneditas = preload("res://Inventory/bolsa_monedas.tres")
+var moneditas = ResourceLoader.load("res://Save/moneditas.tres")#= preload("res://Inventory/bolsa_monedas.tres")
 var maxMichiNumber = GlobalVariables.maxMichiNumber
 var monedero_resource
 var inventory_resource
@@ -40,6 +40,8 @@ func _ready():
 	
 	set_visible(false)
 	
+	SignalManager.itemsCoinSave.connect(itemsCoinSave)
+	
 	# Antes de usar inventory_resource.items, necesitas instanciar inventory_resource.
 	inventory_resource = Inventory.new()
 	buy_kibble_button = $GridContainer/kibble/buykibble
@@ -74,13 +76,15 @@ func _ready():
 	
 	# Carga los items.
 	
-	var kibble_item = preload("res://Inventory/Items/kibble.tres")
-	var fish_item = preload("res://Inventory/Items/Fish.tres")
-	var tunacan_item = preload("res://Inventory/Items/tunacan.tres")
-	var ball_item = preload("res://Inventory/Items/ball.tres")
-	var laser_item = preload("res://Inventory/Items/laser.tres")
-	var comb_item = preload("res://Inventory/Items/comb.tres")
-	var brush_item = preload("res://Inventory/Items/brush.tres")
+	var kibble_item = ResourceLoader.load ("res://Save/kibble_item.tres")
+	var fish_item = ResourceLoader.load ("res://Save/fish_item.tres")
+	var tunacan_item = ResourceLoader.load ("res://Save/tunacan_item.tres")
+	var ball_item = ResourceLoader.load ("res://Save/ball_item.tres")
+	var laser_item = ResourceLoader.load ("res://Save/laser_item.tres")
+	var comb_item = ResourceLoader.load ("res://Save/comb_item.tres")
+	var brush_item = ResourceLoader.load ("res://Save/brush_item.tres")
+	#moneditas = ResourceLoader.load ("res://Save/brush_item.tres")
+	
 	
 	#remplazo nombres de labels
 	coins_label.text = str(moneditas.coin)
@@ -130,6 +134,7 @@ func buy_kibble():
 		coins_label.text = str(moneditas.coin)
 		update_item()
 		update_buttons()  # Imprime un mensaje en la consola
+		SignalManager.updateItems.emit()
 
 
 	
@@ -142,6 +147,7 @@ func buy_fish():
 		coins_label.text = str(moneditas.coin)
 		update_item()  
 		update_buttons()
+		SignalManager.updateItems.emit()
 	
 func buy_tunacan():
 	var tunacan_item = items[2] 
@@ -152,6 +158,7 @@ func buy_tunacan():
 		coins_label.text = str(moneditas.coin)
 		update_item()  
 		update_buttons()
+		SignalManager.updateItems.emit()
 
 func buy_ball():
 	var ball_item = items[3] 
@@ -162,6 +169,7 @@ func buy_ball():
 		coins_label.text = str(moneditas.coin)
 		update_item()  
 		update_buttons()
+		SignalManager.updateItems.emit()
 
 func buy_laser():
 	var laser_item = items[4] 
@@ -172,6 +180,7 @@ func buy_laser():
 		coins_label.text = str(moneditas.coin)
 		update_item()  
 		update_buttons()
+		SignalManager.updateItems.emit()
 
 func buy_comb():
 	var comb_item = items[5] 
@@ -182,6 +191,7 @@ func buy_comb():
 		coins_label.text = str(moneditas.coin)
 		update_item()  
 		update_buttons()
+		SignalManager.updateItems.emit()
 	
 func buy_brush():
 	var brush_item = items[6] 
@@ -192,6 +202,7 @@ func buy_brush():
 		coins_label.text = str(moneditas.coin)
 		update_item()  
 		update_buttons()
+		SignalManager.updateItems.emit()
 
 func _on_button_pressed():
 	set_visible(false)
@@ -245,8 +256,8 @@ func _on_furnitures_pressed():
 	furnitures_Container.visible = true
 
 
-
-	
+func itemsCoinSave():
+	ResourceSaver.save(moneditas, "res://Save/moneditas.tres")
 
 
 

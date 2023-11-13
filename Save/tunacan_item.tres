@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://inventoryItem.gd" id="1_0nxm2"]
-[ext_resource type="Texture2D" path="res://Items/Assets/TunaCan.png" id="2_6hwyb"]
+[ext_resource type="Script" path="res://inventoryItem.gd" id="1_h5i3o"]
+[ext_resource type="Texture2D" path="res://Items/Assets/TunaCan.png" id="2_eg7g5"]
 
 [resource]
-script = ExtResource("1_0nxm2")
+script = ExtResource("1_h5i3o")
 name = "tuna can"
-texture = ExtResource("2_6hwyb")
+texture = ExtResource("2_eg7g5")
 count = 0
 item_index = 0
 price = 30
