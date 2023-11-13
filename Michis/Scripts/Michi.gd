@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+var maxMichiNumber = GlobalVariables.maxMichiNumber
+var maxHuevoNumber = GlobalVariables.maxHuevoNumber
+
+var numeroMichi
+
 #Stats del michi
 var comida = 100
 var diversion = 100
@@ -33,6 +38,10 @@ func _ready():
 	#Iniciar movimento y randomizar el estado de idle y walking
 	idle = true
 	randomize()
+	#obtener el nombre del nodo michi# y obtener solo su numero
+	numeroMichi = get_name()
+	numeroMichi = getNumbersFromString(numeroMichi)
+
 	
 func _physics_process(_delta):
 	#ESTADO DE ANIMO
@@ -48,7 +57,10 @@ func _physics_process(_delta):
 	if selected == true:
 		if Input.is_action_just_pressed("click"):
 			offset = get_global_mouse_position() - global_position
+			print("dese michi: ", get_name())
+			SignalManager.michiNumber.emit(numeroMichi, 0) #mandar una senial con el numero del michi que se esta apretando
 		if Input.is_action_pressed("click"):
+			#print("michi number from michi script: ", numeroMichi)
 			global_position = get_global_mouse_position() - offset
 		elif Input.is_action_just_released("click"):
 			global_position = get_global_mouse_position()
@@ -108,7 +120,7 @@ func _physics_process(_delta):
 	
 	move_and_slide()
 
-
+#funcion para cambiar de caminar a idle basado en un timer random
 func _on_change_state_timer_timeout():
 	var waitTime = 1
 	#Condiciones para cambiar de estado de idle a walking
@@ -162,6 +174,11 @@ func _on_area_2d_mouse_entered():
 	$StatusGood.scale.y = 1
 	$StatusGood.position.x = -29
 	$StatusGood.position.y = -55
+	$Area2D/CollisionShape2D.scale.x = 5
+	$Area2D/CollisionShape2D.scale.y = 5
+	$CollisionPolygon2DNormal.disabled = true
+	$CollisionPolygon2DFlip.disabled = true
+	
 	
 	
 
@@ -174,6 +191,25 @@ func _on_area_2d_mouse_exited():
 	$StatusGood.scale.y = 0.6
 	$StatusGood.position.x = -17
 	$StatusGood.position.y = -36
+	$Area2D/CollisionShape2D.scale.x = 1
+	$Area2D/CollisionShape2D.scale.y = 1
+	$CollisionPolygon2DNormal.disabled = false
+	$CollisionPolygon2DFlip.disabled = false
+	$CollisionShape2D.disabled = false
+
+#obtener solo los numeros de un string
+func getNumbersFromString(input_string: String) -> String:
+	var result = ""
+	for letter in input_string:
+		if letter.is_valid_int():
+			result += letter
+	return result
 
 
-	
+func _on_area_2d_2_body_entered(body):
+	if selected == true:
+		for i in range(0, maxMichiNumber):
+			if body.get_name() == ("michi"+str(i)):
+				print("colliding")
+				SignalManager.merge.emit(i) #mandar una senial con el numero del michi que se esta apretando
+				break

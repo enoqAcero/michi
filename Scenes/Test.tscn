@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dg2rf8of102bf"]
+[gd_scene load_steps=27 format=3 uid="uid://dg2rf8of102bf"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/Test.gd" id="1_1kxl6"]
 [ext_resource type="Texture2D" uid="uid://bbda6m3rkng0e" path="res://Scenes/Assets/Temp/tileset_forest.png" id="1_8dyok"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://j3ostc4r7ccw" path="res://inventario.tscn" id="7_hryy3"]
 [ext_resource type="Texture2D" uid="uid://pqd8em8ox51f" path="res://Structures/Assets/chair.png" id="10_7hvop"]
 [ext_resource type="Texture2D" uid="uid://wla16gf6t1u2" path="res://Structures/Assets/coachfull.png" id="12_hm8fj"]
+[ext_resource type="Script" path="res://GUI/Scripts/StatusMichi.gd" id="12_va7yt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5x20"]
 texture = ExtResource("1_8dyok")
@@ -893,10 +894,10 @@ light_mask = 3
 visibility_layer = 3
 position = Vector2(125, 337)
 
-[node name="Area2D2" type="Area2D" parent="Michi1"]
+[node name="Area2D3" type="Area2D" parent="Michi1"]
 position = Vector2(-125, -337)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Michi1/Area2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Michi1/Area2D3"]
 position = Vector2(122, 343)
 shape = SubResource("CircleShape2D_lxofa")
 
@@ -915,23 +916,6 @@ offset_left = 205.0
 offset_top = 665.0
 offset_right = 268.0
 offset_bottom = 707.0
-
-[node name="Nombre" type="Label" parent="."]
-offset_left = 164.0
-offset_top = 65.0
-offset_right = 297.0
-offset_bottom = 110.0
-text = "Nombre"
-horizontal_alignment = 1
-
-[node name="Comida" type="Label" parent="."]
-offset_left = 199.0
-offset_top = 99.0
-offset_right = 258.0
-offset_bottom = 125.0
-text = "Comida"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Shop" parent="." instance=ExtResource("6_jcj4f")]
 visible = false
@@ -960,19 +944,6 @@ position = Vector2(117, 272)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("10_7hvop")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(47, -22)
-scale = Vector2(0.851283, 0.722644)
-color = Color(0.14902, 0.14902, 0.14902, 1)
-energy = 12.8
-shadow_color = Color(0.666667, 0.376471, 0.231373, 0)
-shadow_item_cull_mask = 2
-texture = ExtResource("10_7hvop")
-offset = Vector2(83, 413)
-texture_scale = 2.34
-height = 141.0
-
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(178, 238)
@@ -985,6 +956,51 @@ position = Vector2(207, 320)
 sprite_frames = SubResource("SpriteFrames_2u5ki")
 frame = 1
 
-[connection signal="input_event" from="Michi1/Area2D2" to="." method="_on_area_2d_2_input_event"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("12_va7yt")
+
+[node name="Nombre" type="Label" parent="CanvasLayer"]
+offset_left = 229.0
+offset_top = 78.0
+offset_right = 269.0
+offset_bottom = 101.0
+
+[node name="promedio" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 300.0
+offset_top = 97.0
+offset_right = 454.0
+offset_bottom = 124.0
+
+[node name="food" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 19.0
+offset_top = 98.0
+offset_right = 171.0
+offset_bottom = 125.0
+
+[node name="fun" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 66.0
+offset_right = 87.0
+offset_bottom = 93.0
+
+[node name="clean" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 100.0
+offset_top = 68.0
+offset_right = 172.0
+offset_bottom = 95.0
+
+[node name="comfort" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 299.0
+offset_top = 67.0
+offset_right = 374.0
+offset_bottom = 94.0
+
+[node name="exercise" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 377.0
+offset_top = 66.0
+offset_right = 467.0
+offset_bottom = 93.0
+
+[connection signal="input_event" from="Michi1/Area2D3" to="." method="_on_area_2d_2_input_event"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="inventario/TextureButton" to="." method="_on_texture_button_pressed"]
