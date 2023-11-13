@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bukuemryctrgt"]
+
+[ext_resource type="Script" path="res://inventoryItem.gd" id="1_buhlc"]
+[ext_resource type="Texture2D" uid="uid://b0c2juy08dxjs" path="res://Items/Assets/Kibble.png" id="2_t62kb"]
+
+[resource]
+script = ExtResource("1_buhlc")
+name = "Kibble"
+texture = ExtResource("2_t62kb")
+count = 1
+item_index = 0
+price = 10

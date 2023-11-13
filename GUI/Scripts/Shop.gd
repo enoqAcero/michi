@@ -1,6 +1,7 @@
 extends Node2D
 var Inventory = preload("res://Inventory/inventory.gd")
 var moneditas = preload("res://Inventory/bolsa_monedas.tres")
+var maxMichiNumber = GlobalVariables.maxMichiNumber
 var monedero_resource
 var inventory_resource
 var item_index = 0
@@ -195,6 +196,17 @@ func buy_brush():
 func _on_button_pressed():
 	set_visible(false)
 	get_tree().paused=false
+	get_node("../CanvasLayer/Nombre").set_visible(true)
+	get_node("../CanvasLayer/promedio").set_visible(true)
+	get_node("../CanvasLayer/food").set_visible(true)
+	get_node("../CanvasLayer/fun").set_visible(true)
+	get_node("../CanvasLayer/clean").set_visible(true)
+	get_node("../CanvasLayer/comfort").set_visible(true)
+	get_node("../CanvasLayer/exercise").set_visible(true)
+	SignalManager.michiEggShowHide.emit(1)
+	
+	
+	
 
 func update_item():
 	var _item = items[item_index]

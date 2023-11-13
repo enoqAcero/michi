@@ -135,9 +135,10 @@ func _ready():
 	SignalManager.huevoNumber.connect(getNumber, 1)
 	SignalManager.merge.connect(merge)
 	SignalManager.mergeConfirm.connect(confirmarMerge)
+	SignalManager.michiEggShowHide.connect(michiEggShowHide)
 
 	
-	
+
 	
 	
 func _process(_delta):
@@ -221,10 +222,22 @@ func _on_button_pressed(): #type 0 = michi, type 1 = huevo
 	for i in range(0, maxHuevoNumber):
 		ResourceSaver.save(huevoData[i], savePathHuevo + saveFileNameHuevo + str(i) + ".tres")
 		#print ("saving huevo: ", i)
+	SignalManager.itemsCoinSave.emit()
 
 func _on_texture_button_pressed():
 	$Shop.set_visible(true)
 	get_tree().paused =true
+	$CanvasLayer/Nombre.set_visible(false)
+	$CanvasLayer/promedio.set_visible(false)
+	$CanvasLayer/food.set_visible(false)
+	$CanvasLayer/fun.set_visible(false)
+	$CanvasLayer/clean.set_visible(false)
+	$CanvasLayer/comfort.set_visible(false)
+	$CanvasLayer/exercise.set_visible(false)
+	SignalManager.michiEggShowHide.emit(0)
+		
+	
+	
 	
 func editCoinCounter(coins : int):
 	$coinCounter.text = str(coins)
@@ -544,3 +557,22 @@ func naceMichi(huevoN : int):
 	huevoData[huevoN].active = 0
 	huevoInstance[huevoN].queue_free()
 	#_on_button_pressed()
+	
+	
+func michiEggShowHide(control : int):
+	if control == 0:
+		for i in range(0, maxMichiNumber):
+			if michiData[i].active == 1:
+				michiInstance[i].modulate.a = 0.05
+		for i in range(0, maxHuevoNumber):
+			if huevoData[i].active == 1:
+				huevoInstance[i].modulate.a = 0.05
+			
+	else: 
+		for i in range(0, maxMichiNumber):
+			if michiData[i].active == 1:
+				michiInstance[i].modulate.a = 1
+		for i in range(0, maxHuevoNumber):
+			if huevoData[i].active == 1:
+				huevoInstance[i].modulate.a = 1
+				

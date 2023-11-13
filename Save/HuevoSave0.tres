@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_5amww")
-active = 0
+active = 1
 categoria = 1
 id = 0
 taps = 5

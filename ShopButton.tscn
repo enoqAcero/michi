@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://derk32ki53uhm"]
 
-[ext_resource type="Texture2D" uid="uid://eac0jk2n3sqq" path="res://GUI/Assets/shopIcon.png" id="1_ef42d"]
+[ext_resource type="Texture2D" uid="uid://d2mklqt1svgdv" path="res://GUI/Assets/shopIcon.png" id="1_ef42d"]
 
 [sub_resource type="GDScript" id="GDScript_wokmb"]
 
