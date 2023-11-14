@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Monedero" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="Monedero" load_steps=2 format=3 uid="uid://dsy0gmmesrde3"]
 
 [ext_resource type="Script" path="res://Inventory/monedero.gd" id="1_eawic"]
 
 [resource]
 script = ExtResource("1_eawic")
-coin = 385
+coin = 3610

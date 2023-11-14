@@ -11,3 +11,5 @@ signal itemsCoinSave
 signal updateItems
 signal save
 signal updateMichiStatus
+signal confirmPlay
+signal naceMichi

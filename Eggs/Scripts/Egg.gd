@@ -10,7 +10,7 @@ func _process(_delta):
 	if selected == true:
 		if Input.is_action_just_pressed("click"):
 			print("desde huevo: ", get_name())
-			SignalManager.huevoNumber.emit(numeroHuevo, 1) #mandar una senial con el numero del huevo que se esta apretando
+
 	
 #obtener solo los numeros de un string
 func getNumbersFromString(input_string: String) -> String:
@@ -22,5 +22,7 @@ func getNumbersFromString(input_string: String) -> String:
 
 func _on_area_2d_mouse_entered():
 	selected = true
+	SignalManager.huevoNumber.emit(numeroHuevo, 1) #mandar una senial con el numero del huevo que se esta apretando
 func _on_area_2d_mouse_exited():
 	selected = false
+	SignalManager.huevoNumber.emit(numeroHuevo, -1) #mandar una senial con el numero del huevo que se esta apretando

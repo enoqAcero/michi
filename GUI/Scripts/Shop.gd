@@ -134,7 +134,7 @@ func buy_kibble():
 		coins_label.text = str(moneditas.coin)
 		update_item()
 		update_buttons()  # Imprime un mensaje en la consola
-		SignalManager.updateItems.emit()
+		
 
 
 	
@@ -147,7 +147,7 @@ func buy_fish():
 		coins_label.text = str(moneditas.coin)
 		update_item()  
 		update_buttons()
-		SignalManager.updateItems.emit()
+
 	
 func buy_tunacan():
 	var tunacan_item = items[2] 
@@ -158,7 +158,7 @@ func buy_tunacan():
 		coins_label.text = str(moneditas.coin)
 		update_item()  
 		update_buttons()
-		SignalManager.updateItems.emit()
+
 
 func buy_ball():
 	var ball_item = items[3] 
@@ -169,7 +169,7 @@ func buy_ball():
 		coins_label.text = str(moneditas.coin)
 		update_item()  
 		update_buttons()
-		SignalManager.updateItems.emit()
+
 
 func buy_laser():
 	var laser_item = items[4] 
@@ -180,7 +180,7 @@ func buy_laser():
 		coins_label.text = str(moneditas.coin)
 		update_item()  
 		update_buttons()
-		SignalManager.updateItems.emit()
+
 
 func buy_comb():
 	var comb_item = items[5] 
@@ -191,7 +191,7 @@ func buy_comb():
 		coins_label.text = str(moneditas.coin)
 		update_item()  
 		update_buttons()
-		SignalManager.updateItems.emit()
+
 	
 func buy_brush():
 	var brush_item = items[6] 
@@ -202,7 +202,7 @@ func buy_brush():
 		coins_label.text = str(moneditas.coin)
 		update_item()  
 		update_buttons()
-		SignalManager.updateItems.emit()
+
 
 func _on_button_pressed():
 	set_visible(false)
@@ -221,6 +221,7 @@ func _on_button_pressed():
 
 func update_item():
 	var _item = items[item_index]
+	SignalManager.updateItems.emit(0)
 	
 
 #Botones para comprar

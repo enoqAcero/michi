@@ -4,11 +4,12 @@
 
 [resource]
 script = ExtResource("1_4tqlj")
-active = 1
+active = 0
 category = "categoria1"
 type = "Naranja"
 categoryLevel = 1
 fusionLevel = 1
+globalPos = Vector2(318.529, 573.897)
 name = "michi9"
 food = 100
 fun = 100

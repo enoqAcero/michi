@@ -7,6 +7,6 @@
 script = ExtResource("1_ql7pq")
 name = "laser"
 texture = ExtResource("2_51iif")
-count = 2
+count = 12
 item_index = 0
 price = 20

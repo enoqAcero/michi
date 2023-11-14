@@ -23,6 +23,7 @@ var walking = false
 #variable para ver si el michi esta seleccionado con el mouse
 var click_duration = 0.0
 var selected = false
+var selected2 = true
 var offset: Vector2
 
 #movimento del michi
@@ -41,9 +42,12 @@ func _ready():
 	#obtener el nombre del nodo michi# y obtener solo su numero
 	numeroMichi = get_name()
 	numeroMichi = getNumbersFromString(numeroMichi)
+	$Area2D2/CollisionShape2D.scale.x = 0.4
+	$Area2D2/CollisionShape2D.scale.y = 0.4
 
 	
 func _physics_process(_delta):
+	
 	#ESTADO DE ANIMO
 	if promedio >= 80:
 		$StatusGood.modulate = Color("#38ff26")
@@ -55,15 +59,14 @@ func _physics_process(_delta):
 	
 	#DRAG & DROP
 	if selected == true:
-		if Input.is_action_just_pressed("click"):
-			offset = get_global_mouse_position() - global_position
-			print("desde michi: ", get_name())
-			SignalManager.michiNumber.emit(numeroMichi, 0) #mandar una senial con el numero del michi que se esta apretando
-		if Input.is_action_pressed("click"):
-			#print("michi number from michi script: ", numeroMichi)
-			global_position = get_global_mouse_position() - offset
-		elif Input.is_action_just_released("click"):
-			global_position = get_global_mouse_position()
+		if selected2 == true:
+			if Input.is_action_just_pressed("click"):
+				offset = get_global_mouse_position() - global_position
+				SignalManager.michiNumber.emit(numeroMichi, 0) #mandar una senial con el numero del michi que se esta apretando
+			if Input.is_action_pressed("click"):
+				global_position = get_global_mouse_position() - offset
+			elif Input.is_action_just_released("click"):
+				global_position = get_global_mouse_position()
 		walking = false
 		idle = true
 		
@@ -185,6 +188,7 @@ func _on_area_2d_mouse_entered():
 #Escalar michi y posicionar status cuando el mouse sale del michi 
 func _on_area_2d_mouse_exited():
 	selected = false
+	selected2 = true
 	$AnimatedSprite2D.scale.x = 2
 	$AnimatedSprite2D.scale.y = 2
 	$StatusGood.scale.x = 0.6
@@ -195,7 +199,11 @@ func _on_area_2d_mouse_exited():
 	$Area2D/CollisionShape2D.scale.y = 1
 	$CollisionPolygon2DNormal.disabled = false
 	$CollisionPolygon2DFlip.disabled = false
-	$CollisionShape2D.disabled = false
+	$".".collision_layer |= 1 # Layer 1
+	$".".collision_mask |= 1 # Layer 1
+	$Area2D.collision_layer |= 1 # Layer 1
+
+
 
 #obtener solo los numeros de un string
 func getNumbersFromString(input_string: String) -> String:
@@ -208,8 +216,14 @@ func getNumbersFromString(input_string: String) -> String:
 
 func _on_area_2d_2_body_entered(body):
 	if selected == true:
-		for i in range(0, maxMichiNumber):
-			if body.get_name() == ("michi"+str(i)):
-				print("colliding")
-				SignalManager.merge.emit(i) #mandar una senial con el numero del michi que se esta apretando
-				break
+		$".".collision_layer &= ~1 # Layer 1
+		$Area2D.collision_layer &= ~1 # Layer 1
+		if not GlobalVariables.michiNumber == 101:
+			for i in range(0, maxMichiNumber):
+				if body.get_name() == ("michi"+str(i)):
+					print("colliding michi: ", i)
+					selected2 = false
+					SignalManager.merge.emit(i) #mandar una senial con el numero del michi que se esta apretando
+					break
+	
+

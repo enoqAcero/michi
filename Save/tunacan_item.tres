@@ -7,6 +7,6 @@
 script = ExtResource("1_h5i3o")
 name = "tuna can"
 texture = ExtResource("2_eg7g5")
-count = 0
+count = 9
 item_index = 0
 price = 30

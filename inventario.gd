@@ -17,7 +17,7 @@ var count_label
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	loadItems()
-	sprite_node = get_node("CharacterBody2D/Sprite2D")
+	sprite_node = get_node("Item/Sprite2D")
 	inventory_resource = Inventory.new()  # Crea una nueva instancia de Inventory.
 	count_label = $Label
 	print(count_label)

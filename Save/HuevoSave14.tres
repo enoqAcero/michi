@@ -7,4 +7,5 @@ script = ExtResource("1_qyhre")
 active = 0
 categoria = 1
 id = 0
+globalPos = Vector2(250, 450)
 taps = 5

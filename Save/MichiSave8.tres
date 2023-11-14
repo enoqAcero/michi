@@ -9,6 +9,7 @@ category = "categoria1"
 type = "Naranja"
 categoryLevel = 1
 fusionLevel = 1
+globalPos = Vector2(389.497, 635.273)
 name = "michi8"
 food = 100
 fun = 100

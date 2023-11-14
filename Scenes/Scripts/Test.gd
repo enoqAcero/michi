@@ -13,7 +13,7 @@ var saveFileNameHuevo = "HuevoSave"
 var type = 0
 #crea michis del 0 al maxMichiNumber -1 y guardar en array de tipo MichiData. si maxMichiNumber = 5 crea en total 5 michis
 var michiData : Array[MichiData]
-var michiNumber = 0 
+var michiNumber = 0
 var maxMichiNumber = GlobalVariables.maxMichiNumber
 var michiInstance = []
 #crea huevos del 0 al maxHuevoNumber - 1 y guardar en array de tipo HuevoData. si maxHuevoNumber = 5 crea en total 5 huevos
@@ -21,6 +21,7 @@ var huevoData : Array[HuevoData]
 var huevoNumber = 0
 var maxHuevoNumber = GlobalVariables.maxHuevoNumber
 var huevoInstance = []
+
 
 #variable para detectar la senial de ambos michis al ser fucionados
 var michiN2
@@ -31,7 +32,8 @@ var confirmInstance = []
 var confirmN = -1
 var sceneConfirmControl = 0
 
-
+var confirmPlayInstance
+var controlConfirmPlayInstance = 1
 
 var tiempo = 0.0
 
@@ -105,9 +107,7 @@ func _ready():
 			pass
 		
 				
-		pos_x = rng.randi_range(30,450)
-		pos_y = rng.randi_range(260, 734)
-		michi.global_position = Vector2(pos_x,pos_y)
+		michi.global_position = michiData[i].globalPos
 		michi.name = ("michi"+str(i))
 		if michiData[i].active == 1:
 			add_child(michi)
@@ -118,9 +118,7 @@ func _ready():
 	#poner todos los huevos en escena
 	for i in range(0, maxHuevoNumber):
 		var huevo = load("res://Eggs/Egg.tscn").instantiate()
-		pos_x = rng.randi_range(30,450)
-		pos_y = rng.randi_range(260, 734)
-		huevo.global_position = Vector2(pos_x,pos_y)
+		huevo.global_position = huevoData[i].globalPos
 		huevo.name = ("huevo"+str(i))
 		if huevoData[i].active == 1:
 			add_child(huevo)
@@ -139,6 +137,7 @@ func _ready():
 	SignalManager.michiEggShowHide.connect(michiEggShowHide)
 	SignalManager.updateMichiStatus.connect(updateMichiStatus)
 	SignalManager.save.connect(save)
+	SignalManager.confirmPlay.connect(confirmPlay)
 	
 
 	
@@ -157,23 +156,38 @@ func _process(_delta):
 		michiData[michiNumber].exercise = michiData[michiNumber].exercise - 0.02
 		michiData[michiNumber].clean = michiData[michiNumber].clean - 0.02
 		
-	
+	if GlobalVariables.naceMichi == 1:
+		naceMichi(GlobalVariables.huevoNumber)
+		GlobalVariables.huevoNumber = 101
+		GlobalVariables.naceMichi = 0
 	
 
 #cuando se apieta un michi o un huevo aparecen sus stats mandando a llamar la funcion updateStatus
 func _input(_event):
-	if Input.is_action_pressed("click"):
+	if Input.is_action_just_pressed("click"):
 		otherMichiN = 100
-		if type == 1:
-			if not huevoData[huevoNumber].active == 0:
-				print("desde test: huevo: ", huevoNumber)
-				huevoData[huevoNumber].taps = huevoData[huevoNumber].taps - 1
-				if huevoData[huevoNumber].taps <= 0:
-					naceMichi(huevoNumber)
+		if not type == -1:	
+			if type == 1:
+				if controlConfirmPlayInstance == 1:
+					var playConfirm = load("res://GUI/ConfirmPlay.tscn").instantiate()
+					playConfirm.global_position = Vector2(147,375.5)
+					add_child(playConfirm)
+					confirmPlayInstance = playConfirm
+					GlobalVariables.huevoNumber = huevoNumber
+					controlConfirmPlayInstance = 0
 			
-		updateStatus(michiNumber, huevoNumber)
+					
+					
 		
 		
+func confirmPlay(control : int):
+	if control == 1:
+		get_tree().change_scene_to_file( "res://Scenes/EggJump.tscn")
+		confirmPlayInstance.queue_free()
+		controlConfirmPlayInstance = 1
+	if control == 0:
+		controlConfirmPlayInstance = 1
+		confirmPlayInstance.queue_free()
 		
 
 #emitir una senal al scipt en CanvasLayer para cambiar los stats
@@ -220,10 +234,14 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 func save(): #type 0 = michi, type 1 = huevo
 	#salva los michis
 	for i in range(0, maxMichiNumber):
+		if michiData[i].active == 1:
+			michiData[i].globalPos = michiInstance[i].global_position
 		ResourceSaver.save(michiData[i], savePathMichi + saveFileNameMichi + str(i) + ".tres")
 		#print ("saving michi: ", i)
 	#salva los huevos
 	for i in range(0, maxHuevoNumber):
+		if huevoData[i].active == 1:
+			huevoData[i].globalPos = huevoInstance[i].global_position
 		ResourceSaver.save(huevoData[i], savePathHuevo + saveFileNameHuevo + str(i) + ".tres")
 		#print ("saving huevo: ", i)
 	SignalManager.itemsCoinSave.emit()
@@ -258,20 +276,18 @@ func getNumber(number : String, typeLocal : int): #type 0 = michi, type 1 = huev
 		#verificar que el numero de huevo no sea mayor que el numero maximo de huevo posible
 		if maxHuevoNumber <= huevoNumber:
 			huevoNumber = maxHuevoNumber - 1
-	
-	
 	type = typeLocal #actualizar el tipo de objeto selectionado a nivel de script
-	#print("huevoNumber: ", huevoNumber)	
-	#print("michiNumber: ", michiNumber)	
+	
+	GlobalVariables.michiNumber = michiNumber
 	updateStatus(michiNumber, huevoNumber)
-	#print("michi number:",michiNumber)
+	
 	
 func merge(michiN : int):
 	if otherMichiN == 100:
 		otherMichiN = michiN
 	
-	if not michiN == otherMichiN:
-		otherMichiN2 = otherMichiN
+	if not michiN == michiNumber:
+		otherMichiN2 = michiNumber
 		if not otherMichiN2 == michiN:
 			print("merge michi: ",michiN," with michi: ", otherMichiN2)
 			michiN2=michiN
@@ -298,6 +314,7 @@ func confirmarMerge(confirmar : int):
 		
 	sceneConfirmControl = 0
 	confirmInstance[confirmN].queue_free()
+	
 	
 func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#if control == 0 se fusionaron michis, control == 1 nace huevo
 	randomize()

@@ -1,15 +1,16 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://dab6ry0ljmnew"]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_ngat0"]
 
 [resource]
 script = ExtResource("1_ngat0")
 active = 1
-category = "categoria1"
-type = "Naranja"
-categoryLevel = 1
+category = "categoria3"
+type = "Monio"
+categoryLevel = 3
 fusionLevel = 1
-name = "Michi2"
+globalPos = Vector2(437.497, 733.998)
+name = "Monio2"
 food = 100
 fun = 100
 clean = 100
