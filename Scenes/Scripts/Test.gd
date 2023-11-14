@@ -32,6 +32,7 @@ var confirmN = -1
 var sceneConfirmControl = 0
 
 
+
 var tiempo = 0.0
 
 
@@ -105,7 +106,7 @@ func _ready():
 		
 				
 		pos_x = rng.randi_range(30,450)
-		pos_y = rng.randi_range(160, 734)
+		pos_y = rng.randi_range(260, 734)
 		michi.global_position = Vector2(pos_x,pos_y)
 		michi.name = ("michi"+str(i))
 		if michiData[i].active == 1:
@@ -118,7 +119,7 @@ func _ready():
 	for i in range(0, maxHuevoNumber):
 		var huevo = load("res://Eggs/Egg.tscn").instantiate()
 		pos_x = rng.randi_range(30,450)
-		pos_y = rng.randi_range(160, 734)
+		pos_y = rng.randi_range(260, 734)
 		huevo.global_position = Vector2(pos_x,pos_y)
 		huevo.name = ("huevo"+str(i))
 		if huevoData[i].active == 1:
@@ -135,9 +136,13 @@ func _ready():
 	SignalManager.huevoNumber.connect(getNumber, 1)
 	SignalManager.merge.connect(merge)
 	SignalManager.mergeConfirm.connect(confirmarMerge)
+	SignalManager.michiEggShowHide.connect(michiEggShowHide)
+	SignalManager.updateMichiStatus.connect(updateMichiStatus)
+	SignalManager.save.connect(save)
+	
 
 	
-	
+
 	
 	
 func _process(_delta):
@@ -198,7 +203,7 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 		elif controlMichiData == 1:
 			if ResourceLoader.exists(savePathMichi + saveFileNameMichi + str(number) + ".tres"):
 				michiData[number]=(ResourceLoader.load(savePathMichi + saveFileNameMichi + str(number) + ".tres"))
-		print("Se cargo el michi: ", number)
+		#print("Se cargo el michi: ", number)
 	#cargar los huevos
 	elif typeLocal == 1:
 		if ResourceLoader.exists(savePathHuevo + saveFileNameHuevo + str(number) + ".tres"):
@@ -207,12 +212,12 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 			var newHuevoData = HuevoData.new()
 			ResourceSaver.save(newHuevoData, (savePathHuevo + saveFileNameHuevo + str(number) + ".tres" ))
 			huevoData.append(ResourceLoader.load(savePathHuevo + saveFileNameHuevo + str(number) + ".tres"))
-		print("Se cargo el huevo: ", number)
+		#print("Se cargo el huevo: ", number)
 
 	
 	
 #salvar el juego
-func _on_button_pressed(): #type 0 = michi, type 1 = huevo
+func save(): #type 0 = michi, type 1 = huevo
 	#salva los michis
 	for i in range(0, maxMichiNumber):
 		ResourceSaver.save(michiData[i], savePathMichi + saveFileNameMichi + str(i) + ".tres")
@@ -221,10 +226,22 @@ func _on_button_pressed(): #type 0 = michi, type 1 = huevo
 	for i in range(0, maxHuevoNumber):
 		ResourceSaver.save(huevoData[i], savePathHuevo + saveFileNameHuevo + str(i) + ".tres")
 		#print ("saving huevo: ", i)
+	SignalManager.itemsCoinSave.emit()
 
 func _on_texture_button_pressed():
 	$Shop.set_visible(true)
 	get_tree().paused =true
+	$CanvasLayer/Nombre.set_visible(false)
+	$CanvasLayer/promedio.set_visible(false)
+	$CanvasLayer/food.set_visible(false)
+	$CanvasLayer/fun.set_visible(false)
+	$CanvasLayer/clean.set_visible(false)
+	$CanvasLayer/comfort.set_visible(false)
+	$CanvasLayer/exercise.set_visible(false)
+	SignalManager.michiEggShowHide.emit(0)
+		
+	
+	
 	
 func editCoinCounter(coins : int):
 	$coinCounter.text = str(coins)
@@ -283,7 +300,7 @@ func confirmarMerge(confirmar : int):
 	confirmInstance[confirmN].queue_free()
 	
 func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#if control == 0 se fusionaron michis, control == 1 nace huevo
-	#randomize()
+	randomize()
 	var michi
 	var huevoIndex = 101
 
@@ -468,7 +485,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 			
 		#agrega al michi a la escena
 		pos_x = rng.randi_range(30,450)
-		pos_y = rng.randi_range(160, 734)
+		pos_y = rng.randi_range(260, 734)
 		if michiInstance[NumeroMichi1] and michiInstance[NumeroMichi2]:
 			michi.global_position = Vector2(pos_x,pos_y) #verificar que la pos no este ocupada
 		else: 
@@ -485,20 +502,22 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 		#agregar el huevo
 		var huevo = load("res://Eggs/Egg.tscn").instantiate()
 		pos_x = rng.randi_range(30,450)
-		pos_y = rng.randi_range(160, 734)
+		pos_y = rng.randi_range(260, 734)
 		huevo.global_position = Vector2(pos_x,pos_y)
 		huevo.name = "huevo"+str(huevoIndex)
 		add_child(huevo)
 		huevoInstance[huevoIndex] = huevo
 		huevoData[huevoIndex].active = 1
 		huevoData[huevoIndex].taps = 5
+		
+		save()
 			
-		#_on_button_pressed()
-		#loadData(NumeroMichi1, 0, 1)
+		
+		
 
 #Funcion cuando un huevo llego a 0 taps para hacer nacer un nuevo michi
 func naceMichi(huevoN : int):
-
+	randomize()
 	var michiIndex = 101
 	var michi
 	var probNewMichiType = rng.randi_range(1,5)
@@ -534,7 +553,7 @@ func naceMichi(huevoN : int):
 	
 	#agrega al michi a la escena
 	pos_x = rng.randi_range(30,450)
-	pos_y = rng.randi_range(160, 734)
+	pos_y = rng.randi_range(260, 734)
 	michi.global_position = Vector2(pos_x,pos_y)
 	michi.name = "michi"+str(michiIndex)
 	add_child(michi)
@@ -543,4 +562,46 @@ func naceMichi(huevoN : int):
 
 	huevoData[huevoN].active = 0
 	huevoInstance[huevoN].queue_free()
-	#_on_button_pressed()
+	
+	save()
+	
+	
+	
+func michiEggShowHide(control : int):
+	if control == 0:
+		for i in range(0, maxMichiNumber):
+			if michiData[i].active == 1:
+				michiInstance[i].modulate.a = 0.05
+		for i in range(0, maxHuevoNumber):
+			if huevoData[i].active == 1:
+				huevoInstance[i].modulate.a = 0.05
+			
+	else: 
+		for i in range(0, maxMichiNumber):
+			if michiData[i].active == 1:
+				michiInstance[i].modulate.a = 1
+		for i in range(0, maxHuevoNumber):
+			if huevoData[i].active == 1:
+				huevoInstance[i].modulate.a = 1
+				
+
+func updateMichiStatus(michiN : int):
+	var index_item = GlobalVariables.indexInventario
+	
+	print(" Desde update michi status, item index: ",index_item)
+	print("MichiN: ",michiN)
+	if index_item == 0: michiData[michiN].food += 10
+	if index_item == 1: michiData[michiN].food += 20
+	if index_item == 2: michiData[michiN].food += 30
+	if index_item == 3: michiData[michiN].fun += 10
+	if index_item == 4: michiData[michiN].fun += 20
+	if index_item == 5: michiData[michiN].clean += 10
+	if index_item == 6: michiData[michiN].clean += 20
+	
+	if michiData[michiN].food > 100: michiData[michiN].food = 100
+	if michiData[michiN].fun > 100: michiData[michiN].fun = 100
+	if michiData[michiN].clean > 100: michiData[michiN].clean = 100
+	
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		save()

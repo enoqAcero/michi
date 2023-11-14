@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://j3ostc4r7ccw"]
+
+[ext_resource type="Script" path="res://GlobalAssets/Scripts/inventario.gd" id="1_6bp1o"]
+[ext_resource type="Texture2D" uid="uid://4wbknax3rg5w" path="res://Items/Assets/fish.png" id="1_iv8em"]
+
+[node name="inventario" type="Node2D"]
+script = ExtResource("1_6bp1o")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 1.0
+offset_top = 786.0
+offset_right = 365.0
+offset_bottom = 852.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/HBoxContainer"]
+position = Vector2(42, 27)
+texture = ExtResource("1_iv8em")
+
+[node name="inventarioFish" type="Label" parent="PanelContainer/HBoxContainer/Sprite2D"]
+offset_left = -42.0
+offset_top = -6.0
+offset_right = -41.0
+offset_bottom = 17.0

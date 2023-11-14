@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://inventoryItem.gd" id="1_h3rqi"]
+[ext_resource type="Texture2D" path="res://Items/Assets/Comb.png" id="2_iaxaf"]
+
+[resource]
+script = ExtResource("1_h3rqi")
+name = "comb"
+texture = ExtResource("2_iaxaf")
+count = 2
+item_index = 0
+price = 10

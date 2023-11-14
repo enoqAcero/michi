@@ -57,7 +57,7 @@ func _physics_process(_delta):
 	if selected == true:
 		if Input.is_action_just_pressed("click"):
 			offset = get_global_mouse_position() - global_position
-			print("dese michi: ", get_name())
+			print("desde michi: ", get_name())
 			SignalManager.michiNumber.emit(numeroMichi, 0) #mandar una senial con el numero del michi que se esta apretando
 		if Input.is_action_pressed("click"):
 			#print("michi number from michi script: ", numeroMichi)

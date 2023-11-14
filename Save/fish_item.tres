@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://inventoryItem.gd" id="1_vetsk"]
+[ext_resource type="Texture2D" path="res://Items/Assets/fish.png" id="2_wqwo0"]
+
+[resource]
+script = ExtResource("1_vetsk")
+name = "Fish"
+texture = ExtResource("2_wqwo0")
+count = 3
+item_index = 0
+price = 20

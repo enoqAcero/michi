@@ -1,0 +1,228 @@
+[gd_scene load_steps=20 format=3 uid="uid://dg2rf8of102bf"]
+
+[ext_resource type="Texture2D" uid="uid://bbda6m3rkng0e" path="res://Scenes/Assets/Temp/tileset_forest.png" id="1_8dyok"]
+[ext_resource type="PackedScene" uid="uid://c6puxvq25ce6f" path="res://Michis/michiNaranja.tscn" id="2_pp3np"]
+[ext_resource type="Texture2D" uid="uid://dho6jhq7flm0d" path="res://GlobalAssets/Assets/michiCoin.png" id="4_mugyq"]
+[ext_resource type="PackedScene" uid="uid://qtwndjqyub13" path="res://Shop.tscn" id="4_rvw7a"]
+[ext_resource type="Texture2D" uid="uid://eac0jk2n3sqq" path="res://GUI/Assets/shopIcon.png" id="5_fh3lr"]
+
+[sub_resource type="GDScript" id="GDScript_ruowi"]
+script/source = "extends Node2D
+
+
+
+	
+func ready():
+	var items = load(\"res://GlobalAssets/Scripts/items.gd\").new()
+	var gold = items.gold
+	$Node2D/coinCounter.set_text(\"sadas\")
+	
+
+
+	
+
+func _on_texture_button_pressed():
+	$Shop.set_visible(true)
+	get_tree().paused =true
+	
+"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5x20"]
+texture = ExtResource("1_8dyok")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.625, 3.25, 16, 4.25, 16, 16, -5.375, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.625, 3.25, 16, 4.25, 16, 16, -5.375, 16)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, 16, 0, 16, 16, -16, 16)
+5:1/0 = 0
+5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -9.75, 16, -9.5, 16, -3.75, -16, -4)
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.625, 4.25, -16, 4.25, -16, 16, 5.375, 16)
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_1gtep"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_a5x20")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85ul2"]
+size = Vector2(608, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fijw6"]
+size = Vector2(96, 992)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6s6ux"]
+size = Vector2(96, 992)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fuiv"]
+size = Vector2(608, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aa6xu"]
+size = Vector2(842, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7o20"]
+atlas = ExtResource("4_mugyq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kk2k"]
+atlas = ExtResource("4_mugyq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3qxj"]
+atlas = ExtResource("4_mugyq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08oxw"]
+atlas = ExtResource("4_mugyq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3i5fe"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_c7o20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kk2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3qxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08oxw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_exhcv"]
+font_size = 20
+
+[node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_ruowi")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_1gtep")
+cell_quadrant_size = 32
+collision_animatable = true
+format = 2
+layer_0/tile_data = PackedInt32Array(1507329, 65536, 2, 1507330, 65536, 2, 1507331, 65536, 2, 1507332, 65536, 2, 1507333, 65536, 2, 1507334, 65536, 2, 1507335, 65536, 2, 1507336, 65536, 2, 1507337, 65536, 2, 1507338, 65536, 2, 1507339, 65536, 2, 1507340, 65536, 2, 1507341, 65536, 2, 1507328, 65536, 2, 1507342, 65536, 2, 262144, 65536, 0, 262145, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 262149, 65536, 0, 262150, 65536, 0, 262151, 65536, 0, 262152, 65536, 0, 262153, 65536, 0, 262154, 65536, 0, 262155, 65536, 0, 262156, 65536, 0, 262157, 65536, 0, 262158, 65536, 0, 327680, 196608, 1, 393216, 196608, 1, 458752, 196608, 1, 524288, 196608, 1, 589824, 196608, 1, 655360, 196608, 1, 720896, 196608, 1, 786432, 196608, 1, 851968, 196608, 1, 917504, 196608, 1, 983040, 196608, 1, 1048576, 196608, 1, 1114112, 196608, 1, 1179648, 196608, 1, 1245184, 196608, 1, 1310720, 196608, 1, 1376256, 196608, 1, 1441792, 196608, 1, 327694, 0, 1, 393230, 0, 1, 458766, 0, 1, 524302, 0, 1, 589838, 0, 1, 655374, 0, 1, 720910, 0, 1, 786446, 0, 1, 851982, 0, 1, 917518, 0, 1, 983054, 0, 1, 1048590, 0, 1, 1114126, 0, 1, 1179662, 0, 1, 1245198, 0, 1, 1310734, 0, 1, 1376270, 0, 1, 1441806, 0, 1, 65536, 262144, 1, 65537, 262144, 1, 65538, 262144, 1, 65539, 262144, 1, 65540, 262144, 1, 65541, 262144, 1, 65542, 262144, 1, 65543, 262144, 1, 65544, 262144, 1, 65545, 262144, 1, 65546, 262144, 1, 65547, 262144, 1, 65548, 262144, 1, 65549, 262144, 1, 65550, 262144, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShapeTop" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(240, 48)
+shape = SubResource("RectangleShape2D_85ul2")
+
+[node name="CollisionShapeLeft" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-16, 432)
+shape = SubResource("RectangleShape2D_fijw6")
+
+[node name="CollisionShapeRight" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(496, 432)
+shape = SubResource("RectangleShape2D_6s6ux")
+
+[node name="CollisionShapeBottom" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(240, 832)
+shape = SubResource("RectangleShape2D_1fuiv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(251, 32)
+shape = SubResource("RectangleShape2D_aa6xu")
+debug_color = Color(0.00784314, 0.00392157, 0.0705882, 1)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_pp3np")]
+position = Vector2(128, 352)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("2_pp3np")]
+position = Vector2(224, 608)
+
+[node name="CharacterBody2D3" parent="." instance=ExtResource("2_pp3np")]
+position = Vector2(352, 448)
+
+[node name="CharacterBody2D4" parent="." instance=ExtResource("2_pp3np")]
+position = Vector2(64, 480)
+
+[node name="CharacterBody2D5" parent="." instance=ExtResource("2_pp3np")]
+position = Vector2(352, 224)
+
+[node name="CharacterBody2D6" parent="." instance=ExtResource("2_pp3np")]
+position = Vector2(96, 224)
+
+[node name="CharacterBody2D7" parent="." instance=ExtResource("2_pp3np")]
+position = Vector2(288, 352)
+
+[node name="CharacterBody2D8" parent="." instance=ExtResource("2_pp3np")]
+position = Vector2(96, 640)
+
+[node name="Shop" parent="." instance=ExtResource("4_rvw7a")]
+position = Vector2(-1, 12)
+
+[node name="coin" type="AnimatedSprite2D" parent="."]
+position = Vector2(35, 100)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_3i5fe")
+autoplay = "default"
+frame_progress = 0.0452692
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 433.0
+offset_top = 784.0
+offset_right = 480.0
+offset_bottom = 841.0
+texture_normal = ExtResource("5_fh3lr")
+texture_pressed = ExtResource("5_fh3lr")
+texture_hover = ExtResource("5_fh3lr")
+texture_disabled = ExtResource("5_fh3lr")
+texture_focused = ExtResource("5_fh3lr")
+
+[node name="coinCounter" type="Label" parent="."]
+offset_left = 68.0
+offset_top = 85.0
+offset_right = 108.0
+offset_bottom = 113.0
+label_settings = SubResource("LabelSettings_exhcv")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
