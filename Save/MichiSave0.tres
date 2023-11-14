@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://bu8gk6gu6kqhx"]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_ck3t5"]
 
@@ -10,8 +10,8 @@ type = "Naranja"
 categoryLevel = 1
 fusionLevel = 1
 name = "michi0"
-food = 86.76
-fun = 86.76
-clean = 86.76
-comfort = 86.76
-exercise = 86.76
+food = 82.78
+fun = 82.78
+clean = 82.78
+comfort = 82.78
+exercise = 82.78

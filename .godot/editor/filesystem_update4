@@ -3,11 +3,3 @@ res://Shop.tscn
 res://inventario.tscn
 res://Michis/michiArcoiris.tscn
 res://itemInventario.tscn
-res://Items/Scripts/itemInventario.gd
-res://inventario.gd
-res://GlobalAssets/Scripts/GlobalVariables.gd
-res://GlobalAssets/Scripts/SignalManager.gd
-res://Scenes/Scripts/Test.gd
-res://Save/MichiSave7.tres
-res://Save/ball_item.tres
-res://GUI/Scripts/Shop.gd

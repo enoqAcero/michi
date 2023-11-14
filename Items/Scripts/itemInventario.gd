@@ -32,6 +32,7 @@ func _on_area_2d_mouse_exited():
 	selected = false
 
 func _on_area_2d_2_body_entered(body):
+	selected = false
 	for i in range(0, GlobalVariables.maxMichiNumber):
 		if body.get_name() == ("michi"+str(i)):
 			SignalManager.updateItems.emit(1)

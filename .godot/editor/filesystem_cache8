@@ -1,382 +1,382 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1699920160
-icon.svg::CompressedTexture2D::4064167746058972273::1699913899::1699913899::1::::<><>::
-inventario.gd::GDScript::-1::1699913899::0::1::::<>Node2D<>::
-inventario.tscn::PackedScene::690385354419850514::1699913899::0::1::::<><>::res://inventario.gd<>uid://cmtkxo7xmhpgo::::res://itemInventario.tscn
-inventoryItem.gd::GDScript::-1::1699913899::0::1::::InventoryItem<>Resource<>::
-itemInventario.tscn::PackedScene::5654979697379190510::1699913899::0::1::::<><>::res://Items/Scripts/itemInventario.gd<>uid://b0c2juy08dxjs::::res://Items/Assets/Kibble.png
-Shop.tscn::PackedScene::1163603836930396916::1699913899::0::1::::<><>::res://GUI/Scripts/Shop.gd<>uid://blv5qr387wde2::::res://GUI/Assets/bg-store.png<>uid://cynebuccpnmck::::res://GUI/Assets/close.png<>uid://bqsyfna1e17lo::::res://GUI/Assets/tabItemsN.png<>uid://fp2m277tc4hv::::res://GUI/Assets/tabFurnituresN.png<>uid://byydnwmknsvsv::::res://GUI/Assets/tabItemsP.png<>uid://bg0vqx2wbxfx5::::res://GUI/Assets/tabFurnituresP.png<>uid://4wbknax3rg5w::::res://Items/Assets/fish.png<>uid://b0c2juy08dxjs::::res://Items/Assets/Kibble.png<>uid://bkljwms08vqbs::::res://GUI/Assets/buyN.png<>uid://cnf16sdumiprn::::res://GUI/Assets/buyP.png<>uid://bsvet88t05jsy::::res://GlobalAssets/Assets/michiCoin.png<>uid://8kmk6a6jj61g::::res://Items/Assets/TunaCan.png<>uid://esdmpocsp8wd::::res://Items/Assets/inventory.png<>uid://b6lntnyi7c8eg::::res://Items/Assets/Ball.png<>uid://ncq7es2mmal0::::res://GUI/Assets/buyD.png<>uid://c0omnjhf4at0u::::res://Items/Assets/Laser.png<>uid://b4ena7sjxyl4p::::res://Items/Assets/Comb.png<>uid://brtguq2yk1a6c::::res://Items/Assets/Brush.png
-ShopButton.tscn::PackedScene::7475770453590646026::1699913899::0::1::::<><>::uid://d2mklqt1svgdv::::res://GUI/Assets/shopIcon.png
-::res://Eggs/::1699913899
-Egg.tscn::PackedScene::8801662502317448356::1699913899::0::1::::<><>::uid://babb7gttrnmeo::::res://Eggs/Assets/MichiEgg.png<>res://Eggs/Scripts/Egg.gd
-::res://Eggs/Assets/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-MichiEgg.png::CompressedTexture2D::2388603269222784478::1699913899::1699920160::1::::<><>::
-::res://Eggs/Scripts/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-Egg.gd::GDScript::-1::1699913899::0::1::::<>RigidBody2D<>::
-::res://GlobalAssets/::1699913899
-::res://GlobalAssets/Assets/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-michiCoin.png::CompressedTexture2D::3693450385215170240::1699913899::1699920160::1::::<><>::
-::res://GlobalAssets/Scripts/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-GlobalVariables.gd::GDScript::-1::1699913899::0::1::::<>Node<>::
-SignalManager.gd::GDScript::-1::1699913899::0::1::::<>Node<>::
-::res://GUI/::1699913899
-ConfirmMerge.tscn::PackedScene::5459065005465867341::1699913899::0::1::::<><>::res://GUI/Scripts/ConfirmMerge.gd
-::res://GUI/Assets/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-bg-store.png::CompressedTexture2D::3203700916726660991::1699913899::1699920160::1::::<><>::
-buyD.png::CompressedTexture2D::917612579234905231::1699913899::1699920160::1::::<><>::
-buyN.png::CompressedTexture2D::3111603675036398156::1699913899::1699920160::1::::<><>::
-buyP.png::CompressedTexture2D::5697253175853694539::1699913899::1699920160::1::::<><>::
-close.png::CompressedTexture2D::6484456232934779670::1699913899::1699920160::1::::<><>::
-closeOnPush.png::CompressedTexture2D::7284100743402156272::1699913899::1699920160::1::::<><>::
-shopIcon.png::CompressedTexture2D::9079761046946607067::1699913899::1699920160::1::::<><>::
-tabFurnituresN.png::CompressedTexture2D::383572141876243383::1699913899::1699920160::1::::<><>::
-tabFurnituresP.png::CompressedTexture2D::2860468069671962632::1699913899::1699920160::1::::<><>::
-tabItemsN.png::CompressedTexture2D::3548067802261892308::1699913899::1699920160::1::::<><>::
-tabItemsP.png::CompressedTexture2D::4120704537926191085::1699913899::1699920160::1::::<><>::
-tabs.png::CompressedTexture2D::7625978044103376329::1699913899::1699920160::1::::<><>::
-TileSetMichis.png::CompressedTexture2D::6941403828308344883::1699913899::1699920160::1::::<><>::
-::res://GUI/Scripts/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-ConfirmMerge.gd::GDScript::-1::1699913899::0::1::::<>Control<>::
-Shop.gd::GDScript::-1::1699913899::0::1::::<>Node2D<>::
-StatusMichi.gd::GDScript::-1::1699913899::0::1::::<>CanvasLayer<>::
-::res://Inventory/::1699913899
-bolsa_monedas.tres::Resource/Monedero::4239981034434940622::1699913899::0::1::::<><>::res://Inventory/monedero.gd
-inventory.gd::GDScript::-1::1699913899::0::1::::Inventory<>Resource<>::
-monedas.tres::Resource/Monedero::4199126971170215019::1699913899::0::1::::<><>::res://Inventory/monedero.gd
-monedero.gd::GDScript::-1::1699913899::0::1::::Monedero<>Resource<>::
-::res://Inventory/Items/::1699913899
-ball.tres::Resource/InventoryItem::2655393830251192620::1699913899::0::1::::<><>::res://inventoryItem.gd<>uid://b6lntnyi7c8eg::::res://Items/Assets/Ball.png
-brush.tres::Resource/InventoryItem::4971805105632036921::1699913899::0::1::::<><>::res://inventoryItem.gd<>uid://brtguq2yk1a6c::::res://Items/Assets/Brush.png
-comb.tres::Resource/InventoryItem::1517645995210138539::1699913899::0::1::::<><>::res://inventoryItem.gd<>uid://b4ena7sjxyl4p::::res://Items/Assets/Comb.png
-Fish.tres::Resource/InventoryItem::5091390499673291799::1699913899::0::1::::<><>::res://inventoryItem.gd<>uid://4wbknax3rg5w::::res://Items/Assets/fish.png
-kibble.tres::Resource/InventoryItem::6531028646501641909::1699913899::0::1::::<><>::res://inventoryItem.gd<>uid://b0c2juy08dxjs::::res://Items/Assets/Kibble.png
-laser.tres::Resource/InventoryItem::2879778124450657633::1699913899::0::1::::<><>::res://inventoryItem.gd<>uid://c0omnjhf4at0u::::res://Items/Assets/Laser.png
-tunacan.tres::Resource/InventoryItem::2455011436205467204::1699913899::0::1::::<><>::res://inventoryItem.gd<>uid://8kmk6a6jj61g::::res://Items/Assets/TunaCan.png
-::res://Items/::1699913899
-::res://Items/Assets/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-Ball.png::CompressedTexture2D::4585806963042140450::1699913899::1699920160::1::::<><>::
-Brush.png::CompressedTexture2D::3619255103889642064::1699913899::1699920160::1::::<><>::
-Comb.png::CompressedTexture2D::4430945690112538981::1699913899::1699920160::1::::<><>::
-fish.png::CompressedTexture2D::2080972034910729810::1699913899::1699920160::1::::<><>::
-inventory.png::CompressedTexture2D::318118564223430987::1699913899::1699920160::1::::<><>::
-Kibble.png::CompressedTexture2D::4146927049824307176::1699913899::1699920160::1::::<><>::
-Laser.png::CompressedTexture2D::6557216049917545698::1699913899::1699920160::1::::<><>::
-TunaCan.png::CompressedTexture2D::2337623709092683054::1699913899::1699920160::1::::<><>::
-::res://Items/Scripts/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-itemInventario.gd::GDScript::-1::1699913899::0::1::::<>CharacterBody2D<>::
-::res://Michis/::1699913899
-michiArcoiris.tscn::PackedScene::2338165715478377667::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://dc6rres1ej3j2::::res://Michis/Assets/Categoría 4/Arcoiris/rainbowEspalda.png<>uid://ukwp3rm58v2s::::res://Michis/Assets/Categoría 4/Arcoiris/rainbowLateral.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiBlanco.tscn::PackedScene::5564925830280486923::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://1a23s2uf0sg5::::res://Michis/Assets/Categoría 1/Blanco/blancoFrente.png<>uid://437kon2ink1l::::res://Michis/Assets/Categoría 1/Blanco/blancoLateral.png<>uid://c8af3qvk2sn4u::::res://Michis/Assets/Categoría 1/Blanco/blancoEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiBufanda.tscn::PackedScene::3680340403578690722::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://cmrayu6y2u7ol::::res://Michis/Assets/Categoría 3/Bufanda/bufandaFrente.png<>uid://c1wdww3sx0k1c::::res://Michis/Assets/Categoría 3/Bufanda/bufandaLateral.png<>uid://yih31c4nvu58::::res://Michis/Assets/Categoría 3/Bufanda/bufandaEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiCafe.tscn::PackedScene::5297199571015667800::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://dkenj4ng7cg6l::::res://Michis/Assets/Categoría 1/Café/cafeFrente.png<>uid://cvk44ecpai2p4::::res://Michis/Assets/Categoría 1/Café/cafeLateral.png<>uid://clfvu64kkl2ob::::res://Michis/Assets/Categoría 1/Café/caféEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiCalico.tscn::PackedScene::9166957771484342253::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://c6qaue1jnqhje::::res://Michis/Assets/Categoría 2/Cálico/cálicoFrente.png<>uid://bgh0axkvly2d7::::res://Michis/Assets/Categoría 2/Cálico/cálicoLateral.png<>uid://dn8txa3yfr48n::::res://Michis/Assets/Categoría 2/Cálico/cálicoEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiCristal.tscn::PackedScene::8219225310896244598::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://cfydwny0fmxgq::::res://Michis/Assets/Categoría 4/Cristal/glassFrente.png<>uid://dkvudh5cdl5qu::::res://Michis/Assets/Categoría 4/Cristal/glassLateral.png<>uid://otd6m5r0vxal::::res://Michis/Assets/Categoría 4/Cristal/glassEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiDorado.tscn::PackedScene::1823388958401407560::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://druthqhbqntl2::::res://Michis/Assets/Categoría 4/Dorado/doradoFrente.png<>uid://yes0pjjyy53p::::res://Michis/Assets/Categoría 4/Dorado/doradoLateral.png<>uid://gu6wcu7bav8a::::res://Michis/Assets/Categoría 4/Dorado/doradoEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiEgipcio.tscn::PackedScene::6510392999534346665::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://7jwxgids3w30::::res://Michis/Assets/Categoría 2/Egipcio/sphynxFrente.png<>uid://msm4bs0lo1kq::::res://Michis/Assets/Categoría 2/Egipcio/sphynxLateral.png<>uid://c40kqyfj8dskc::::res://Michis/Assets/Categoría 2/Egipcio/sphynxEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiEstrellas.tscn::PackedScene::6893152939938651264::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://3i223mt2kits::::res://Michis/Assets/Categoría 4/Estrellas/estrellasFrente.png<>uid://dlitkjoh1av6v::::res://Michis/Assets/Categoría 4/Estrellas/estrellasLateral.png<>uid://g3ef24joqcnf::::res://Michis/Assets/Categoría 4/Estrellas/estrellasEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiGirly.tscn::PackedScene::875495484263340563::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://cweaao4a2extt::::res://Michis/Assets/Categoría 3/Girly/girlyFrente.png<>uid://dlmpf5oe8b2ai::::res://Michis/Assets/Categoría 3/Girly/girlyLateral.png<>uid://dqsd85pi1qp0r::::res://Michis/Assets/Categoría 3/Girly/girlyEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiGris.tscn::PackedScene::7414990371504884796::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://dxx2pl45qdivj::::res://Michis/Assets/Categoría 1/Gris/grisFrente.png<>uid://cadfkyx88ut0o::::res://Michis/Assets/Categoría 1/Gris/girsLateral.png<>uid://cxw7lymnjbso8::::res://Michis/Assets/Categoría 1/Gris/grisEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiHipster.tscn::PackedScene::7886006058920442005::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://k1lj2jncgeus::::res://Michis/Assets/Categoría 3/Hipster/hipsterFrente.png<>uid://dbkk6rsfk5lcp::::res://Michis/Assets/Categoría 3/Hipster/hipsterLateral.png<>uid://c7ykfr2xgokwt::::res://Michis/Assets/Categoría 3/Hipster/hipsterEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiLentes.tscn::PackedScene::7009146803478423928::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://mgnofvqi2fwu::::res://Michis/Assets/Categoría 3/Lentes/lentesFrente.png<>uid://w8viu6jmmfwx::::res://Michis/Assets/Categoría 3/Lentes/lentesLateral.png<>uid://dil4wefyepjdt::::res://Michis/Assets/Categoría 3/Lentes/lentesEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiManchado.tscn::PackedScene::345840790411102780::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://7jwxgids3w30::::res://Michis/Assets/Categoría 2/Egipcio/sphynxFrente.png<>uid://msm4bs0lo1kq::::res://Michis/Assets/Categoría 2/Egipcio/sphynxLateral.png<>uid://c40kqyfj8dskc::::res://Michis/Assets/Categoría 2/Egipcio/sphynxEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiMonio.tscn::PackedScene::4942211463110810674::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://7uisbwc683j5::::res://Michis/Assets/Categoría 3/Moño/eleganteFrente.png<>uid://cebd1j3yauu35::::res://Michis/Assets/Categoría 3/Moño/eleganteLateral.png<>uid://c40mbdylkp0vw::::res://Michis/Assets/Categoría 3/Moño/eleganteEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiNaranja.tscn::PackedScene::6980917728565399043::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://m6vc6t8kyxe8::::res://Michis/Assets/Categoría 1/Naranja/naranjaFrente.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png<>uid://bx2u3avsexqie::::res://Michis/Assets/Categoría 1/Naranja/naranjaLateral.png<>uid://dl6gqoxmyvgvr::::res://Michis/Assets/Categoría 1/Naranja/naranjaEsplada.png
-michiNegro.tscn::PackedScene::1617618842283797837::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://i1nn8t3yur52::::res://Michis/Assets/Categoría 1/Negro/negroFrente.png<>uid://v2vpyxpwcctb::::res://Michis/Assets/Categoría 1/Negro/negroLateral.png<>uid://b2miou4w86f3y::::res://Michis/Assets/Categoría 1/Negro/negroEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiNeon.tscn::PackedScene::4590416880251745397::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://bb363ufh2dda5::::res://Michis/Assets/Categoría 4/Neon/neonFrente.png<>uid://d0jwmhbo5hw05::::res://Michis/Assets/Categoría 4/Neon/neonLateral.png<>uid://c8wcc158uhib8::::res://Michis/Assets/Categoría 4/Neon/neonEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiPersa.tscn::PackedScene::2879586004686442609::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://ddnjuv13ocmeg::::res://Michis/Assets/Categoría 2/Persa/persaFrente.png<>uid://bethb6dnt8frm::::res://Michis/Assets/Categoría 2/Persa/persaLateral.png<>uid://dg8pgphnw42vo::::res://Michis/Assets/Categoría 2/Persa/persaEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiSiames.tscn::PackedScene::741267934757152097::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://ie1st3wcj0fg::::res://Michis/Assets/Categoría 2/Siamés/siamesFrente.png<>uid://c7bp6pborlcof::::res://Michis/Assets/Categoría 2/Siamés/siamesLateral.png<>uid://bxciarbfqroiu::::res://Michis/Assets/Categoría 2/Siamés/siamesEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-michiTabby.tscn::PackedScene::3561773658558602407::1699913899::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://d3dbc04bsqg83::::res://Michis/Assets/Categoría 2/Tabby/tabbyFrente.png<>uid://g2ni2l2orygu::::res://Michis/Assets/Categoría 2/Tabby/tabbyLateral.png<>uid://c71flno1ec7mq::::res://Michis/Assets/Categoría 2/Tabby/tabbyEspalda.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
-::res://Michis/Assets/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-::res://Michis/Assets/Categoría 1/::1699913899
-::res://Michis/Assets/Categoría 1/Blanco/::1699913899
-blancoEspalda.png::CompressedTexture2D::7089427667940094050::1699913899::1699920160::1::::<><>::
-blancoFrente.png::CompressedTexture2D::1826600283669289226::1699913899::1699920160::1::::<><>::
-blancoLateral.png::CompressedTexture2D::2095240600971518639::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 1/Café/::1699913899
-cafeFrente.png::CompressedTexture2D::7870214935102047697::1699913899::1699920160::1::::<><>::
-cafeLateral.png::CompressedTexture2D::6269263656003836327::1699913899::1699920160::1::::<><>::
-caféEspalda.png::CompressedTexture2D::5556552982392415041::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 1/Gris/::1699913899
-girsLateral.png::CompressedTexture2D::4779357241186444732::1699913899::1699920160::1::::<><>::
-grisEspalda.png::CompressedTexture2D::6434564948852547325::1699913899::1699920160::1::::<><>::
-grisFrente.png::CompressedTexture2D::8822752912751442443::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 1/Naranja/::1699913899
-naranja-sprite.png::CompressedTexture2D::411988108022868561::1699913899::1699920160::1::::<><>::
-naranjaEsplada.png::CompressedTexture2D::7995728687568123355::1699913899::1699920160::1::::<><>::
-naranjaFrente.png::CompressedTexture2D::907542121556987973::1699913899::1699920160::1::::<><>::
-naranjaLateral.png::CompressedTexture2D::4057766662077124684::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 1/Negro/::1699913899
-negroEspalda.png::CompressedTexture2D::4306803828336727532::1699913899::1699920160::1::::<><>::
-negroFrente.png::CompressedTexture2D::615998870863450299::1699913899::1699920160::1::::<><>::
-negroLateral.png::CompressedTexture2D::1531007056316880543::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 2/::1699913899
-::res://Michis/Assets/Categoría 2/Cálico/::1699913899
-cálicoEspalda.png::CompressedTexture2D::8141036224732430523::1699913899::1699920160::1::::<><>::
-cálicoFrente.png::CompressedTexture2D::6981761530793504194::1699913899::1699920160::1::::<><>::
-cálicoLateral.png::CompressedTexture2D::2823523539073791106::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 2/Egipcio/::1699913899
-sphynxEspalda.png::CompressedTexture2D::6860564288108361126::1699913899::1699920160::1::::<><>::
-sphynxFrente.png::CompressedTexture2D::2265999570964272521::1699913899::1699920160::1::::<><>::
-sphynxLateral.png::CompressedTexture2D::880205396646899724::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 2/Manchado/::1699913899
-manchadoEspalda.png::CompressedTexture2D::7372528595796584013::1699913899::1699920160::1::::<><>::
-manchadoFrente.png::CompressedTexture2D::4335885089194362445::1699913899::1699920160::1::::<><>::
-manchadoLateral.png::CompressedTexture2D::5523124516169653108::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 2/Persa/::1699913899
-persaEspalda.png::CompressedTexture2D::7649441847731511148::1699913899::1699920160::1::::<><>::
-persaFrente.png::CompressedTexture2D::7397248806055434542::1699913899::1699920160::1::::<><>::
-persaLateral.png::CompressedTexture2D::2706827673791258490::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 2/Siamés/::1699913899
-siamesEspalda.png::CompressedTexture2D::4005379473509097156::1699913899::1699920160::1::::<><>::
-siamesFrente.png::CompressedTexture2D::571380088423525564::1699913899::1699920160::1::::<><>::
-siamesLateral.png::CompressedTexture2D::7021915646114152273::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 2/Tabby/::1699913899
-tabbyEspalda.png::CompressedTexture2D::7072882119723174840::1699913899::1699920160::1::::<><>::
-tabbyFrente.png::CompressedTexture2D::9130808452740173590::1699913899::1699920160::1::::<><>::
-tabbyLateral.png::CompressedTexture2D::477676304814475208::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 3/::1699913899
-::res://Michis/Assets/Categoría 3/Bufanda/::1699913899
-bufandaEspalda.png::CompressedTexture2D::1701523660556519557::1699913899::1699920160::1::::<><>::
-bufandaFrente.png::CompressedTexture2D::5650245871398618999::1699913899::1699920160::1::::<><>::
-bufandaLateral.png::CompressedTexture2D::6643390250626361494::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 3/Girly/::1699913899
-girlyEspalda.png::CompressedTexture2D::8319685030309503999::1699913899::1699920160::1::::<><>::
-girlyFrente.png::CompressedTexture2D::6325254218601649285::1699913899::1699920160::1::::<><>::
-girlyLateral.png::CompressedTexture2D::7957033145561075596::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 3/Hipster/::1699913899
-hipsterEspalda.png::CompressedTexture2D::7069046464458129175::1699913899::1699920160::1::::<><>::
-hipsterFrente.png::CompressedTexture2D::756247649678721146::1699913899::1699920160::1::::<><>::
-hipsterLateral.png::CompressedTexture2D::7250758122741814063::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 3/Lentes/::1699913899
-lentesEspalda.png::CompressedTexture2D::7745281254648173205::1699913899::1699920160::1::::<><>::
-lentesFrente.png::CompressedTexture2D::855467007997748524::1699913899::1699920160::1::::<><>::
-lentesLateral.png::CompressedTexture2D::1613569467901392791::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 3/Moño/::1699913899
-eleganteEspalda.png::CompressedTexture2D::6860657861606866748::1699913899::1699920160::1::::<><>::
-eleganteFrente.png::CompressedTexture2D::2287848518373325944::1699913899::1699920160::1::::<><>::
-eleganteLateral.png::CompressedTexture2D::5055890218368153414::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 4/::1699913899
-::res://Michis/Assets/Categoría 4/Arcoiris/::1699913899
-rainbowEspalda.png::CompressedTexture2D::7364698235191566981::1699913899::1699920160::1::::<><>::
-rainbowLateral.png::CompressedTexture2D::1425784708552797604::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 4/Cristal/::1699913899
-glassEspalda.png::CompressedTexture2D::1022105176279937087::1699913899::1699920160::1::::<><>::
-glassFrente.png::CompressedTexture2D::5173552811139929352::1699913899::1699920160::1::::<><>::
-glassLateral.png::CompressedTexture2D::7905722531634857204::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 4/Dorado/::1699913899
-doradoEspalda.png::CompressedTexture2D::464342268549141830::1699913899::1699920160::1::::<><>::
-doradoFrente.png::CompressedTexture2D::8394926922681529637::1699913899::1699920160::1::::<><>::
-doradoLateral.png::CompressedTexture2D::1693928111241896799::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 4/Estrellas/::1699913899
-estrellasEspalda.png::CompressedTexture2D::479188899240499463::1699913899::1699920160::1::::<><>::
-estrellasFrente.png::CompressedTexture2D::1983491709228725784::1699913899::1699920160::1::::<><>::
-estrellasLateral.png::CompressedTexture2D::7949026328621980551::1699913899::1699920160::1::::<><>::
-::res://Michis/Assets/Categoría 4/Neon/::1699913899
-neonEspalda.png::CompressedTexture2D::7134615937081544955::1699913899::1699920160::1::::<><>::
-neonFrente.png::CompressedTexture2D::2516345391995180050::1699913899::1699920160::1::::<><>::
-neonLateral.png::CompressedTexture2D::8933920115069114592::1699913899::1699920160::1::::<><>::
-::res://Michis/Interactives/::1699913899
-::res://Michis/Interactives/Assets/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-::res://Michis/Interactives/Scripts/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-::res://Michis/Scripts/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-Michi.gd::GDScript::-1::1699913899::0::1::::<>CharacterBody2D<>::
-::res://Michis/Status/::1699913899
-::res://Michis/Status/Assets/::1699913899
-statusGood.png::CompressedTexture2D::817118939558637401::1699913899::1699920160::1::::<><>::
-statusWhite.png::CompressedTexture2D::5215679527530351700::1699913899::1699920160::1::::<><>::
-::res://Save/::1699913899
-ball_item.tres::Resource/InventoryItem::-1::1699913899::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/Ball.png
-brush_item.tres::Resource/InventoryItem::-1::1699913899::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/Brush.png
-comb_item.tres::Resource/InventoryItem::-1::1699913899::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/Comb.png
-fish_item.tres::Resource/InventoryItem::-1::1699913899::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/fish.png
-HuevoData.gd::GDScript::-1::1699913899::0::1::::HuevoData<>Resource<>::
-HuevoSave0.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave1.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave2.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave3.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave4.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave5.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave6.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave7.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave8.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave9.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave10.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave11.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave12.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave13.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave14.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave15.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave16.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave17.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave18.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave19.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-kibble_item.tres::Resource/InventoryItem::-1::1699913899::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/Kibble.png
-laser_item.tres::Resource/InventoryItem::-1::1699913899::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/Laser.png
-MichiData.gd::GDScript::-1::1699913899::0::1::::MichiData<>Resource<>::
-MichiSave0.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave1.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave2.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave3.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave4.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave5.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave6.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave7.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave8.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave9.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave10.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave11.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave12.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave13.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave14.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave15.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave16.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave17.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave18.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave19.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave20.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave21.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave22.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave23.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave24.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave25.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave26.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave27.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave28.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave29.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave30.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave31.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave32.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave33.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave34.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave35.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave36.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave37.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave38.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave39.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave40.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave41.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave42.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave43.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave44.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave45.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave46.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave47.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave48.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave49.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave50.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave51.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave52.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave53.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave54.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave55.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave56.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave57.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave58.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave59.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave60.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave61.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave62.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave63.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave64.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave65.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave66.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave67.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave68.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave69.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave70.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave71.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave72.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave73.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave74.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave75.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave76.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave77.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave78.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave79.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave80.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave81.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave82.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave83.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave84.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave85.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave86.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave87.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave88.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave89.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave90.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave91.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave92.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave93.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave94.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave95.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave96.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave97.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave98.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave99.tres::Resource/MichiData::-1::1699913899::0::1::::<><>::res://Save/MichiData.gd
-moneditas.tres::Resource/Monedero::6891333137256466637::1699913899::0::1::::<><>::res://Inventory/monedero.gd
-tunacan_item.tres::Resource/InventoryItem::-1::1699913899::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/TunaCan.png
-::res://Save/temp/::1699913899
-HuevoSave0.tres::Resource/HuevoData::1059783815266320149::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave1.tres::Resource/HuevoData::4957209886449168088::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave2.tres::Resource/HuevoData::5215812546967898691::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave3.tres::Resource/HuevoData::5944723663230245322::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave4.tres::Resource/HuevoData::662454927282999351::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave5.tres::Resource/HuevoData::795108925870189372::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave6.tres::Resource/HuevoData::8259817895973197065::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave7.tres::Resource/HuevoData::3928265751394445903::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave8.tres::Resource/HuevoData::8127835751446439197::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave9.tres::Resource/HuevoData::5778198204089985160::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave10.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave11.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave12.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave13.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave14.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave15.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave16.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave17.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave18.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-HuevoSave19.tres::Resource/HuevoData::-1::1699913899::0::1::::<><>::res://Save/HuevoData.gd
-MichiSave0.tres::Resource/MichiData::3858705820676596741::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave1.tres::Resource/MichiData::7282066765474458237::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave2.tres::Resource/MichiData::2646905553216894379::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave3.tres::Resource/MichiData::1731700360530641678::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave4.tres::Resource/MichiData::6059064979078514751::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave5.tres::Resource/MichiData::533702166084207255::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave6.tres::Resource/MichiData::4483038074155375121::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave7.tres::Resource/MichiData::5438590145442703913::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave8.tres::Resource/MichiData::1158326308975171591::1699913899::0::1::::<><>::res://Save/MichiData.gd
-MichiSave9.tres::Resource/MichiData::5174268605440511544::1699913899::0::1::::<><>::res://Save/MichiData.gd
-::res://Scenes/::1699913899
-Shop.tscn::PackedScene::1163603836930396916::1699913899::0::1::::<><>::res://GUI/Scripts/Shop.gd<>uid://blv5qr387wde2::::res://GUI/Assets/bg-store.png<>uid://cynebuccpnmck::::res://GUI/Assets/close.png<>uid://bqsyfna1e17lo::::res://GUI/Assets/tabItemsN.png<>uid://fp2m277tc4hv::::res://GUI/Assets/tabFurnituresN.png<>uid://byydnwmknsvsv::::res://GUI/Assets/tabItemsP.png<>uid://bg0vqx2wbxfx5::::res://GUI/Assets/tabFurnituresP.png<>uid://4wbknax3rg5w::::res://Items/Assets/fish.png<>uid://bkljwms08vqbs::::res://GUI/Assets/buyN.png<>uid://cnf16sdumiprn::::res://GUI/Assets/buyP.png
-Test.tscn::PackedScene::7637176185274418075::1699913899::0::1::::<><>::res://Scenes/Scripts/Test.gd<>uid://bbda6m3rkng0e::::res://Scenes/Assets/Temp/tileset_forest.png<>uid://c55p53m2ylob8::::res://GUI/Assets/TileSetMichis.png<>uid://c6hkkk7alqwyr::::res://Scenes/Assets/TileSetMichis1.png<>uid://d2mklqt1svgdv::::res://GUI/Assets/shopIcon.png<>uid://qu2en4yvs7f2::::res://Scenes/Assets/TileSetMichis (1) (1).png<>uid://qtwndjqyub13::::res://Shop.tscn<>uid://j3ostc4r7ccw::::res://inventario.tscn<>uid://pqd8em8ox51f::::res://Structures/Assets/chair.png<>uid://wla16gf6t1u2::::res://Structures/Assets/coachfull.png<>res://GUI/Scripts/StatusMichi.gd
-::res://Scenes/Assets/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-TileSetMichis1.png::CompressedTexture2D::6963771766992935625::1699913899::1699920160::1::::<><>::
-TileSetMichis (1) (1).png::CompressedTexture2D::1165956283992165605::1699913899::1699920160::1::::<><>::
-::res://Scenes/Assets/Temp/::1699913899
-tileset_forest.png::CompressedTexture2D::2462858694525374230::1699913899::1699920160::1::::<><>::
-::res://Scenes/Scripts/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-Test.gd::GDScript::-1::1699913899::0::1::::<>Node2D<>::
-::res://Structures/::1699913899
-::res://Structures/Assets/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
-chair.png::CompressedTexture2D::1086104010962673961::1699913899::1699920160::1::::<><>::
-coach.png::CompressedTexture2D::4578244532448734989::1699913899::1699920160::1::::<><>::
-coachback.png::CompressedTexture2D::519264031237329999::1699913899::1699920160::1::::<><>::
-coachfull.png::CompressedTexture2D::1566910783734959315::1699913899::1699920160::1::::<><>::
-pixil-frame-0.png::CompressedTexture2D::3046742613479942905::1699913899::1699920160::1::::<><>::
-::res://Structures/Scripts/::1699913899
-.gitkeep.txt::TextFile::-1::1699913899::0::1::::<><>::
+::res://::1699925617
+icon.svg::CompressedTexture2D::4064167746058972273::1699925485::1699925485::1::::<><>::
+inventario.gd::GDScript::-1::1699925496::0::1::::<>Node2D<>::
+inventario.tscn::PackedScene::690385354419850514::1699925548::0::1::::<><>::res://inventario.gd<>uid://cmtkxo7xmhpgo::::res://itemInventario.tscn
+inventoryItem.gd::GDScript::-1::1699925496::0::1::::InventoryItem<>Resource<>::
+itemInventario.tscn::PackedScene::5654979697379190510::1699925563::0::1::::<><>::res://Items/Scripts/itemInventario.gd<>uid://b0c2juy08dxjs::::res://Items/Assets/Kibble.png
+Shop.tscn::PackedScene::1163603836930396916::1699925548::0::1::::<><>::res://GUI/Scripts/Shop.gd<>uid://blv5qr387wde2::::res://GUI/Assets/bg-store.png<>uid://cynebuccpnmck::::res://GUI/Assets/close.png<>uid://bqsyfna1e17lo::::res://GUI/Assets/tabItemsN.png<>uid://fp2m277tc4hv::::res://GUI/Assets/tabFurnituresN.png<>uid://byydnwmknsvsv::::res://GUI/Assets/tabItemsP.png<>uid://bg0vqx2wbxfx5::::res://GUI/Assets/tabFurnituresP.png<>uid://4wbknax3rg5w::::res://Items/Assets/fish.png<>uid://b0c2juy08dxjs::::res://Items/Assets/Kibble.png<>uid://bkljwms08vqbs::::res://GUI/Assets/buyN.png<>uid://cnf16sdumiprn::::res://GUI/Assets/buyP.png<>uid://bsvet88t05jsy::::res://GlobalAssets/Assets/michiCoin.png<>uid://8kmk6a6jj61g::::res://Items/Assets/TunaCan.png<>uid://esdmpocsp8wd::::res://Items/Assets/inventory.png<>uid://b6lntnyi7c8eg::::res://Items/Assets/Ball.png<>uid://ncq7es2mmal0::::res://GUI/Assets/buyD.png<>uid://c0omnjhf4at0u::::res://Items/Assets/Laser.png<>uid://b4ena7sjxyl4p::::res://Items/Assets/Comb.png<>uid://brtguq2yk1a6c::::res://Items/Assets/Brush.png
+ShopButton.tscn::PackedScene::7475770453590646026::1699925496::0::1::::<><>::uid://d2mklqt1svgdv
+::res://Eggs/::1699925496
+Egg.tscn::PackedScene::8801662502317448356::1699925496::0::1::::<><>::uid://babb7gttrnmeo
+::res://Eggs/Assets/::1699925545
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+MichiEgg.png::CompressedTexture2D::2388603269222784478::1699925496::1699925545::1::::<><>::
+::res://Eggs/Scripts/::1699925496
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+Egg.gd::GDScript::-1::1699925496::0::1::::<>RigidBody2D<>::
+::res://GlobalAssets/::1699925485
+::res://GlobalAssets/Assets/::1699925545
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+michiCoin.png::CompressedTexture2D::3693450385215170240::1699925496::1699925545::1::::<><>::
+::res://GlobalAssets/Scripts/::1699925496
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+GlobalVariables.gd::GDScript::-1::1699925496::0::1::::<>Node<>::
+SignalManager.gd::GDScript::-1::1699925496::0::1::::<>Node<>::
+::res://GUI/::1699925496
+ConfirmMerge.tscn::PackedScene::5459065005465867341::1699925496::0::1::::<><>::res://GUI/Scripts/ConfirmMerge.gd
+::res://GUI/Assets/::1699925545
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+bg-store.png::CompressedTexture2D::3203700916726660991::1699925496::1699925545::1::::<><>::
+buyD.png::CompressedTexture2D::917612579234905231::1699925496::1699925545::1::::<><>::
+buyN.png::CompressedTexture2D::3111603675036398156::1699925496::1699925545::1::::<><>::
+buyP.png::CompressedTexture2D::5697253175853694539::1699925496::1699925545::1::::<><>::
+close.png::CompressedTexture2D::6484456232934779670::1699925496::1699925545::1::::<><>::
+closeOnPush.png::CompressedTexture2D::7284100743402156272::1699925496::1699925545::1::::<><>::
+shopIcon.png::CompressedTexture2D::9079761046946607067::1699925496::1699925545::1::::<><>::
+tabFurnituresN.png::CompressedTexture2D::383572141876243383::1699925496::1699925545::1::::<><>::
+tabFurnituresP.png::CompressedTexture2D::2860468069671962632::1699925496::1699925545::1::::<><>::
+tabItemsN.png::CompressedTexture2D::3548067802261892308::1699925496::1699925545::1::::<><>::
+tabItemsP.png::CompressedTexture2D::4120704537926191085::1699925496::1699925545::1::::<><>::
+tabs.png::CompressedTexture2D::7625978044103376329::1699925496::1699925545::1::::<><>::
+TileSetMichis.png::CompressedTexture2D::6941403828308344883::1699925496::1699925545::1::::<><>::
+::res://GUI/Scripts/::1699925496
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+ConfirmMerge.gd::GDScript::-1::1699925496::0::1::::<>Control<>::
+Shop.gd::GDScript::-1::1699925496::0::1::::<>Node2D<>::
+StatusMichi.gd::GDScript::-1::1699925496::0::1::::<>CanvasLayer<>::
+::res://Inventory/::1699925496
+bolsa_monedas.tres::Resource/Resource::4239981034434940622::1699925496::0::1::::<><>::res://Inventory/monedero.gd
+inventory.gd::GDScript::-1::1699925496::0::1::::Inventory<>Resource<>::
+monedas.tres::Resource/Resource::4199126971170215019::1699925496::0::1::::<><>::res://Inventory/monedero.gd
+monedero.gd::GDScript::-1::1699925496::0::1::::Monedero<>Resource<>::
+::res://Inventory/Items/::1699925496
+ball.tres::Resource/Resource::2655393830251192620::1699925496::0::1::::<><>::res://inventoryItem.gd<>uid://b6lntnyi7c8eg
+brush.tres::Resource/Resource::4971805105632036921::1699925496::0::1::::<><>::res://inventoryItem.gd<>uid://brtguq2yk1a6c
+comb.tres::Resource/Resource::1517645995210138539::1699925496::0::1::::<><>::res://inventoryItem.gd<>uid://b4ena7sjxyl4p
+Fish.tres::Resource/Resource::5091390499673291799::1699925496::0::1::::<><>::res://inventoryItem.gd<>uid://4wbknax3rg5w
+kibble.tres::Resource/Resource::6531028646501641909::1699925496::0::1::::<><>::res://inventoryItem.gd<>uid://b0c2juy08dxjs
+laser.tres::Resource/Resource::2879778124450657633::1699925496::0::1::::<><>::res://inventoryItem.gd<>uid://c0omnjhf4at0u
+tunacan.tres::Resource/Resource::2455011436205467204::1699925496::0::1::::<><>::res://inventoryItem.gd<>uid://8kmk6a6jj61g
+::res://Items/::1699925485
+::res://Items/Assets/::1699925545
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+Ball.png::CompressedTexture2D::4585806963042140450::1699925496::1699925545::1::::<><>::
+Brush.png::CompressedTexture2D::3619255103889642064::1699925496::1699925545::1::::<><>::
+Comb.png::CompressedTexture2D::4430945690112538981::1699925496::1699925545::1::::<><>::
+fish.png::CompressedTexture2D::2080972034910729810::1699925496::1699925545::1::::<><>::
+inventory.png::CompressedTexture2D::318118564223430987::1699925496::1699925545::1::::<><>::
+Kibble.png::CompressedTexture2D::4146927049824307176::1699925496::1699925545::1::::<><>::
+Laser.png::CompressedTexture2D::6557216049917545698::1699925496::1699925545::1::::<><>::
+TunaCan.png::CompressedTexture2D::2337623709092683054::1699925496::1699925545::1::::<><>::
+::res://Items/Scripts/::1699925563
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+itemInventario.gd::GDScript::-1::1699925563::0::1::::<>CharacterBody2D<>::
+::res://Michis/::1699925548
+michiArcoiris.tscn::PackedScene::2338165715478377667::1699925548::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://dc6rres1ej3j2::::res://Michis/Assets/Categoría 4/Arcoiris/rainbowEspalda.png<>uid://ukwp3rm58v2s::::res://Michis/Assets/Categoría 4/Arcoiris/rainbowLateral.png<>uid://cgkrqkv8qr6we::::res://Michis/Status/Assets/statusWhite.png
+michiBlanco.tscn::PackedScene::5564925830280486923::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://1a23s2uf0sg5
+michiBufanda.tscn::PackedScene::3680340403578690722::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://cmrayu6y2u7ol
+michiCafe.tscn::PackedScene::5297199571015667800::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://dkenj4ng7cg6l
+michiCalico.tscn::PackedScene::9166957771484342253::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://c6qaue1jnqhje
+michiCristal.tscn::PackedScene::8219225310896244598::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://cfydwny0fmxgq
+michiDorado.tscn::PackedScene::1823388958401407560::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://druthqhbqntl2
+michiEgipcio.tscn::PackedScene::6510392999534346665::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://7jwxgids3w30
+michiEstrellas.tscn::PackedScene::6893152939938651264::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://3i223mt2kits
+michiGirly.tscn::PackedScene::875495484263340563::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://cweaao4a2extt
+michiGris.tscn::PackedScene::7414990371504884796::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://dxx2pl45qdivj
+michiHipster.tscn::PackedScene::7886006058920442005::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://k1lj2jncgeus
+michiLentes.tscn::PackedScene::7009146803478423928::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://mgnofvqi2fwu
+michiManchado.tscn::PackedScene::345840790411102780::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://7jwxgids3w30
+michiMonio.tscn::PackedScene::4942211463110810674::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://7uisbwc683j5
+michiNaranja.tscn::PackedScene::6980917728565399043::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://m6vc6t8kyxe8
+michiNegro.tscn::PackedScene::1617618842283797837::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://i1nn8t3yur52
+michiNeon.tscn::PackedScene::4590416880251745397::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://bb363ufh2dda5
+michiPersa.tscn::PackedScene::2879586004686442609::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://ddnjuv13ocmeg
+michiSiames.tscn::PackedScene::741267934757152097::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://ie1st3wcj0fg
+michiTabby.tscn::PackedScene::3561773658558602407::1699925496::0::1::::<><>::res://Michis/Scripts/Michi.gd<>uid://d3dbc04bsqg83
+::res://Michis/Assets/::1699925496
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+::res://Michis/Assets/Categoría 1/::1699925496
+::res://Michis/Assets/Categoría 1/Blanco/::1699925545
+blancoEspalda.png::CompressedTexture2D::7089427667940094050::1699925496::1699925545::1::::<><>::
+blancoFrente.png::CompressedTexture2D::1826600283669289226::1699925496::1699925545::1::::<><>::
+blancoLateral.png::CompressedTexture2D::2095240600971518639::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 1/Café/::1699925545
+cafeFrente.png::CompressedTexture2D::7870214935102047697::1699925496::1699925545::1::::<><>::
+cafeLateral.png::CompressedTexture2D::6269263656003836327::1699925496::1699925545::1::::<><>::
+caféEspalda.png::CompressedTexture2D::5556552982392415041::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 1/Gris/::1699925545
+girsLateral.png::CompressedTexture2D::4779357241186444732::1699925496::1699925545::1::::<><>::
+grisEspalda.png::CompressedTexture2D::6434564948852547325::1699925496::1699925545::1::::<><>::
+grisFrente.png::CompressedTexture2D::8822752912751442443::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 1/Naranja/::1699925545
+naranja-sprite.png::CompressedTexture2D::411988108022868561::1699925496::1699925545::1::::<><>::
+naranjaEsplada.png::CompressedTexture2D::7995728687568123355::1699925496::1699925545::1::::<><>::
+naranjaFrente.png::CompressedTexture2D::907542121556987973::1699925496::1699925545::1::::<><>::
+naranjaLateral.png::CompressedTexture2D::4057766662077124684::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 1/Negro/::1699925545
+negroEspalda.png::CompressedTexture2D::4306803828336727532::1699925496::1699925545::1::::<><>::
+negroFrente.png::CompressedTexture2D::615998870863450299::1699925496::1699925545::1::::<><>::
+negroLateral.png::CompressedTexture2D::1531007056316880543::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 2/::1699925496
+::res://Michis/Assets/Categoría 2/Cálico/::1699925545
+cálicoEspalda.png::CompressedTexture2D::8141036224732430523::1699925496::1699925545::1::::<><>::
+cálicoFrente.png::CompressedTexture2D::6981761530793504194::1699925496::1699925545::1::::<><>::
+cálicoLateral.png::CompressedTexture2D::2823523539073791106::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 2/Egipcio/::1699925545
+sphynxEspalda.png::CompressedTexture2D::6860564288108361126::1699925496::1699925545::1::::<><>::
+sphynxFrente.png::CompressedTexture2D::2265999570964272521::1699925496::1699925545::1::::<><>::
+sphynxLateral.png::CompressedTexture2D::880205396646899724::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 2/Manchado/::1699925545
+manchadoEspalda.png::CompressedTexture2D::7372528595796584013::1699925496::1699925545::1::::<><>::
+manchadoFrente.png::CompressedTexture2D::4335885089194362445::1699925496::1699925545::1::::<><>::
+manchadoLateral.png::CompressedTexture2D::5523124516169653108::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 2/Persa/::1699925545
+persaEspalda.png::CompressedTexture2D::7649441847731511148::1699925496::1699925545::1::::<><>::
+persaFrente.png::CompressedTexture2D::7397248806055434542::1699925496::1699925545::1::::<><>::
+persaLateral.png::CompressedTexture2D::2706827673791258490::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 2/Siamés/::1699925545
+siamesEspalda.png::CompressedTexture2D::4005379473509097156::1699925496::1699925545::1::::<><>::
+siamesFrente.png::CompressedTexture2D::571380088423525564::1699925496::1699925545::1::::<><>::
+siamesLateral.png::CompressedTexture2D::7021915646114152273::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 2/Tabby/::1699925545
+tabbyEspalda.png::CompressedTexture2D::7072882119723174840::1699925496::1699925545::1::::<><>::
+tabbyFrente.png::CompressedTexture2D::9130808452740173590::1699925496::1699925545::1::::<><>::
+tabbyLateral.png::CompressedTexture2D::477676304814475208::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 3/::1699925496
+::res://Michis/Assets/Categoría 3/Bufanda/::1699925545
+bufandaEspalda.png::CompressedTexture2D::1701523660556519557::1699925496::1699925545::1::::<><>::
+bufandaFrente.png::CompressedTexture2D::5650245871398618999::1699925496::1699925545::1::::<><>::
+bufandaLateral.png::CompressedTexture2D::6643390250626361494::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 3/Girly/::1699925545
+girlyEspalda.png::CompressedTexture2D::8319685030309503999::1699925496::1699925545::1::::<><>::
+girlyFrente.png::CompressedTexture2D::6325254218601649285::1699925496::1699925545::1::::<><>::
+girlyLateral.png::CompressedTexture2D::7957033145561075596::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 3/Hipster/::1699925545
+hipsterEspalda.png::CompressedTexture2D::7069046464458129175::1699925496::1699925545::1::::<><>::
+hipsterFrente.png::CompressedTexture2D::756247649678721146::1699925496::1699925545::1::::<><>::
+hipsterLateral.png::CompressedTexture2D::7250758122741814063::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 3/Lentes/::1699925545
+lentesEspalda.png::CompressedTexture2D::7745281254648173205::1699925496::1699925545::1::::<><>::
+lentesFrente.png::CompressedTexture2D::855467007997748524::1699925496::1699925545::1::::<><>::
+lentesLateral.png::CompressedTexture2D::1613569467901392791::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 3/Moño/::1699925545
+eleganteEspalda.png::CompressedTexture2D::6860657861606866748::1699925496::1699925545::1::::<><>::
+eleganteFrente.png::CompressedTexture2D::2287848518373325944::1699925496::1699925545::1::::<><>::
+eleganteLateral.png::CompressedTexture2D::5055890218368153414::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 4/::1699925496
+::res://Michis/Assets/Categoría 4/Arcoiris/::1699925545
+rainbowEspalda.png::CompressedTexture2D::7364698235191566981::1699925496::1699925545::1::::<><>::
+rainbowLateral.png::CompressedTexture2D::1425784708552797604::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 4/Cristal/::1699925545
+glassEspalda.png::CompressedTexture2D::1022105176279937087::1699925496::1699925545::1::::<><>::
+glassFrente.png::CompressedTexture2D::5173552811139929352::1699925496::1699925545::1::::<><>::
+glassLateral.png::CompressedTexture2D::7905722531634857204::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 4/Dorado/::1699925545
+doradoEspalda.png::CompressedTexture2D::464342268549141830::1699925496::1699925545::1::::<><>::
+doradoFrente.png::CompressedTexture2D::8394926922681529637::1699925496::1699925545::1::::<><>::
+doradoLateral.png::CompressedTexture2D::1693928111241896799::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 4/Estrellas/::1699925545
+estrellasEspalda.png::CompressedTexture2D::479188899240499463::1699925496::1699925545::1::::<><>::
+estrellasFrente.png::CompressedTexture2D::1983491709228725784::1699925496::1699925545::1::::<><>::
+estrellasLateral.png::CompressedTexture2D::7949026328621980551::1699925496::1699925545::1::::<><>::
+::res://Michis/Assets/Categoría 4/Neon/::1699925545
+neonEspalda.png::CompressedTexture2D::7134615937081544955::1699925496::1699925545::1::::<><>::
+neonFrente.png::CompressedTexture2D::2516345391995180050::1699925496::1699925545::1::::<><>::
+neonLateral.png::CompressedTexture2D::8933920115069114592::1699925496::1699925545::1::::<><>::
+::res://Michis/Interactives/::1699925485
+::res://Michis/Interactives/Assets/::1699925485
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+::res://Michis/Interactives/Scripts/::1699925485
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+::res://Michis/Scripts/::1699925496
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+Michi.gd::GDScript::-1::1699925496::0::1::::<>CharacterBody2D<>::
+::res://Michis/Status/::1699925496
+::res://Michis/Status/Assets/::1699925496
+statusGood.png::CompressedTexture2D::817118939558637401::1699925496::1699925496::1::::<><>::
+statusWhite.png::CompressedTexture2D::5215679527530351700::1699925496::1699925496::1::::<><>::
+::res://Save/::1699925496
+ball_item.tres::Resource/InventoryItem::-1::1699925553::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/Ball.png
+brush_item.tres::Resource/InventoryItem::-1::1699925553::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/Brush.png
+comb_item.tres::Resource/InventoryItem::-1::1699925553::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/Comb.png
+fish_item.tres::Resource/InventoryItem::-1::1699925553::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/fish.png
+HuevoData.gd::GDScript::-1::1699925496::0::1::::HuevoData<>Resource<>::
+HuevoSave0.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave1.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave2.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave3.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave4.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave5.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave6.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave7.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave8.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave9.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave10.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave11.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave12.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave13.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave14.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave15.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave16.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave17.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave18.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave19.tres::Resource/HuevoData::-1::1699925553::0::1::::<><>::res://Save/HuevoData.gd
+kibble_item.tres::Resource/InventoryItem::-1::1699925553::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/Kibble.png
+laser_item.tres::Resource/InventoryItem::-1::1699925553::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/Laser.png
+MichiData.gd::GDScript::-1::1699925496::0::1::::MichiData<>Resource<>::
+MichiSave0.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave1.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave2.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave3.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave4.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave5.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave6.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave7.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave8.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave9.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave10.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave11.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave12.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave13.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave14.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave15.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave16.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave17.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave18.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave19.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave20.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave21.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave22.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave23.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave24.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave25.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave26.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave27.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave28.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave29.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave30.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave31.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave32.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave33.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave34.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave35.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave36.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave37.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave38.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave39.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave40.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave41.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave42.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave43.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave44.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave45.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave46.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave47.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave48.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave49.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave50.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave51.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave52.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave53.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave54.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave55.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave56.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave57.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave58.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave59.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave60.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave61.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave62.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave63.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave64.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave65.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave66.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave67.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave68.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave69.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave70.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave71.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave72.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave73.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave74.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave75.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave76.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave77.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave78.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave79.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave80.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave81.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave82.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave83.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave84.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave85.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave86.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave87.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave88.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave89.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave90.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave91.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave92.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave93.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave94.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave95.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave96.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave97.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave98.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+MichiSave99.tres::Resource/MichiData::-1::1699925553::0::1::::<><>::res://Save/MichiData.gd
+moneditas.tres::Resource/Monedero::-1::1699925553::0::1::::<><>::res://Inventory/monedero.gd
+tunacan_item.tres::Resource/InventoryItem::-1::1699925553::0::1::::<><>::res://inventoryItem.gd<>res://Items/Assets/TunaCan.png
+::res://Save/temp/::1699925496
+HuevoSave0.tres::Resource/Resource::1059783815266320149::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave1.tres::Resource/Resource::4957209886449168088::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave2.tres::Resource/Resource::5215812546967898691::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave3.tres::Resource/Resource::5944723663230245322::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave4.tres::Resource/Resource::662454927282999351::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave5.tres::Resource/Resource::795108925870189372::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave6.tres::Resource/Resource::8259817895973197065::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave7.tres::Resource/Resource::3928265751394445903::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave8.tres::Resource/Resource::8127835751446439197::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave9.tres::Resource/Resource::5778198204089985160::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave10.tres::Resource/Resource::-1::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave11.tres::Resource/Resource::-1::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave12.tres::Resource/Resource::-1::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave13.tres::Resource/Resource::-1::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave14.tres::Resource/Resource::-1::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave15.tres::Resource/Resource::-1::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave16.tres::Resource/Resource::-1::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave17.tres::Resource/Resource::-1::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave18.tres::Resource/Resource::-1::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+HuevoSave19.tres::Resource/Resource::-1::1699925496::0::1::::<><>::res://Save/HuevoData.gd
+MichiSave0.tres::Resource/Resource::3858705820676596741::1699925496::0::1::::<><>::res://Save/MichiData.gd
+MichiSave1.tres::Resource/Resource::7282066765474458237::1699925496::0::1::::<><>::res://Save/MichiData.gd
+MichiSave2.tres::Resource/Resource::2646905553216894379::1699925496::0::1::::<><>::res://Save/MichiData.gd
+MichiSave3.tres::Resource/Resource::1731700360530641678::1699925496::0::1::::<><>::res://Save/MichiData.gd
+MichiSave4.tres::Resource/Resource::6059064979078514751::1699925496::0::1::::<><>::res://Save/MichiData.gd
+MichiSave5.tres::Resource/Resource::533702166084207255::1699925496::0::1::::<><>::res://Save/MichiData.gd
+MichiSave6.tres::Resource/Resource::4483038074155375121::1699925496::0::1::::<><>::res://Save/MichiData.gd
+MichiSave7.tres::Resource/Resource::5438590145442703913::1699925496::0::1::::<><>::res://Save/MichiData.gd
+MichiSave8.tres::Resource/Resource::1158326308975171591::1699925496::0::1::::<><>::res://Save/MichiData.gd
+MichiSave9.tres::Resource/Resource::5174268605440511544::1699925496::0::1::::<><>::res://Save/MichiData.gd
+::res://Scenes/::1699925548
+Shop.tscn::PackedScene::1163603836930396916::1699925496::0::1::::<><>::res://GUI/Scripts/Shop.gd<>uid://blv5qr387wde2
+Test.tscn::PackedScene::7637176185274418075::1699925548::0::1::::<><>::res://Scenes/Scripts/Test.gd<>uid://bbda6m3rkng0e::::res://Scenes/Assets/Temp/tileset_forest.png<>uid://c55p53m2ylob8::::res://GUI/Assets/TileSetMichis.png<>uid://c6hkkk7alqwyr::::res://Scenes/Assets/TileSetMichis1.png<>uid://d2mklqt1svgdv::::res://GUI/Assets/shopIcon.png<>uid://qu2en4yvs7f2::::res://Scenes/Assets/TileSetMichis (1) (1).png<>uid://qtwndjqyub13::::res://Shop.tscn<>uid://j3ostc4r7ccw::::res://inventario.tscn<>uid://pqd8em8ox51f::::res://Structures/Assets/chair.png<>uid://wla16gf6t1u2::::res://Structures/Assets/coachfull.png<>res://GUI/Scripts/StatusMichi.gd
+::res://Scenes/Assets/::1699925545
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+TileSetMichis1.png::CompressedTexture2D::6963771766992935625::1699925496::1699925545::1::::<><>::
+TileSetMichis (1) (1).png::CompressedTexture2D::1165956283992165605::1699925496::1699925545::1::::<><>::
+::res://Scenes/Assets/Temp/::1699925496
+tileset_forest.png::CompressedTexture2D::2462858694525374230::1699925496::1699925496::1::::<><>::
+::res://Scenes/Scripts/::1699925496
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+Test.gd::GDScript::-1::1699925496::0::1::::<>Node2D<>::
+::res://Structures/::1699925485
+::res://Structures/Assets/::1699925545
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
+chair.png::CompressedTexture2D::1086104010962673961::1699925496::1699925545::1::::<><>::
+coach.png::CompressedTexture2D::4578244532448734989::1699925496::1699925545::1::::<><>::
+coachback.png::CompressedTexture2D::519264031237329999::1699925496::1699925545::1::::<><>::
+coachfull.png::CompressedTexture2D::1566910783734959315::1699925496::1699925545::1::::<><>::
+pixil-frame-0.png::CompressedTexture2D::3046742613479942905::1699925496::1699925545::1::::<><>::
+::res://Structures/Scripts/::1699925485
+.gitkeep.txt::TextFile::-1::1699925485::0::1::::<><>::
