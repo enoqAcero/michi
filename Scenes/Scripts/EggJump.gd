@@ -9,7 +9,7 @@ var rng = RandomNumberGenerator.new()
 var force_x
 var globalPos
 
-var savePathHuevo = "res://Save/"
+var savePathHuevo = "res://Save/Huevos/"
 var saveFileNameHuevo = "HuevoSave"
 var huevoData = ResourceLoader.load(savePathHuevo + saveFileNameHuevo + str(GlobalVariables.huevoNumber) + ".tres")
 

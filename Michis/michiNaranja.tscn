@@ -96,6 +96,9 @@ radius = 7.0
 radius = 12.0
 
 [node name="Michi1" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 17
+collision_mask = 17
 script = ExtResource("1_7j7gi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -143,8 +146,13 @@ autostart = true
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_co7id")
 
+[node name="poopAndPeeTimer" type="Timer" parent="."]
+wait_time = 40.0
+autostart = true
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="timeout" from="ChangeStateTimer" to="." method="_on_change_state_timer_timeout"]
 [connection signal="timeout" from="WalkingTimer" to="." method="_on_walking_timer_timeout"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="timeout" from="poopAndPeeTimer" to="." method="_on_poop_and_pee_timer_timeout"]

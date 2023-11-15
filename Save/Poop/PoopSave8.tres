@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PoopData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Save/PoopData.gd" id="1_6smfi"]
+
+[resource]
+script = ExtResource("1_6smfi")
+active = 0
+globalPos = Vector2(106.39, 726.144)
+index = 0

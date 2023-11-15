@@ -10,6 +10,7 @@ class_name MichiData
 @export var fusionLevel = 1 #nivel de fusion
 @export var globalPos = Vector2(250,450)
 
+
 @export var name : String = ""
 @export var food = 100
 @export var fun = 100

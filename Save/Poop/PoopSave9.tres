@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PoopData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Save/PoopData.gd" id="1_tvcjb"]
+
+[resource]
+script = ExtResource("1_tvcjb")
+active = 0
+globalPos = Vector2(463.32, 606.614)
+index = 0

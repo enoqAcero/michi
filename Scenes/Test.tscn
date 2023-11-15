@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dg2rf8of102bf"]
+[gd_scene load_steps=31 format=3 uid="uid://dg2rf8of102bf"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/Test.gd" id="1_1kxl6"]
 [ext_resource type="Texture2D" uid="uid://bbda6m3rkng0e" path="res://Scenes/Assets/Temp/tileset_forest.png" id="1_8dyok"]
@@ -9,8 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://qtwndjqyub13" path="res://Shop.tscn" id="6_jcj4f"]
 [ext_resource type="PackedScene" uid="uid://j3ostc4r7ccw" path="res://inventario.tscn" id="7_hryy3"]
 [ext_resource type="Texture2D" uid="uid://pqd8em8ox51f" path="res://Structures/Assets/chair.png" id="10_7hvop"]
+[ext_resource type="Texture2D" uid="uid://21ityv520c53" path="res://GUI/Assets/topGUI.png" id="12_27s2g"]
 [ext_resource type="Texture2D" uid="uid://wla16gf6t1u2" path="res://Structures/Assets/coachfull.png" id="12_hm8fj"]
 [ext_resource type="Script" path="res://GUI/Scripts/StatusMichi.gd" id="12_va7yt"]
+[ext_resource type="Texture2D" uid="uid://dxcixy4yg7bm5" path="res://GUI/Assets/blueBar.png" id="13_4lkc7"]
+[ext_resource type="Texture2D" uid="uid://dv1jux451ktg8" path="res://GUI/Assets/whiteBar.png" id="14_eawgb"]
+[ext_resource type="Texture2D" uid="uid://bv84tixuwyaed" path="res://GUI/Assets/GUIframes.png" id="15_s64sj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5x20"]
 texture = ExtResource("1_8dyok")
@@ -851,6 +855,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_dep1j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uk55c"]
+font_size = 14
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_1kxl6")
 metadata/_edit_vertical_guides_ = [249.0]
@@ -881,7 +890,7 @@ position = Vector2(243, 856)
 shape = SubResource("RectangleShape2D_1fuiv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(251, 32)
+position = Vector2(262, 15)
 shape = SubResource("RectangleShape2D_aa6xu")
 debug_color = Color(0.00784314, 0.00392157, 0.0705882, 1)
 
@@ -891,14 +900,14 @@ visibility_layer = 512
 position = Vector2(0, 13)
 
 [node name="inventario" parent="." instance=ExtResource("7_hryy3")]
-position = Vector2(30, -16)
+position = Vector2(0, -1)
 
 [node name="TextureButton" type="TextureButton" parent="inventario"]
 process_mode = 3
-offset_left = 187.0
-offset_top = 798.0
-offset_right = 223.0
-offset_bottom = 832.0
+offset_left = 409.0
+offset_top = 785.0
+offset_right = 445.0
+offset_bottom = 819.0
 scale = Vector2(1.7, 1.7)
 texture_normal = ExtResource("4_x1ng5")
 texture_pressed = ExtResource("4_x1ng5")
@@ -925,49 +934,78 @@ position = Vector2(207, 320)
 sprite_frames = SubResource("SpriteFrames_2u5ki")
 frame = 1
 
+[node name="TopGui" type="Sprite2D" parent="."]
+position = Vector2(240, 90)
+texture = ExtResource("12_27s2g")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("12_va7yt")
 
 [node name="Nombre" type="Label" parent="CanvasLayer"]
-offset_left = 229.0
-offset_top = 78.0
-offset_right = 269.0
-offset_bottom = 101.0
+offset_left = 28.0
+offset_top = 62.0
+offset_right = 187.0
+offset_bottom = 88.0
+label_settings = SubResource("LabelSettings_dep1j")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="promedio" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 300.0
-offset_top = 97.0
-offset_right = 454.0
-offset_bottom = 124.0
+[node name="Category" type="Label" parent="CanvasLayer"]
+offset_left = 25.0
+offset_top = 90.0
+offset_right = 191.0
+offset_bottom = 121.0
+label_settings = SubResource("LabelSettings_uk55c")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="food" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 19.0
-offset_top = 98.0
-offset_right = 171.0
-offset_bottom = 125.0
+[node name="food" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 287.0
+offset_top = 53.0
+offset_right = 306.0
+offset_bottom = 119.0
+texture_under = ExtResource("13_4lkc7")
+texture_progress = ExtResource("14_eawgb")
+texture_progress_offset = Vector2(-3, -5)
 
-[node name="fun" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 16.0
-offset_top = 66.0
-offset_right = 87.0
-offset_bottom = 93.0
+[node name="clean" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 447.0
+offset_top = 53.0
+offset_right = 466.0
+offset_bottom = 119.0
+texture_under = ExtResource("13_4lkc7")
+texture_progress = ExtResource("14_eawgb")
+texture_progress_offset = Vector2(-3, -5)
 
-[node name="clean" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 100.0
-offset_top = 68.0
-offset_right = 172.0
-offset_bottom = 95.0
+[node name="exercise" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 327.0
+offset_top = 53.0
+offset_right = 346.0
+offset_bottom = 119.0
+texture_under = ExtResource("13_4lkc7")
+texture_progress = ExtResource("14_eawgb")
+texture_progress_offset = Vector2(-3, -5)
 
-[node name="comfort" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 299.0
-offset_top = 67.0
-offset_right = 374.0
-offset_bottom = 94.0
+[node name="comfort" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 367.0
+offset_top = 53.0
+offset_right = 386.0
+offset_bottom = 119.0
+texture_under = ExtResource("13_4lkc7")
+texture_progress = ExtResource("14_eawgb")
+texture_progress_offset = Vector2(-3, -5)
 
-[node name="exercise" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 377.0
-offset_top = 66.0
-offset_right = 467.0
-offset_bottom = 93.0
+[node name="fun" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 407.0
+offset_top = 53.0
+offset_right = 426.0
+offset_bottom = 119.0
+texture_under = ExtResource("13_4lkc7")
+texture_progress = ExtResource("14_eawgb")
+texture_progress_offset = Vector2(-3, -5)
+
+[node name="GuIframes" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(240, 90)
+texture = ExtResource("15_s64sj")
 
 [connection signal="pressed" from="inventario/TextureButton" to="." method="_on_texture_button_pressed"]

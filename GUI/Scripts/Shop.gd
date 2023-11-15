@@ -208,7 +208,6 @@ func _on_button_pressed():
 	set_visible(false)
 	get_tree().paused=false
 	get_node("../CanvasLayer/Nombre").set_visible(true)
-	get_node("../CanvasLayer/promedio").set_visible(true)
 	get_node("../CanvasLayer/food").set_visible(true)
 	get_node("../CanvasLayer/fun").set_visible(true)
 	get_node("../CanvasLayer/clean").set_visible(true)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_o0biu"]
+
+[resource]
+script = ExtResource("1_o0biu")
+active = 1
+category = "categoria1"
+type = "Naranja"
+categoryLevel = 1
+fusionLevel = 1
+globalPos = Vector2(449.981, 652.08)
+name = "michi1"
+food = 98.78
+fun = 98.78
+clean = 98.78
+comfort = 98.78
+exercise = 98.78

@@ -88,6 +88,7 @@ shadow_size = 3
 shadow_offset = Vector2(5, 5)
 
 [node name="Shop" type="Node2D"]
+z_index = 1
 script = ExtResource("1_0mwgk")
 metadata/_edit_vertical_guides_ = [128.0, 160.0, 256.0, 32.0, 288.0]
 metadata/_edit_horizontal_guides_ = [384.0, 288.0, 480.0]

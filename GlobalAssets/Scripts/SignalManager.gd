@@ -13,3 +13,6 @@ signal save
 signal updateMichiStatus
 signal confirmPlay
 signal naceMichi
+signal poopAndPee
+signal pisNumber
+signal poopNumber

@@ -40,6 +40,8 @@ func _ready():
 	
 	SignalManager.updateItems.connect(update_item)
 	
+	$GuIbottomBackground.modulate = (Color("#ff6363"))
+	
 
 func itemsCoinSave():
 	ResourceSaver.save(items[0], "res://Save/kibble_item.tres")

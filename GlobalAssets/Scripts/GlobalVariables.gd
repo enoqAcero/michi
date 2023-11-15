@@ -2,6 +2,8 @@ extends Node
 
 var maxMichiNumber = 100
 var maxHuevoNumber = 20
+var maxPisNumber = 40
+var maxPoopNumber = 40
 
 var indexInventario = 0
 

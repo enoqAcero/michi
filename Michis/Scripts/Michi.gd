@@ -33,6 +33,7 @@ var  speed = 30
 var movingVerticalHorizontal = 1 #1 = horizontal, 2 = vertical
 
 #var para crear numeros al azar y poder controlar el tiempo y direcciones de movimiento
+var timerControl = 0
 var rng = RandomNumberGenerator.new()
 
 func _ready():
@@ -45,9 +46,13 @@ func _ready():
 	$Area2D2/CollisionShape2D.scale.x = 0.4
 	$Area2D2/CollisionShape2D.scale.y = 0.4
 
+
 	
 func _physics_process(_delta):
-	
+	if timerControl == 0:
+		$poopAndPeeTimer.set_wait_time(rng.randi_range(30,60))
+		$poopAndPeeTimer.start()
+		timerControl = 1 
 	#ESTADO DE ANIMO
 	if promedio >= 80:
 		$StatusGood.modulate = Color("#38ff26")
@@ -65,7 +70,7 @@ func _physics_process(_delta):
 				SignalManager.michiNumber.emit(numeroMichi, 0) #mandar una senial con el numero del michi que se esta apretando
 			if Input.is_action_pressed("click"):
 				global_position = get_global_mouse_position() - offset
-			elif Input.is_action_just_released("click"):
+			if Input.is_action_just_released("click"):
 				global_position = get_global_mouse_position()
 		walking = false
 		idle = true
@@ -74,8 +79,8 @@ func _physics_process(_delta):
 	#MOVIMIENTO
 	#al estar en idle, decidir si se ve a mover vertical o horizontal
 	if walking == false:
-		var x = rng.randi_range(1,6)
-		if x >= 3:
+		var x = rng.randi_range(1,100)
+		if x > 50:
 			movingVerticalHorizontal = 1 #si se mueve horizontal habilitar cambiar walkingSide a true
 			walkingSide = true
 		else:
@@ -141,16 +146,16 @@ func _on_change_state_timer_timeout():
 
 #funcion para decidir la direccion random de movimiento basada en un timer random
 func _on_walking_timer_timeout():
-	var x = rng.randi_range(1,6)
-	var y = rng.randi_range(1,6)
+	var x = rng.randi_range(1,100)
+	var y = rng.randi_range(1,100)
 	var waitTime = rng.randi_range (1,5)
 	
-	if x >= 3:
+	if x > 50:
 		xdir = 1
 	else:
 		xdir = -1
 		
-	if y >= 3:
+	if y > 50:
 		ydir = 1
 	else:
 		ydir = -1
@@ -187,8 +192,8 @@ func _on_area_2d_mouse_entered():
 
 #Escalar michi y posicionar status cuando el mouse sale del michi 
 func _on_area_2d_mouse_exited():
-	selected = false
 	selected2 = true
+	selected = false
 	$AnimatedSprite2D.scale.x = 2
 	$AnimatedSprite2D.scale.y = 2
 	$StatusGood.scale.x = 0.6
@@ -202,6 +207,7 @@ func _on_area_2d_mouse_exited():
 	$".".collision_layer |= 1 # Layer 1
 	$".".collision_mask |= 1 # Layer 1
 	$Area2D.collision_layer |= 1 # Layer 1
+	
 
 
 
@@ -221,9 +227,11 @@ func _on_area_2d_2_body_entered(body):
 		if not GlobalVariables.michiNumber == 101:
 			for i in range(0, maxMichiNumber):
 				if body.get_name() == ("michi"+str(i)):
-					print("colliding michi: ", i)
+					#print("colliding michi: ", i)
 					selected2 = false
 					SignalManager.merge.emit(i) #mandar una senial con el numero del michi que se esta apretando
 					break
-	
 
+func _on_poop_and_pee_timer_timeout():
+	SignalManager.poopAndPee.emit(numeroMichi.to_int())
+	timerControl = 0

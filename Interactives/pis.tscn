@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://d37p6x473dtam"]
+
+[ext_resource type="Script" path="res://Interactives/Scripts/pisAmarila.gd" id="1_jy28i"]
+[ext_resource type="Texture2D" uid="uid://bgvqv55cr0kgk" path="res://Interactives/pisAmarilla.png" id="2_qf40l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_02555"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ruu0l"]
+radius = 9.0
+
+[node name="pis" type="CharacterBody2D"]
+light_mask = 4
+visibility_layer = 4
+collision_layer = 0
+script = ExtResource("1_jy28i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qf40l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_02555")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1, 6)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -4)
+shape = SubResource("CircleShape2D_ruu0l")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

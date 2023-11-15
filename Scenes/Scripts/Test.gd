@@ -5,10 +5,14 @@ var pos_x
 var pos_y
 
 #variables para guardar datos
-var savePathMichi = "res://Save/"
+var savePathMichi = "res://Save/Michis/"
 var saveFileNameMichi = "MichiSave"
-var savePathHuevo = "res://Save/"
+var savePathHuevo = "res://Save/Huevos/"
 var saveFileNameHuevo = "HuevoSave"
+var savePathPis = "res://Save/Pis/"
+var saveFileNamePis = "PisSave"
+var savePathPoop = "res://Save/Poop/"
+var saveFileNamePoop = "PoopSave"
 #guardad que tipo de objeto se esta seleccionando
 var type = 0
 #crea michis del 0 al maxMichiNumber -1 y guardar en array de tipo MichiData. si maxMichiNumber = 5 crea en total 5 michis
@@ -21,6 +25,16 @@ var huevoData : Array[HuevoData]
 var huevoNumber = 0
 var maxHuevoNumber = GlobalVariables.maxHuevoNumber
 var huevoInstance = []
+#variables para la pis
+var pisData : Array[PisData]
+var pisInstance = []
+var pisNumber = 0
+var maxPisNumber = GlobalVariables.maxPisNumber
+#variables para la mierda
+var poopData : Array[PoopData]
+var poopInstance = []
+var poopNumber = 0
+var maxPoopNumber = GlobalVariables.maxPoopNumber
 
 
 #variable para detectar la senial de ambos michis al ser fucionados
@@ -30,7 +44,7 @@ var otherMichiN2
 
 var confirmInstance = []
 var confirmN = -1
-var sceneConfirmControl = 0
+var sceneConfirmControl = 0 
 
 var confirmPlayInstance
 var controlConfirmPlayInstance = 1
@@ -45,6 +59,30 @@ func _ready():
 		loadData(i, 0, 0)
 	for i in range(0, maxHuevoNumber):
 		loadData(i, 1, 0)
+	for i in range(0, maxPisNumber):
+		loadData(i, 2 , 0)
+	for i in range(0, maxPoopNumber):
+		loadData(i, 3 , 0)
+		
+	#poner todas la pis
+	for i in range(0, maxPisNumber):
+		var pis = load("res://Interactives/pis.tscn").instantiate()
+		pis.global_position = pisData[i].globalPos
+		pis.name = ("pis"+str(i))
+		if pisData[i].active == 1:
+			add_child(pis)
+			print("se agrego pis:", i, " a la escena")	
+		pisInstance.append(pis)
+		
+	#poner todas las mierdas
+	for i in range(0, maxPoopNumber):
+		var poop = load("res://Interactives/PoopRigidBody2D.tscn").instantiate()
+		poop.global_position = poopData[i].globalPos
+		poop.name = ("poop"+str(i))
+		if poopData[i].active == 1:
+			add_child(poop)
+			print("se agrego pis:", i, " a la escena")	
+		poopInstance.append(poop)
 	
 	#poner todos los michis en escena	
 	for i in range(0, maxMichiNumber): 
@@ -124,6 +162,8 @@ func _ready():
 			add_child(huevo)
 			print("se agrego huevo:", i, " a la escena")	
 		huevoInstance.append(huevo)
+		
+	
 
 	
 		
@@ -138,6 +178,10 @@ func _ready():
 	SignalManager.updateMichiStatus.connect(updateMichiStatus)
 	SignalManager.save.connect(save)
 	SignalManager.confirmPlay.connect(confirmPlay)
+	SignalManager.pisNumber.connect(getNumber, 2)
+	SignalManager.poopNumber.connect(getNumber, 3)
+	SignalManager.poopAndPee.connect(poopAndPee)
+	
 	
 
 	
@@ -217,7 +261,7 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 		elif controlMichiData == 1:
 			if ResourceLoader.exists(savePathMichi + saveFileNameMichi + str(number) + ".tres"):
 				michiData[number]=(ResourceLoader.load(savePathMichi + saveFileNameMichi + str(number) + ".tres"))
-		#print("Se cargo el michi: ", number)
+
 	#cargar los huevos
 	elif typeLocal == 1:
 		if ResourceLoader.exists(savePathHuevo + saveFileNameHuevo + str(number) + ".tres"):
@@ -226,7 +270,25 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 			var newHuevoData = HuevoData.new()
 			ResourceSaver.save(newHuevoData, (savePathHuevo + saveFileNameHuevo + str(number) + ".tres" ))
 			huevoData.append(ResourceLoader.load(savePathHuevo + saveFileNameHuevo + str(number) + ".tres"))
-		#print("Se cargo el huevo: ", number)
+
+	#cargar las pis
+	elif typeLocal == 2:
+		if ResourceLoader.exists(savePathPis + saveFileNamePis + str(number) + ".tres"):
+			pisData.append(ResourceLoader.load(savePathPis + saveFileNamePis + str(number) + ".tres"))
+		else:
+			var newPisData = PisData.new()
+			ResourceSaver.save(newPisData, (savePathPis + saveFileNamePis + str(number) + ".tres" ))
+			pisData.append(ResourceLoader.load(savePathPis + saveFileNamePis + str(number) + ".tres"))
+	
+	#cargar las mierdas
+	elif typeLocal == 3:
+		if ResourceLoader.exists(savePathPoop + saveFileNamePoop + str(number) + ".tres"):
+			poopData.append(ResourceLoader.load(savePathPoop + saveFileNamePoop + str(number) + ".tres"))
+		else:
+			var newPoopData = PoopData.new()
+			ResourceSaver.save(newPoopData, (savePathPoop + saveFileNamePoop + str(number) + ".tres" ))
+			poopData.append(ResourceLoader.load(savePathPoop + saveFileNamePoop + str(number) + ".tres"))
+
 
 	
 	
@@ -237,20 +299,32 @@ func save(): #type 0 = michi, type 1 = huevo
 		if michiData[i].active == 1:
 			michiData[i].globalPos = michiInstance[i].global_position
 		ResourceSaver.save(michiData[i], savePathMichi + saveFileNameMichi + str(i) + ".tres")
-		#print ("saving michi: ", i)
+
 	#salva los huevos
 	for i in range(0, maxHuevoNumber):
 		if huevoData[i].active == 1:
 			huevoData[i].globalPos = huevoInstance[i].global_position
 		ResourceSaver.save(huevoData[i], savePathHuevo + saveFileNameHuevo + str(i) + ".tres")
-		#print ("saving huevo: ", i)
+
+	#salva la pis
+	for i in range(0, maxPisNumber):
+		if pisData[i].active == 1:
+			pisData[i].globalPos = pisInstance[i].global_position
+		ResourceSaver.save(pisData[i], savePathPis + saveFileNamePis + str(i) + ".tres")
+	#salva la mierda
+	for i in range(0, maxPoopNumber):
+		if poopData[i].active == 1:
+			poopData[i].globalPos = poopInstance[i].global_position
+		ResourceSaver.save(poopData[i], savePathPoop + saveFileNamePoop + str(i) + ".tres")
+
+		
+		
 	SignalManager.itemsCoinSave.emit()
 
 func _on_texture_button_pressed():
 	$Shop.set_visible(true)
 	get_tree().paused =true
 	$CanvasLayer/Nombre.set_visible(false)
-	$CanvasLayer/promedio.set_visible(false)
 	$CanvasLayer/food.set_visible(false)
 	$CanvasLayer/fun.set_visible(false)
 	$CanvasLayer/clean.set_visible(false)
@@ -276,6 +350,19 @@ func getNumber(number : String, typeLocal : int): #type 0 = michi, type 1 = huev
 		#verificar que el numero de huevo no sea mayor que el numero maximo de huevo posible
 		if maxHuevoNumber <= huevoNumber:
 			huevoNumber = maxHuevoNumber - 1
+	if typeLocal == 2:
+		pisNumber = number.to_int()
+		#verificar que el numero de huevo no sea mayor que el numero maximo de huevo posible
+		if maxPisNumber <= pisNumber:
+			pisNumber = maxPisNumber - 1
+		recogerPisyPoop(0)
+	if typeLocal == 3:
+		poopNumber = number.to_int()
+		#verificar que el numero de huevo no sea mayor que el numero maximo de huevo posible
+		if maxPoopNumber <= poopNumber:
+			poopNumber = maxPoopNumber - 1
+		print("poop")
+		recogerPisyPoop(1)
 	type = typeLocal #actualizar el tipo de objeto selectionado a nivel de script
 	
 	GlobalVariables.michiNumber = michiNumber
@@ -508,29 +595,28 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 		else: 
 			print("Un michi no existe")
 		michi.name = "michi"+str(NumeroMichi1)
-		michiInstance[NumeroMichi1].name = "tempName"
+		michiInstance[NumeroMichi1].name = "tempNameMichi1"
 		add_child(michi)
 		michiInstance[NumeroMichi1].queue_free()
 		michiInstance[NumeroMichi1] = michi
-		michiInstance[NumeroMichi2].name = "tempName"
+		michiInstance[NumeroMichi2].name = "tempNameMichi2"
 		michiInstance[NumeroMichi2].queue_free()
 		michiData[NumeroMichi2].active = 0
 			
 		#agregar el huevo
-		var huevo = load("res://Eggs/Egg.tscn").instantiate()
-		pos_x = rng.randi_range(30,450)
-		pos_y = rng.randi_range(260, 734)
-		huevo.global_position = Vector2(pos_x,pos_y)
-		huevo.name = "huevo"+str(huevoIndex)
-		add_child(huevo)
-		huevoInstance[huevoIndex] = huevo
-		huevoData[huevoIndex].active = 1
-		huevoData[huevoIndex].taps = 5
+		if huevoIndex < maxHuevoNumber:
+			var huevo = load("res://Eggs/Egg.tscn").instantiate()
+			pos_x = rng.randi_range(30,450)
+			pos_y = rng.randi_range(260, 734)
+			huevo.global_position = Vector2(pos_x,pos_y)
+			huevo.name = "huevo"+str(huevoIndex)
+			add_child(huevo)
+			huevoInstance[huevoIndex] = huevo
+			huevoData[huevoIndex].active = 1
+			huevoData[huevoIndex].taps = 5
 		
 		save()
 			
-		
-		
 
 #Funcion cuando un huevo llego a 0 taps para hacer nacer un nuevo michi
 func naceMichi(huevoN : int):
@@ -622,3 +708,61 @@ func updateMichiStatus(michiN : int):
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		save()
+
+
+func poopAndPee(michiN : int):
+	randomize()
+	var probPoopPis = rng.randi_range(1,100)
+	var probAdd = rng.randi_range(1,100)
+	
+	var michiIndex
+	for i in range(0, maxMichiNumber):
+		if michiData[i].active == 1:
+			michiIndex = i
+			break
+			
+	if probPoopPis > 50:	
+		var pisIndex
+		for i in range(0, maxPisNumber):
+			if pisData[i].active == 0:
+				pisIndex = i
+				break
+			else: pisIndex = 101
+		if pisIndex < maxPisNumber:
+			if probAdd > 15:
+				var pis = load("res://Interactives/pis.tscn").instantiate()
+				pis.global_position = michiInstance[michiN].global_position
+				pis.name = "pis"+str(pisIndex)
+				add_child(pis)
+				pisInstance[pisIndex] = pis
+				pisInstance[pisIndex].set_z_index(michiInstance[michiIndex].get_z_index() - 1)
+				pisData[pisIndex].active = 1
+	else:
+		var poopIndex
+		for i in range(0, maxPoopNumber):
+			if poopData[i].active == 0:
+				poopIndex = i
+				break
+			else: poopIndex = 101
+		if poopIndex < maxPoopNumber:
+			if probAdd > 15:
+				var poop = load("res://Interactives/PoopRigidBody2D.tscn").instantiate()
+				poop.global_position = michiInstance[michiN].global_position
+				poop.name = "poop"+str(poopIndex)
+				add_child(poop)
+				poopInstance[poopIndex] = poop
+				poopInstance[poopIndex].set_z_index(michiInstance[michiIndex].get_z_index() - 1)
+				poopData[poopIndex].active = 1
+				
+	
+func recogerPisyPoop(typeLocal : int): #type = 0 pis, type = 1 poop
+	if typeLocal == 0:
+		pisData[pisNumber].active = 0
+		pisInstance[pisNumber].name = "tempnamepis"
+		pisInstance[pisNumber].queue_free()
+	if typeLocal == 1:
+		poopData[poopNumber].active = 0
+		poopInstance[poopNumber].name = "tempnamepoop"
+		poopInstance[poopNumber].queue_free()
+
+	

@@ -3,8 +3,8 @@ extends CharacterBody2D
 #variables para drag and drop
 var selected = false
 var offset 
-var originalPosX = 58
-var originalPosY = 835
+var originalPosX = 238
+var originalPosY = 814
 
 var index = GlobalVariables.indexInventario
 
