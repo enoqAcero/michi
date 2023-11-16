@@ -5,12 +5,12 @@
 [resource]
 script = ExtResource("1_qwaqc")
 active = 1
-category = "categoria1"
-type = "Naranja"
-categoryLevel = 1
+category = "categoria2"
+type = "Siames"
+categoryLevel = 2
 fusionLevel = 1
-globalPos = Vector2(253.134, 364.441)
-name = "michi8"
+globalPos = Vector2(421.125, 733.929)
+name = "Siames8"
 food = 93.4
 fun = 93.4
 clean = 93.4

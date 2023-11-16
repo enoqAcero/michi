@@ -4,15 +4,15 @@
 
 [resource]
 script = ExtResource("1_hqpvu")
-active = 1
+active = 0
 category = "categoria1"
 type = "Naranja"
 categoryLevel = 1
 fusionLevel = 1
 globalPos = Vector2(331.275, 723.562)
 name = "michi7"
-food = 86.42
-fun = 86.42
-clean = 86.42
-comfort = 86.42
-exercise = 86.42
+food = 84.28
+fun = 84.28
+clean = 84.28
+comfort = 84.28
+exercise = 84.28
