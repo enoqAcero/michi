@@ -181,6 +181,7 @@ func _ready():
 	SignalManager.pisNumber.connect(getNumber, 2)
 	SignalManager.poopNumber.connect(getNumber, 3)
 	SignalManager.poopAndPee.connect(poopAndPee)
+	SignalManager.changeMichiScriptToMain.connect(changeMichiScriptToMain)
 	
 	
 
@@ -765,4 +766,18 @@ func recogerPisyPoop(typeLocal : int): #type = 0 pis, type = 1 poop
 		poopInstance[poopNumber].name = "tempnamepoop"
 		poopInstance[poopNumber].queue_free()
 
-	
+func changeMichiScriptToMain(_michiN):
+	pass
+	#var script = load("res://Michis/Scripts/Michi.gd")
+	#michiInstance[michiN].replace_script(script)
+
+
+func _on_area_2d_body_entered(body):
+	for i in range(0, maxMichiNumber):
+		if body.get_name() == ("michi"+str(i)):
+			var michiPath = ("res://Michis/" + "michi" + michiData[i].type + ".tscn")
+			GlobalVariables.michiPath = michiPath
+			get_tree().change_scene_to_file("res://Scenes/michiRun/main.tscn")
+			break
+
+

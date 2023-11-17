@@ -5,14 +5,14 @@
 [resource]
 script = ExtResource("1_jd4ql")
 active = 1
-category = "categoria1"
-type = "Naranja"
-categoryLevel = 1
+category = "categoria2"
+type = "Siames"
+categoryLevel = 2
 fusionLevel = 1
-globalPos = Vector2(337.018, 614.425)
-name = "michi6"
-food = 100
-fun = 100
-clean = 100
-comfort = 100
-exercise = 100
+globalPos = Vector2(279, 453.5)
+name = "Siames6"
+food = 96.7
+fun = 96.7
+clean = 96.7
+comfort = 96.7
+exercise = 96.7

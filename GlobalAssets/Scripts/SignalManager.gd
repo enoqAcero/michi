@@ -16,3 +16,6 @@ signal naceMichi
 signal poopAndPee
 signal pisNumber
 signal poopNumber
+
+signal changeMichiScriptToMain
+signal changeMichiScriptToMichiRun

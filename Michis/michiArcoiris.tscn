@@ -100,7 +100,7 @@ script = ExtResource("1_n0brx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_sirv6")
-animation = &"WalkingUp"
+animation = &"Idle"
 
 [node name="StatusGood" type="Sprite2D" parent="."]
 position = Vector2(-17, -36)
@@ -144,6 +144,7 @@ position = Vector2(1, 5)
 shape = SubResource("CircleShape2D_co7id")
 
 [node name="poopAndPeeTimer" type="Timer" parent="."]
+process_mode = 3
 wait_time = 40.0
 autostart = true
 

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="HuevoData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/HuevoData.gd" id="1_a716d"]
+[ext_resource type="Script" path="res://Save/HuevoData.gd" id="1_dx75n"]
 
 [resource]
-script = ExtResource("1_a716d")
+script = ExtResource("1_dx75n")
 active = 0
 categoria = 1
 id = 0

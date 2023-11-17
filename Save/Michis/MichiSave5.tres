@@ -4,15 +4,15 @@
 
 [resource]
 script = ExtResource("1_615kj")
-active = 1
-category = "categoria2"
-type = "Manchado"
-categoryLevel = 2
+active = 0
+category = "categoria1"
+type = "Blanco"
+categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(216.003, 542.486)
-name = "Manchado5"
-food = 99.16
-fun = 99.16
-clean = 99.16
-comfort = 99.16
-exercise = 99.16
+globalPos = Vector2(416.468, 435.279)
+name = "Blanco5"
+food = 97.92
+fun = 97.92
+clean = 97.92
+comfort = 97.92
+exercise = 97.92

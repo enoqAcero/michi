@@ -4,15 +4,15 @@
 
 [resource]
 script = ExtResource("1_ngat0")
-active = 0
+active = 1
 category = "categoria1"
-type = "Naranja"
+type = "Cafe"
 categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(449.997, 534.01)
-name = "Michi2"
-food = 67.22
-fun = 67.22
-clean = 67.22
-comfort = 67.22
-exercise = 67.22
+globalPos = Vector2(445.5, 283.724)
+name = "Cafe2"
+food = 97.78
+fun = 97.78
+clean = 97.78
+comfort = 97.78
+exercise = 97.78

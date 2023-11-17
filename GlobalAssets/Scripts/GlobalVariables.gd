@@ -11,3 +11,6 @@ var michiNumber = 101
 var huevoNumber = 101
 
 var naceMichi = 0
+
+var michiPath
+

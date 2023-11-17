@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dg2rf8of102bf"]
+[gd_scene load_steps=32 format=3 uid="uid://dg2rf8of102bf"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/Test.gd" id="1_1kxl6"]
 [ext_resource type="Texture2D" uid="uid://bbda6m3rkng0e" path="res://Scenes/Assets/Temp/tileset_forest.png" id="1_8dyok"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dxcixy4yg7bm5" path="res://GUI/Assets/blueBar.png" id="13_4lkc7"]
 [ext_resource type="Texture2D" uid="uid://dv1jux451ktg8" path="res://GUI/Assets/whiteBar.png" id="14_eawgb"]
 [ext_resource type="Texture2D" uid="uid://bv84tixuwyaed" path="res://GUI/Assets/GUIframes.png" id="15_s64sj"]
+[ext_resource type="PackedScene" uid="uid://tiikba73gpd6" path="res://Scenes/michiRun/Collision1.tscn" id="16_v0av2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5x20"]
 texture = ExtResource("1_8dyok")
@@ -1008,4 +1009,8 @@ texture_progress_offset = Vector2(-3, -5)
 position = Vector2(240, 90)
 texture = ExtResource("15_s64sj")
 
+[node name="Area2D" parent="." instance=ExtResource("16_v0av2")]
+position = Vector2(70, 704)
+
 [connection signal="pressed" from="inventario/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -145,6 +145,7 @@ position = Vector2(1, 5)
 shape = SubResource("CircleShape2D_co7id")
 
 [node name="poopAndPeeTimer" type="Timer" parent="."]
+process_mode = 3
 wait_time = 40.0
 autostart = true
 
