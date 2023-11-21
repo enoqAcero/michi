@@ -294,11 +294,12 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 	
 	
 #salvar el juego
-func save(): #type 0 = michi, type 1 = huevo
+func save(michiN : int): #type 0 = michi, type 1 = huevo
 	#salva los michis
 	for i in range(0, maxMichiNumber):
 		if michiData[i].active == 1:
-			michiData[i].globalPos = michiInstance[i].global_position
+			if not michiN == i:
+				michiData[i].globalPos = michiInstance[i].global_position
 		ResourceSaver.save(michiData[i], savePathMichi + saveFileNameMichi + str(i) + ".tres")
 
 	#salva los huevos
@@ -588,6 +589,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 				pass
 			
 			
+		SignalManager.michiDexUpdate.emit(michiData[NumeroMichi1].type)
 		#agrega al michi a la escena
 		pos_x = rng.randi_range(30,450)
 		pos_y = rng.randi_range(260, 734)
@@ -603,6 +605,8 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 		michiInstance[NumeroMichi2].name = "tempNameMichi2"
 		michiInstance[NumeroMichi2].queue_free()
 		michiData[NumeroMichi2].active = 0
+		
+
 			
 		#agregar el huevo
 		if huevoIndex < maxHuevoNumber:
@@ -616,7 +620,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 			huevoData[huevoIndex].active = 1
 			huevoData[huevoIndex].taps = 5
 		
-		save()
+		save(0)
 			
 
 #Funcion cuando un huevo llego a 0 taps para hacer nacer un nuevo michi
@@ -667,7 +671,8 @@ func naceMichi(huevoN : int):
 	huevoData[huevoN].active = 0
 	huevoInstance[huevoN].queue_free()
 	
-	save()
+	SignalManager.michiDexUpdate.emit(michiData[michiIndex].type)
+	save(0)
 	
 	
 	
@@ -708,7 +713,7 @@ func updateMichiStatus(michiN : int):
 	
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST:
-		save()
+		save(0)
 
 
 func poopAndPee(michiN : int):
@@ -777,6 +782,7 @@ func _on_area_2d_body_entered(body):
 		if body.get_name() == ("michi"+str(i)):
 			var michiPath = ("res://Michis/" + "michi" + michiData[i].type + ".tscn")
 			GlobalVariables.michiPath = michiPath
+			save(i)
 			get_tree().change_scene_to_file("res://Scenes/michiRun/main.tscn")
 			break
 

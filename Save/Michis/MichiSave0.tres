@@ -5,14 +5,14 @@
 [resource]
 script = ExtResource("1_ck3t5")
 active = 1
-category = "categoria2"
-type = "Siames"
-categoryLevel = 2
+category = "categoria1"
+type = "Naranja"
+categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(443.252, 237.65)
-name = "Siames0"
-food = 82.0
-fun = 82.0
-clean = 82.0
-comfort = 82.0
-exercise = 82.0
+globalPos = Vector2(31.0017, 365.842)
+name = "michi0"
+food = 69.92
+fun = 69.92
+clean = 69.92
+comfort = 69.92
+exercise = 69.92

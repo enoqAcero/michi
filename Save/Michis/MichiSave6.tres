@@ -1,18 +1,18 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_jd4ql"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_ynuwa"]
 
 [resource]
-script = ExtResource("1_jd4ql")
+script = ExtResource("1_ynuwa")
 active = 1
-category = "categoria2"
-type = "Siames"
-categoryLevel = 2
+category = "categoria1"
+type = "Negro"
+categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(279, 453.5)
-name = "Siames6"
-food = 96.7
-fun = 96.7
-clean = 96.7
-comfort = 96.7
-exercise = 96.7
+globalPos = Vector2(294.909, 454.693)
+name = "Negro6"
+food = 94.92
+fun = 94.92
+clean = 94.92
+comfort = 94.92
+exercise = 94.92

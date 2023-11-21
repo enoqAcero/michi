@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_pcqla")
-active = 1
+active = 0
 categoria = 1
 id = 0
 globalPos = Vector2(98, 353)
-taps = 5
+taps = 0

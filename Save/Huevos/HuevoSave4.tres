@@ -7,5 +7,5 @@ script = ExtResource("1_pk4vs")
 active = 1
 categoria = 1
 id = 0
-globalPos = Vector2(385, 466)
+globalPos = Vector2(282, 378)
 taps = 5

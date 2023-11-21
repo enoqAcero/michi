@@ -4,15 +4,15 @@
 
 [resource]
 script = ExtResource("1_qxukt")
-active = 0
+active = 1
 category = "categoria1"
 type = "Naranja"
 categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(379.522, 655.087)
+globalPos = Vector2(279.925, 646.924)
 name = "michi4"
-food = 100
-fun = 100
-clean = 100
-comfort = 100
-exercise = 100
+food = 95.34
+fun = 95.34
+clean = 95.34
+comfort = 95.34
+exercise = 95.34

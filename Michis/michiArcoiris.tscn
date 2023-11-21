@@ -1,24 +1,25 @@
-[gd_scene load_steps=17 format=3 uid="uid://8kviomsa0a64"]
+[gd_scene load_steps=18 format=3 uid="uid://8kviomsa0a64"]
 
 [ext_resource type="Script" path="res://Michis/Scripts/Michi.gd" id="1_n0brx"]
+[ext_resource type="Texture2D" uid="uid://qhhvdvgce6el" path="res://Michis/Assets/Categoría 4/Arcoiris/arcoirisFrente.png" id="2_iur8b"]
 [ext_resource type="Texture2D" uid="uid://dc6rres1ej3j2" path="res://Michis/Assets/Categoría 4/Arcoiris/rainbowEspalda.png" id="2_qyagc"]
 [ext_resource type="Texture2D" uid="uid://ukwp3rm58v2s" path="res://Michis/Assets/Categoría 4/Arcoiris/rainbowLateral.png" id="3_l56ei"]
 [ext_resource type="Texture2D" uid="uid://cgkrqkv8qr6we" path="res://Michis/Status/Assets/statusWhite.png" id="5_0cr34"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r0dwb"]
-atlas = ExtResource("2_qyagc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh674"]
+atlas = ExtResource("2_iur8b")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hb4q3"]
-atlas = ExtResource("2_qyagc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd2c3"]
+atlas = ExtResource("2_iur8b")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8utu"]
-atlas = ExtResource("2_qyagc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_onuep"]
+atlas = ExtResource("2_iur8b")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fbgl2"]
-atlas = ExtResource("2_qyagc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vgnj"]
+atlas = ExtResource("2_iur8b")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2pu4m"]
@@ -41,10 +42,10 @@ region = Rect2(32, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r0dwb")
+"texture": SubResource("AtlasTexture_xh674")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hb4q3")
+"texture": SubResource("AtlasTexture_kd2c3")
 }],
 "loop": true,
 "name": &"Idle",
@@ -52,10 +53,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e8utu")
+"texture": SubResource("AtlasTexture_onuep")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fbgl2")
+"texture": SubResource("AtlasTexture_0vgnj")
 }],
 "loop": true,
 "name": &"WalkingDown",
@@ -100,7 +101,7 @@ script = ExtResource("1_n0brx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_sirv6")
-animation = &"Idle"
+animation = &"WalkingDown"
 
 [node name="StatusGood" type="Sprite2D" parent="."]
 position = Vector2(-17, -36)

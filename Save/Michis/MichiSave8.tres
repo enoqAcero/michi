@@ -1,18 +1,18 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_qwaqc"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_0g7ih"]
 
 [resource]
-script = ExtResource("1_qwaqc")
+script = ExtResource("1_0g7ih")
 active = 0
-category = "categoria1"
-type = "Naranja"
+category = ""
+type = ""
 categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(289, 303)
-name = "Naranja8"
-food = 98.78
-fun = 98.78
-clean = 98.78
-comfort = 98.78
-exercise = 98.78
+globalPos = Vector2(250, 450)
+name = ""
+food = 100
+fun = 100
+clean = 100
+comfort = 100
+exercise = 100

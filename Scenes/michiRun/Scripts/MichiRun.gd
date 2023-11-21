@@ -23,8 +23,8 @@ var floorStartPos = Vector2(0 ,0)
 var cameraStartPos = Vector2(240, 427)
 
 var speed : float
-const startSpeed : float = 1.5
-const maxSpeed : int = 6
+const startSpeed : float = 2.5
+const maxSpeed : int = 10
 
 var screenSize : Vector2
 var score : float

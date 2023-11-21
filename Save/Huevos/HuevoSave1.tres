@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_66xaj")
-active = 1
+active = 0
 categoria = 1
 id = 0
-globalPos = Vector2(419, 681)
-taps = 5
+globalPos = Vector2(449, 474)
+taps = 0

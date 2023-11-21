@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dg2rf8of102bf"]
+[gd_scene load_steps=33 format=3 uid="uid://dg2rf8of102bf"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/Test.gd" id="1_1kxl6"]
 [ext_resource type="Texture2D" uid="uid://bbda6m3rkng0e" path="res://Scenes/Assets/Temp/tileset_forest.png" id="1_8dyok"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dv1jux451ktg8" path="res://GUI/Assets/whiteBar.png" id="14_eawgb"]
 [ext_resource type="Texture2D" uid="uid://bv84tixuwyaed" path="res://GUI/Assets/GUIframes.png" id="15_s64sj"]
 [ext_resource type="PackedScene" uid="uid://tiikba73gpd6" path="res://Scenes/michiRun/Collision1.tscn" id="16_v0av2"]
+[ext_resource type="PackedScene" uid="uid://coqmvxca8wlnr" path="res://MichiPedia.tscn" id="17_hq2u8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5x20"]
 texture = ExtResource("1_8dyok")
@@ -915,6 +916,12 @@ texture_pressed = ExtResource("4_x1ng5")
 texture_hover = ExtResource("4_x1ng5")
 texture_focused = ExtResource("4_x1ng5")
 
+[node name="Button" type="Button" parent="inventario"]
+offset_left = 17.0
+offset_top = 785.0
+offset_right = 147.0
+offset_bottom = 828.0
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 light_mask = 0
@@ -1010,7 +1017,14 @@ position = Vector2(240, 90)
 texture = ExtResource("15_s64sj")
 
 [node name="Area2D" parent="." instance=ExtResource("16_v0av2")]
-position = Vector2(70, 704)
+position = Vector2(-6, 761)
+
+[node name="MichiDex" parent="." instance=ExtResource("17_hq2u8")]
+process_mode = 2
+visible = false
+z_index = 3
+position = Vector2(4, 68)
 
 [connection signal="pressed" from="inventario/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="inventario/Button" to="MichiDex" method="_on_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

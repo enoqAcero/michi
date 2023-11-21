@@ -19,3 +19,5 @@ signal poopNumber
 
 signal changeMichiScriptToMain
 signal changeMichiScriptToMichiRun
+
+signal michiDexUpdate
