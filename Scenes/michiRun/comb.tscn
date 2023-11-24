@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://3p5t087k0a7i"]
+
+[ext_resource type="Texture2D" uid="uid://b4ena7sjxyl4p" path="res://Items/Assets/Comb.png" id="1_ww2gb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46erb"]
+size = Vector2(27, 57)
+
+[node name="comb" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ww2gb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, 0.5)
+shape = SubResource("RectangleShape2D_46erb")

@@ -9,12 +9,40 @@ var highScoreData = HighScore
 var rng = RandomNumberGenerator.new()
 
 var controlObstacles = 0
-var obstacle1 = preload("res://Scenes/michiRun/Collision1.tscn")
-var obstacle2 = preload("res://Scenes/michiRun/Collision2.tscn")
-var obstacleTypes := [obstacle1, obstacle2]
+var wetSign = preload("res://Scenes/michiRun/wetSign.tscn")
+var cactus = preload("res://Scenes/michiRun/cactus.tscn")
+var poo = preload("res://Scenes/michiRun/poo.tscn")
+
+var bee = preload("res://Scenes/michiRun/bee.tscn")
+var baseball = preload("res://Scenes/michiRun/baseball.tscn")
+var globo = preload("res://Scenes/michiRun/globo.tscn")
+
+var items = []
+var monedas
+var itemCount = [0, 0, 0, 0, 0, 0, 0, 0]
+
+var coin = preload("res://Scenes/michiRun/coin.tscn")
+var ball = preload("res://Scenes/michiRun/ball.tscn")
+var brush = preload("res://Scenes/michiRun/brush.tscn")
+var comb = preload("res://Scenes/michiRun/comb.tscn")
+var fish = preload("res://Scenes/michiRun/fish.tscn")
+var kibble = preload("res://Scenes/michiRun/kibble.tscn")
+var laser = preload("res://Scenes/michiRun/laser.tscn")
+var tuna = preload("res://Scenes/michiRun/tuna.tscn")
+
+
+
+
+
+
+var groundObstacles := [wetSign,cactus,poo]
+var flyObstacles := [bee,baseball,globo]
+var itemObstacles := [kibble, fish, tuna, ball, laser, comb, brush]
+
 var obstaclesInstance : Array
+var itemsInstance : Array
 var flyObstacleHeight := [239, 700]
-var lastObstacle
+
 
 var gameRunning = false
 var michiSprite
@@ -23,17 +51,19 @@ var floorStartPos = Vector2(0 ,0)
 var cameraStartPos = Vector2(240, 427)
 
 var speed : float
-const startSpeed : float = 2.5
-const maxSpeed : int = 10
+const startSpeed : float = 1.5
+const maxSpeed : int = 7
 
 var screenSize : Vector2
 var score : float
+
 
 
 func _ready():
 	addMichi()
 	
 	loadData()
+	loadItems()
 	
 	$Camera2D/Score.text = "0"
 	screenSize = get_window().size
@@ -41,12 +71,18 @@ func _ready():
 	$Camera2D/Control.get_node("VBoxContainer/Cancel").pressed.connect(exit)
 	
 func newGame():
+	
 	$Camera2D/Control.visible = false
 	get_tree().paused = false
 	gameRunning = false
 	
 	speed = startSpeed
 	score = 0
+	controlObstacles = 0
+	
+	
+	for i in range (0, itemCount.size() - 1):
+		itemCount[i] = 0
 	
 	#reset the nodes
 	$Camera2D/HighScore.text = str(highScoreData.highScore)
@@ -60,26 +96,34 @@ func newGame():
 	for obs in obstaclesInstance:
 		obs.queue_free()
 		obstaclesInstance.clear()
+	for itm in itemsInstance:
+		itm.queue_free()
+		itemsInstance.clear()
 		
 func _process(_delta):
 	if gameRunning == true:
 		michiSprite.play("WalkingSide")
 		#update move speed
-		speed = startSpeed + (score / 700)
+		speed = startSpeed + (score / 800)
 		if speed > maxSpeed:
 			speed = maxSpeed
-		#generate obstacles
-		generateObstacles()
+		#generate obstacles and items
+		if controlObstacles==1:
+			generateObstacles()
 		#move michi and camara
 		michiInstance.position.x += speed
 		$Camera2D.position.x += speed
+		#$Floor.position.x += speed/2
 		#update ground pos
 		if $Camera2D.position.x - $Floor.position.x > screenSize.x * 1.5:
 			$Floor.position.x += screenSize.x
 		#remove obstacles from scene to clean up memory
 		for obs in obstaclesInstance:
 			if obs.position.x < ($Camera2D.position.x - screenSize.x):
-				removeObstacle(obs)
+				removeObstacle(obs, 0)
+		for itm in itemsInstance:
+			if itm.position.x < ($Camera2D.position.x - screenSize.x):
+				removeObstacle(itm, 1)
 		#update score
 		score += speed / 10
 		$Camera2D/Score.text = str(int(score))
@@ -89,58 +133,134 @@ func _process(_delta):
 			gameRunning = true
 			
 func generateObstacles():
-	var control = 0
 	if controlObstacles == 1:
 		randomize()
-		var prob = rng.randi_range(1, 100)
-		if prob <= 50:
-			var obs_type = obstacleTypes[randi() % obstacleTypes.size()]
+		var prob = rng.randi_range(0, 100)
+		if prob < 30:
+			var obs_type = groundObstacles[randi() % groundObstacles.size()]
 			var obs = obs_type.instantiate()
 			var obs_x = screenSize.x + $Camera2D.position.x + 50
 			var obs_y = 805
 			obs.global_position = Vector2(obs_x,obs_y)
-			control = 1
-			addObstacle(obs)
-		elif prob > 50 and control == 0:
-			var obs = obstacle1.instantiate()
+			addObstacle(obs, 0)
+		elif prob >= 30 and prob <60:
+			var obs_type = flyObstacles[randi() % groundObstacles.size()]
+			var obs = obs_type.instantiate()
 			var obs_x = screenSize.x + $Camera2D.position.x + 50
 			var obs_y = rng.randi_range(flyObstacleHeight[0], flyObstacleHeight[1])
 			obs.global_position = Vector2(obs_x,obs_y)
-			addObstacle(obs)
+			addObstacle(obs, 0)
+		elif prob >= 60 and prob <90:
+			var prob2 = rng.randi_range(0, 100)
+			var coinInstance = coin.instantiate()
+			var coin_x = screenSize.x + $Camera2D.position.x + 50
+			var coin_y = 805
+			if prob2 > 50:
+				coin_y = 805
+			else:
+				coin_y = rng.randi_range(flyObstacleHeight[0], flyObstacleHeight[1])
+			coinInstance.global_position = Vector2(coin_x, coin_y)
+			coinInstance.add_to_group("item")
+			addObstacle(coinInstance, 1)
+		elif prob >=90:
+			
+			var prob2 = rng.randi_range(0, 100)
+			var item_type = itemObstacles[randi() % itemObstacles.size()]
+			var item = item_type.instantiate()
+			var item_x = screenSize.x + $Camera2D.position.x + 50
+			var item_y = 805
+			if prob2 > 50:
+				item_y = 805
+			else:
+				item_y = rng.randi_range(flyObstacleHeight[0], flyObstacleHeight[1])
+			item.global_position = Vector2(item_x,item_y)
+			item.add_to_group("item")
+			addObstacle(item, 1)
 		controlObstacles = 0
 		
-func addObstacle(obs):
-	obs.body_entered.connect(hitObstacle)
-	lastObstacle = obs
-	add_child(obs)
-	obstaclesInstance.append(obs)
 
-func removeObstacle(obs):
-	obs.queue_free()
-	obstaclesInstance.erase(obs)
+func addObstacle(obs, control : int):
+	if control == 0:
+		obs.body_entered.connect(hitObstacle)
+		add_child(obs)
+		obstaclesInstance.append(obs)
+	else:
+		obs.body_entered.connect(Callable(collect).bind(obs))
+		add_child(obs)
+		itemsInstance.append(obs)
+
+
+func removeObstacle(obs, control : int):
+	if control == 0:
+		obs.queue_free()
+		obstaclesInstance.erase(obs)
+	else:
+		obs.queue_free()
+		itemsInstance.erase(obs)
 	
-func hitObstacle(body):
+func hitObstacle(body): 
 	if body.name == "michi":
 		gameOver()
-
+		
+func collect(body, obs):
+	print("coin")
+	if body.name == "michi":
+		if obs.is_in_group("item"):
+			for itm in itemsInstance:
+				if itm == obs:
+					handleItemCollection(itm)
+					break
+		
+func handleItemCollection(item):
+	var valorCoin = 1
+	var valorItem = 1
+	if item.name == "coin":
+		print("moneda")
+		removeObstacle(item, 1)
+		itemCount[0] += valorCoin
+	elif item.name == "kibble":
+		itemCount[1] += valorItem
+		removeObstacle(item, 1)
+	elif item.name == "fish":
+		itemCount[2] += valorItem
+		removeObstacle(item, 1)
+	elif item.name == "tuna":
+		itemCount[3] += valorItem
+		removeObstacle(item, 1)
+	elif item.name == "ball":
+		itemCount[4] += valorItem
+		removeObstacle(item, 1)
+	elif item.name == "laser":
+		itemCount[5] += valorItem
+		removeObstacle(item, 1)
+	elif item.name == "comb":
+		itemCount[6] += valorItem
+		removeObstacle(item, 1)
+	elif item.name == "brush":
+		itemCount[7] += valorItem
+		removeObstacle(item, 1)
+		
+		
 func gameOver():
 	if highScoreData.highScore < score:
 		highScoreData.highScore = score
 		save()
-		
-	$Camera2D/Control.visible = true
-	get_tree().paused = true
-	gameRunning = false
+	var wait = 0
+	wait = itemsCoinSave()
+	if wait == 1: 
+		$Camera2D/Control.visible = true
+		get_tree().paused = true
+		gameRunning = false
+	
 
 
 
 func _on_obstacle_timer_timeout():
 	if gameRunning == true:
 		randomize()
-		var minTime = 1
-		var maxTime = 2
+		var minTime = 1.5
+		var maxTime = 3.5
 		controlObstacles = 1 
-		generateObstacles()
 		$ObstacleTimer.set_wait_time(rng.randf_range(minTime, maxTime))
 
 
@@ -182,3 +302,33 @@ func addMichi():
 	michiSprite.flip_h = true
 
 	
+
+
+func loadItems():
+	monedas = ResourceLoader.load ("res://Save/moneditas.tres")
+	for i in range (0,7):
+		if i == 0: items.append(ResourceLoader.load ("res://Save/kibble_item.tres"))
+		if i == 1: items.append(ResourceLoader.load ("res://Save/fish_item.tres"))
+		if i == 2: items.append(ResourceLoader.load ("res://Save/tunacan_item.tres"))
+		if i == 3: items.append(ResourceLoader.load ("res://Save/ball_item.tres"))
+		if i == 4: items.append(ResourceLoader.load ("res://Save/laser_item.tres"))
+		if i == 5: items.append(ResourceLoader.load ("res://Save/comb_item.tres"))
+		if i == 6: items.append(ResourceLoader.load ("res://Save/brush_item.tres"))
+		
+		
+func itemsCoinSave():
+	
+	monedas.coin += itemCount[0]
+	for i in range(0, itemCount.size() - 1):
+		items[i].count += itemCount[i+1]
+		
+	ResourceSaver.save(monedas, "res://Save/moneditas.tres")
+	ResourceSaver.save(items[0], "res://Save/kibble_item.tres")
+	ResourceSaver.save(items[1], "res://Save/fish_item.tres") 
+	ResourceSaver.save(items[2], "res://Save/tunacan_item.tres") 
+	ResourceSaver.save(items[3], "res://Save/ball_item.tres") 
+	ResourceSaver.save(items[4], "res://Save/laser_item.tres") 
+	ResourceSaver.save(items[5], "res://Save/comb_item.tres") 
+	ResourceSaver.save(items[6], "res://Save/brush_item.tres") 
+	
+	return 1

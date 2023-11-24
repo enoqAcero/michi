@@ -233,5 +233,6 @@ func _on_area_2d_2_body_entered(body):
 					break
 
 func _on_poop_and_pee_timer_timeout():
+	print("do poop")
 	SignalManager.poopAndPee.emit(numeroMichi.to_int())
 	timerControl = 0

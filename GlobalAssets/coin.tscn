@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://b56dttqmsha5r"]
+
+[ext_resource type="Texture2D" uid="uid://8notals0chkb" path="res://GlobalAssets/Assets/michicoin2.png" id="1_g5tw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qwtk"]
+atlas = ExtResource("1_g5tw4")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w21uj"]
+atlas = ExtResource("1_g5tw4")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exdet"]
+atlas = ExtResource("1_g5tw4")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssgc6"]
+atlas = ExtResource("1_g5tw4")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jbw7"]
+atlas = ExtResource("1_g5tw4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkdhh"]
+atlas = ExtResource("1_g5tw4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwtwu"]
+atlas = ExtResource("1_g5tw4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vmbo"]
+atlas = ExtResource("1_g5tw4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_02d40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qwtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w21uj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exdet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssgc6")
+}],
+"loop": false,
+"name": &"hide",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jbw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkdhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwtwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vmbo")
+}],
+"loop": false,
+"name": &"show",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_peox4"]
+radius = 15.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_02d40")
+animation = &"show"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_peox4")

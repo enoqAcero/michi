@@ -5,14 +5,14 @@
 [resource]
 script = ExtResource("1_qxukt")
 active = 1
-category = "categoria1"
-type = "Naranja"
-categoryLevel = 1
+category = "categoria3"
+type = "Lentes"
+categoryLevel = 3
 fusionLevel = 1
-globalPos = Vector2(279.925, 646.924)
-name = "michi4"
-food = 95.34
-fun = 95.34
-clean = 95.34
-comfort = 95.34
-exercise = 95.34
+globalPos = Vector2(196, 523.934)
+name = "Lentes4"
+food = -18.96
+fun = -18.96
+clean = -18.96
+comfort = -18.96
+exercise = -18.96

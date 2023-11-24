@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dxcixy4yg7bm5" path="res://GUI/Assets/blueBar.png" id="13_4lkc7"]
 [ext_resource type="Texture2D" uid="uid://dv1jux451ktg8" path="res://GUI/Assets/whiteBar.png" id="14_eawgb"]
 [ext_resource type="Texture2D" uid="uid://bv84tixuwyaed" path="res://GUI/Assets/GUIframes.png" id="15_s64sj"]
-[ext_resource type="PackedScene" uid="uid://tiikba73gpd6" path="res://Scenes/michiRun/Collision1.tscn" id="16_v0av2"]
+[ext_resource type="PackedScene" uid="uid://tiikba73gpd6" path="res://Scenes/michiRun/wetSign.tscn" id="16_v0av2"]
 [ext_resource type="PackedScene" uid="uid://coqmvxca8wlnr" path="res://MichiPedia.tscn" id="17_hq2u8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5x20"]

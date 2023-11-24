@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dojpx24r227o0"]
 
 [ext_resource type="Script" path="res://Scenes/michiRun/Scripts/MichiRun.gd" id="1_lh3ho"]
-[ext_resource type="Texture2D" uid="uid://blv5qr387wde2" path="res://GUI/Assets/bg-store.png" id="1_ueypi"]
+[ext_resource type="Texture2D" uid="uid://cq481kl05sqgd" path="res://Scenes/michiRun/Assets/BackgroundRunner3.png" id="2_0gxel"]
 [ext_resource type="PackedScene" uid="uid://c5m6bw6qmw8hf" path="res://Scenes/michiRun/floor.tscn" id="3_oy1kh"]
 [ext_resource type="PackedScene" uid="uid://bik6ywrptyw0d" path="res://GUI/PlayAgainChromeGame.tscn" id="5_b2m4n"]
 
@@ -9,7 +9,7 @@
 font_size = 32
 font_color = Color(0.0156863, 1, 0, 1)
 
-[node name="michiRun" type="Node2D"]
+[node name="michiRun" type="Node2D" groups=["item"]]
 script = ExtResource("1_lh3ho")
 metadata/_edit_horizontal_guides_ = [427.0]
 metadata/_edit_vertical_guides_ = [241.0]
@@ -17,12 +17,11 @@ metadata/_edit_vertical_guides_ = [241.0]
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(450, 0)
+motion_mirroring = Vector2(3000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(270.75, 443)
-scale = Vector2(12.9844, 28.625)
-texture = ExtResource("1_ueypi")
+[node name="BackgroundRunner3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1500, 474)
+texture = ExtResource("2_0gxel")
 
 [node name="Floor" parent="." instance=ExtResource("3_oy1kh")]
 

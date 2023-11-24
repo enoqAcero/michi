@@ -49,7 +49,11 @@ var sceneConfirmControl = 0
 var confirmPlayInstance
 var controlConfirmPlayInstance = 1
 
+var coinInstance : Array
+var timerCoinInstance : Array
+
 var tiempo = 0.0
+
 
 
 func _ready():
@@ -144,9 +148,9 @@ func _ready():
 		elif michiData[i].fusionLevel == 2:
 			pass
 		
-				
 		michi.global_position = michiData[i].globalPos
 		michi.name = ("michi"+str(i))
+		michi.z_index = 2
 		if michiData[i].active == 1:
 			add_child(michi)
 			print("se agrego michi:", i, " a la escena")
@@ -158,6 +162,7 @@ func _ready():
 		var huevo = load("res://Eggs/Egg.tscn").instantiate()
 		huevo.global_position = huevoData[i].globalPos
 		huevo.name = ("huevo"+str(i))
+		huevo.z_index = 2
 		if huevoData[i].active == 1:
 			add_child(huevo)
 			print("se agrego huevo:", i, " a la escena")	
@@ -181,7 +186,7 @@ func _ready():
 	SignalManager.pisNumber.connect(getNumber, 2)
 	SignalManager.poopNumber.connect(getNumber, 3)
 	SignalManager.poopAndPee.connect(poopAndPee)
-	SignalManager.changeMichiScriptToMain.connect(changeMichiScriptToMain)
+
 	
 	
 
@@ -620,7 +625,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 			huevoData[huevoIndex].active = 1
 			huevoData[huevoIndex].taps = 5
 		
-		save(0)
+	save(0)
 			
 
 #Funcion cuando un huevo llego a 0 taps para hacer nacer un nuevo michi
@@ -762,19 +767,22 @@ func poopAndPee(michiN : int):
 				
 	
 func recogerPisyPoop(typeLocal : int): #type = 0 pis, type = 1 poop
+	var pos = Vector2(0,0)
+	var valor
 	if typeLocal == 0:
+		pos = pisInstance[pisNumber].global_position
 		pisData[pisNumber].active = 0
 		pisInstance[pisNumber].name = "tempnamepis"
 		pisInstance[pisNumber].queue_free()
 	if typeLocal == 1:
+		pos = poopInstance[poopNumber].global_position
 		poopData[poopNumber].active = 0
 		poopInstance[poopNumber].name = "tempnamepoop"
 		poopInstance[poopNumber].queue_free()
-
-func changeMichiScriptToMain(_michiN):
-	pass
-	#var script = load("res://Michis/Scripts/Michi.gd")
-	#michiInstance[michiN].replace_script(script)
+	
+	valor = 1
+	SignalManager.addCoins.emit(valor)
+	crearMoneda(pos)
 
 
 func _on_area_2d_body_entered(body):
@@ -786,4 +794,43 @@ func _on_area_2d_body_entered(body):
 			get_tree().change_scene_to_file("res://Scenes/michiRun/main.tscn")
 			break
 
-
+func crearMoneda(pos : Vector2):
+	var timerCoin := Timer.new()
+	var timerIndex = 0
+	var coinIndex = 0
+	
+	add_child(timerCoin)
+	timerCoinInstance.append(timerCoin)
+	timerIndex = timerCoinInstance.size() - 1
+	timerCoin.wait_time = 1.0
+	timerCoin.one_shot = true
+	
+	var moneda = load("res://GlobalAssets/coin.tscn").instantiate()
+	moneda.global_position = pos
+	moneda.name = "moneda"
+	add_child(moneda)
+	var animacion = moneda.get_node("AnimatedSprite2D")
+	animacion.play("show")
+	coinInstance.append(moneda)
+	coinIndex = coinInstance.size() - 1
+	
+	print(coinIndex)
+	print(timerIndex)
+	
+	if coinIndex == null:
+		coinIndex = 0
+	if timerIndex == null:
+		timerIndex = 0
+	
+	timerCoin.start()
+	timerCoin.timeout.connect(func():deleteCoin(coinIndex, timerIndex))
+	
+func deleteCoin(coinIndex : int, timerIndex : int):
+	var animacion = coinInstance[coinIndex].get_node("AnimatedSprite2D")
+	animacion.play("hide")
+	animacion.animation_finished.connect(func():freeCoin(coinIndex))
+	timerCoinInstance[timerIndex].queue_free()
+func freeCoin(index : int):
+	coinInstance[index].queue_free()	
+	
+	

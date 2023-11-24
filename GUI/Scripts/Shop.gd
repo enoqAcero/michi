@@ -41,6 +41,7 @@ func _ready():
 	set_visible(false)
 	
 	SignalManager.itemsCoinSave.connect(itemsCoinSave)
+	SignalManager.addCoins.connect(addCoins)
 	
 	# Antes de usar inventory_resource.items, necesitas instanciar inventory_resource.
 	inventory_resource = Inventory.new()
@@ -259,6 +260,9 @@ func _on_furnitures_pressed():
 func itemsCoinSave():
 	ResourceSaver.save(moneditas, "res://Save/moneditas.tres")
 
-
+func addCoins(coin : int):
+	moneditas.coin += coin
+	coins_label.text = str(moneditas.coin)
+	itemsCoinSave()
 
 

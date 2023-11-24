@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiDex" load_steps=24 format=3 uid="uid://dyceg8iwjuwc6"]
+[gd_resource type="Resource" script_class="MichiDex" load_steps=24 format=3]
 
 [ext_resource type="Script" path="res://Save/MichiDex/MichiDex.gd" id="1_2637k"]
 [ext_resource type="Script" path="res://Save/MichiDex/MichisCollected.gd" id="1_il7a5"]
@@ -16,7 +16,7 @@ active = true
 [sub_resource type="Resource" id="Resource_palaw"]
 script = ExtResource("1_il7a5")
 type = "Gris"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_vn22e"]
 script = ExtResource("1_il7a5")
@@ -31,7 +31,7 @@ active = true
 [sub_resource type="Resource" id="Resource_3clkr"]
 script = ExtResource("1_il7a5")
 type = "Calico"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_cfuye"]
 script = ExtResource("1_il7a5")
@@ -46,7 +46,7 @@ active = true
 [sub_resource type="Resource" id="Resource_2lj3a"]
 script = ExtResource("1_il7a5")
 type = "Persa"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_2icgx"]
 script = ExtResource("1_il7a5")
@@ -61,7 +61,7 @@ active = true
 [sub_resource type="Resource" id="Resource_vvyp2"]
 script = ExtResource("1_il7a5")
 type = "Bufanda"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_lvcu3"]
 script = ExtResource("1_il7a5")
@@ -76,7 +76,7 @@ active = false
 [sub_resource type="Resource" id="Resource_1qu1r"]
 script = ExtResource("1_il7a5")
 type = "Lentes"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_ugwn6"]
 script = ExtResource("1_il7a5")
@@ -91,7 +91,7 @@ active = false
 [sub_resource type="Resource" id="Resource_o4i2b"]
 script = ExtResource("1_il7a5")
 type = "Cristal"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_voha4"]
 script = ExtResource("1_il7a5")

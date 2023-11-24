@@ -1,0 +1,146 @@
+[gd_scene load_steps=17 format=3 uid="uid://27l63ashmf12"]
+
+[ext_resource type="PackedScene" uid="uid://clbjx81rr0ism" path="res://Scenes/michiJump/floor.tscn" id="1_aauf1"]
+[ext_resource type="Script" path="res://Scenes/michiJump/scripts/jump.gd" id="1_wxfx5"]
+[ext_resource type="PackedScene" uid="uid://8kviomsa0a64" path="res://Michis/michiArcoiris.tscn" id="2_nrlui"]
+[ext_resource type="Texture2D" uid="uid://bcw3danlihlqr" path="res://Scenes/michiJump/Assets/backJumper2.png" id="3_ad5jb"]
+[ext_resource type="Texture2D" uid="uid://cs6gjvrq16v7k" path="res://Scenes/michiJump/Assets/backJumper7.png" id="3_kbxmi"]
+[ext_resource type="Texture2D" uid="uid://cnfhn4v6nvwsc" path="res://Scenes/michiJump/Assets/backJumperBase.png" id="4_0jjm0"]
+[ext_resource type="Texture2D" uid="uid://baxs33e2jmhe0" path="res://Scenes/michiJump/Assets/backJumper1.png" id="5_pyydf"]
+[ext_resource type="Texture2D" uid="uid://dm5yb3qunrqvo" path="res://Scenes/michiJump/Assets/backJumper3.png" id="7_bhrwc"]
+[ext_resource type="Texture2D" uid="uid://djulhd3evggfp" path="res://Scenes/michiJump/Assets/backJumper4.png" id="9_2wyix"]
+[ext_resource type="Texture2D" uid="uid://cq0qtgdk6as2c" path="res://Scenes/michiJump/Assets/backJumper5.png" id="10_i53j0"]
+[ext_resource type="Texture2D" uid="uid://gevff4sjth55" path="res://Scenes/michiJump/Assets/backJumper6.png" id="11_5i6iu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4n0m"]
+size = Vector2(188, 1571)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebwcu"]
+size = Vector2(204, 1566)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jhjo"]
+size = Vector2(845, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i16fi"]
+size = Vector2(1060, 246.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dktlo"]
+
+[node name="Jump" type="Node2D"]
+script = ExtResource("1_wxfx5")
+metadata/_edit_horizontal_guides_ = [854.0]
+metadata/_edit_vertical_guides_ = [249.0]
+
+[node name="Floor" parent="." instance=ExtResource("1_aauf1")]
+position = Vector2(62, 846)
+scale = Vector2(3, 3)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-1, 8.74228e-08)
+motion_offset = Vector2(0, 1)
+motion_mirroring = Vector2(0, 854)
+
+[node name="BackJumper7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(240, 433)
+scale = Vector2(1, 1.152)
+texture = ExtResource("3_kbxmi")
+
+[node name="BackJumperBase" type="Sprite2D" parent="."]
+position = Vector2(240, 478)
+texture = ExtResource("4_0jjm0")
+
+[node name="BackJumper1" type="Sprite2D" parent="."]
+position = Vector2(240, -272)
+texture = ExtResource("5_pyydf")
+
+[node name="BackJumper3" type="Sprite2D" parent="."]
+position = Vector2(240, -1772)
+texture = ExtResource("7_bhrwc")
+
+[node name="BackJumper2" type="Sprite2D" parent="."]
+position = Vector2(240, -1022)
+texture = ExtResource("3_ad5jb")
+
+[node name="BackJumper4" type="Sprite2D" parent="."]
+position = Vector2(240, -2522)
+texture = ExtResource("9_2wyix")
+
+[node name="BackJumper5" type="Sprite2D" parent="."]
+position = Vector2(240, -3272)
+texture = ExtResource("10_i53j0")
+
+[node name="BackJumper6" type="Sprite2D" parent="."]
+position = Vector2(240, -4022)
+texture = ExtResource("11_5i6iu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, 427)
+limit_left = 0
+limit_right = 480
+limit_bottom = 854
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(-240, -427)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
+position = Vector2(-94, 362.5)
+shape = SubResource("RectangleShape2D_m4n0m")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
+position = Vector2(583, 359)
+shape = SubResource("RectangleShape2D_ebwcu")
+
+[node name="arriba" type="Area2D" parent="Camera2D"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/arriba"]
+position = Vector2(9, -457)
+shape = SubResource("RectangleShape2D_4jhjo")
+
+[node name="abajo" type="Area2D" parent="Camera2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/abajo"]
+position = Vector2(9, 448.25)
+shape = SubResource("RectangleShape2D_i16fi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="score" type="Label" parent="CanvasLayer"]
+offset_left = 14.0
+offset_top = 7.00003
+offset_right = 89.0
+offset_bottom = 52.0
+
+[node name="highScore" type="Label" parent="CanvasLayer"]
+offset_left = 375.0
+offset_top = 12.0
+offset_right = 464.0
+offset_bottom = 59.0
+
+[node name="floorDistance" type="Label" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 758.0
+offset_right = 109.0
+offset_bottom = 811.0
+label_settings = SubResource("LabelSettings_dktlo")
+
+[node name="multiplier" type="Label" parent="CanvasLayer"]
+offset_left = 362.0
+offset_top = 759.0
+offset_right = 479.0
+offset_bottom = 814.0
+
+[node name="Michi1" parent="." instance=ExtResource("2_nrlui")]
+position = Vector2(262, 553)
+scale = Vector2(1.5, 1.5)
+
+[node name="ObstacleTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="body_entered" from="Camera2D/arriba" to="." method="_on_arriba_body_entered"]
+[connection signal="body_exited" from="Camera2D/arriba" to="." method="_on_arriba_body_exited"]
+[connection signal="body_entered" from="Camera2D/abajo" to="." method="_on_abajo_body_entered"]
+[connection signal="body_exited" from="Camera2D/abajo" to="." method="_on_abajo_body_exited"]
+[connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]

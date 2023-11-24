@@ -21,3 +21,5 @@ signal changeMichiScriptToMain
 signal changeMichiScriptToMichiRun
 
 signal michiDexUpdate
+
+signal addCoins

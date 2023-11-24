@@ -5,14 +5,14 @@
 [resource]
 script = ExtResource("1_ynuwa")
 active = 1
-category = "categoria1"
-type = "Negro"
-categoryLevel = 1
+category = "categoria2"
+type = "Calico"
+categoryLevel = 2
 fusionLevel = 1
-globalPos = Vector2(294.909, 454.693)
-name = "Negro6"
-food = 94.92
-fun = 94.92
-clean = 94.92
-comfort = 94.92
-exercise = 94.92
+globalPos = Vector2(449.997, 234.001)
+name = "Calico6"
+food = -24.3
+fun = -24.3
+clean = -24.3
+comfort = -24.3
+exercise = -24.3
