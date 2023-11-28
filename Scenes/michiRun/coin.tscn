@@ -1,6 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdgqjm6338ysb"]
+[gd_scene load_steps=12 format=3 uid="uid://cdgqjm6338ysb"]
 
 [ext_resource type="Texture2D" uid="uid://8notals0chkb" path="res://GlobalAssets/Assets/michicoin2.png" id="1_w566e"]
+[ext_resource type="Texture2D" uid="uid://eu10qlkkn8vb" path="res://Interactives/shinyItem.png" id="2_x53gb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i68sn"]
+atlas = ExtResource("2_x53gb")
+region = Rect2(0, 0, 120, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sbg0"]
+atlas = ExtResource("2_x53gb")
+region = Rect2(355, 0, 120, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpyf0"]
+atlas = ExtResource("2_x53gb")
+region = Rect2(710, 0, 120, 182)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4foqa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i68sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sbg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpyf0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4bhg"]
 atlas = ExtResource("1_w566e")
@@ -32,11 +62,20 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_amjnr"]
-radius = 15.0
+radius = 18.0
 
 [node name="coin" type="Area2D"]
 
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.737255, 0.129412, 0.898039)
+position = Vector2(-4.76837e-07, -1)
+scale = Vector2(0.787431, 0.539835)
+sprite_frames = SubResource("SpriteFrames_4foqa")
+autoplay = "default"
+frame_progress = 0.867141
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.25, 1.21875)
 sprite_frames = SubResource("SpriteFrames_4h1ai")
 autoplay = "default"
 frame = 2

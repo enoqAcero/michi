@@ -18,7 +18,7 @@ var baseball = preload("res://Scenes/michiRun/baseball.tscn")
 var globo = preload("res://Scenes/michiRun/globo.tscn")
 
 var items = []
-var monedas
+var monedas : Monedero
 var itemCount = [0, 0, 0, 0, 0, 0, 0, 0]
 
 var coin = preload("res://Scenes/michiRun/coin.tscn")
@@ -95,10 +95,10 @@ func newGame():
 	#clear obstacles
 	for obs in obstaclesInstance:
 		obs.queue_free()
-		obstaclesInstance.clear()
+	obstaclesInstance.clear()
 	for itm in itemsInstance:
 		itm.queue_free()
-		itemsInstance.clear()
+	itemsInstance.clear()
 		
 func _process(_delta):
 	if gameRunning == true:
@@ -135,7 +135,7 @@ func _process(_delta):
 func generateObstacles():
 	if controlObstacles == 1:
 		randomize()
-		var prob = rng.randi_range(0, 100)
+		var prob = rng.randi_range(0, 500)
 		if prob < 30:
 			var obs_type = groundObstacles[randi() % groundObstacles.size()]
 			var obs = obs_type.instantiate()
@@ -278,7 +278,6 @@ func save():
 	ResourceSaver.save(highScoreData, savePathHighScore + saveFileHighScore + ".tres")
 	
 func exit():
-	SignalManager.changeMichiScriptToMain.emit()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/Test.tscn")
 
@@ -288,7 +287,7 @@ func addMichi():
 	var michi
 	if michiLoad != null:
 		michi = michiLoad.instantiate()
-	michi.global_position = Vector2(60, 790)
+	michi.global_position = michiStartPos
 	michi.scale = Vector2(1.5, 1.5)
 	add_child(michi)
 	michiInstance = michi

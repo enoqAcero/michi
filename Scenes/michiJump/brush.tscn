@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://cm76ed0delsei"]
+
+[ext_resource type="Script" path="res://Scenes/michiJump/scripts/item.gd" id="1_b1j4i"]
+[ext_resource type="Texture2D" uid="uid://eu10qlkkn8vb" path="res://Interactives/shinyItem.png" id="1_fbqmb"]
+[ext_resource type="Texture2D" uid="uid://brtguq2yk1a6c" path="res://Items/Assets/Brush.png" id="1_sonmb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feqbm"]
+atlas = ExtResource("1_fbqmb")
+region = Rect2(0, 0, 120, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3pcn"]
+atlas = ExtResource("1_fbqmb")
+region = Rect2(355, 0, 120, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3or0m"]
+atlas = ExtResource("1_fbqmb")
+region = Rect2(710, 0, 120, 182)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6us3g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feqbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3pcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3or0m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0qok"]
+size = Vector2(56, 34)
+
+[node name="brush" type="Area2D"]
+script = ExtResource("1_b1j4i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.737255, 0.129412, 0.898039)
+position = Vector2(0, -1)
+scale = Vector2(0.890496, 0.598901)
+sprite_frames = SubResource("SpriteFrames_6us3g")
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sonmb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_v0qok")

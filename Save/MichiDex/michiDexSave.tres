@@ -71,7 +71,7 @@ active = false
 [sub_resource type="Resource" id="Resource_kqel3"]
 script = ExtResource("1_il7a5")
 type = "Hipster"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_1qu1r"]
 script = ExtResource("1_il7a5")

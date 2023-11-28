@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://27l63ashmf12"]
+[gd_scene load_steps=24 format=3 uid="uid://27l63ashmf12"]
 
 [ext_resource type="PackedScene" uid="uid://clbjx81rr0ism" path="res://Scenes/michiJump/floor.tscn" id="1_aauf1"]
 [ext_resource type="Script" path="res://Scenes/michiJump/scripts/jump.gd" id="1_wxfx5"]
-[ext_resource type="PackedScene" uid="uid://8kviomsa0a64" path="res://Michis/michiArcoiris.tscn" id="2_nrlui"]
 [ext_resource type="Texture2D" uid="uid://bcw3danlihlqr" path="res://Scenes/michiJump/Assets/backJumper2.png" id="3_ad5jb"]
 [ext_resource type="Texture2D" uid="uid://cs6gjvrq16v7k" path="res://Scenes/michiJump/Assets/backJumper7.png" id="3_kbxmi"]
 [ext_resource type="Texture2D" uid="uid://cnfhn4v6nvwsc" path="res://Scenes/michiJump/Assets/backJumperBase.png" id="4_0jjm0"]
@@ -11,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://djulhd3evggfp" path="res://Scenes/michiJump/Assets/backJumper4.png" id="9_2wyix"]
 [ext_resource type="Texture2D" uid="uid://cq0qtgdk6as2c" path="res://Scenes/michiJump/Assets/backJumper5.png" id="10_i53j0"]
 [ext_resource type="Texture2D" uid="uid://gevff4sjth55" path="res://Scenes/michiJump/Assets/backJumper6.png" id="11_5i6iu"]
+[ext_resource type="PackedScene" uid="uid://bik6ywrptyw0d" path="res://GUI/PlayAgainChromeGame.tscn" id="11_31c22"]
+[ext_resource type="Texture2D" uid="uid://bmahf1ovuq06x" path="res://Scenes/michiJump/Assets/Moon.png" id="12_17qsc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4n0m"]
 size = Vector2(188, 1571)
@@ -26,14 +27,37 @@ size = Vector2(1060, 246.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dktlo"]
 
-[node name="Jump" type="Node2D"]
-script = ExtResource("1_wxfx5")
-metadata/_edit_horizontal_guides_ = [854.0]
-metadata/_edit_vertical_guides_ = [249.0]
+[sub_resource type="Gradient" id="Gradient_ruqsi"]
+offsets = PackedFloat32Array(0, 0.675676)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[node name="Floor" parent="." instance=ExtResource("1_aauf1")]
-position = Vector2(62, 846)
-scale = Vector2(3, 3)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tkqq8"]
+gradient = SubResource("Gradient_ruqsi")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_hmlby"]
+offsets = PackedFloat32Array(0, 0.645646)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yggf0"]
+gradient = SubResource("Gradient_hmlby")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_148e5"]
+offsets = PackedFloat32Array(0, 0.705706)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5sbqq"]
+gradient = SubResource("Gradient_148e5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Jump" type="Node2D" groups=["item"]]
+script = ExtResource("1_wxfx5")
+metadata/_edit_horizontal_guides_ = [854.0, -1492.0]
+metadata/_edit_vertical_guides_ = [249.0, -367.0]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -48,31 +72,31 @@ scale = Vector2(1, 1.152)
 texture = ExtResource("3_kbxmi")
 
 [node name="BackJumperBase" type="Sprite2D" parent="."]
-position = Vector2(240, 478)
+position = Vector2(240, 479)
 texture = ExtResource("4_0jjm0")
 
 [node name="BackJumper1" type="Sprite2D" parent="."]
-position = Vector2(240, -272)
+position = Vector2(240, -271)
 texture = ExtResource("5_pyydf")
 
 [node name="BackJumper3" type="Sprite2D" parent="."]
-position = Vector2(240, -1772)
+position = Vector2(240, -1771)
 texture = ExtResource("7_bhrwc")
 
 [node name="BackJumper2" type="Sprite2D" parent="."]
-position = Vector2(240, -1022)
+position = Vector2(240, -1021)
 texture = ExtResource("3_ad5jb")
 
 [node name="BackJumper4" type="Sprite2D" parent="."]
-position = Vector2(240, -2522)
+position = Vector2(240, -2521)
 texture = ExtResource("9_2wyix")
 
 [node name="BackJumper5" type="Sprite2D" parent="."]
-position = Vector2(240, -3272)
+position = Vector2(240, -3271)
 texture = ExtResource("10_i53j0")
 
 [node name="BackJumper6" type="Sprite2D" parent="."]
-position = Vector2(240, -4022)
+position = Vector2(240, -4021)
 texture = ExtResource("11_5i6iu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -95,13 +119,13 @@ shape = SubResource("RectangleShape2D_ebwcu")
 [node name="arriba" type="Area2D" parent="Camera2D"]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/arriba"]
-position = Vector2(9, -457)
+position = Vector2(9, -490)
 shape = SubResource("RectangleShape2D_4jhjo")
 
 [node name="abajo" type="Area2D" parent="Camera2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/abajo"]
-position = Vector2(9, 448.25)
+position = Vector2(26, 500)
 shape = SubResource("RectangleShape2D_i16fi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -111,6 +135,7 @@ offset_left = 14.0
 offset_top = 7.00003
 offset_right = 89.0
 offset_bottom = 52.0
+text = "0"
 
 [node name="highScore" type="Label" parent="CanvasLayer"]
 offset_left = 375.0
@@ -123,6 +148,7 @@ offset_left = 8.0
 offset_top = 758.0
 offset_right = 109.0
 offset_bottom = 811.0
+text = "0"
 label_settings = SubResource("LabelSettings_dktlo")
 
 [node name="multiplier" type="Label" parent="CanvasLayer"]
@@ -130,14 +156,51 @@ offset_left = 362.0
 offset_top = 759.0
 offset_right = 479.0
 offset_bottom = 814.0
+text = "0"
 
-[node name="Michi1" parent="." instance=ExtResource("2_nrlui")]
-position = Vector2(262, 553)
-scale = Vector2(1.5, 1.5)
+[node name="Control" parent="CanvasLayer" instance=ExtResource("11_31c22")]
+process_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 19.0
+offset_right = 1.0
+offset_bottom = 19.0
+
+[node name="Floor" parent="." instance=ExtResource("1_aauf1")]
+position = Vector2(0, 803)
+metadata/_edit_horizontal_guides_ = [28.0]
 
 [node name="ObstacleTimer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-367.594, -1489.41)
+scale = Vector2(36.1436, 36.6748)
+color = Color(1, 0.847059, 0.270588, 1)
+texture = SubResource("GradientTexture2D_tkqq8")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(-60, -1487)
+scale = Vector2(3.46008, 3.27259)
+color = Color(1, 0.466667, 0, 1)
+energy = 13.12
+texture = SubResource("GradientTexture2D_yggf0")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(427, -3914)
+scale = Vector2(14.416, 13.3555)
+color = Color(0.788235, 1, 1, 1)
+texture = SubResource("GradientTexture2D_5sbqq")
+
+[node name="Moon" type="Sprite2D" parent="."]
+position = Vector2(428, -3916)
+scale = Vector2(3.39063, 3.32813)
+texture = ExtResource("12_17qsc")
 
 [connection signal="body_entered" from="Camera2D/arriba" to="." method="_on_arriba_body_entered"]
 [connection signal="body_exited" from="Camera2D/arriba" to="." method="_on_arriba_body_exited"]

@@ -17,7 +17,6 @@ signal poopAndPee
 signal pisNumber
 signal poopNumber
 
-signal changeMichiScriptToMain
 signal changeMichiScriptToMichiRun
 
 signal michiDexUpdate

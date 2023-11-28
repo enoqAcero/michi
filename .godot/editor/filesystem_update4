@@ -4,13 +4,8 @@ res://Save/ChromeGame/highScore.gd
 res://Save/MichiDex/MichiDex.gd
 res://Save/PoopType.gd
 res://Scenes/MichiDex/VBoxContainer.gd
-res://Scenes/michiRun/main.tscn
-res://Michis/michiArcoiris.tscn
-res://Scenes/michiRun/coin.tscn
-res://Scenes/michiJump/jump.tscn
-res://Michis/Scripts/michiJumpGame.gd
 res://Scenes/michiJump/scripts/jump.gd
-res://Scenes/michiJump/bee.tscn
-res://Scenes/michiJump/scripts/bee.gd
-res://Scenes/michiRun/Scripts/MichiRun.gd
-res://Scenes/michiJump/scripts/Camera2D.gd
+res://Scenes/michiRun/main.tscn
+res://Scenes/michiJump/jump.tscn
+res://Scenes/michiJump/paraguas.tscn
+res://Scenes/michiJump/fuego.tscn

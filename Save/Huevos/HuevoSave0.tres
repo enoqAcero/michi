@@ -7,5 +7,5 @@ script = ExtResource("1_7iphj")
 active = 1
 categoria = 1
 id = 0
-globalPos = Vector2(182, 576)
-taps = 5
+globalPos = Vector2(179, 354)
+taps = 834

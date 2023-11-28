@@ -1017,7 +1017,10 @@ position = Vector2(240, 90)
 texture = ExtResource("15_s64sj")
 
 [node name="Area2D" parent="." instance=ExtResource("16_v0av2")]
-position = Vector2(-6, 761)
+position = Vector2(0, 773)
+
+[node name="Area2D2" parent="." instance=ExtResource("16_v0av2")]
+position = Vector2(478, 778)
 
 [node name="MichiDex" parent="." instance=ExtResource("17_hq2u8")]
 process_mode = 2
@@ -1028,3 +1031,4 @@ position = Vector2(4, 68)
 [connection signal="pressed" from="inventario/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="inventario/Button" to="MichiDex" method="_on_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

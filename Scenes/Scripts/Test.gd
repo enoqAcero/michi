@@ -793,6 +793,14 @@ func _on_area_2d_body_entered(body):
 			save(i)
 			get_tree().change_scene_to_file("res://Scenes/michiRun/main.tscn")
 			break
+func _on_area_2d_2_body_entered(body):
+	for i in range(0, maxMichiNumber):
+		if body.get_name() == ("michi"+str(i)):
+			var michiPath = ("res://Michis/" + "michi" + michiData[i].type + ".tscn")
+			GlobalVariables.michiPath = michiPath
+			save(i)
+			get_tree().change_scene_to_file("res://Scenes/michiJump/jump.tscn")
+			break
 
 func crearMoneda(pos : Vector2):
 	var timerCoin := Timer.new()
@@ -834,3 +842,6 @@ func freeCoin(index : int):
 	coinInstance[index].queue_free()	
 	
 	
+
+
+

@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 var horizontalForce = 40
 var gravity  = 700
-var jumpForce
-var prevJumpForce
-var bounceFactor
+var jumpForce = 0
+var prevJumpForce = 0
+var bounceFactor = 1
 var readyToBounce = false
 
 

@@ -4,15 +4,15 @@
 
 [resource]
 script = ExtResource("1_nvfxg")
-active = 1
-category = "categoria1"
-type = "Negro"
-categoryLevel = 1
+active = 0
+category = "categoria2"
+type = "Persa"
+categoryLevel = 2
 fusionLevel = 1
-globalPos = Vector2(314.07, 395.076)
-name = "Negro7"
-food = 47.68
-fun = 47.68
-clean = 47.68
-comfort = 47.68
-exercise = 47.68
+globalPos = Vector2(130.503, 703.924)
+name = "Persa7"
+food = 39.36
+fun = 39.36
+clean = 39.36
+comfort = 39.36
+exercise = 39.36

@@ -7,6 +7,6 @@
 script = ExtResource("1_4fcoj")
 name = "brush"
 texture = ExtResource("2_qwc8r")
-count = 2
+count = 11
 item_index = 0
 price = 25

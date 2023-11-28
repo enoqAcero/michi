@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0b46igui16ta"]
+
+[ext_resource type="Texture2D" uid="uid://bygebpi1aqog2" path="res://Scenes/michiJump/Assets/paraguasJumper.png" id="1_yv2ig"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc61f"]
+atlas = ExtResource("1_yv2ig")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqcdp"]
+atlas = ExtResource("1_yv2ig")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8nvo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc61f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqcdp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r8nvo")
