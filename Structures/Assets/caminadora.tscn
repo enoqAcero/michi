@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ifhkt1mcmkti"]
+
+[ext_resource type="Texture2D" uid="uid://dsty1d2ijkd18" path="res://Structures/Assets/Caminadora3000Azul.png" id="1_wab3b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6eydu"]
+radius = 43.0116
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mrfe"]
+radius = 27.0
+
+[node name="Caminadora3000Azul" type="CharacterBody2D"]
+position = Vector2(157, 56)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wab3b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_6eydu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_7mrfe")
+debug_color = Color(0.843137, 0.341176, 0.458824, 0.419608)

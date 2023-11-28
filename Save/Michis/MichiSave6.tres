@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_ynuwa"]
 
 [resource]
@@ -16,3 +17,21 @@ fun = -32.1
 clean = -32.1
 comfort = -32.1
 exercise = -32.1
+=======
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_jd4ql"]
+
+[resource]
+script = ExtResource("1_jd4ql")
+active = 0
+category = "categoria2"
+type = "Persa"
+categoryLevel = 2
+fusionLevel = 1
+globalPos = Vector2(207.306, 583.683)
+name = "Persa6"
+food = 38.08
+fun = 38.08
+clean = 38.08
+comfort = 38.08
+exercise = 38.08
+>>>>>>> origin/master2

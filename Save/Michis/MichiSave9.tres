@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_kbc2q"]
 
 [resource]
@@ -16,3 +17,21 @@ fun = 100
 clean = 100
 comfort = 100
 exercise = 100
+=======
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_4tqlj"]
+
+[resource]
+script = ExtResource("1_4tqlj")
+active = 1
+category = "categoria3"
+type = "Hipster"
+categoryLevel = 3
+fusionLevel = 1
+globalPos = Vector2(400.426, 733.925)
+name = "Hipster9"
+food = 91.0
+fun = 91.0
+clean = 91.0
+comfort = 91.0
+exercise = 91.0
+>>>>>>> origin/master2

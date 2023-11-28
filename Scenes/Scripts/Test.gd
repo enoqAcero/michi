@@ -36,7 +36,10 @@ var poopInstance = []
 var poopNumber = 0
 var maxPoopNumber = GlobalVariables.maxPoopNumber
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master2
 #variable para detectar la senial de ambos michis al ser fucionados
 var michiN2
 var otherMichiN = 100
@@ -53,8 +56,13 @@ var coinInstance : Array
 var timerCoinInstance : Array
 
 var tiempo = 0.0
+<<<<<<< HEAD
 
 
+=======
+var caminadora
+var brincolin
+>>>>>>> origin/master2
 
 func _ready():
 	randomize()
@@ -148,9 +156,15 @@ func _ready():
 		elif michiData[i].fusionLevel == 2:
 			pass
 		
+<<<<<<< HEAD
 		michi.global_position = michiData[i].globalPos
 		michi.name = ("michi"+str(i))
 		michi.z_index = 2
+=======
+				
+		michi.global_position = michiData[i].globalPos
+		michi.name = ("michi"+str(i))
+>>>>>>> origin/master2
 		if michiData[i].active == 1:
 			add_child(michi)
 			print("se agrego michi:", i, " a la escena")
@@ -162,13 +176,23 @@ func _ready():
 		var huevo = load("res://Eggs/Egg.tscn").instantiate()
 		huevo.global_position = huevoData[i].globalPos
 		huevo.name = ("huevo"+str(i))
+<<<<<<< HEAD
 		huevo.z_index = 2
+=======
+>>>>>>> origin/master2
 		if huevoData[i].active == 1:
 			add_child(huevo)
 			print("se agrego huevo:", i, " a la escena")	
 		huevoInstance.append(huevo)
 		
+<<<<<<< HEAD
 	
+=======
+		caminadora = $Caminadora3000Azul.get_node( "Area2D")
+		caminadora.body_entered.connect(michiRunner)
+		brincolin = $jumper3000.get_node( "Area2D")
+		brincolin.body_entered.connect(michiJumper)
+>>>>>>> origin/master2
 
 	
 		
@@ -186,7 +210,10 @@ func _ready():
 	SignalManager.pisNumber.connect(getNumber, 2)
 	SignalManager.poopNumber.connect(getNumber, 3)
 	SignalManager.poopAndPee.connect(poopAndPee)
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master2
 	
 	
 
@@ -298,6 +325,10 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 
 	
 	
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master2
 #salvar el juego
 func save(michiN : int): #type 0 = michi, type 1 = huevo
 	#salva los michis
@@ -330,6 +361,17 @@ func save(michiN : int): #type 0 = michi, type 1 = huevo
 
 func _on_texture_button_pressed():
 	$Shop.set_visible(true)
+<<<<<<< HEAD
+=======
+	var itemInventario = $inventario.get_node("Item")
+	var labelInventario = $inventario.get_node("Label")
+	var nextInventario = $inventario.get_node("next")
+	var backInventario = $inventario.get_node("back")
+	backInventario.hide()
+	nextInventario.hide()
+	labelInventario.hide()
+	itemInventario.hide()
+>>>>>>> origin/master2
 	get_tree().paused =true
 	$CanvasLayer/Nombre.set_visible(false)
 	$CanvasLayer/food.set_visible(false)
@@ -338,7 +380,11 @@ func _on_texture_button_pressed():
 	$CanvasLayer/comfort.set_visible(false)
 	$CanvasLayer/exercise.set_visible(false)
 	SignalManager.michiEggShowHide.emit(0)
+<<<<<<< HEAD
 		
+=======
+	
+>>>>>>> origin/master2
 	
 	
 	
@@ -593,7 +639,10 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 			elif probNewMichi > 85:
 				pass
 			
+<<<<<<< HEAD
 			
+=======
+>>>>>>> origin/master2
 		SignalManager.michiDexUpdate.emit(michiData[NumeroMichi1].type)
 		#agrega al michi a la escena
 		pos_x = rng.randi_range(30,450)
@@ -610,8 +659,11 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 		michiInstance[NumeroMichi2].name = "tempNameMichi2"
 		michiInstance[NumeroMichi2].queue_free()
 		michiData[NumeroMichi2].active = 0
+<<<<<<< HEAD
 		
 
+=======
+>>>>>>> origin/master2
 			
 		#agregar el huevo
 		if huevoIndex < maxHuevoNumber:
@@ -623,17 +675,30 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 			add_child(huevo)
 			huevoInstance[huevoIndex] = huevo
 			huevoData[huevoIndex].active = 1
+<<<<<<< HEAD
 			huevoData[huevoIndex].taps = 5
 		
 	save(0)
+=======
+			huevoData[huevoIndex].taps = 500
+		
+		save(0)
+>>>>>>> origin/master2
 			
 
 #Funcion cuando un huevo llego a 0 taps para hacer nacer un nuevo michi
 func naceMichi(huevoN : int):
+<<<<<<< HEAD
 	randomize()
 	var michiIndex = 101
 	var michi
 	var probNewMichiType = rng.randi_range(1,5)
+=======
+	
+	var michiIndex = 101
+	var michi
+	var probNewMichiType = GlobalVariables.probNewMichiType
+>>>>>>> origin/master2
 	
 	for i in range(0, maxMichiNumber):
 		if michiData[i].active == 0:
@@ -675,6 +740,10 @@ func naceMichi(huevoN : int):
 
 	huevoData[huevoN].active = 0
 	huevoInstance[huevoN].queue_free()
+<<<<<<< HEAD
+=======
+	GlobalVariables.probNewMichiType = 10
+>>>>>>> origin/master2
 	
 	SignalManager.michiDexUpdate.emit(michiData[michiIndex].type)
 	save(0)
@@ -784,8 +853,12 @@ func recogerPisyPoop(typeLocal : int): #type = 0 pis, type = 1 poop
 	SignalManager.addCoins.emit(valor)
 	crearMoneda(pos)
 
+<<<<<<< HEAD
 
 func _on_area_2d_body_entered(body):
+=======
+func michiRunner(body):
+>>>>>>> origin/master2
 	for i in range(0, maxMichiNumber):
 		if body.get_name() == ("michi"+str(i)):
 			var michiPath = ("res://Michis/" + "michi" + michiData[i].type + ".tscn")
@@ -793,7 +866,12 @@ func _on_area_2d_body_entered(body):
 			save(i)
 			get_tree().change_scene_to_file("res://Scenes/michiRun/main.tscn")
 			break
+<<<<<<< HEAD
 func _on_area_2d_2_body_entered(body):
+=======
+
+func michiJumper(body):
+>>>>>>> origin/master2
 	for i in range(0, maxMichiNumber):
 		if body.get_name() == ("michi"+str(i)):
 			var michiPath = ("res://Michis/" + "michi" + michiData[i].type + ".tscn")
@@ -839,9 +917,13 @@ func deleteCoin(coinIndex : int, timerIndex : int):
 	animacion.animation_finished.connect(func():freeCoin(coinIndex))
 	timerCoinInstance[timerIndex].queue_free()
 func freeCoin(index : int):
+<<<<<<< HEAD
 	coinInstance[index].queue_free()	
 	
 	
 
 
 
+=======
+	coinInstance[index].queue_free()
+>>>>>>> origin/master2

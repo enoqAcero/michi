@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_o0biu")
 active = 1
+<<<<<<< HEAD
 category = "categoria1"
 type = "Naranja"
 categoryLevel = 1
@@ -16,3 +17,16 @@ fun = 27.96
 clean = 27.96
 comfort = 27.96
 exercise = 27.96
+=======
+category = "categoria2"
+type = "Persa"
+categoryLevel = 2
+fusionLevel = 1
+globalPos = Vector2(327.386, 548.117)
+name = "Persa1"
+food = 92.52
+fun = 92.52
+clean = 92.52
+comfort = 92.52
+exercise = 92.52
+>>>>>>> origin/master2

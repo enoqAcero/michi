@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_qo86p")
+<<<<<<< HEAD
 active = 0
 category = "categoria1"
 type = "Blanco"
@@ -16,3 +17,17 @@ fun = 23.66
 clean = 23.66
 comfort = 23.66
 exercise = 23.66
+=======
+active = 1
+category = "categoria3"
+type = "Bufanda"
+categoryLevel = 3
+fusionLevel = 1
+globalPos = Vector2(209.987, 388.349)
+name = "Bufanda3"
+food = 91.06
+fun = 91.06
+clean = 91.06
+comfort = 91.06
+exercise = 91.06
+>>>>>>> origin/master2

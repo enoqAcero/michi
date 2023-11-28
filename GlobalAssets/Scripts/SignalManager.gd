@@ -16,7 +16,10 @@ signal naceMichi
 signal poopAndPee
 signal pisNumber
 signal poopNumber
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master2
 signal changeMichiScriptToMichiRun
 
 signal michiDexUpdate

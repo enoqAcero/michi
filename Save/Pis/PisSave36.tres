@@ -4,6 +4,11 @@
 
 [resource]
 script = ExtResource("1_hamfj")
+<<<<<<< HEAD
 active = 0
 globalPos = Vector2(427.431, 708.3)
+=======
+active = 1
+globalPos = Vector2(248.027, 420.422)
+>>>>>>> origin/master2
 index = 0

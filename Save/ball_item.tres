@@ -7,6 +7,10 @@
 script = ExtResource("1_1qv1y")
 name = "ball"
 texture = ExtResource("2_uc5tk")
+<<<<<<< HEAD
 count = 8
+=======
+count = 16
+>>>>>>> origin/master2
 item_index = 0
 price = 15

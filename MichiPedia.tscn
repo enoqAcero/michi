@@ -17,7 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://k1lj2jncgeus" path="res://Michis/Assets/Categoría 3/Hipster/hipsterFrente.png" id="15_uvp2i"]
 [ext_resource type="Texture2D" uid="uid://mgnofvqi2fwu" path="res://Michis/Assets/Categoría 3/Lentes/lentesFrente.png" id="16_ihjs2"]
 [ext_resource type="Texture2D" uid="uid://7uisbwc683j5" path="res://Michis/Assets/Categoría 3/Moño/eleganteFrente.png" id="17_s4orb"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://qhhvdvgce6el" path="res://Michis/Assets/Categoría 4/Arcoiris/arcoirisFrente.png" id="18_bacja"]
+=======
+[ext_resource type="Texture2D" uid="uid://qhhvdvgce6el" path="res://Michis/Assets/Categoría 4/Arcoiris/arcoirisFrente.png" id="18_t1xad"]
+>>>>>>> origin/master2
 [ext_resource type="Texture2D" uid="uid://cfydwny0fmxgq" path="res://Michis/Assets/Categoría 4/Cristal/glassFrente.png" id="19_etdnc"]
 [ext_resource type="Texture2D" uid="uid://druthqhbqntl2" path="res://Michis/Assets/Categoría 4/Dorado/doradoFrente.png" id="20_atwk8"]
 [ext_resource type="Texture2D" uid="uid://3i223mt2kits" path="res://Michis/Assets/Categoría 4/Estrellas/estrellasFrente.png" id="21_cwlxh"]
@@ -560,7 +564,11 @@ text = "Michi Arcoiris"
 [node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel16/MichiContainer"]
 position = Vector2(340, 42)
 scale = Vector2(3, 3)
+<<<<<<< HEAD
 texture = ExtResource("18_bacja")
+=======
+texture = ExtResource("18_t1xad")
+>>>>>>> origin/master2
 hframes = 2
 
 [node name="Panel17" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]

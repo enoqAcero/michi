@@ -7,6 +7,10 @@
 script = ExtResource("1_buhlc")
 name = "Kibble"
 texture = ExtResource("2_t62kb")
+<<<<<<< HEAD
 count = 16
+=======
+count = 8
+>>>>>>> origin/master2
 item_index = 0
 price = 10

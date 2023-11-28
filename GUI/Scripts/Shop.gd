@@ -34,7 +34,12 @@ var items_Container
 var furnitures_Container
 var items_button
 var furnitures_button
+<<<<<<< HEAD
 
+=======
+var bg_furnitures
+var bg_items
+>>>>>>> origin/master2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -42,7 +47,10 @@ func _ready():
 	
 	SignalManager.itemsCoinSave.connect(itemsCoinSave)
 	SignalManager.addCoins.connect(addCoins)
+<<<<<<< HEAD
 	
+=======
+>>>>>>> origin/master2
 	# Antes de usar inventory_resource.items, necesitas instanciar inventory_resource.
 	inventory_resource = Inventory.new()
 	buy_kibble_button = $GridContainer/kibble/buykibble
@@ -66,10 +74,19 @@ func _ready():
 	laser_price_label = $GridContainer/laser/laserLabelCost
 	comb_price_label = $GridContainer/comb/combLabelCost
 	brush_price_label = $GridContainer/brush/brushLabelCost
+<<<<<<< HEAD
 	coins_label = $MichiCoin/coinCounter
 	michiCoin = $MichiCoin
 	items_Container = $GridContainer
 	furnitures_Container = $FurnituresContainer
+=======
+	coins_label = $coinCounter
+	michiCoin = $MichiCoin
+	items_Container = $GridContainer
+	furnitures_Container = $ScrollContainer
+	bg_furnitures = $bgFurnitures
+	bg_items = $"Bg-store"
+>>>>>>> origin/master2
 	items_button = $Items
 	furnitures_button = $Furnitures
 	items_Container.visible = true
@@ -208,6 +225,13 @@ func buy_brush():
 func _on_button_pressed():
 	set_visible(false)
 	get_tree().paused=false
+<<<<<<< HEAD
+=======
+	get_node("../inventario/Item").set_visible(true)
+	get_node("../inventario/back").set_visible(true)
+	get_node("../inventario/next").set_visible(true)
+	get_node("../inventario/Label").set_visible(true)
+>>>>>>> origin/master2
 	get_node("../CanvasLayer/Nombre").set_visible(true)
 	get_node("../CanvasLayer/food").set_visible(true)
 	get_node("../CanvasLayer/fun").set_visible(true)
@@ -252,9 +276,23 @@ func _on_buytunacan_pressed():
 func _on_items_pressed(): # Muestra los items y oculta los muebles
 	items_Container.visible = true
 	furnitures_Container.visible = false
+<<<<<<< HEAD
 func _on_furnitures_pressed():
 	items_Container.visible = false
 	furnitures_Container.visible = true
+=======
+	bg_items.visible = true
+	bg_furnitures.visible = false
+	$Items.visible= false
+	$Furnitures.visible= true
+func _on_furnitures_pressed():
+	$Items.visible= true
+	items_Container.visible = false
+	bg_furnitures.visible = true
+	furnitures_Container.visible = true
+	bg_items.visible = false
+	furnitures_button.visible =false
+>>>>>>> origin/master2
 
 
 func itemsCoinSave():

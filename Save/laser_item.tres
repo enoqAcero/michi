@@ -7,6 +7,10 @@
 script = ExtResource("1_ql7pq")
 name = "laser"
 texture = ExtResource("2_51iif")
+<<<<<<< HEAD
 count = 9
+=======
+count = 10
+>>>>>>> origin/master2
 item_index = 0
 price = 20

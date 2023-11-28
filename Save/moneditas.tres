@@ -4,4 +4,8 @@
 
 [resource]
 script = ExtResource("1_eawic")
+<<<<<<< HEAD
 coin = 1138
+=======
+coin = 3023
+>>>>>>> origin/master2

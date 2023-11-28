@@ -6,6 +6,7 @@
 script = ExtResource("1_ngat0")
 active = 1
 category = "categoria3"
+<<<<<<< HEAD
 type = "Bufanda"
 categoryLevel = 3
 fusionLevel = 1
@@ -16,3 +17,15 @@ fun = -75.14
 clean = -75.14
 comfort = -75.14
 exercise = -75.14
+=======
+type = "Lentes"
+categoryLevel = 3
+fusionLevel = 1
+globalPos = Vector2(390.997, 295.88)
+name = "Lentes2"
+food = -700.9
+fun = -700.9
+clean = -700.9
+comfort = -700.9
+exercise = -700.9
+>>>>>>> origin/master2

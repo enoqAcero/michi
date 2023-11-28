@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_resource type="Resource" script_class="MichiDex" load_steps=24 format=3]
+=======
+[gd_resource type="Resource" script_class="MichiDex" load_steps=24 format=3 uid="uid://tygepwk4bgeb"]
+>>>>>>> origin/master2
 
 [ext_resource type="Script" path="res://Save/MichiDex/MichiDex.gd" id="1_2637k"]
 [ext_resource type="Script" path="res://Save/MichiDex/MichisCollected.gd" id="1_il7a5"]
@@ -6,32 +10,56 @@
 [sub_resource type="Resource" id="Resource_8hg7c"]
 script = ExtResource("1_il7a5")
 type = "Blanco"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_4yoj2"]
 script = ExtResource("1_il7a5")
 type = "Cafe"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_palaw"]
 script = ExtResource("1_il7a5")
 type = "Gris"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_vn22e"]
 script = ExtResource("1_il7a5")
 type = "Naranja"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_6vj7m"]
 script = ExtResource("1_il7a5")
 type = "Negro"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_3clkr"]
 script = ExtResource("1_il7a5")
 type = "Calico"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_cfuye"]
 script = ExtResource("1_il7a5")
@@ -41,27 +69,47 @@ active = false
 [sub_resource type="Resource" id="Resource_vbd3u"]
 script = ExtResource("1_il7a5")
 type = "Manchado"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_2lj3a"]
 script = ExtResource("1_il7a5")
 type = "Persa"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_2icgx"]
 script = ExtResource("1_il7a5")
 type = "Siames"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_01ppw"]
 script = ExtResource("1_il7a5")
 type = "Tabby"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_vvyp2"]
 script = ExtResource("1_il7a5")
 type = "Bufanda"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_lvcu3"]
 script = ExtResource("1_il7a5")
@@ -71,27 +119,48 @@ active = false
 [sub_resource type="Resource" id="Resource_kqel3"]
 script = ExtResource("1_il7a5")
 type = "Hipster"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_1qu1r"]
 script = ExtResource("1_il7a5")
 type = "Lentes"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_ugwn6"]
 script = ExtResource("1_il7a5")
 type = "Monio"
+<<<<<<< HEAD
 active = false
 
 [sub_resource type="Resource" id="Resource_cswf0"]
 script = ExtResource("1_il7a5")
 type = "Arcoiris"
 active = false
+=======
+active = true
+
+[sub_resource type="Resource" id="Resource_kt5ht"]
+script = ExtResource("1_il7a5")
+type = "Arcoiris"
+active = true
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_o4i2b"]
 script = ExtResource("1_il7a5")
 type = "Cristal"
+<<<<<<< HEAD
 active = true
+=======
+active = false
+>>>>>>> origin/master2
 
 [sub_resource type="Resource" id="Resource_voha4"]
 script = ExtResource("1_il7a5")
@@ -110,4 +179,8 @@ active = false
 
 [resource]
 script = ExtResource("1_2637k")
+<<<<<<< HEAD
 michiIndex = Array[ExtResource("1_il7a5")]([SubResource("Resource_8hg7c"), SubResource("Resource_4yoj2"), SubResource("Resource_palaw"), SubResource("Resource_vn22e"), SubResource("Resource_6vj7m"), SubResource("Resource_3clkr"), SubResource("Resource_cfuye"), SubResource("Resource_vbd3u"), SubResource("Resource_2lj3a"), SubResource("Resource_2icgx"), SubResource("Resource_01ppw"), SubResource("Resource_vvyp2"), SubResource("Resource_lvcu3"), SubResource("Resource_kqel3"), SubResource("Resource_1qu1r"), SubResource("Resource_ugwn6"), SubResource("Resource_cswf0"), SubResource("Resource_o4i2b"), SubResource("Resource_voha4"), SubResource("Resource_ugkjh"), SubResource("Resource_rkuds")])
+=======
+michiIndex = Array[ExtResource("1_il7a5")]([SubResource("Resource_8hg7c"), SubResource("Resource_4yoj2"), SubResource("Resource_palaw"), SubResource("Resource_vn22e"), SubResource("Resource_6vj7m"), SubResource("Resource_3clkr"), SubResource("Resource_cfuye"), SubResource("Resource_vbd3u"), SubResource("Resource_2lj3a"), SubResource("Resource_2icgx"), SubResource("Resource_01ppw"), SubResource("Resource_vvyp2"), SubResource("Resource_lvcu3"), SubResource("Resource_kqel3"), SubResource("Resource_1qu1r"), SubResource("Resource_ugwn6"), SubResource("Resource_kt5ht"), SubResource("Resource_o4i2b"), SubResource("Resource_voha4"), SubResource("Resource_ugkjh"), SubResource("Resource_rkuds")])
+>>>>>>> origin/master2
