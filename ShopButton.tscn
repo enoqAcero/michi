@@ -1,10 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://derk32ki53uhm"]
 
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://d2mklqt1svgdv" path="res://GUI/Assets/shopIcon.png" id="1_ef42d"]
-=======
 [ext_resource type="Texture2D" uid="uid://b0e811a07jixv" path="res://GUI/Assets/GUIshop.png" id="1_kb4xq"]
->>>>>>> origin/master2
 
 [sub_resource type="GDScript" id="GDScript_wokmb"]
 
@@ -18,15 +14,7 @@ offset_right = 479.0
 offset_bottom = 851.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-<<<<<<< HEAD
-texture_normal = ExtResource("1_ef42d")
-texture_pressed = ExtResource("1_ef42d")
-texture_hover = ExtResource("1_ef42d")
-texture_disabled = ExtResource("1_ef42d")
-texture_focused = ExtResource("1_ef42d")
-=======
 texture_normal = ExtResource("1_kb4xq")
->>>>>>> origin/master2
 stretch_mode = 0
 
 [connection signal="pressed" from="OpenShop" to="." method="_on_open_shop_pressed"]

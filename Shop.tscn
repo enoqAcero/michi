@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-[gd_scene load_steps=29 format=3 uid="uid://qtwndjqyub13"]
-
-[ext_resource type="Script" path="res://GUI/Scripts/Shop.gd" id="1_0mwgk"]
-[ext_resource type="Texture2D" uid="uid://blv5qr387wde2" path="res://GUI/Assets/bg-store.png" id="1_qhle5"]
-[ext_resource type="Texture2D" uid="uid://cynebuccpnmck" path="res://GUI/Assets/close.png" id="3_7da6m"]
-[ext_resource type="Texture2D" uid="uid://bqsyfna1e17lo" path="res://GUI/Assets/tabItemsN.png" id="5_8av0w"]
-[ext_resource type="Texture2D" uid="uid://fp2m277tc4hv" path="res://GUI/Assets/tabFurnituresN.png" id="6_seme4"]
-[ext_resource type="Texture2D" uid="uid://byydnwmknsvsv" path="res://GUI/Assets/tabItemsP.png" id="6_u0j1u"]
-[ext_resource type="Texture2D" uid="uid://bg0vqx2wbxfx5" path="res://GUI/Assets/tabFurnituresP.png" id="7_2m5l0"]
-=======
 [gd_scene load_steps=64 format=3 uid="uid://qtwndjqyub13"]
 
 [ext_resource type="Script" path="res://GUI/Scripts/Shop.gd" id="1_0mwgk"]
@@ -18,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://q7yvscm470y0" path="res://GUI/Assets/sombrasTienda.png" id="3_udmsc"]
 [ext_resource type="Texture2D" uid="uid://ce0jn6pal7i80" path="res://GUI/Assets/GUItopTienda.png" id="6_qagll"]
 [ext_resource type="Texture2D" uid="uid://br3lbbjhdklff" path="res://GUI/Assets/botonFurniture (1).png" id="8_6h01d"]
->>>>>>> origin/master2
 [ext_resource type="Texture2D" uid="uid://4wbknax3rg5w" path="res://Items/Assets/fish.png" id="8_7lixr"]
 [ext_resource type="Texture2D" uid="uid://b0c2juy08dxjs" path="res://Items/Assets/Kibble.png" id="8_s26xb"]
 [ext_resource type="Texture2D" uid="uid://bkljwms08vqbs" path="res://GUI/Assets/buyN.png" id="9_uednt"]
@@ -31,8 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://c0omnjhf4at0u" path="res://Items/Assets/Laser.png" id="14_texej"]
 [ext_resource type="Texture2D" uid="uid://b4ena7sjxyl4p" path="res://Items/Assets/Comb.png" id="15_fr1h5"]
 [ext_resource type="Texture2D" uid="uid://brtguq2yk1a6c" path="res://Items/Assets/Brush.png" id="16_ojpov"]
-<<<<<<< HEAD
-=======
 [ext_resource type="Texture2D" uid="uid://bhh21k5r3crdb" path="res://Structures/Assets/alfombraAzul.png" id="20_k6yr1"]
 [ext_resource type="Texture2D" uid="uid://b7ahcerjpc2ju" path="res://Structures/Assets/alfombraAmarilla.png" id="21_ug7y2"]
 [ext_resource type="FontFile" uid="uid://dtjra5b55fol8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="21_wds0h"]
@@ -68,7 +54,6 @@
 [ext_resource type="Texture2D" uid="uid://cyv75cej1flde" path="res://Structures/Assets/alfombraGrandeRosa.png" id="51_aqbp8"]
 [ext_resource type="Texture2D" uid="uid://qk5qylvj0leo" path="res://Structures/Assets/alfombraGrandeVerde.png" id="52_luqqm"]
 [ext_resource type="Texture2D" uid="uid://biuk7qlbpvlc1" path="res://Structures/Assets/alfonbraGrandeBlanca.png" id="53_2s3kf"]
->>>>>>> origin/master2
 
 [sub_resource type="LabelSettings" id="LabelSettings_fwt36"]
 font_size = 20
@@ -130,21 +115,12 @@ shadow_size = 3
 shadow_offset = Vector2(5, 5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_icknn"]
-<<<<<<< HEAD
-font_size = 20
-font_color = Color(0.92549, 0.729412, 0.321569, 1)
-outline_size = 9
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 3
-shadow_offset = Vector2(5, 5)
-=======
 font = ExtResource("21_wds0h")
 font_size = 18
 font_color = Color(0.92549, 0.729412, 0.321569, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
->>>>>>> origin/master2
 
 [node name="Shop" type="Node2D"]
 z_index = 1
@@ -153,14 +129,6 @@ metadata/_edit_vertical_guides_ = [128.0, 160.0, 256.0, 32.0, 288.0]
 metadata/_edit_horizontal_guides_ = [384.0, 288.0, 480.0]
 
 [node name="Bg-store" type="Sprite2D" parent="."]
-<<<<<<< HEAD
-modulate = Color(1, 1, 1, 0.917647)
-position = Vector2(240, 448)
-scale = Vector2(15, 20)
-texture = ExtResource("1_qhle5")
-
-[node name="Button" type="TextureButton" parent="Bg-store"]
-=======
 modulate = Color(1, 1, 1, 0.992157)
 position = Vector2(237.5, 436.5)
 scale = Vector2(1.01042, 0.854667)
@@ -179,7 +147,6 @@ scale = Vector2(1.15627, 0.856)
 texture = ExtResource("3_avcqx")
 
 [node name="Button" type="TextureButton" parent="bgFurnitures"]
->>>>>>> origin/master2
 process_mode = 2
 z_as_relative = false
 offset_left = 11.7333
@@ -189,23 +156,6 @@ offset_bottom = -13.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-<<<<<<< HEAD
-position = Vector2(458, 149)
-texture = ExtResource("3_7da6m")
-
-[node name="Items" type="TextureButton" parent="."]
-process_mode = 3
-offset_left = 64.0
-offset_top = 96.0
-offset_right = 128.0
-offset_bottom = 160.0
-scale = Vector2(2.5, 2.5)
-tooltip_text = "Items"
-texture_normal = ExtResource("5_8av0w")
-texture_pressed = ExtResource("6_u0j1u")
-texture_hover = ExtResource("6_u0j1u")
-texture_focused = ExtResource("6_u0j1u")
-=======
 position = Vector2(457, 143)
 texture = ExtResource("3_7da6m")
 
@@ -233,30 +183,10 @@ offset_bottom = 225.0
 scale = Vector2(0.5, 0.5)
 tooltip_text = "Items"
 texture_normal = ExtResource("6_qagll")
->>>>>>> origin/master2
 metadata/_edit_use_anchors_ = true
 
 [node name="Furnitures" type="TextureButton" parent="."]
 process_mode = 3
-<<<<<<< HEAD
-offset_left = 256.0
-offset_top = 96.0
-offset_right = 320.0
-offset_bottom = 160.0
-scale = Vector2(2.5, 2.5)
-texture_normal = ExtResource("6_seme4")
-texture_pressed = ExtResource("7_2m5l0")
-texture_hover = ExtResource("7_2m5l0")
-texture_disabled = ExtResource("7_2m5l0")
-texture_focused = ExtResource("7_2m5l0")
-metadata/_edit_use_anchors_ = true
-
-[node name="GridContainer" type="GridContainer" parent="."]
-offset_left = 32.0
-offset_top = 224.0
-offset_right = 448.0
-offset_bottom = 672.0
-=======
 offset_left = 383.0
 offset_top = 212.0
 offset_right = 473.0
@@ -269,7 +199,6 @@ offset_left = 27.0
 offset_top = 417.0
 offset_right = 443.0
 offset_bottom = 865.0
->>>>>>> origin/master2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
@@ -647,17 +576,6 @@ texture = ExtResource("12_my0hn")
 
 [node name="MichiCoin" type="Sprite2D" parent="."]
 texture_filter = 1
-<<<<<<< HEAD
-position = Vector2(24, 98)
-texture = ExtResource("11_ryjyc")
-hframes = 4
-
-[node name="coinCounter" type="Label" parent="MichiCoin"]
-offset_left = 18.0
-offset_top = -16.0
-offset_right = 58.0
-offset_bottom = 10.0
-=======
 position = Vector2(238, 801)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("11_ryjyc")
@@ -669,18 +587,10 @@ offset_left = 218.0
 offset_top = 753.0
 offset_right = 219.0
 offset_bottom = 776.0
->>>>>>> origin/master2
 label_settings = SubResource("LabelSettings_icknn")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-<<<<<<< HEAD
-[node name="FurnituresContainer" type="GridContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[connection signal="pressed" from="Bg-store/Button" to="." method="_on_button_pressed"]
-=======
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 process_mode = 2
 visible = false
@@ -2498,7 +2408,6 @@ texture = ExtResource("12_my0hn")
 
 [connection signal="pressed" from="bgFurnitures/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Sprite2D/Button" to="." method="_on_button_pressed"]
->>>>>>> origin/master2
 [connection signal="pressed" from="Items" to="." method="_on_items_pressed"]
 [connection signal="pressed" from="Furnitures" to="." method="_on_furnitures_pressed"]
 [connection signal="pressed" from="GridContainer/kibble/buykibble" to="." method="_on_buykibble_pressed"]
@@ -2508,8 +2417,6 @@ texture = ExtResource("12_my0hn")
 [connection signal="pressed" from="GridContainer/laser/buylaser" to="." method="_on_buylaser_pressed"]
 [connection signal="pressed" from="GridContainer/comb/buycomb" to="." method="_on_buycomb_pressed"]
 [connection signal="pressed" from="GridContainer/brush/buybrush" to="." method="_on_buybrush_pressed"]
-<<<<<<< HEAD
-=======
 [connection signal="pressed" from="ScrollContainer/Control/SmallBlueRug/buykibble" to="." method="_on_buykibble_pressed"]
 [connection signal="pressed" from="ScrollContainer/Control/SmallYellowRug/buyFish" to="." method="_on_buy_fish_pressed"]
 [connection signal="pressed" from="ScrollContainer/Control/SmallWhiteRug/buytunacan" to="." method="_on_buytunacan_pressed"]
@@ -2544,4 +2451,3 @@ texture = ExtResource("12_my0hn")
 [connection signal="pressed" from="ScrollContainer/Control/BigRugPink/buyFish" to="." method="_on_buy_fish_pressed"]
 [connection signal="pressed" from="ScrollContainer/Control/BigRugGreen/buytunacan" to="." method="_on_buytunacan_pressed"]
 [connection signal="pressed" from="ScrollContainer/Control/BigRugWhite/buyball" to="." method="_on_buyball_pressed"]
->>>>>>> origin/master2

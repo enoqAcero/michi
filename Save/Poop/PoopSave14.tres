@@ -5,9 +5,5 @@
 [resource]
 script = ExtResource("1_qrtmy")
 active = 0
-<<<<<<< HEAD
-globalPos = Vector2(13.7027, 747.201)
-=======
 globalPos = Vector2(243.849, 721.187)
->>>>>>> origin/master2
 index = 0

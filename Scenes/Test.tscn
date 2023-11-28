@@ -1,28 +1,9 @@
-<<<<<<< HEAD
-[gd_scene load_steps=33 format=3 uid="uid://dg2rf8of102bf"]
-=======
 [gd_scene load_steps=30 format=3 uid="uid://dg2rf8of102bf"]
->>>>>>> origin/master2
 
 [ext_resource type="Script" path="res://Scenes/Scripts/Test.gd" id="1_1kxl6"]
 [ext_resource type="Texture2D" uid="uid://bbda6m3rkng0e" path="res://Scenes/Assets/Temp/tileset_forest.png" id="1_8dyok"]
 [ext_resource type="Texture2D" uid="uid://c55p53m2ylob8" path="res://GUI/Assets/TileSetMichis.png" id="3_61cri"]
 [ext_resource type="Texture2D" uid="uid://c6hkkk7alqwyr" path="res://Scenes/Assets/TileSetMichis1.png" id="4_nry44"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://d2mklqt1svgdv" path="res://GUI/Assets/shopIcon.png" id="4_x1ng5"]
-[ext_resource type="Texture2D" uid="uid://qu2en4yvs7f2" path="res://Scenes/Assets/TileSetMichis (1) (1).png" id="5_koowm"]
-[ext_resource type="PackedScene" uid="uid://qtwndjqyub13" path="res://Shop.tscn" id="6_jcj4f"]
-[ext_resource type="PackedScene" uid="uid://j3ostc4r7ccw" path="res://inventario.tscn" id="7_hryy3"]
-[ext_resource type="Texture2D" uid="uid://pqd8em8ox51f" path="res://Structures/Assets/chair.png" id="10_7hvop"]
-[ext_resource type="Texture2D" uid="uid://21ityv520c53" path="res://GUI/Assets/topGUI.png" id="12_27s2g"]
-[ext_resource type="Texture2D" uid="uid://wla16gf6t1u2" path="res://Structures/Assets/coachfull.png" id="12_hm8fj"]
-[ext_resource type="Script" path="res://GUI/Scripts/StatusMichi.gd" id="12_va7yt"]
-[ext_resource type="Texture2D" uid="uid://dxcixy4yg7bm5" path="res://GUI/Assets/blueBar.png" id="13_4lkc7"]
-[ext_resource type="Texture2D" uid="uid://dv1jux451ktg8" path="res://GUI/Assets/whiteBar.png" id="14_eawgb"]
-[ext_resource type="Texture2D" uid="uid://bv84tixuwyaed" path="res://GUI/Assets/GUIframes.png" id="15_s64sj"]
-[ext_resource type="PackedScene" uid="uid://tiikba73gpd6" path="res://Scenes/michiRun/wetSign.tscn" id="16_v0av2"]
-[ext_resource type="PackedScene" uid="uid://coqmvxca8wlnr" path="res://MichiPedia.tscn" id="17_hq2u8"]
-=======
 [ext_resource type="Texture2D" uid="uid://qu2en4yvs7f2" path="res://Scenes/Assets/TileSetMichis (1) (1).png" id="5_koowm"]
 [ext_resource type="PackedScene" uid="uid://qtwndjqyub13" path="res://Shop.tscn" id="6_jcj4f"]
 [ext_resource type="PackedScene" uid="uid://j3ostc4r7ccw" path="res://inventario.tscn" id="7_hryy3"]
@@ -36,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://dnukbiy0jj2b6" path="res://GUI/Assets/GUIframes2.png" id="16_8jg1p"]
 [ext_resource type="PackedScene" uid="uid://ifhkt1mcmkti" path="res://Structures/Assets/caminadora.tscn" id="16_vialj"]
 [ext_resource type="PackedScene" uid="uid://neoqgd1g1b5e" path="res://Structures/Assets/jumper.tscn" id="17_2octx"]
->>>>>>> origin/master2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5x20"]
 texture = ExtResource("1_8dyok")
@@ -855,34 +835,6 @@ size = Vector2(608, 192)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aa6xu"]
 size = Vector2(842, 64)
 
-<<<<<<< HEAD
-[sub_resource type="AtlasTexture" id="AtlasTexture_x03fy"]
-atlas = ExtResource("12_hm8fj")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wu4v3"]
-atlas = ExtResource("12_hm8fj")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2u5ki"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x03fy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wu4v3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="LabelSettings" id="LabelSettings_dep1j"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_uk55c"]
-font_size = 14
-=======
 [sub_resource type="LabelSettings" id="LabelSettings_dep1j"]
 line_spacing = 4.0
 font = ExtResource("13_0mm6c")
@@ -892,7 +844,6 @@ font_size = 18
 line_spacing = 4.0
 font = ExtResource("13_0mm6c")
 font_size = 18
->>>>>>> origin/master2
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_1kxl6")
@@ -939,46 +890,6 @@ position = Vector2(0, -1)
 [node name="TextureButton" type="TextureButton" parent="inventario"]
 process_mode = 3
 offset_left = 409.0
-<<<<<<< HEAD
-offset_top = 785.0
-offset_right = 445.0
-offset_bottom = 819.0
-scale = Vector2(1.7, 1.7)
-texture_normal = ExtResource("4_x1ng5")
-texture_pressed = ExtResource("4_x1ng5")
-texture_hover = ExtResource("4_x1ng5")
-texture_focused = ExtResource("4_x1ng5")
-
-[node name="Button" type="Button" parent="inventario"]
-offset_left = 17.0
-offset_top = 785.0
-offset_right = 147.0
-offset_bottom = 828.0
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-light_mask = 0
-visibility_layer = 2
-position = Vector2(117, 272)
-scale = Vector2(1.7, 1.7)
-texture = ExtResource("10_7hvop")
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(178, 238)
-sprite_frames = SubResource("SpriteFrames_2u5ki")
-
-[node name="back" type="AnimatedSprite2D" parent="."]
-visible = false
-visibility_layer = 3
-position = Vector2(207, 320)
-sprite_frames = SubResource("SpriteFrames_2u5ki")
-frame = 1
-
-[node name="TopGui" type="Sprite2D" parent="."]
-position = Vector2(240, 90)
-texture = ExtResource("12_27s2g")
-=======
 offset_top = 778.0
 offset_right = 468.0
 offset_bottom = 846.0
@@ -987,7 +898,6 @@ texture_normal = ExtResource("8_hi878")
 [node name="TopGui" type="Sprite2D" parent="."]
 position = Vector2(240, 90)
 texture = ExtResource("11_akuyy")
->>>>>>> origin/master2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("12_va7yt")
@@ -1057,26 +967,6 @@ texture_progress_offset = Vector2(-3, -5)
 
 [node name="GuIframes" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(240, 90)
-<<<<<<< HEAD
-texture = ExtResource("15_s64sj")
-
-[node name="Area2D" parent="." instance=ExtResource("16_v0av2")]
-position = Vector2(0, 773)
-
-[node name="Area2D2" parent="." instance=ExtResource("16_v0av2")]
-position = Vector2(478, 778)
-
-[node name="MichiDex" parent="." instance=ExtResource("17_hq2u8")]
-process_mode = 2
-visible = false
-z_index = 3
-position = Vector2(4, 68)
-
-[connection signal="pressed" from="inventario/TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="inventario/Button" to="MichiDex" method="_on_button_pressed"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
-=======
 texture = ExtResource("16_8jg1p")
 
 [node name="Node2D" parent="." instance=ExtResource("15_l3wco")]
@@ -1091,4 +981,3 @@ position = Vector2(84, 284)
 position = Vector2(40, 710)
 
 [connection signal="pressed" from="inventario/TextureButton" to="." method="_on_texture_button_pressed"]
->>>>>>> origin/master2

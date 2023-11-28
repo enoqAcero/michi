@@ -5,9 +5,5 @@
 [resource]
 script = ExtResource("1_pf2ek")
 active = 0
-<<<<<<< HEAD
-globalPos = Vector2(235.574, 747.009)
-=======
 globalPos = Vector2(64.0138, 748.679)
->>>>>>> origin/master2
 index = 0

@@ -6,18 +6,6 @@
 script = ExtResource("1_qxukt")
 active = 1
 category = "categoria3"
-<<<<<<< HEAD
-type = "Lentes"
-categoryLevel = 3
-fusionLevel = 1
-globalPos = Vector2(441.497, 338.576)
-name = "Lentes4"
-food = -39.66
-fun = -39.66
-clean = -39.66
-comfort = -39.66
-exercise = -39.66
-=======
 type = "Hipster"
 categoryLevel = 3
 fusionLevel = 1
@@ -28,4 +16,3 @@ fun = 46.42
 clean = 46.42
 comfort = 46.42
 exercise = 46.42
->>>>>>> origin/master2

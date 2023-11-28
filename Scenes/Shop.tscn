@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=11 format=3 uid="uid://qtwndjqyub13"]
-=======
 [gd_scene load_steps=11 format=3 uid="uid://jhdhx8gvwtbg"]
->>>>>>> origin/master2
 
 [ext_resource type="Script" path="res://GUI/Scripts/Shop.gd" id="1_0mwgk"]
 [ext_resource type="Texture2D" uid="uid://blv5qr387wde2" path="res://GUI/Assets/bg-store.png" id="1_qhle5"]

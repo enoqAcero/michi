@@ -5,19 +5,6 @@
 [resource]
 script = ExtResource("1_615kj")
 active = 1
-<<<<<<< HEAD
-category = "categoria2"
-type = "Manchado"
-categoryLevel = 2
-fusionLevel = 1
-globalPos = Vector2(149.838, 462.617)
-name = "Manchado5"
-food = -76.78
-fun = -76.78
-clean = -76.78
-comfort = -76.78
-exercise = -76.78
-=======
 category = "categoria3"
 type = "Lentes"
 categoryLevel = 3
@@ -29,4 +16,3 @@ fun = 98.1
 clean = 98.1
 comfort = 98.1
 exercise = 98.1
->>>>>>> origin/master2

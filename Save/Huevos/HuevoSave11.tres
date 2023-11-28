@@ -1,16 +1,9 @@
 [gd_resource type="Resource" script_class="HuevoData" load_steps=2 format=3]
 
-<<<<<<< HEAD
-[ext_resource type="Script" path="res://Save/HuevoData.gd" id="1_nrwdo"]
-
-[resource]
-script = ExtResource("1_nrwdo")
-=======
 [ext_resource type="Script" path="res://Save/HuevoData.gd" id="1_gtqns"]
 
 [resource]
 script = ExtResource("1_gtqns")
->>>>>>> origin/master2
 active = 0
 categoria = 1
 id = 0

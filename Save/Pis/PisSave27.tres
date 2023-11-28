@@ -4,11 +4,6 @@
 
 [resource]
 script = ExtResource("1_xpige")
-<<<<<<< HEAD
-active = 0
-globalPos = Vector2(376.779, 734)
-=======
 active = 1
 globalPos = Vector2(447.076, 441.889)
->>>>>>> origin/master2
 index = 0

@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-[gd_scene load_steps=4 format=3 uid="uid://dxnudimrt850c"]
-
-[ext_resource type="Texture2D" uid="uid://babb7gttrnmeo" path="res://Eggs/Assets/MichiEgg.png" id="1_8ynw7"]
-[ext_resource type="Script" path="res://Eggs/Scripts/Egg.gd" id="1_q6dxx"]
-=======
 [gd_scene load_steps=15 format=3 uid="uid://dxnudimrt850c"]
 
 [ext_resource type="Script" path="res://Eggs/Scripts/Egg.gd" id="1_q6dxx"]
@@ -83,7 +77,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
->>>>>>> origin/master2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pvock"]
 radius = 15.0
@@ -95,15 +88,10 @@ gravity_scale = 20.0
 freeze = true
 script = ExtResource("1_q6dxx")
 
-<<<<<<< HEAD
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8ynw7")
-=======
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ekhan")
 animation = &"crackedCat1"
 autoplay = "default"
->>>>>>> origin/master2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 0)

@@ -13,12 +13,8 @@ var cornerRadius = 10
 func _ready():
 	loadData()
 	setDex()
-<<<<<<< HEAD
-	
-=======
 	var botonDex = $"../inventario".get_node( "MichiPedia")
 	botonDex.pressed.connect(_on_button_pressed)
->>>>>>> origin/master2
 	SignalManager.michiDexUpdate.connect(michiDexUpdate)
 		
 
@@ -76,11 +72,8 @@ func setDex():
 		var label = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(i) + "/MichiContainer/numero")
 		label.text = str(i+1)
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> origin/master2
 func _on_button_pressed():
 	if visible == false:
 		set_visible(true)

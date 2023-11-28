@@ -4,11 +4,6 @@
 
 [resource]
 script = ExtResource("1_wdewo")
-<<<<<<< HEAD
-active = 0
-globalPos = Vector2(151.137, 747.134)
-=======
 active = 1
 globalPos = Vector2(463.3, 449.649)
->>>>>>> origin/master2
 index = 0

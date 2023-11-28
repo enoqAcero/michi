@@ -40,11 +40,7 @@ func _ready():
 	
 	SignalManager.updateItems.connect(update_item)
 	
-<<<<<<< HEAD
-	$GuIbottomBackground.modulate = (Color("#ff6363"))
-=======
 	$GuIbottomBackground.modulate = (Color("#49A7E8"))
->>>>>>> origin/master2
 	
 
 func itemsCoinSave():
@@ -100,34 +96,17 @@ func update_item(itemCount : int):
 	GlobalVariables.indexInventario = item_index
 	SignalManager.itemsCoinSave.emit()
 	loadItems()
-<<<<<<< HEAD
-	
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-=======
->>>>>>> origin/master2
 
 
 func _on_next_pressed():
 	next_item()
-<<<<<<< HEAD
-	pass # Replace with function body.
-=======
 	
->>>>>>> origin/master2
 
 
 
 func _on_back_pressed():
 	previous_item()
-<<<<<<< HEAD
-	pass # Replace with function body.
-=======
 	
->>>>>>> origin/master2
 
 
 

@@ -1,15 +1,7 @@
 [gd_resource type="Resource" script_class="HighScore" load_steps=2 format=3]
 
-<<<<<<< HEAD
-[ext_resource type="Script" path="res://Save/ChromeGame/highScore.gd" id="1_f3g2s"]
-
-[resource]
-script = ExtResource("1_f3g2s")
-highScore = 7854
-=======
 [ext_resource type="Script" path="res://Save/ChromeGame/highScore.gd" id="1_e3tky"]
 
 [resource]
 script = ExtResource("1_e3tky")
 highScore = 1516
->>>>>>> origin/master2

@@ -7,10 +7,6 @@
 script = ExtResource("1_h5i3o")
 name = "tuna can"
 texture = ExtResource("2_eg7g5")
-<<<<<<< HEAD
-count = 12
-=======
 count = 17
->>>>>>> origin/master2
 item_index = 0
 price = 30

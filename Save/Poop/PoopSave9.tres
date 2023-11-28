@@ -5,9 +5,5 @@
 [resource]
 script = ExtResource("1_tvcjb")
 active = 0
-<<<<<<< HEAD
-globalPos = Vector2(463.32, 606.614)
-=======
 globalPos = Vector2(438.748, 724.104)
->>>>>>> origin/master2
 index = 0

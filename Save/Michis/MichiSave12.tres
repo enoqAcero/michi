@@ -1,16 +1,9 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-<<<<<<< HEAD
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_adq1k"]
-
-[resource]
-script = ExtResource("1_adq1k")
-=======
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_um7sn"]
 
 [resource]
 script = ExtResource("1_um7sn")
->>>>>>> origin/master2
 active = 0
 category = ""
 type = ""

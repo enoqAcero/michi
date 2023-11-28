@@ -5,9 +5,5 @@
 [resource]
 script = ExtResource("1_avpuf")
 active = 0
-<<<<<<< HEAD
-globalPos = Vector2(163.844, 723.494)
-=======
 globalPos = Vector2(277.497, 747.372)
->>>>>>> origin/master2
 index = 0

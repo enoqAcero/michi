@@ -7,10 +7,6 @@
 script = ExtResource("1_4fcoj")
 name = "brush"
 texture = ExtResource("2_qwc8r")
-<<<<<<< HEAD
-count = 11
-=======
 count = 17
->>>>>>> origin/master2
 item_index = 0
 price = 25

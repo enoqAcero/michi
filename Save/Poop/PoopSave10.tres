@@ -5,9 +5,5 @@
 [resource]
 script = ExtResource("1_yskg6")
 active = 0
-<<<<<<< HEAD
-globalPos = Vector2(463.298, 279.62)
-=======
 globalPos = Vector2(462.994, 713.662)
->>>>>>> origin/master2
 index = 0

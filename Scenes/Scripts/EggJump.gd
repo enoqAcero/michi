@@ -13,12 +13,9 @@ var savePathHuevo = "res://Save/Huevos/"
 var saveFileNameHuevo = "HuevoSave"
 var huevoData = ResourceLoader.load(savePathHuevo + saveFileNameHuevo + str(GlobalVariables.huevoNumber) + ".tres")
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> origin/master2
 func _ready():
 	sprite = get_node("RigidBody2D/Sprite2D")
 	collisionBody = get_node("RigidBody2D/CollisionShape2D")
@@ -36,20 +33,6 @@ func _input(_event):
 	if controlTap == 0:
 		if Input.is_action_just_pressed("click"):
 			force_x = rng.randi_range(-80,80)
-<<<<<<< HEAD
-			$RigidBody2D.apply_impulse(Vector2(force_x,-1000))
-			globalPos = $RigidBody2D.global_position
-			huevoData.taps = huevoData.taps - 1
-			$Label.text = str(huevoData.taps)
-			if huevoData.taps <= 0:
-				GlobalVariables.naceMichi = 1
-				save()
-				get_tree().change_scene_to_file("res://Scenes/Test.tscn")
-			
-
-
-func _on_button_pressed():
-=======
 			$RigidBody2D.apply_impulse(Vector2(force_x,-2000))
 			globalPos = $RigidBody2D.global_position
 			huevoData.taps = huevoData.taps - 1
@@ -79,7 +62,6 @@ func _on_button_pressed():
 
 func _on_button_pressed():
 	get_tree().paused= false
->>>>>>> origin/master2
 	save()
 	get_tree().change_scene_to_file("res://Scenes/Test.tscn")
 	
