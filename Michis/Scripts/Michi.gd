@@ -36,6 +36,8 @@ var movingVerticalHorizontal = 1 #1 = horizontal, 2 = vertical
 var timerControl = 0
 var rng = RandomNumberGenerator.new()
 
+
+
 func _ready():
 	#Iniciar movimento y randomizar el estado de idle y walking
 	idle = true
@@ -45,8 +47,14 @@ func _ready():
 	numeroMichi = getNumbersFromString(numeroMichi)
 	$Area2D2/CollisionShape2D.scale.x = 0.4
 	$Area2D2/CollisionShape2D.scale.y = 0.4
+	
+	#$Area2D.input_event.connect(click)
 
-
+func _process(delta):
+	if selected == false:
+		$Area2D/CollisionShape2D.scale.x = 1
+		$Area2D/CollisionShape2D.scale.y = 1
+		
 	
 func _physics_process(_delta):
 	if timerControl == 0:
@@ -64,16 +72,33 @@ func _physics_process(_delta):
 	
 	#DRAG & DROP
 	if selected == true:
+		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.scale.x = 3
+		$AnimatedSprite2D.scale.y = 3
+		$StatusGood.scale.x = 1
+		$StatusGood.scale.y = 1
+		$StatusGood.position.x = -29
+		$StatusGood.position.y = -55
+		$CollisionPolygon2DNormal.disabled = true
+		$CollisionPolygon2DFlip.disabled = true
+		
 		if selected2 == true:
 			if Input.is_action_just_pressed("click"):
 				offset = get_global_mouse_position() - global_position
 				SignalManager.michiNumber.emit(numeroMichi, 0) #mandar una senial con el numero del michi que se esta apretando
+				GlobalVariables.michiSelected = true
 			if Input.is_action_pressed("click"):
 				global_position = get_global_mouse_position() - offset
+				$Area2D/CollisionShape2D.scale.x = 5
+				$Area2D/CollisionShape2D.scale.y = 5
 			if Input.is_action_just_released("click"):
 				global_position = get_global_mouse_position()
-		walking = false
-		idle = true
+				selected = false
+				GlobalVariables.michiSelected = false
+				$Area2D/CollisionShape2D.scale.x = 1
+				$Area2D/CollisionShape2D.scale.y = 1
+			walking = false
+			idle = true
 		
 		
 	#MOVIMIENTO
@@ -92,6 +117,7 @@ func _physics_process(_delta):
 		if movingVerticalHorizontal == 1:
 			#iniciar animacion de WalkingSide
 			$AnimatedSprite2D.play("WalkingSide")
+			selected = false
 			if xdir == -1:
 				$AnimatedSprite2D.flip_h = false
 				$CollisionPolygon2DNormal.disabled = false
@@ -116,6 +142,7 @@ func _physics_process(_delta):
 				$AnimatedSprite2D.play("WalkingDown")
 			elif walkingUp == true:
 				$AnimatedSprite2D.play("WalkingUp")
+			selected = false
 
 			velocity.y = speed * ydir
 			velocity.x = 0
@@ -174,34 +201,30 @@ func _on_walking_timer_timeout():
 
 #Escalar michi y posicionar status cuando el mouse entra al michi 
 func _on_area_2d_mouse_entered():
-	selected = true
-	$AnimatedSprite2D.flip_h = false
-	$AnimatedSprite2D.scale.x = 3
-	$AnimatedSprite2D.scale.y = 3
-	$StatusGood.scale.x = 1
-	$StatusGood.scale.y = 1
-	$StatusGood.position.x = -29
-	$StatusGood.position.y = -55
-	$Area2D/CollisionShape2D.scale.x = 5
-	$Area2D/CollisionShape2D.scale.y = 5
-	$CollisionPolygon2DNormal.disabled = true
-	$CollisionPolygon2DFlip.disabled = true
+	if GlobalVariables.michiSelected == false and GlobalVariables.michiHover == false:
+		selected = true
+		GlobalVariables.michiHover = true
+		
+	print("global select: ",GlobalVariables.michiSelected)
+	print("local select: ", selected)
 	
 	
 	
 
 #Escalar michi y posicionar status cuando el mouse sale del michi 
 func _on_area_2d_mouse_exited():
-	selected2 = true
+	GlobalVariables.michiHover = false
+	GlobalVariables.michiSelected = false
 	selected = false
+	selected2 = true
 	$AnimatedSprite2D.scale.x = 2
 	$AnimatedSprite2D.scale.y = 2
 	$StatusGood.scale.x = 0.6
 	$StatusGood.scale.y = 0.6
 	$StatusGood.position.x = -17
 	$StatusGood.position.y = -36
-	$Area2D/CollisionShape2D.scale.x = 1
-	$Area2D/CollisionShape2D.scale.y = 1
+	#$Area2D/CollisionShape2D.scale.x = 1
+	#$Area2D/CollisionShape2D.scale.y = 1
 	$CollisionPolygon2DNormal.disabled = false
 	$CollisionPolygon2DFlip.disabled = false
 	$".".collision_layer |= 1 # Layer 1
@@ -227,7 +250,6 @@ func _on_area_2d_2_body_entered(body):
 		if not GlobalVariables.michiNumber == 101:
 			for i in range(0, maxMichiNumber):
 				if body.get_name() == ("michi"+str(i)):
-					#print("colliding michi: ", i)
 					selected2 = false
 					SignalManager.merge.emit(i) #mandar una senial con el numero del michi que se esta apretando
 					break
@@ -235,3 +257,5 @@ func _on_area_2d_2_body_entered(body):
 func _on_poop_and_pee_timer_timeout():
 	SignalManager.poopAndPee.emit(numeroMichi.to_int())
 	timerControl = 0
+
+		

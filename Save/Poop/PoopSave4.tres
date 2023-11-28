@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_pwv12")
-active = 1
-globalPos = Vector2(463.183, 694.905)
+active = 0
+globalPos = Vector2(343.863, 747.3)
 index = 0

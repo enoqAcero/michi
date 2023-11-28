@@ -325,9 +325,9 @@ func controlBounceExit(body):
 func controlBounceHit(body):
 	if body.name == "michi":
 		readyToBounce = false
-	$CanvasLayer/floorDistance.label_settings.font_color = Color(1,1,1,1)
-	if gameRunning == true:
-		cameraControl = 1
+		$CanvasLayer/floorDistance.label_settings.font_color = Color(1,1,1,1)
+		if gameRunning == true:
+			cameraControl = 1
 		
 func controlAnimationEnter(body):
 	if body.name == "michi":
@@ -346,7 +346,7 @@ func generateObstacles():
 		var posY = 2000 - posMichi
 		
 		
-		var prob = rng.randi_range(0, 100)
+		var prob = rng.randi_range(0, 1000)
 		if prob < 70:
 			var obs_type = Obstacles[randi() % Obstacles.size()]
 			var obs = obs_type.instantiate()
@@ -358,11 +358,12 @@ func generateObstacles():
 			var color = Color.from_hsv(hue,1,1)
 			obs.modulate = color
 			addObstacle(obs, 0)
-		elif prob >=70 and prob < 95:
+		elif prob > 100:#>=70 and prob < 95:
 			var coinInstance = coin.instantiate()
 			coinInstance.global_position = Vector2(posX, posY)
 			coinInstance.speedY = rng.randi_range(2, 4)
 			coinInstance.add_to_group("item")
+			coinInstance.add_to_group("coin")
 			addObstacle(coinInstance, 1)
 		elif prob >=95 and prob <=100:
 			var item_type = itemObstacles[randi() % itemObstacles.size()]
@@ -370,6 +371,22 @@ func generateObstacles():
 			item.speedY = rng.randi_range(2, 4)
 			item.global_position = Vector2(posX,posY)
 			item.add_to_group("item")
+			
+			if item.name == "ball":
+				item.add_to_group("ball")
+			if item.name == "brush":
+				item.add_to_group("brush")
+			if item.name == "comb":
+				item.add_to_group("comb")
+			if item.name == "fish":
+				item.add_to_group("fish")
+			if item.name == "kibble":
+				item.add_to_group("kibble")
+			if item.name == "laser":
+				item.add_to_group("laser")
+			if item.name == "tuna":
+				item.add_to_group("tuna")
+	
 			addObstacle(item, 1)
 			
 		controlObstacles = 0
@@ -400,8 +417,8 @@ func hitObstacle(body):
 	
 func collect(body, obs):
 	if body.name == "michi":
-		print("collectable")
 		if obs.is_in_group("item"):
+			print("collectable itme")
 			for itm in itemsInstance:
 				if itm == obs:
 					handleItemCollection(itm)
@@ -410,29 +427,28 @@ func collect(body, obs):
 func handleItemCollection(item):
 	var valorCoin = 1
 	var valorItem = 1
-	if item.name == "coin":
-		print("moneda")
+	if item.is_in_group("coin"):
 		removeObstacle(item, 1)
 		itemCount[0] += valorCoin
-	elif item.name == "kibble":
+	elif item.is_in_group("kibble"):
 		itemCount[1] += valorItem
 		removeObstacle(item, 1)
-	elif item.name == "fish":
+	elif item.is_in_group("fish"):
 		itemCount[2] += valorItem
 		removeObstacle(item, 1)
-	elif item.name == "tuna":
+	elif item.is_in_group("tuna"):
 		itemCount[3] += valorItem
 		removeObstacle(item, 1)
-	elif item.name == "ball":
+	elif item.is_in_group("ball"):
 		itemCount[4] += valorItem
 		removeObstacle(item, 1)
-	elif item.name == "laser":
+	elif item.is_in_group("laser"):
 		itemCount[5] += valorItem
 		removeObstacle(item, 1)
-	elif item.name == "comb":
+	elif item.is_in_group("comb"):
 		itemCount[6] += valorItem
 		removeObstacle(item, 1)
-	elif item.name == "brush":
+	elif item.is_in_group("brush"):
 		itemCount[7] += valorItem
 		removeObstacle(item, 1)
 		

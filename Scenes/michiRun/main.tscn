@@ -9,7 +9,7 @@
 font_size = 32
 font_color = Color(0.0156863, 1, 0, 1)
 
-[node name="michiRun" type="Node2D" groups=["item"]]
+[node name="michiRun" type="Node2D" groups=["ball", "brush", "coin", "comb", "fish", "item", "kibble", "laser", "tuna"]]
 script = ExtResource("1_lh3ho")
 metadata/_edit_horizontal_guides_ = [427.0]
 metadata/_edit_vertical_guides_ = [241.0]

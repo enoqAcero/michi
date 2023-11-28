@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_7qlcx")
-active = 1
-globalPos = Vector2(31.0737, 287.253)
+active = 0
+globalPos = Vector2(51.0863, 478.786)
 index = 0

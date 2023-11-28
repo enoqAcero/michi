@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_xpige")
-active = 1
+active = 0
 globalPos = Vector2(447.076, 441.889)
 index = 0

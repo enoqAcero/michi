@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_ippm8")
-active = 1
-globalPos = Vector2(449.997, 495.474)
+active = 0
+globalPos = Vector2(224.896, 733.996)
 index = 0

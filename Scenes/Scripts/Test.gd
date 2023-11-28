@@ -72,6 +72,7 @@ func _ready():
 		var pis = load("res://Interactives/pis.tscn").instantiate()
 		pis.global_position = pisData[i].globalPos
 		pis.name = ("pis"+str(i))
+		pis.z_index = 1
 		if pisData[i].active == 1:
 			add_child(pis)
 			print("se agrego pis:", i, " a la escena")	
@@ -82,6 +83,7 @@ func _ready():
 		var poop = load("res://Interactives/PoopRigidBody2D.tscn").instantiate()
 		poop.global_position = poopData[i].globalPos
 		poop.name = ("poop"+str(i))
+		poop.z_index = 1
 		if poopData[i].active == 1:
 			add_child(poop)
 			print("se agrego pis:", i, " a la escena")	
@@ -150,6 +152,7 @@ func _ready():
 				
 		michi.global_position = michiData[i].globalPos
 		michi.name = ("michi"+str(i))
+		michi.z_index = 2
 		if michiData[i].active == 1:
 			add_child(michi)
 			print("se agrego michi:", i, " a la escena")
@@ -166,16 +169,12 @@ func _ready():
 			print("se agrego huevo:", i, " a la escena")	
 		huevoInstance.append(huevo)
 		
-		caminadora = $Caminadora3000Azul.get_node( "Area2D")
-		caminadora.body_entered.connect(michiRunner)
-		brincolin = $jumper3000.get_node( "Area2D")
-		brincolin.body_entered.connect(michiJumper)
-
+		
+	caminadora = $Caminadora3000Azul.get_node( "Area2D")
+	caminadora.body_entered.connect(michiRunner)
+	brincolin = $jumper3000.get_node( "Area2D")
+	brincolin.body_entered.connect(michiJumper)
 	
-		
-		
-	
-		
 	SignalManager.michiNumber.connect(getNumber, 0)
 	SignalManager.huevoNumber.connect(getNumber, 1)
 	SignalManager.merge.connect(merge)
@@ -232,6 +231,7 @@ func _input(_event):
 		
 func confirmPlay(control : int):
 	if control == 1:
+		save(0)
 		get_tree().change_scene_to_file( "res://Scenes/EggJump.tscn")
 		confirmPlayInstance.queue_free()
 		controlConfirmPlayInstance = 1
@@ -612,6 +612,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 			print("Un michi no existe")
 		michi.name = "michi"+str(NumeroMichi1)
 		michiInstance[NumeroMichi1].name = "tempNameMichi1"
+		michi.z_index = 2
 		add_child(michi)
 		michiInstance[NumeroMichi1].queue_free()
 		michiInstance[NumeroMichi1] = michi
@@ -675,6 +676,7 @@ func naceMichi(huevoN : int):
 	pos_y = rng.randi_range(260, 734)
 	michi.global_position = Vector2(pos_x,pos_y)
 	michi.name = "michi"+str(michiIndex)
+	michi.z_index = 2
 	add_child(michi)
 	michiInstance[michiIndex] = michi
 	michiData[michiIndex].active = 1
