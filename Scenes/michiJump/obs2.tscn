@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci1ugdwpf77j6"]
+
+[ext_resource type="Texture2D" uid="uid://dk6oyxn2u03d7" path="res://Scenes/michiJump/Assets/obstáculo2.png" id="1_2b1hu"]
+[ext_resource type="Script" path="res://Scenes/michiJump/scripts/obs2.gd" id="1_35vpy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unovj"]
+size = Vector2(73, 33)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_35vpy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(26, -43)
+texture = ExtResource("1_2b1hu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 0.5)
+shape = SubResource("RectangleShape2D_unovj")

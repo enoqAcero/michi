@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://tiikba73gpd6"]
+
+[ext_resource type="Texture2D" uid="uid://okor1iun62wh" path="res://Scenes/michiRun/Assets/wetSign.png" id="1_l62xb"]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_l62xb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(-19, 24, -15, -25, 14, -25, 18, 19, 10, 25, -19, 25)

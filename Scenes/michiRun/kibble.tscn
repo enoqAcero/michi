@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk5co4m67hr38"]
+
+[ext_resource type="Texture2D" uid="uid://eu10qlkkn8vb" path="res://Interactives/shinyItem.png" id="1_ln01m"]
+[ext_resource type="Texture2D" uid="uid://b0c2juy08dxjs" path="res://Items/Assets/Kibble.png" id="1_qjtx7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ip2ax"]
+radius = 28.0179
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feqbm"]
+atlas = ExtResource("1_ln01m")
+region = Rect2(0, 0, 120, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3pcn"]
+atlas = ExtResource("1_ln01m")
+region = Rect2(355, 0, 120, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3or0m"]
+atlas = ExtResource("1_ln01m")
+region = Rect2(710, 0, 120, 182)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bu8qd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feqbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3pcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3or0m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="kibble" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_ip2ax")
+debug_color = Color(0.988235, 0.92549, 0, 0.4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.737255, 0.129412, 0.898039)
+position = Vector2(0, -1)
+scale = Vector2(0.890496, 0.598901)
+sprite_frames = SubResource("SpriteFrames_bu8qd")
+autoplay = "default"
+frame_progress = 0.508999
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qjtx7")

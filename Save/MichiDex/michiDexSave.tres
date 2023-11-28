@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="MichiDex" load_steps=24 format=3 uid="uid://tygepwk4bgeb"]
+
+[ext_resource type="Script" path="res://Save/MichiDex/MichiDex.gd" id="1_2637k"]
+[ext_resource type="Script" path="res://Save/MichiDex/MichisCollected.gd" id="1_il7a5"]
+
+[sub_resource type="Resource" id="Resource_8hg7c"]
+script = ExtResource("1_il7a5")
+type = "Blanco"
+active = false
+
+[sub_resource type="Resource" id="Resource_4yoj2"]
+script = ExtResource("1_il7a5")
+type = "Cafe"
+active = false
+
+[sub_resource type="Resource" id="Resource_palaw"]
+script = ExtResource("1_il7a5")
+type = "Gris"
+active = false
+
+[sub_resource type="Resource" id="Resource_vn22e"]
+script = ExtResource("1_il7a5")
+type = "Naranja"
+active = false
+
+[sub_resource type="Resource" id="Resource_6vj7m"]
+script = ExtResource("1_il7a5")
+type = "Negro"
+active = false
+
+[sub_resource type="Resource" id="Resource_3clkr"]
+script = ExtResource("1_il7a5")
+type = "Calico"
+active = false
+
+[sub_resource type="Resource" id="Resource_cfuye"]
+script = ExtResource("1_il7a5")
+type = "Egipcio"
+active = false
+
+[sub_resource type="Resource" id="Resource_vbd3u"]
+script = ExtResource("1_il7a5")
+type = "Manchado"
+active = false
+
+[sub_resource type="Resource" id="Resource_2lj3a"]
+script = ExtResource("1_il7a5")
+type = "Persa"
+active = false
+
+[sub_resource type="Resource" id="Resource_2icgx"]
+script = ExtResource("1_il7a5")
+type = "Siames"
+active = false
+
+[sub_resource type="Resource" id="Resource_01ppw"]
+script = ExtResource("1_il7a5")
+type = "Tabby"
+active = false
+
+[sub_resource type="Resource" id="Resource_vvyp2"]
+script = ExtResource("1_il7a5")
+type = "Bufanda"
+active = false
+
+[sub_resource type="Resource" id="Resource_lvcu3"]
+script = ExtResource("1_il7a5")
+type = "Girly"
+active = false
+
+[sub_resource type="Resource" id="Resource_kqel3"]
+script = ExtResource("1_il7a5")
+type = "Hipster"
+active = false
+
+[sub_resource type="Resource" id="Resource_1qu1r"]
+script = ExtResource("1_il7a5")
+type = "Lentes"
+active = false
+
+[sub_resource type="Resource" id="Resource_ugwn6"]
+script = ExtResource("1_il7a5")
+type = "Monio"
+active = true
+
+[sub_resource type="Resource" id="Resource_kt5ht"]
+script = ExtResource("1_il7a5")
+type = "Arcoiris"
+active = true
+
+[sub_resource type="Resource" id="Resource_o4i2b"]
+script = ExtResource("1_il7a5")
+type = "Cristal"
+active = false
+
+[sub_resource type="Resource" id="Resource_voha4"]
+script = ExtResource("1_il7a5")
+type = "Dorado"
+active = false
+
+[sub_resource type="Resource" id="Resource_ugkjh"]
+script = ExtResource("1_il7a5")
+type = "Estrellas"
+active = false
+
+[sub_resource type="Resource" id="Resource_rkuds"]
+script = ExtResource("1_il7a5")
+type = "Neon"
+active = false
+
+[resource]
+script = ExtResource("1_2637k")
+michiIndex = Array[ExtResource("1_il7a5")]([SubResource("Resource_8hg7c"), SubResource("Resource_4yoj2"), SubResource("Resource_palaw"), SubResource("Resource_vn22e"), SubResource("Resource_6vj7m"), SubResource("Resource_3clkr"), SubResource("Resource_cfuye"), SubResource("Resource_vbd3u"), SubResource("Resource_2lj3a"), SubResource("Resource_2icgx"), SubResource("Resource_01ppw"), SubResource("Resource_vvyp2"), SubResource("Resource_lvcu3"), SubResource("Resource_kqel3"), SubResource("Resource_1qu1r"), SubResource("Resource_ugwn6"), SubResource("Resource_kt5ht"), SubResource("Resource_o4i2b"), SubResource("Resource_voha4"), SubResource("Resource_ugkjh"), SubResource("Resource_rkuds")])

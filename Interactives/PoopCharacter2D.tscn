@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bshsvxaiswgf4"]
+
+[ext_resource type="Texture2D" uid="uid://b2eci6oyvsio2" path="res://Interactives/popisCafe.png" id="1_bxx3e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_426xe"]
+atlas = ExtResource("1_bxx3e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8di7"]
+atlas = ExtResource("1_bxx3e")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_agb67"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_426xe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8di7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_262n1"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_owlyt"]
+radius = 13.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_agb67")
+frame = 1
+frame_progress = 0.0206019
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_262n1")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_owlyt")

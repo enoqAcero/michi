@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_o0biu"]
+
+[resource]
+script = ExtResource("1_o0biu")
+active = 1
+category = "categoria2"
+type = "Persa"
+categoryLevel = 2
+fusionLevel = 1
+globalPos = Vector2(327.386, 548.117)
+name = "Persa1"
+food = 92.52
+fun = 92.52
+clean = 92.52
+comfort = 92.52
+exercise = 92.52

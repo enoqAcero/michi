@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnmhinkx6gtcg"]
+
+[ext_resource type="Texture2D" uid="uid://4wbknax3rg5w" path="res://Items/Assets/fish.png" id="1_1fpp5"]
+[ext_resource type="Texture2D" uid="uid://eu10qlkkn8vb" path="res://Interactives/shinyItem.png" id="1_anc8a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feqbm"]
+atlas = ExtResource("1_anc8a")
+region = Rect2(0, 0, 120, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3pcn"]
+atlas = ExtResource("1_anc8a")
+region = Rect2(355, 0, 120, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3or0m"]
+atlas = ExtResource("1_anc8a")
+region = Rect2(710, 0, 120, 182)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbyss"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feqbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3pcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3or0m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1ivg"]
+radius = 19.0263
+
+[node name="fish" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.737255, 0.129412, 0.898039)
+scale = Vector2(0.890496, 0.598901)
+sprite_frames = SubResource("SpriteFrames_bbyss")
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -3)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_1fpp5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_u1ivg")

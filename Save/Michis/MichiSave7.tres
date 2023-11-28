@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_hqpvu"]
+
+[resource]
+script = ExtResource("1_hqpvu")
+active = 1
+category = "categoria2"
+type = "Tabby"
+categoryLevel = 2
+fusionLevel = 1
+globalPos = Vector2(213.546, 342.348)
+name = "Tabby7"
+food = 80.96
+fun = 80.96
+clean = 80.96
+comfort = 80.96
+exercise = 80.96

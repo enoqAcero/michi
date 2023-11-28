@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PisData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Save/pisData.gd" id="1_yw8xo"]
+
+[resource]
+script = ExtResource("1_yw8xo")
+active = 1
+globalPos = Vector2(337.716, 683.424)
+index = 0

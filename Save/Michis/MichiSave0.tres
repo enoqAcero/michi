@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_ck3t5"]
+
+[resource]
+script = ExtResource("1_ck3t5")
+active = 1
+category = "categoria3"
+type = "Girly"
+categoryLevel = 3
+fusionLevel = 1
+globalPos = Vector2(76.6596, 419.503)
+name = "Girly0"
+food = -292.88
+fun = -292.88
+clean = -292.88
+comfort = -292.88
+exercise = -292.88

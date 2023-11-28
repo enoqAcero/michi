@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://do6k2ojgxn6cu"]
+
+[ext_resource type="Script" path="res://Interactives/Scripts/PoopRigidBody2D.gd" id="1_4lsgn"]
+[ext_resource type="Texture2D" uid="uid://b2eci6oyvsio2" path="res://Interactives/popisCafe.png" id="1_s0ksu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_730da"]
+atlas = ExtResource("1_s0ksu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsyy6"]
+atlas = ExtResource("1_s0ksu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrkv3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_730da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsyy6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rx4nu"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6ux8"]
+radius = 13.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 17
+collision_mask = 17
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+linear_damp = 3.0
+script = ExtResource("1_4lsgn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rrkv3")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_rx4nu")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2, 0)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_t6ux8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

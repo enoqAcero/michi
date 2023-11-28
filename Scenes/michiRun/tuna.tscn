@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://b12704y6cugtd"]
+
+[ext_resource type="Texture2D" uid="uid://eu10qlkkn8vb" path="res://Interactives/shinyItem.png" id="1_klulh"]
+[ext_resource type="Texture2D" uid="uid://8kmk6a6jj61g" path="res://Items/Assets/TunaCan.png" id="1_rlvf1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feqbm"]
+atlas = ExtResource("1_klulh")
+region = Rect2(0, 0, 120, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3pcn"]
+atlas = ExtResource("1_klulh")
+region = Rect2(355, 0, 120, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3or0m"]
+atlas = ExtResource("1_klulh")
+region = Rect2(710, 0, 120, 182)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r30ec"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feqbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3pcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3or0m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkfpd"]
+size = Vector2(55, 27)
+
+[node name="tuna" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.737255, 0.129412, 0.898039)
+position = Vector2(0, -1)
+scale = Vector2(0.890496, 0.598901)
+sprite_frames = SubResource("SpriteFrames_r30ec")
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rlvf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_jkfpd")

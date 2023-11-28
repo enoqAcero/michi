@@ -1,0 +1,680 @@
+[gd_scene load_steps=24 format=3 uid="uid://coqmvxca8wlnr"]
+
+[ext_resource type="Script" path="res://Scenes/MichiDex/MichiPedia.gd" id="1_68rj2"]
+[ext_resource type="Texture2D" uid="uid://1a23s2uf0sg5" path="res://Michis/Assets/Categoría 1/Blanco/blancoFrente.png" id="1_rirre"]
+[ext_resource type="Texture2D" uid="uid://dkenj4ng7cg6l" path="res://Michis/Assets/Categoría 1/Café/cafeFrente.png" id="2_d81pg"]
+[ext_resource type="Texture2D" uid="uid://dxx2pl45qdivj" path="res://Michis/Assets/Categoría 1/Gris/grisFrente.png" id="3_px85k"]
+[ext_resource type="Texture2D" uid="uid://m6vc6t8kyxe8" path="res://Michis/Assets/Categoría 1/Naranja/naranjaFrente.png" id="4_kmikj"]
+[ext_resource type="Texture2D" uid="uid://i1nn8t3yur52" path="res://Michis/Assets/Categoría 1/Negro/negroFrente.png" id="5_d8d2b"]
+[ext_resource type="Texture2D" uid="uid://c6qaue1jnqhje" path="res://Michis/Assets/Categoría 2/Cálico/cálicoFrente.png" id="6_675lx"]
+[ext_resource type="Texture2D" uid="uid://7jwxgids3w30" path="res://Michis/Assets/Categoría 2/Egipcio/sphynxFrente.png" id="7_bf8kt"]
+[ext_resource type="Texture2D" uid="uid://b21lnnnl6krbh" path="res://Michis/Assets/Categoría 2/Manchado/manchadoFrente.png" id="8_16uh2"]
+[ext_resource type="Texture2D" uid="uid://ddnjuv13ocmeg" path="res://Michis/Assets/Categoría 2/Persa/persaFrente.png" id="9_gj5hh"]
+[ext_resource type="Texture2D" uid="uid://ie1st3wcj0fg" path="res://Michis/Assets/Categoría 2/Siamés/siamesFrente.png" id="10_yik57"]
+[ext_resource type="Texture2D" uid="uid://d3dbc04bsqg83" path="res://Michis/Assets/Categoría 2/Tabby/tabbyFrente.png" id="11_206kx"]
+[ext_resource type="Texture2D" uid="uid://cmrayu6y2u7ol" path="res://Michis/Assets/Categoría 3/Bufanda/bufandaFrente.png" id="13_bxt25"]
+[ext_resource type="Texture2D" uid="uid://cweaao4a2extt" path="res://Michis/Assets/Categoría 3/Girly/girlyFrente.png" id="14_w6i44"]
+[ext_resource type="Texture2D" uid="uid://k1lj2jncgeus" path="res://Michis/Assets/Categoría 3/Hipster/hipsterFrente.png" id="15_uvp2i"]
+[ext_resource type="Texture2D" uid="uid://mgnofvqi2fwu" path="res://Michis/Assets/Categoría 3/Lentes/lentesFrente.png" id="16_ihjs2"]
+[ext_resource type="Texture2D" uid="uid://7uisbwc683j5" path="res://Michis/Assets/Categoría 3/Moño/eleganteFrente.png" id="17_s4orb"]
+[ext_resource type="Texture2D" uid="uid://qhhvdvgce6el" path="res://Michis/Assets/Categoría 4/Arcoiris/arcoirisFrente.png" id="18_t1xad"]
+[ext_resource type="Texture2D" uid="uid://cfydwny0fmxgq" path="res://Michis/Assets/Categoría 4/Cristal/glassFrente.png" id="19_etdnc"]
+[ext_resource type="Texture2D" uid="uid://druthqhbqntl2" path="res://Michis/Assets/Categoría 4/Dorado/doradoFrente.png" id="20_atwk8"]
+[ext_resource type="Texture2D" uid="uid://3i223mt2kits" path="res://Michis/Assets/Categoría 4/Estrellas/estrellasFrente.png" id="21_cwlxh"]
+[ext_resource type="Texture2D" uid="uid://bb363ufh2dda5" path="res://Michis/Assets/Categoría 4/Neon/neonFrente.png" id="22_tcmno"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mkd0t"]
+font_size = 24
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_68rj2")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 27.0
+offset_top = 137.0
+offset_right = 452.0
+offset_bottom = 683.0
+
+[node name="Control" type="Control" parent="ScrollContainer"]
+custom_minimum_size = Vector2(405, 2500)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/Control"]
+layout_direction = 2
+layout_mode = 0
+offset_top = 44.0
+offset_right = 411.0
+offset_bottom = 2115.0
+
+[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Categoria 1"
+label_settings = SubResource("LabelSettings_mkd0t")
+
+[node name="Panel0" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel0"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel0/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#001"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel0/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Blanco"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel0/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("1_rirre")
+hframes = 2
+
+[node name="Panel1" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel1"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel1/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#002"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel1/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Cafe"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel1/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("2_d81pg")
+hframes = 2
+
+[node name="Panel2" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel2"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel2/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#003"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel2/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Gris"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel2/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("3_px85k")
+hframes = 2
+
+[node name="Panel3" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel3"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel3/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#004"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel3/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Naranja"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel3/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("4_kmikj")
+hframes = 2
+
+[node name="Panel4" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel4"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel4/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#005"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel4/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Negro"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel4/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("5_d8d2b")
+hframes = 2
+
+[node name="Label2" type="Label" parent="ScrollContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Categoria 2"
+label_settings = SubResource("LabelSettings_mkd0t")
+
+[node name="Panel5" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel5"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel5/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#006"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel5/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Calico"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel5/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("6_675lx")
+hframes = 2
+
+[node name="Panel6" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel6"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel6/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#007"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel6/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Egipcio"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel6/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("7_bf8kt")
+hframes = 2
+
+[node name="Panel7" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel7"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel7/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#008"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel7/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Manchado"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel7/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("8_16uh2")
+hframes = 2
+
+[node name="Panel8" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel8"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel8/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#009"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel8/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Persa"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel8/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("9_gj5hh")
+hframes = 2
+
+[node name="Panel9" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel9"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel9/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#010"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel9/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Siames"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel9/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("10_yik57")
+hframes = 2
+
+[node name="Panel10" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel10"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel10/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#011"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel10/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Tabby"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel10/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("11_206kx")
+hframes = 2
+
+[node name="Label3" type="Label" parent="ScrollContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Categoria 3"
+label_settings = SubResource("LabelSettings_mkd0t")
+
+[node name="Panel11" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel11"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel11/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#012"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel11/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Bufanda"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel11/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("13_bxt25")
+hframes = 2
+
+[node name="Panel12" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel12"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel12/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#013"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel12/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Girly"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel12/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("14_w6i44")
+hframes = 2
+
+[node name="Panel13" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel13"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel13/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#014"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel13/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Hipster"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel13/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("15_uvp2i")
+hframes = 2
+
+[node name="Panel14" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel14"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel14/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#015"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel14/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Lentes"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel14/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("16_ihjs2")
+hframes = 2
+
+[node name="Panel15" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel15"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel15/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#016"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel15/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Monio"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel15/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("17_s4orb")
+hframes = 2
+
+[node name="Label4" type="Label" parent="ScrollContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Categoria 4"
+label_settings = SubResource("LabelSettings_mkd0t")
+
+[node name="Panel16" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel16"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel16/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#017"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel16/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Arcoiris"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel16/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("18_t1xad")
+hframes = 2
+
+[node name="Panel17" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel17"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel17/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#013"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel17/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Girly"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel17/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("19_etdnc")
+hframes = 2
+
+[node name="Panel18" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel18"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel18/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#014"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel18/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Hipster"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel18/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("20_atwk8")
+hframes = 2
+
+[node name="Panel19" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel19"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel19/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#015"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel19/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Lentes"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel19/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("21_cwlxh")
+hframes = 2
+
+[node name="Panel20" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(411, 87)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MichiContainer" type="HBoxContainer" parent="ScrollContainer/Control/VBoxContainer/Panel20"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 400.0
+offset_bottom = 86.0
+theme_override_constants/separation = 90
+
+[node name="numero" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel20/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "#016"
+
+[node name="nombre" type="Label" parent="ScrollContainer/Control/VBoxContainer/Panel20/MichiContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Michi Monio"
+
+[node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel20/MichiContainer"]
+position = Vector2(340, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("22_tcmno")
+hframes = 2

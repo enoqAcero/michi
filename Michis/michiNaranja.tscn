@@ -1,0 +1,158 @@
+[gd_scene load_steps=18 format=3 uid="uid://c6puxvq25ce6f"]
+
+[ext_resource type="Script" path="res://Michis/Scripts/Michi.gd" id="1_7j7gi"]
+[ext_resource type="Texture2D" uid="uid://m6vc6t8kyxe8" path="res://Michis/Assets/Categoría 1/Naranja/naranjaFrente.png" id="2_7185d"]
+[ext_resource type="Texture2D" uid="uid://cgkrqkv8qr6we" path="res://Michis/Status/Assets/statusWhite.png" id="3_p52w0"]
+[ext_resource type="Texture2D" uid="uid://bx2u3avsexqie" path="res://Michis/Assets/Categoría 1/Naranja/naranjaLateral.png" id="3_xannf"]
+[ext_resource type="Texture2D" uid="uid://dl6gqoxmyvgvr" path="res://Michis/Assets/Categoría 1/Naranja/naranjaEsplada.png" id="4_6y6m4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2bx2"]
+atlas = ExtResource("2_7185d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5s21"]
+atlas = ExtResource("2_7185d")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egyan"]
+atlas = ExtResource("2_7185d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh7qx"]
+atlas = ExtResource("2_7185d")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3njt"]
+atlas = ExtResource("3_xannf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb0qr"]
+atlas = ExtResource("3_xannf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yb3m"]
+atlas = ExtResource("4_6y6m4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qwnt"]
+atlas = ExtResource("4_6y6m4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sirv6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2bx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5s21")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egyan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh7qx")
+}],
+"loop": true,
+"name": &"WalkingDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3njt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb0qr")
+}],
+"loop": true,
+"name": &"WalkingSide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yb3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qwnt")
+}],
+"loop": true,
+"name": &"WalkingUp",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gei1d"]
+radius = 17.0
+height = 34.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7oxml"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_co7id"]
+radius = 12.0
+
+[node name="Michi1" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 17
+collision_mask = 17
+script = ExtResource("1_7j7gi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sirv6")
+animation = &"Idle"
+
+[node name="StatusGood" type="Sprite2D" parent="."]
+position = Vector2(-17, -36)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_p52w0")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(1, 5)
+shape = SubResource("CapsuleShape2D_gei1d")
+
+[node name="CollisionPolygon2DNormal" type="CollisionPolygon2D" parent="."]
+position = Vector2(-38, -32)
+polygon = PackedVector2Array(21, 13, 16.4403, 20.8759, 10, 32, 10, 50, 20, 58, 42, 58, 48, 49, 47, 45, 64, 32, 62, 25, 57, 24, 54, 34, 49, 36, 38, 12, 32, 20, 27, 20)
+
+[node name="CollisionPolygon2DFlip" type="CollisionPolygon2D" parent="."]
+position = Vector2(-38, -32)
+polygon = PackedVector2Array(39, 12, 28, 36, 24, 36, 19, 30, 21, 26, 17, 24, 14, 30, 24, 44, 28, 44, 29, 49, 35, 56, 38, 56, 38, 58, 56, 58, 66, 50, 66, 32, 55, 12, 50, 21, 45, 21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_7oxml")
+
+[node name="ChangeStateTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="WalkingTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ClickTimer" type="Timer" parent="."]
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_co7id")
+
+[node name="poopAndPeeTimer" type="Timer" parent="."]
+wait_time = 40.0
+autostart = true
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="ChangeStateTimer" to="." method="_on_change_state_timer_timeout"]
+[connection signal="timeout" from="WalkingTimer" to="." method="_on_walking_timer_timeout"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="timeout" from="poopAndPeeTimer" to="." method="_on_poop_and_pee_timer_timeout"]

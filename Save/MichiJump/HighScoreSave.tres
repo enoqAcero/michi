@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="HighScore" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Save/ChromeGame/highScore.gd" id="1_e3tky"]
+
+[resource]
+script = ExtResource("1_e3tky")
+highScore = 1516

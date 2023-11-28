@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_qo86p"]
+
+[resource]
+script = ExtResource("1_qo86p")
+active = 1
+category = "categoria3"
+type = "Bufanda"
+categoryLevel = 3
+fusionLevel = 1
+globalPos = Vector2(209.987, 388.349)
+name = "Bufanda3"
+food = 91.06
+fun = 91.06
+clean = 91.06
+comfort = 91.06
+exercise = 91.06

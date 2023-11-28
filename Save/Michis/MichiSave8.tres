@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_qwaqc"]
+
+[resource]
+script = ExtResource("1_qwaqc")
+active = 1
+category = "categoria3"
+type = "Lentes"
+categoryLevel = 3
+fusionLevel = 1
+globalPos = Vector2(269.548, 337.349)
+name = "Lentes8"
+food = 67.64
+fun = 67.64
+clean = 67.64
+comfort = 67.64
+exercise = 67.64

@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://t4ejns63oq41"]
+
+[ext_resource type="Texture2D" uid="uid://dawofg8ex4w7" path="res://Scenes/michiRun/Assets/baseball.png" id="1_6xgp2"]
+[ext_resource type="Script" path="res://Scenes/michiRun/Scripts/baseball.gd" id="1_s4s4e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1omk"]
+atlas = ExtResource("1_6xgp2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2vto"]
+atlas = ExtResource("1_6xgp2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_invft"]
+atlas = ExtResource("1_6xgp2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m74y5"]
+atlas = ExtResource("1_6xgp2")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kb2j"]
+atlas = ExtResource("1_6xgp2")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sndcc"]
+atlas = ExtResource("1_6xgp2")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yctit"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1omk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2vto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_invft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m74y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kb2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sndcc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6k0fs"]
+radius = 22.3607
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_s4s4e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_yctit")
+autoplay = "default"
+frame = 4
+frame_progress = 0.833497
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -3)
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_6k0fs")

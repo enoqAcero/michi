@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="HuevoData" load_steps=2 format=3 uid="uid://llfle8rmaeh5"]
+
+[ext_resource type="Script" path="res://Save/HuevoData.gd" id="1_caapg"]
+
+[resource]
+script = ExtResource("1_caapg")
+active = 0
+categoria = 1
+id = 0
+taps = 5
