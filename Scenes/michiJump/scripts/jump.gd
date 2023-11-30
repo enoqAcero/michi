@@ -346,7 +346,7 @@ func generateObstacles():
 		var posY = 2000 - posMichi
 		
 		
-		var prob = rng.randi_range(0, 1000)
+		var prob = rng.randi_range(0, 100)
 		if prob < 70:
 			var obs_type = Obstacles[randi() % Obstacles.size()]
 			var obs = obs_type.instantiate()
@@ -539,6 +539,7 @@ func addMichi():
 	michiInstance.set_script(michiScriptPath)
 	
 	var statusBall = michiInstance.get_node("StatusGood")
+	michiInstance.get_node("CollisionPolygon2DFlip").disabled = true
 	
 	paraguasSprite = michiInstance.get_node("paraguas").get_node("AnimatedSprite2D")
 	paraguasSprite.visible = false

@@ -2,10 +2,10 @@ extends Node2D
 
 var savePath = "res://Save/MichiDex/michiDexSave.tres"
 
-var maxMichiNumber = 21#GlobalVariables.maxMichiNumber
+var maxMichiNumber = 46#GlobalVariables.maxMichiNumber
 var michiDex : MichiDex
 
-var maxPanel = 21#GlobalVariables.maxMichiNumber
+var maxPanel = 46#GlobalVariables.maxMichiNumber
 var PanelName
 var cornerRadius = 10
 

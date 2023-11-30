@@ -36,6 +36,10 @@ var movingVerticalHorizontal = 1 #1 = horizontal, 2 = vertical
 var timerControl = 0
 var rng = RandomNumberGenerator.new()
 
+var mergeMichiControl = false
+
+var overlappingAreas
+var objectName
 
 
 func _ready():
@@ -48,17 +52,49 @@ func _ready():
 	$Area2D2/CollisionShape2D.scale.x = 0.4
 	$Area2D2/CollisionShape2D.scale.y = 0.4
 	
-	#$Area2D.input_event.connect(click)
+	$ClickTimer.wait_time = 0.2
+	$ClickTimer.one_shot = true
+	$ClickTimer.timeout.connect(clickControl)
+	
+	$Area2D2.position = Vector2 (-4,-21)
+	$Area2D2.scale = Vector2(5,5)
+	$Area2D2.set_collision_layer_value(2, false)
+	$Area2D2.set_collision_layer_value(1, true)
 
 func _process(delta):
 	if selected == false:
 		$Area2D/CollisionShape2D.scale.x = 1
 		$Area2D/CollisionShape2D.scale.y = 1
 		
+	if GlobalVariables.michiHover == true and selected == false:
+		$Area2D.input_pickable = false
+		
+	if GlobalVariables.michiHover == false and selected == false:
+		$".".set_collision_layer_value(2, false) # remove from collision layer
+		$".".set_collision_mask_value(2, false) # remove from collision mask
+		$".".set_collision_layer_value(1, true)
+		$".".set_collision_mask_value(1, true)
+		$Area2D.input_pickable = true
+		
 	
 func _physics_process(_delta):
+	overlappingAreas = $Area2D2.get_overlapping_areas()
+	
+	if selected == true:
+		for area in overlappingAreas:
+			# Get the global positions of the player and the object
+			var player_pos = global_position
+			var object_pos = area.global_position
+			# Check if the player is on top of the object
+			if player_pos.y > object_pos.y:
+				objectName = area.get_parent()
+				objectName = objectName.name
+				print("ON TOP")
+				if Input.is_action_just_released("click"):
+					merge()
+	
 	if timerControl == 0:
-		$poopAndPeeTimer.set_wait_time(rng.randi_range(30,60))
+		$poopAndPeeTimer.set_wait_time(rng.randi_range(100,200))#(30,60))
 		$poopAndPeeTimer.start()
 		timerControl = 1 
 	#ESTADO DE ANIMO
@@ -79,8 +115,16 @@ func _physics_process(_delta):
 		$StatusGood.scale.y = 1
 		$StatusGood.position.x = -29
 		$StatusGood.position.y = -55
+		
+		$".".set_collision_layer_value(1, false) # remove from collision layer
+		$".".set_collision_mask_value(1, false) # remove from collision mask
+		$".".set_collision_layer_value(2, true) # remove from collision layer
+		$".".set_collision_mask_value(2, true) # remove from collision mask
+		
+		
 		$CollisionPolygon2DNormal.disabled = true
 		$CollisionPolygon2DFlip.disabled = true
+		$CollisionShape2D.disabled = false
 		
 		if selected2 == true:
 			if Input.is_action_just_pressed("click"):
@@ -95,11 +139,16 @@ func _physics_process(_delta):
 				global_position = get_global_mouse_position()
 				selected = false
 				GlobalVariables.michiSelected = false
+				$ClickTimer.start()
 				$Area2D/CollisionShape2D.scale.x = 1
 				$Area2D/CollisionShape2D.scale.y = 1
 			walking = false
 			idle = true
-		
+			
+	if selected == false and mergeMichiControl == false:
+		GlobalVariables.mergeMichi = false
+		$ClickTimer.start()
+
 		
 	#MOVIMIENTO
 	#al estar en idle, decidir si se ve a mover vertical o horizontal
@@ -204,12 +253,9 @@ func _on_area_2d_mouse_entered():
 	if GlobalVariables.michiSelected == false and GlobalVariables.michiHover == false:
 		selected = true
 		GlobalVariables.michiHover = true
+		GlobalVariables.mergeMichi = true
+		mergeMichiControl = true
 		
-	print("global select: ",GlobalVariables.michiSelected)
-	print("local select: ", selected)
-	
-	
-	
 
 #Escalar michi y posicionar status cuando el mouse sale del michi 
 func _on_area_2d_mouse_exited():
@@ -227,9 +273,8 @@ func _on_area_2d_mouse_exited():
 	#$Area2D/CollisionShape2D.scale.y = 1
 	$CollisionPolygon2DNormal.disabled = false
 	$CollisionPolygon2DFlip.disabled = false
-	$".".collision_layer |= 1 # Layer 1
-	$".".collision_mask |= 1 # Layer 1
-	$Area2D.collision_layer |= 1 # Layer 1
+	
+	
 	
 
 
@@ -244,18 +289,20 @@ func getNumbersFromString(input_string: String) -> String:
 
 
 func _on_area_2d_2_body_entered(body):
-	if selected == true:
-		$".".collision_layer &= ~1 # Layer 1
-		$Area2D.collision_layer &= ~1 # Layer 1
-		if not GlobalVariables.michiNumber == 101:
-			for i in range(0, maxMichiNumber):
-				if body.get_name() == ("michi"+str(i)):
-					selected2 = false
-					SignalManager.merge.emit(i) #mandar una senial con el numero del michi que se esta apretando
-					break
+	pass
 
 func _on_poop_and_pee_timer_timeout():
 	SignalManager.poopAndPee.emit(numeroMichi.to_int())
 	timerControl = 0
 
-		
+func clickControl():
+	mergeMichiControl = false
+	
+	
+func merge():
+	print("MERGE")
+	for i in range(0, maxMichiNumber):
+		if objectName == ("michi"+str(i)):
+			selected2 = false
+			SignalManager.merge.emit(numeroMichi.to_int(), i) #mandar una senial con el numero del michi que se esta apretando
+			break

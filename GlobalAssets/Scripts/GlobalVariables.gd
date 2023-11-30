@@ -15,3 +15,4 @@ var michiPath
 
 var michiSelected = false
 var michiHover = false
+var mergeMichi = false

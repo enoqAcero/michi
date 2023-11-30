@@ -4,15 +4,15 @@
 
 [resource]
 script = ExtResource("1_um7sn")
-active = 0
-category = ""
-type = ""
-categoryLevel = 1
+active = 1
+category = "categoria7"
+type = "Pascua"
+categoryLevel = 7
 fusionLevel = 1
-globalPos = Vector2(250, 450)
-name = ""
-food = 100
-fun = 100
-clean = 100
-comfort = 100
-exercise = 100
+globalPos = Vector2(352.634, 734.003)
+name = "Pascua12"
+food = 68.1
+fun = 68.1
+clean = 68.1
+comfort = 68.1
+exercise = 68.1

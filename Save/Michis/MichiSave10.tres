@@ -5,14 +5,14 @@
 [resource]
 script = ExtResource("1_y4plt")
 active = 1
-category = "categoria4"
-type = "Arcoiris"
-categoryLevel = 4
+category = "categoria8"
+type = "Vampiro"
+categoryLevel = 8
 fusionLevel = 1
-globalPos = Vector2(204.074, 338.665)
-name = "Arcoiris10"
-food = -255.2
-fun = -255.2
-clean = -255.2
-comfort = -255.2
-exercise = -255.2
+globalPos = Vector2(392.349, 373.344)
+name = "Vampiro10"
+food = -657.52
+fun = -657.52
+clean = -657.52
+comfort = -657.52
+exercise = -657.52

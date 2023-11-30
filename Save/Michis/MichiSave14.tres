@@ -4,15 +4,15 @@
 
 [resource]
 script = ExtResource("1_6dtgg")
-active = 0
-category = ""
-type = ""
-categoryLevel = 1
+active = 1
+category = "categoria8"
+type = "Diablo"
+categoryLevel = 8
 fusionLevel = 1
-globalPos = Vector2(250, 450)
-name = ""
-food = 100
-fun = 100
-clean = 100
-comfort = 100
-exercise = 100
+globalPos = Vector2(274.936, 700.425)
+name = "Diablo14"
+food = 87.24
+fun = 87.24
+clean = 87.24
+comfort = 87.24
+exercise = 87.24

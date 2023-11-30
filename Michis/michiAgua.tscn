@@ -1,0 +1,187 @@
+[gd_scene load_steps=22 format=3 uid="uid://behlfvdorm5px"]
+
+[ext_resource type="Script" path="res://Michis/Scripts/Michi.gd" id="1_7mxaf"]
+[ext_resource type="Texture2D" uid="uid://vvcl8bdebmqo" path="res://Michis/Assets/Categoría 6/Agua/aguaFrente.png" id="2_h3dag"]
+[ext_resource type="Texture2D" uid="uid://heb0e3qd1v8" path="res://Michis/Assets/Categoría 6/Agua/aguaLateral.png" id="3_dofg2"]
+[ext_resource type="Texture2D" uid="uid://dml832fmv0smg" path="res://Michis/Assets/Categoría 6/Agua/aguaEspalda.png" id="4_7lqh2"]
+[ext_resource type="Texture2D" uid="uid://cgkrqkv8qr6we" path="res://Michis/Status/Assets/statusWhite.png" id="5_a1o28"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwhy8"]
+atlas = ExtResource("2_h3dag")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uae6"]
+atlas = ExtResource("2_h3dag")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laya0"]
+atlas = ExtResource("2_h3dag")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn2ns"]
+atlas = ExtResource("2_h3dag")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlwua"]
+atlas = ExtResource("2_h3dag")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w45y0"]
+atlas = ExtResource("2_h3dag")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r663j"]
+atlas = ExtResource("3_dofg2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lhd4"]
+atlas = ExtResource("3_dofg2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ruyo"]
+atlas = ExtResource("3_dofg2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fm4x"]
+atlas = ExtResource("4_7lqh2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pbfw"]
+atlas = ExtResource("4_7lqh2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_508ks"]
+atlas = ExtResource("4_7lqh2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sirv6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwhy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uae6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_laya0")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn2ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlwua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w45y0")
+}],
+"loop": true,
+"name": &"WalkingDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r663j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lhd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ruyo")
+}],
+"loop": true,
+"name": &"WalkingSide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fm4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pbfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_508ks")
+}],
+"loop": true,
+"name": &"WalkingUp",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gei1d"]
+radius = 21.0
+height = 42.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7oxml"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_co7id"]
+radius = 12.0
+
+[node name="Michi1" type="CharacterBody2D"]
+script = ExtResource("1_7mxaf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, -4)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sirv6")
+animation = &"Idle"
+
+[node name="StatusGood" type="Sprite2D" parent="."]
+position = Vector2(-17, -36)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_a1o28")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 5)
+shape = SubResource("CapsuleShape2D_gei1d")
+debug_color = Color(0.427451, 1, 0, 0.419608)
+
+[node name="CollisionPolygon2DNormal" type="CollisionPolygon2D" parent="."]
+position = Vector2(-38, -32)
+polygon = PackedVector2Array(21, 13, 16.4403, 20.8759, 10, 32, 10, 50, 20, 58, 42, 58, 48, 49, 47, 45, 64, 32, 62, 25, 57, 24, 54, 34, 49, 36, 38, 12, 32, 20, 27, 20)
+
+[node name="CollisionPolygon2DFlip" type="CollisionPolygon2D" parent="."]
+position = Vector2(-38, -32)
+polygon = PackedVector2Array(39, 12, 28, 36, 24, 36, 19, 30, 21, 26, 17, 24, 14, 30, 24, 44, 28, 44, 29, 49, 35, 56, 38, 56, 38, 58, 56, 58, 66, 50, 66, 32, 55, 12, 50, 21, 45, 21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_7oxml")
+debug_color = Color(0, 0.705882, 0.870588, 0.419608)
+
+[node name="ChangeStateTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="WalkingTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ClickTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_co7id")
+debug_color = Color(0.737255, 0.223529, 1, 0.419608)
+
+[node name="poopAndPeeTimer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 40.0
+autostart = true
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="ChangeStateTimer" to="." method="_on_change_state_timer_timeout"]
+[connection signal="timeout" from="WalkingTimer" to="." method="_on_walking_timer_timeout"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="timeout" from="poopAndPeeTimer" to="." method="_on_poop_and_pee_timer_timeout"]

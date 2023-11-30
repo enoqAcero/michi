@@ -1,18 +1,18 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_fu1um"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_pvkh7"]
 
 [resource]
-script = ExtResource("1_fu1um")
-active = 0
-category = ""
-type = ""
-categoryLevel = 1
+script = ExtResource("1_pvkh7")
+active = 1
+category = "categoria9"
+type = "SuperAlien"
+categoryLevel = 9
 fusionLevel = 1
-globalPos = Vector2(250, 450)
-name = ""
-food = 100
-fun = 100
-clean = 100
-comfort = 100
-exercise = 100
+globalPos = Vector2(206.854, 592.932)
+name = "Hechicero15"
+food = 58.76
+fun = 58.76
+clean = 58.76
+comfort = 58.76
+exercise = 58.76

@@ -160,6 +160,7 @@ func generateObstacles():
 			else:
 				coin_y = rng.randi_range(flyObstacleHeight[0], flyObstacleHeight[1])
 			coinInstance.global_position = Vector2(coin_x, coin_y)
+			coinInstance.add_to_group("coin")
 			coinInstance.add_to_group("item")
 			addObstacle(coinInstance, 1)
 		elif prob >=90:
@@ -219,7 +220,6 @@ func hitObstacle(body):
 		gameOver()
 		
 func collect(body, obs):
-	print("coin")
 	if body.name == "michi":
 		if obs.is_in_group("item"):
 			for itm in itemsInstance:
@@ -310,6 +310,7 @@ func addMichi():
 	michiInstance.name = "michi"
 	
 	michiInstance.set_script(michiScriptPath)
+	michiInstance.get_node("CollisionPolygon2DNormal").disabled = true
 	
 	var statusBall = michiInstance.get_node("StatusGood")
 	statusBall.visible = false
