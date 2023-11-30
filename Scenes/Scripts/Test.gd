@@ -271,6 +271,7 @@ func _process(_delta):
 
 #cuando se apieta un michi o un huevo aparecen sus stats mandando a llamar la funcion updateStatus
 func _input(_event):
+	var michiIndex
 	if Input.is_action_just_pressed("click"):
 		otherMichiN = 100
 		if not type == -1:	
@@ -278,6 +279,7 @@ func _input(_event):
 				if controlConfirmPlayInstance == 1:
 					var playConfirm = load("res://GUI/ConfirmPlay.tscn").instantiate()
 					playConfirm.global_position = Vector2(147,375.5)
+					#playConfirm.z_index = michiInstance[michiN].get_z_index() + 1
 					add_child(playConfirm)
 					confirmPlayInstance = playConfirm
 					GlobalVariables.huevoNumber = huevoNumber
@@ -444,14 +446,7 @@ func getNumber(number : String, typeLocal : int): #type 0 = michi, type 1 = huev
 	
 	
 func merge(michiN : int , otherN : int):
-	#if otherMichiN == 100:
-		#otherMichiN = michiN
-	
-	#if not michiN == michiNumber:
-		#otherMichiN2 = michiNumber
-		#if not otherMichiN2 == michiN:
-		print("merge michi: ",michiN," with michi: ", otherN)
-			#michiN2=michiN
+
 		michiInstance[michiN].visible = false
 		michiInstance[otherN].visible = false
 		if sceneConfirmControl == 0:
@@ -952,7 +947,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 				michiData[NumeroMichi1].categoryLevel = sumaCategorias + 1
 				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias + 1))
 				
-				#hacer nuevo michi categoria 8
+		#hacer nuevo michi categoria 8
 		if sumaCategorias == 8:
 			if probNewMichi > 25 and probNewMichi < 85:
 				var probNewMichiType = rng.randi_range(1,5)

@@ -16,3 +16,7 @@ var michiPath
 var michiSelected = false
 var michiHover = false
 var mergeMichi = false
+
+var itemSelected = false
+
+var cuarto = 1

@@ -5,14 +5,14 @@
 [resource]
 script = ExtResource("1_4tqlj")
 active = 1
-category = "categoria6"
-type = "Agua"
-categoryLevel = 6
+category = "categoria1"
+type = "Cafe"
+categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(31.0748, 484.268)
-name = "Agua9"
-food = -199.14
-fun = -199.14
-clean = -199.14
-comfort = -199.14
-exercise = -199.14
+globalPos = Vector2(32.5748, 433.116)
+name = "Cafe9"
+food = -252.46
+fun = -252.46
+clean = -252.46
+comfort = -252.46
+exercise = -252.46

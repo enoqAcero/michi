@@ -58,7 +58,7 @@ offset_left = 27.0
 offset_top = 137.0
 offset_right = 452.0
 offset_bottom = 683.0
-scroll_vertical = 1954
+scroll_vertical = 100
 
 [node name="Control" type="Control" parent="ScrollContainer"]
 custom_minimum_size = Vector2(405, 7000)
@@ -69,7 +69,8 @@ layout_direction = 2
 layout_mode = 0
 offset_top = 44.0
 offset_right = 411.0
-offset_bottom = 2115.0
+offset_bottom = 4595.0
+alignment = 1
 
 [node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer"]
 layout_mode = 2
