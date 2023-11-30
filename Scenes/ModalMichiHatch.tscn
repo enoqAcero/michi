@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://wc55lani441q"]
+[gd_scene load_steps=17 format=3 uid="uid://wc55lani441q"]
 
 [ext_resource type="Script" path="res://Scenes/ModalMichiHatch.gd" id="1_4k86y"]
 [ext_resource type="Texture2D" uid="uid://7lwxn2d12onm" path="res://GUI/Assets/frameNewMich.png" id="1_55yo5"]
@@ -51,6 +51,18 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_offset = Vector2(3, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxgod"]
+size = Vector2(360, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd7oc"]
+size = Vector2(350, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcgnr"]
+size = Vector2(20, 330)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhcdr"]
+size = Vector2(20, 335)
 
 [node name="ModalMichiHatch" type="Control"]
 process_mode = 2
@@ -128,6 +140,28 @@ scroll_active = false
 position = Vector2(240, 565)
 scale = Vector2(9.67742, 9.16667)
 texture = ExtResource("6_ccmgh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(240, 500)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_cxgod")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(240, 170)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_gd7oc")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(410, 330)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fcgnr")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(70, 332.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_yhcdr")
 
 [connection signal="pressed" from="HatchB" to="." method="_on_hatch_b_pressed"]
 [connection signal="pressed" from="VideoB" to="." method="_on_video_b_pressed"]

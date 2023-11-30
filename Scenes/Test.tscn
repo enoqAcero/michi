@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dg2rf8of102bf"]
+[gd_scene load_steps=33 format=3 uid="uid://dg2rf8of102bf"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/Test.gd" id="1_1kxl6"]
 [ext_resource type="Texture2D" uid="uid://bbda6m3rkng0e" path="res://Scenes/Assets/Temp/tileset_forest.png" id="1_8dyok"]
@@ -8,12 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://qtwndjqyub13" path="res://Shop.tscn" id="6_jcj4f"]
 [ext_resource type="PackedScene" uid="uid://j3ostc4r7ccw" path="res://inventario.tscn" id="7_hryy3"]
 [ext_resource type="Texture2D" uid="uid://b0e811a07jixv" path="res://GUI/Assets/GUIshop.png" id="8_hi878"]
-[ext_resource type="Texture2D" uid="uid://be0x60yo8hmpv" path="res://GUI/Assets/topGUI2.png" id="11_akuyy"]
+[ext_resource type="Texture2D" uid="uid://baem2g3768nh2" path="res://GUI/Assets/top (1).png" id="9_fgtxa"]
+[ext_resource type="LabelSettings" uid="uid://d3fxyev510uey" path="res://tipoNum.tres" id="11_vojtj"]
+[ext_resource type="Texture2D" uid="uid://clovrf8frejun" path="res://GUI/Assets/edit.png" id="12_dg26b"]
 [ext_resource type="Script" path="res://GUI/Scripts/StatusMichi.gd" id="12_va7yt"]
 [ext_resource type="FontFile" uid="uid://dtjra5b55fol8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="13_0mm6c"]
-[ext_resource type="Texture2D" uid="uid://dxcixy4yg7bm5" path="res://GUI/Assets/blueBar.png" id="13_4lkc7"]
 [ext_resource type="Texture2D" uid="uid://dv1jux451ktg8" path="res://GUI/Assets/whiteBar.png" id="14_eawgb"]
+[ext_resource type="Texture2D" uid="uid://dbjx030gmerd8" path="res://GUI/Assets/yes.png" id="14_eu1fg"]
+[ext_resource type="Texture2D" uid="uid://ci2f4ykvkiv3o" path="res://GUI/Assets/no.png" id="15_corfr"]
 [ext_resource type="PackedScene" uid="uid://coqmvxca8wlnr" path="res://MichiPedia.tscn" id="15_l3wco"]
+[ext_resource type="Texture2D" uid="uid://bt67p4mi4t4ao" path="res://GUI/Assets/white.png" id="16_5tmrt"]
 [ext_resource type="Texture2D" uid="uid://dnukbiy0jj2b6" path="res://GUI/Assets/GUIframes2.png" id="16_8jg1p"]
 [ext_resource type="PackedScene" uid="uid://ifhkt1mcmkti" path="res://Structures/Assets/caminadora.tscn" id="16_vialj"]
 [ext_resource type="PackedScene" uid="uid://neoqgd1g1b5e" path="res://Structures/Assets/jumper.tscn" id="17_2octx"]
@@ -835,15 +839,12 @@ size = Vector2(608, 192)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aa6xu"]
 size = Vector2(842, 64)
 
-[sub_resource type="LabelSettings" id="LabelSettings_dep1j"]
-line_spacing = 4.0
-font = ExtResource("13_0mm6c")
-font_size = 18
-
 [sub_resource type="LabelSettings" id="LabelSettings_uk55c"]
 line_spacing = 4.0
 font = ExtResource("13_0mm6c")
-font_size = 18
+font_size = 14
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_1kxl6")
@@ -857,6 +858,8 @@ format = 2
 layer_0/tile_data = PackedInt32Array(1507329, 131073, 1, 1507330, 131073, 1, 1507331, 131073, 1, 1507332, 131073, 1, 1507333, 131073, 1, 1507334, 131073, 1, 1507335, 131073, 1, 1507336, 131073, 1, 1507337, 131073, 1, 1507338, 131073, 1, 1507339, 131073, 1, 1507340, 131073, 1, 1507341, 131073, 1, 1507328, 196609, 1, 1507342, 262145, 1, 262145, 131075, 2, 262146, 131075, 2, 262147, 131075, 2, 262148, 131075, 2, 262149, 131075, 2, 262150, 131075, 2, 262151, 131075, 2, 262152, 131075, 2, 262153, 131075, 2, 262154, 131075, 2, 262155, 131075, 2, 262156, 131075, 2, 262157, 131075, 2, 262158, 65540, 2, 327680, 3, 2, 393216, 3, 2, 458752, 196612, 0, 524288, 1, 0, 589824, 1, 0, 655360, 1, 0, 720896, 1, 0, 786432, 1, 0, 851968, 1, 0, 917504, 1, 0, 983040, 1, 0, 1048576, 1, 1, 1114112, 1, 1, 1179648, 1, 1, 1245184, 1, 1, 1310720, 1, 1, 1376256, 1, 0, 1441792, 1, 1, 327694, 65539, 2, 393230, 65539, 2, 458766, 262148, 0, 524302, 65537, 0, 589838, 65537, 0, 655374, 65537, 0, 720910, 65537, 0, 786446, 65537, 0, 851982, 65537, 0, 917518, 65537, 0, 983054, 65537, 0, 1048590, 65537, 0, 1114126, 65537, 0, 1179662, 65537, 0, 1245198, 65537, 0, 1310734, 65537, 0, 1376270, 65537, 0, 1441806, 65537, 0, 65536, 262144, 1, 65537, 262144, 1, 65538, 262144, 1, 65539, 262144, 1, 65540, 262144, 1, 65541, 262144, 1, 65542, 262144, 1, 65543, 262144, 1, 65544, 262144, 1, 65545, 262144, 1, 65546, 262144, 1, 65547, 262144, 1, 65548, 262144, 1, 65549, 262144, 1, 65550, 262144, 1, 1376257, 131073, 1, 1376258, 131073, 1, 1376259, 131073, 0, 1376260, 131073, 0, 1376261, 131073, 0, 1376262, 131073, 0, 1376263, 131073, 0, 1376264, 131073, 0, 1376265, 131073, 0, 1376266, 131073, 0, 1376267, 131073, 0, 1376268, 131073, 0, 1441793, 131073, 1, 1441794, 131073, 1, 1441795, 131073, 1, 1441796, 131073, 0, 1441797, 131073, 0, 1441798, 131073, 0, 1441799, 131073, 0, 1441800, 131073, 0, 1441801, 131073, 0, 1441802, 131073, 0, 1441803, 131073, 0, 1441804, 131073, 0, 1310732, 131073, 0, 1441805, 131073, 0, 1376269, 131073, 0, 1310733, 131073, 0, 1245197, 131073, 0, 1179661, 131073, 0, 458753, 393217, 0, 458754, 393217, 0, 458755, 393217, 0, 458756, 393217, 0, 458757, 393217, 0, 458758, 393217, 0, 458759, 393217, 0, 458760, 393217, 0, 458761, 393217, 0, 458762, 393217, 0, 458763, 393217, 0, 458764, 393217, 0, 458765, 393217, 0, 524301, 131073, 0, 589837, 131073, 0, 655373, 131073, 0, 655372, 131073, 0, 655371, 131073, 0, 589835, 131073, 0, 589836, 131073, 0, 524300, 131073, 0, 524299, 131073, 0, 524298, 131073, 0, 524297, 131073, 0, 524296, 131073, 0, 524295, 131073, 0, 524294, 131073, 0, 524293, 131073, 0, 524292, 131073, 0, 524291, 131073, 0, 524290, 131073, 0, 589826, 131073, 0, 589825, 131073, 0, 524289, 131073, 0, 589827, 131073, 0, 589828, 131073, 0, 589829, 131073, 0, 589830, 131073, 0, 589831, 131073, 0, 589832, 131073, 0, 589833, 131073, 0, 589834, 131073, 0, 655370, 131073, 0, 655369, 131073, 0, 655368, 131073, 0, 655367, 131073, 0, 655366, 131073, 0, 655365, 131073, 0, 655364, 131073, 0, 655363, 131073, 0, 655362, 131073, 0, 655361, 131073, 0, 720897, 131073, 0, 720898, 131073, 0, 720899, 131073, 0, 720900, 131073, 0, 720901, 131073, 0, 720902, 131073, 0, 720903, 131073, 0, 720904, 131073, 0, 720905, 131073, 0, 720906, 131073, 0, 720907, 131073, 0, 720908, 131073, 0, 720909, 131073, 0, 786445, 131073, 0, 786444, 131073, 0, 786443, 131073, 0, 786442, 131073, 0, 786441, 131073, 0, 786440, 131073, 0, 786439, 131073, 0, 786438, 131073, 0, 786437, 131073, 0, 786436, 131073, 0, 786435, 131073, 0, 786434, 131073, 0, 786433, 131073, 0, 851969, 131073, 0, 851970, 131073, 0, 851971, 131073, 0, 851972, 131073, 0, 851973, 131073, 0, 851974, 131073, 0, 851975, 131073, 0, 851976, 131073, 0, 851977, 131073, 0, 851978, 131073, 0, 851979, 131073, 0, 851980, 131073, 0, 851981, 131073, 0, 917516, 131073, 0, 917517, 131073, 0, 983053, 131073, 0, 1048589, 131073, 0, 1048588, 131073, 0, 1048587, 131073, 0, 1048586, 131073, 0, 983049, 131073, 0, 983048, 131073, 0, 983047, 131073, 0, 983046, 131073, 0, 983045, 131073, 0, 983044, 131073, 0, 983043, 131073, 0, 983042, 131073, 0, 983041, 131073, 0, 917505, 131073, 0, 917506, 131073, 0, 917507, 131073, 0, 917508, 131073, 0, 917509, 131073, 0, 917510, 131073, 0, 917511, 131073, 0, 917512, 131073, 0, 917513, 131073, 0, 917514, 131073, 0, 917515, 131073, 0, 983051, 131073, 0, 983052, 131073, 0, 1048583, 131073, 0, 1048582, 131073, 0, 1048581, 131073, 0, 1048580, 131073, 0, 1048579, 131073, 0, 1048578, 131073, 0, 1048577, 131073, 0, 1048584, 131073, 0, 1048585, 131073, 0, 1114124, 131073, 0, 1114125, 131073, 0, 1114123, 131073, 0, 1114122, 131073, 0, 1114121, 131073, 0, 1114120, 131073, 0, 1114119, 131073, 0, 1114118, 131073, 0, 1114117, 131073, 0, 1114116, 131073, 0, 1114115, 131073, 0, 1114114, 131073, 0, 1114113, 131073, 0, 983050, 131073, 0, 1179660, 131073, 0, 1245196, 131073, 0, 1245195, 131073, 0, 1245194, 131073, 0, 1310730, 131073, 0, 1310731, 131073, 0, 1310729, 131073, 0, 1310728, 131073, 0, 1310727, 131073, 0, 1310726, 131073, 0, 1310725, 131073, 0, 1310724, 131073, 0, 1310723, 131073, 0, 1310722, 131073, 0, 1310721, 131073, 0, 1245185, 131073, 0, 1179649, 131073, 0, 1179650, 131073, 0, 1245186, 131073, 0, 1245187, 131073, 0, 1179651, 131073, 0, 1179652, 131073, 0, 1245188, 131073, 0, 1245189, 131073, 0, 1179653, 131073, 0, 1179654, 131073, 0, 1245190, 131073, 0, 1245191, 131073, 0, 1245192, 131073, 0, 1179656, 131073, 0, 1245193, 131073, 0, 1179658, 131073, 0, 1179657, 131073, 0, 1179655, 131073, 0, 1179659, 131073, 0, 393217, 458753, 0, 393218, 458753, 0, 393219, 458753, 0, 393220, 458753, 0, 393221, 458753, 0, 393222, 458753, 0, 393223, 458753, 0, 393224, 458753, 0, 393225, 458753, 0, 393226, 458753, 0, 393227, 458753, 0, 393228, 458753, 0, 393229, 458753, 0, 327681, 458753, 0, 327682, 458753, 0, 327683, 458753, 0, 327684, 458753, 0, 327685, 458753, 0, 327686, 458753, 0, 327687, 458753, 0, 327688, 458753, 0, 327689, 458753, 0, 327690, 458753, 0, 327691, 458753, 0, 327692, 458753, 0, 327693, 458753, 0, 262144, 4, 2)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShapeTop" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(259, 102)
@@ -897,19 +900,60 @@ texture_normal = ExtResource("8_hi878")
 
 [node name="TopGui" type="Sprite2D" parent="."]
 position = Vector2(240, 90)
-texture = ExtResource("11_akuyy")
+texture = ExtResource("9_fgtxa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("12_va7yt")
 
 [node name="Nombre" type="Label" parent="CanvasLayer"]
 offset_left = 28.0
-offset_top = 62.0
+offset_top = 58.0
 offset_right = 187.0
 offset_bottom = 88.0
-label_settings = SubResource("LabelSettings_dep1j")
+label_settings = ExtResource("11_vojtj")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="changeName" type="TextEdit" parent="CanvasLayer/Nombre"]
+visible = false
+z_index = 5
+layout_mode = 0
+offset_left = -2.0
+offset_top = 75.0
+offset_right = 292.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("13_0mm6c")
+theme_override_font_sizes/font_size = 32
+placeholder_text = "MichMualdo"
+
+[node name="edit" type="TextureButton" parent="CanvasLayer/Nombre"]
+visible = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = 9.0
+offset_right = 31.0
+offset_bottom = 41.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("12_dg26b")
+
+[node name="yes" type="TextureButton" parent="CanvasLayer/Nombre"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 298.0
+offset_top = 86.0
+offset_right = 330.0
+offset_bottom = 118.0
+texture_normal = ExtResource("14_eu1fg")
+
+[node name="no" type="TextureButton" parent="CanvasLayer/Nombre"]
+visible = false
+layout_mode = 0
+offset_left = 333.0
+offset_top = 86.0
+offset_right = 365.0
+offset_bottom = 118.0
+texture_normal = ExtResource("15_corfr")
 
 [node name="Category" type="Label" parent="CanvasLayer"]
 offset_left = 25.0
@@ -921,47 +965,47 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="food" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 287.0
-offset_top = 53.0
-offset_right = 306.0
-offset_bottom = 119.0
-texture_under = ExtResource("13_4lkc7")
+offset_left = 286.0
+offset_top = 50.0
+offset_right = 311.0
+offset_bottom = 125.0
+texture_under = ExtResource("16_5tmrt")
 texture_progress = ExtResource("14_eawgb")
 texture_progress_offset = Vector2(-3, -5)
 
 [node name="clean" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 447.0
+offset_left = 446.0
 offset_top = 53.0
-offset_right = 466.0
-offset_bottom = 119.0
-texture_under = ExtResource("13_4lkc7")
+offset_right = 471.0
+offset_bottom = 128.0
+texture_under = ExtResource("16_5tmrt")
 texture_progress = ExtResource("14_eawgb")
 texture_progress_offset = Vector2(-3, -5)
 
 [node name="exercise" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 327.0
-offset_top = 53.0
-offset_right = 346.0
-offset_bottom = 119.0
-texture_under = ExtResource("13_4lkc7")
+offset_left = 326.0
+offset_top = 51.0
+offset_right = 351.0
+offset_bottom = 126.0
+texture_under = ExtResource("16_5tmrt")
 texture_progress = ExtResource("14_eawgb")
 texture_progress_offset = Vector2(-3, -5)
 
 [node name="comfort" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 367.0
-offset_top = 53.0
-offset_right = 386.0
-offset_bottom = 119.0
-texture_under = ExtResource("13_4lkc7")
+offset_left = 366.0
+offset_top = 51.0
+offset_right = 391.0
+offset_bottom = 126.0
+texture_under = ExtResource("16_5tmrt")
 texture_progress = ExtResource("14_eawgb")
 texture_progress_offset = Vector2(-3, -5)
 
 [node name="fun" type="TextureProgressBar" parent="CanvasLayer"]
 offset_left = 407.0
-offset_top = 53.0
-offset_right = 426.0
-offset_bottom = 119.0
-texture_under = ExtResource("13_4lkc7")
+offset_top = 51.0
+offset_right = 432.0
+offset_bottom = 126.0
+texture_under = ExtResource("16_5tmrt")
 texture_progress = ExtResource("14_eawgb")
 texture_progress_offset = Vector2(-3, -5)
 
@@ -970,7 +1014,7 @@ position = Vector2(240, 90)
 texture = ExtResource("16_8jg1p")
 
 [node name="Node2D" parent="." instance=ExtResource("15_l3wco")]
-process_mode = 2
+process_mode = 3
 visible = false
 z_index = 3
 
@@ -980,4 +1024,12 @@ position = Vector2(84, 284)
 [node name="jumper3000" parent="." instance=ExtResource("17_2octx")]
 position = Vector2(40, 710)
 
+[node name="PicMichi" type="AnimatedSprite2D" parent="."]
+position = Vector2(246, 86)
+scale = Vector2(1.5, 1.5)
+
 [connection signal="pressed" from="inventario/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="text_changed" from="CanvasLayer/Nombre/changeName" to="." method="_on_change_name_text_changed"]
+[connection signal="pressed" from="CanvasLayer/Nombre/edit" to="." method="_on_edit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Nombre/yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="CanvasLayer/Nombre/no" to="." method="_on_no_pressed"]

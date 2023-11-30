@@ -135,7 +135,7 @@ func _process(_delta):
 func generateObstacles():
 	if controlObstacles == 1:
 		randomize()
-		var prob = rng.randi_range(0, 500)
+		var prob = rng.randi_range(0, 100)
 		if prob < 30:
 			var obs_type = groundObstacles[randi() % groundObstacles.size()]
 			var obs = obs_type.instantiate()
@@ -160,6 +160,7 @@ func generateObstacles():
 			else:
 				coin_y = rng.randi_range(flyObstacleHeight[0], flyObstacleHeight[1])
 			coinInstance.global_position = Vector2(coin_x, coin_y)
+			coinInstance.add_to_group("coin")
 			coinInstance.add_to_group("item")
 			addObstacle(coinInstance, 1)
 		elif prob >=90:
@@ -175,6 +176,22 @@ func generateObstacles():
 				item_y = rng.randi_range(flyObstacleHeight[0], flyObstacleHeight[1])
 			item.global_position = Vector2(item_x,item_y)
 			item.add_to_group("item")
+			
+			if item.name == "ball":
+				item.add_to_group("ball")
+			if item.name == "brush":
+				item.add_to_group("brush")
+			if item.name == "comb":
+				item.add_to_group("comb")
+			if item.name == "fish":
+				item.add_to_group("fish")
+			if item.name == "kibble":
+				item.add_to_group("kibble")
+			if item.name == "laser":
+				item.add_to_group("laser")
+			if item.name == "tuna":
+				item.add_to_group("tuna")
+				
 			addObstacle(item, 1)
 		controlObstacles = 0
 		
@@ -203,7 +220,6 @@ func hitObstacle(body):
 		gameOver()
 		
 func collect(body, obs):
-	print("coin")
 	if body.name == "michi":
 		if obs.is_in_group("item"):
 			for itm in itemsInstance:
@@ -214,29 +230,29 @@ func collect(body, obs):
 func handleItemCollection(item):
 	var valorCoin = 1
 	var valorItem = 1
-	if item.name == "coin":
+	if item.is_in_group("coin"):
 		print("moneda")
 		removeObstacle(item, 1)
 		itemCount[0] += valorCoin
-	elif item.name == "kibble":
+	elif item.is_in_group("kibble"):
 		itemCount[1] += valorItem
 		removeObstacle(item, 1)
-	elif item.name == "fish":
+	elif item.is_in_group("fish"):
 		itemCount[2] += valorItem
 		removeObstacle(item, 1)
-	elif item.name == "tuna":
+	elif item.is_in_group("tuna"):
 		itemCount[3] += valorItem
 		removeObstacle(item, 1)
-	elif item.name == "ball":
+	elif item.is_in_group("ball"):
 		itemCount[4] += valorItem
 		removeObstacle(item, 1)
-	elif item.name == "laser":
+	elif item.is_in_group("laser"):
 		itemCount[5] += valorItem
 		removeObstacle(item, 1)
-	elif item.name == "comb":
+	elif item.is_in_group("comb"):
 		itemCount[6] += valorItem
 		removeObstacle(item, 1)
-	elif item.name == "brush":
+	elif item.is_in_group("brush"):
 		itemCount[7] += valorItem
 		removeObstacle(item, 1)
 		
@@ -294,6 +310,7 @@ func addMichi():
 	michiInstance.name = "michi"
 	
 	michiInstance.set_script(michiScriptPath)
+	michiInstance.get_node("CollisionPolygon2DNormal").disabled = true
 	
 	var statusBall = michiInstance.get_node("StatusGood")
 	statusBall.visible = false

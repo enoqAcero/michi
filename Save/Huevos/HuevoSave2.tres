@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_w3cdw")
-active = 0
+active = 1
 categoria = 1
 id = 0
-globalPos = Vector2(367, 655)
-taps = -1
+globalPos = Vector2(278, 575)
+taps = 5

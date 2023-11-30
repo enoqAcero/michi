@@ -7,6 +7,6 @@
 script = ExtResource("1_h3rqi")
 name = "comb"
 texture = ExtResource("2_iaxaf")
-count = 16
+count = 15
 item_index = 0
 price = 10

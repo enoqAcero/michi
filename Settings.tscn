@@ -1,0 +1,154 @@
+[gd_scene load_steps=11 format=3 uid="uid://cjvq3s7i27bku"]
+
+[ext_resource type="Script" path="res://Settings.gd" id="1_phk22"]
+[ext_resource type="Texture2D" uid="uid://cuohiodmirl7c" path="res://GUI/Assets/modalFrame.png" id="1_r4qrb"]
+[ext_resource type="Texture2D" uid="uid://dmlbewv1tpvx6" path="res://GUI/Assets/musicIcon.png" id="2_l2386"]
+[ext_resource type="LabelSettings" uid="uid://dypmi2e3x2wsf" path="res://NamesMichiDex.tres" id="3_7b470"]
+[ext_resource type="Texture2D" uid="uid://dug0au7tmh23c" path="res://GUI/Assets/SFXIcon.png" id="3_dn1u2"]
+[ext_resource type="Texture2D" uid="uid://c1ibjmtfp41x1" path="res://GUI/Assets/botonHatch.png" id="4_t8q54"]
+[ext_resource type="FontFile" uid="uid://dtjra5b55fol8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="5_m8ffo"]
+[ext_resource type="Texture2D" uid="uid://dvx30jvfpc53i" path="res://GUI/Assets/botonCancelar.png" id="8_1hbiv"]
+[ext_resource type="Texture2D" uid="uid://db71n8x7oq4t1" path="res://GUI/Assets/bg-black.png" id="9_sso66"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5tum4"]
+font = ExtResource("5_m8ffo")
+font_size = 18
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_phk22")
+metadata/_edit_horizontal_guides_ = [362.0]
+
+[node name="modalSettings" type="CanvasGroup" parent="."]
+
+[node name="BgSettings" type="Sprite2D" parent="modalSettings"]
+self_modulate = Color(0.4, 1, 0.419608, 1)
+position = Vector2(239, 414)
+scale = Vector2(2.09411, 0.75752)
+texture = ExtResource("1_r4qrb")
+
+[node name="MusicSet" type="CheckBox" parent="modalSettings"]
+modulate = Color(0.298039, 0.686275, 0.313726, 1)
+offset_left = 186.0
+offset_top = 363.0
+offset_right = 210.0
+offset_bottom = 387.0
+scale = Vector2(2, 2)
+button_pressed = true
+
+[node name="SoundSet" type="CheckBox" parent="modalSettings"]
+modulate = Color(0.298039, 0.686275, 0.313726, 1)
+offset_left = 164.0
+offset_top = 419.0
+offset_right = 188.0
+offset_bottom = 443.0
+scale = Vector2(2, 2)
+button_pressed = true
+
+[node name="SoundIcon" type="Sprite2D" parent="modalSettings"]
+position = Vector2(88, 385)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_l2386")
+
+[node name="MusicIcon" type="Sprite2D" parent="modalSettings"]
+position = Vector2(88, 442)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_dn1u2")
+
+[node name="SoundLabel" type="Label" parent="modalSettings"]
+offset_left = 117.0
+offset_top = 426.0
+offset_right = 161.0
+offset_bottom = 461.0
+text = "SFX"
+label_settings = ExtResource("3_7b470")
+
+[node name="MusicLabel" type="Label" parent="modalSettings"]
+offset_left = 117.0
+offset_top = 370.0
+offset_right = 187.0
+offset_bottom = 405.0
+text = "Music"
+label_settings = ExtResource("3_7b470")
+
+[node name="EditColorGUIButton" type="TextureButton" parent="modalSettings"]
+offset_left = 268.0
+offset_top = 427.0
+offset_right = 406.0
+offset_bottom = 479.0
+scale = Vector2(0.862319, 0.596154)
+texture_normal = ExtResource("4_t8q54")
+
+[node name="ColorGUILabel" type="Label" parent="modalSettings"]
+offset_left = 196.0
+offset_top = 355.0
+offset_right = 459.0
+offset_bottom = 425.0
+text = "GUI Color 
+Settings"
+label_settings = ExtResource("3_7b470")
+horizontal_alignment = 1
+
+[node name="EditColorGUILabel" type="Label" parent="modalSettings"]
+offset_left = 300.0
+offset_top = 431.0
+offset_right = 353.0
+offset_bottom = 466.0
+text = "Edit"
+label_settings = SubResource("LabelSettings_5tum4")
+horizontal_alignment = 1
+
+[node name="Bg-black" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(239, 477)
+scale = Vector2(0.73913, 0.716814)
+texture = ExtResource("9_sso66")
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+visible = false
+z_index = 1
+offset_left = 164.0
+offset_top = 285.0
+offset_right = 418.0
+offset_bottom = 661.0
+picker_shape = 2
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+
+[node name="ConfirmColor" type="TextureButton" parent="ColorPicker"]
+layout_mode = 2
+texture_normal = ExtResource("4_t8q54")
+stretch_mode = 5
+
+[node name="ConfirmLabel" type="Label" parent="ColorPicker/ConfirmColor"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 11.0
+offset_right = 190.0
+offset_bottom = 46.0
+text = "OK"
+label_settings = ExtResource("3_7b470")
+horizontal_alignment = 1
+
+[node name="CancelColor" type="TextureButton" parent="ColorPicker"]
+layout_mode = 2
+texture_normal = ExtResource("8_1hbiv")
+stretch_mode = 5
+
+[node name="CancelLabel" type="Label" parent="ColorPicker/CancelColor"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 9.0
+offset_right = 185.0
+offset_bottom = 44.0
+text = "Cancel"
+label_settings = ExtResource("3_7b470")
+
+[connection signal="pressed" from="modalSettings/EditColorGUIButton" to="." method="_on_edit_color_gui_button_pressed"]
+[connection signal="color_changed" from="ColorPicker" to="." method="_on_color_picker_color_changed"]
+[connection signal="pressed" from="ColorPicker/ConfirmColor" to="." method="_on_confirm_color_pressed"]
+[connection signal="pressed" from="ColorPicker/CancelColor" to="." method="_on_cancel_color_pressed"]

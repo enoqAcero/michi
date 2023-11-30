@@ -86,8 +86,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gei1d"]
-radius = 17.0
-height = 34.0
+radius = 21.0
+height = 42.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7oxml"]
 radius = 5.0
@@ -112,10 +112,9 @@ centered = false
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-light_mask = 2
-visibility_layer = 2
 position = Vector2(1, 5)
 shape = SubResource("CapsuleShape2D_gei1d")
+debug_color = Color(0.427451, 1, 0, 0.419608)
 
 [node name="CollisionPolygon2DNormal" type="CollisionPolygon2D" parent="."]
 position = Vector2(-38, -32)
@@ -128,6 +127,7 @@ polygon = PackedVector2Array(39, 12, 28, 36, 24, 36, 19, 30, 21, 26, 17, 24, 14,
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_7oxml")
+debug_color = Color(0, 0.705882, 0.870588, 0.419608)
 
 [node name="ChangeStateTimer" type="Timer" parent="."]
 autostart = true
@@ -136,13 +136,14 @@ autostart = true
 autostart = true
 
 [node name="ClickTimer" type="Timer" parent="."]
+wait_time = 0.1
 
 [node name="Area2D2" type="Area2D" parent="."]
-collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(1, 5)
 shape = SubResource("CircleShape2D_co7id")
+debug_color = Color(0.737255, 0.223529, 1, 0.419608)
 
 [node name="poopAndPeeTimer" type="Timer" parent="."]
 process_mode = 3

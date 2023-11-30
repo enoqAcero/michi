@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_ppxjw")
-active = 0
-globalPos = Vector2(437.569, 343.812)
+active = 1
+globalPos = Vector2(162.829, 252.404)
 index = 0

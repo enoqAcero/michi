@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://biw4ojw6o16lx"]
+[gd_scene load_steps=16 format=3 uid="uid://biw4ojw6o16lx"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/EggJump.gd" id="1_k3uh1"]
 [ext_resource type="Texture2D" uid="uid://b34ik1vwl5433" path="res://GUI/Assets/backgroundHuevo.png" id="2_85v5e"]
@@ -20,9 +20,6 @@ size = Vector2(86, 1023)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phl60"]
 size = Vector2(95.5, 1022.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mbma"]
-size = Vector2(489, 20)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ow0b4"]
 font = ExtResource("4_xyfhe")
@@ -63,10 +60,14 @@ texture = ExtResource("2_85v5e")
 
 [node name="RigidBody2D" parent="." instance=ExtResource("2_c353l")]
 position = Vector2(236, 652)
+collision_layer = 8
+collision_mask = 8
 center_of_mass = Vector2(0, 200)
 gravity_scale = 5.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 9
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(235, 861)
@@ -83,10 +84,6 @@ shape = SubResource("RectangleShape2D_fllx0")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(520.25, 397.75)
 shape = SubResource("RectangleShape2D_phl60")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(237, 133)
-shape = SubResource("RectangleShape2D_2mbma")
 
 [node name="Button" type="TextureButton" parent="."]
 process_mode = 3

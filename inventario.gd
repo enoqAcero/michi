@@ -40,7 +40,7 @@ func _ready():
 	
 	SignalManager.updateItems.connect(update_item)
 	
-	$GuIbottomBackground.modulate = (Color("#49A7E8"))
+	
 	
 
 func itemsCoinSave():
@@ -109,4 +109,16 @@ func _on_back_pressed():
 	
 
 
+func _on_rooms_pressed():
+	if $bgFurnitures_Rooms.visible:
+		$bgFurnitures_Rooms.hide()
+	else:
+		$bgFurnitures_Rooms.show()
+	
 
+
+func _on_settings_pressed():
+	if $setting.visible:
+		$setting.hide()
+	else:
+		$setting.show()

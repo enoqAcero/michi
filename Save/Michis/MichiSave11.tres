@@ -5,14 +5,14 @@
 [resource]
 script = ExtResource("1_vhn24")
 active = 0
-category = ""
-type = ""
+category = "categoria1"
+type = "Blanco"
 categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(250, 450)
-name = ""
-food = 100
-fun = 100
-clean = 100
-comfort = 100
-exercise = 100
+globalPos = Vector2(112, 516)
+name = "Blanco11"
+food = 28.8
+fun = 28.8
+clean = 28.8
+comfort = 28.8
+exercise = 28.8

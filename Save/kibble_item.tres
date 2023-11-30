@@ -7,6 +7,6 @@
 script = ExtResource("1_buhlc")
 name = "Kibble"
 texture = ExtResource("2_t62kb")
-count = 8
+count = -32
 item_index = 0
 price = 10
