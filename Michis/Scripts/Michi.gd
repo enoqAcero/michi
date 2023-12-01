@@ -89,11 +89,12 @@ func _physics_process(_delta):
 			if player_pos.y > object_pos.y:
 				objectName = area.get_parent()
 				objectName = objectName.name
+				print("ON TOP")
 				if Input.is_action_just_released("click"):
 					merge()
 	
 	if timerControl == 0:
-		$poopAndPeeTimer.set_wait_time(rng.randi_range(100,200))#(30,60))
+		$poopAndPeeTimer.set_wait_time(rng.randi_range(20,30))#(30,60))
 		$poopAndPeeTimer.start()
 		timerControl = 1 
 	#ESTADO DE ANIMO
@@ -106,7 +107,8 @@ func _physics_process(_delta):
 	
 	
 	#DRAG & DROP
-	if GlobalVariables.itemSelected == false:
+	if GlobalVariables.itemSelected==false:
+		
 		if selected == true:
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.scale.x = 3
@@ -292,6 +294,7 @@ func _on_area_2d_2_body_entered(body):
 	pass
 
 func _on_poop_and_pee_timer_timeout():
+	print("poop and pee timeout")
 	SignalManager.poopAndPee.emit(numeroMichi.to_int())
 	timerControl = 0
 
@@ -300,6 +303,7 @@ func clickControl():
 	
 	
 func merge():
+	print("MERGE")
 	for i in range(0, maxMichiNumber):
 		if objectName == ("michi"+str(i)):
 			selected2 = false

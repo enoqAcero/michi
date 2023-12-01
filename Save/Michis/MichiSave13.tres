@@ -1,18 +1,19 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://bxcao1n0ttaro"]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_y60o1"]
 
 [resource]
 script = ExtResource("1_y60o1")
-active = 1
-category = "categoria6"
-type = "Aire"
-categoryLevel = 6
+active = 0
+category = ""
+type = ""
+categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(371.067, 286.378)
-name = "Aire13"
-food = 5.44
-fun = 5.44
-clean = 5.44
-comfort = 5.44
-exercise = 5.44
+globalPos = Vector2(250, 450)
+name = ""
+food = 100
+fun = 100
+clean = 100
+comfort = 100
+exercise = 100
+roomNumber = 1

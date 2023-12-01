@@ -1,18 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_pvkh7"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_cmn7o"]
 
 [resource]
-script = ExtResource("1_pvkh7")
-active = 1
-category = "categoria9"
-type = "Espadachin"
-categoryLevel = 9
+script = ExtResource("1_cmn7o")
+active = 0
+category = ""
+type = ""
+categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(85.6921, 655.54)
-name = "Hechicero15"
-food = -16.26
-fun = -26.26
-clean = -26.26
-comfort = -26.26
-exercise = -26.26
+globalPos = Vector2(250, 450)
+name = ""
+food = 100
+fun = 100
+clean = 100
+comfort = 100
+exercise = 100
+roomNumber = 1

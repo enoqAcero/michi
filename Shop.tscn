@@ -160,7 +160,7 @@ position = Vector2(457, 143)
 texture = ExtResource("3_7da6m")
 
 [node name="Button" type="TextureButton" parent="Sprite2D"]
-process_mode = 2
+process_mode = 3
 z_as_relative = false
 anchors_preset = -1
 anchor_left = 0.000555625
@@ -582,6 +582,7 @@ texture = ExtResource("11_ryjyc")
 hframes = 4
 
 [node name="coinCounter" type="Label" parent="."]
+z_index = 5
 texture_filter = 1
 offset_left = 218.0
 offset_top = 753.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://j3ostc4r7ccw"]
+[gd_scene load_steps=15 format=3 uid="uid://j3ostc4r7ccw"]
 
 [ext_resource type="Script" path="res://inventario.gd" id="1_uqm7j"]
 [ext_resource type="PackedScene" uid="uid://cmtkxo7xmhpgo" path="res://itemInventario.tscn" id="2_c6u18"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dtfn083gavxw4" path="res://GUI/Assets/GUIajustes.png" id="9_hkiqj"]
 [ext_resource type="Texture2D" uid="uid://4l8gf2swekpy" path="res://GUI/Assets/GUIMichipedia.png" id="10_ynigk"]
 [ext_resource type="Texture2D" uid="uid://cocb4h55y82d1" path="res://GUI/Assets/GUIcuartos.png" id="11_65xsr"]
+[ext_resource type="PackedScene" uid="uid://dlx3w8bgupss6" path="res://Furniture&rooms.tscn" id="12_6jiyk"]
+[ext_resource type="PackedScene" uid="uid://cjvq3s7i27bku" path="res://Settings.tscn" id="13_0wt88"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hx5q4"]
 font = ExtResource("7_irrhm")
@@ -26,8 +28,14 @@ script = ExtResource("1_uqm7j")
 metadata/_edit_horizontal_guides_ = [812.0]
 metadata/_edit_vertical_guides_ = [240.0]
 
+[node name="bgFurnitures_Rooms" parent="." instance=ExtResource("12_6jiyk")]
+visible = false
+z_index = 1
+position = Vector2(130, 724)
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 process_mode = 3
+visible = false
 offset_left = -37.0
 offset_top = 788.0
 offset_right = 512.0
@@ -70,13 +78,20 @@ icon = ExtResource("5_8jk0t")
 flat = true
 icon_alignment = 1
 
+[node name="setting" parent="." instance=ExtResource("13_0wt88")]
+visible = false
+z_index = 3
+position = Vector2(-4, -26)
+
 [node name="CounterSpace" type="Sprite2D" parent="."]
+z_index = 4
 texture_filter = 1
 position = Vector2(239, 776)
 scale = Vector2(1.99194, 2.5)
 texture = ExtResource("7_uxart")
 
 [node name="Label" type="Label" parent="."]
+z_index = 5
 z_as_relative = false
 texture_filter = 1
 offset_left = 211.0
@@ -115,3 +130,5 @@ texture_normal = ExtResource("11_65xsr")
 
 [connection signal="pressed" from="next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Rooms" to="." method="_on_rooms_pressed"]

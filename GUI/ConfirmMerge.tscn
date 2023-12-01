@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj1oadskbwdnh"]
+[gd_scene load_steps=10 format=3 uid="uid://cj1oadskbwdnh"]
 
 [ext_resource type="Script" path="res://GUI/Scripts/ConfirmMerge.gd" id="1_moyyr"]
 [ext_resource type="Texture2D" uid="uid://cuohiodmirl7c" path="res://GUI/Assets/modalFrame.png" id="2_1g875"]
 [ext_resource type="Texture2D" uid="uid://c1ibjmtfp41x1" path="res://GUI/Assets/botonHatch.png" id="2_twh65"]
+[ext_resource type="LabelSettings" uid="uid://dypmi2e3x2wsf" path="res://NamesMichiDex.tres" id="3_a30cj"]
 [ext_resource type="FontFile" uid="uid://dtjra5b55fol8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="3_t3y1s"]
 [ext_resource type="Texture2D" uid="uid://dvx30jvfpc53i" path="res://GUI/Assets/botonCancelar.png" id="4_b8tlo"]
+[ext_resource type="Texture2D" uid="uid://c4joyaw4oo6he" path="res://GUI/Assets/botonVideoXL.png" id="6_hkoh1"]
+[ext_resource type="LabelSettings" uid="uid://d3fxyev510uey" path="res://tipoNum.tres" id="7_euhe2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0vfj1"]
 font = ExtResource("3_t3y1s")
@@ -22,6 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_moyyr")
+metadata/_edit_horizontal_guides_ = [291.0]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -30,48 +34,88 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -93.0
-offset_top = -51.5
-offset_right = 93.0
-offset_bottom = 51.5
+offset_left = -130.0
+offset_top = -107.0
+offset_right = 127.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ModalFrame" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(69, 54)
-scale = Vector2(0.788732, 0.600897)
+position = Vector2(130.5, 81.5)
+scale = Vector2(1.5446, 1.55605)
 texture = ExtResource("2_1g875")
+
+[node name="michi1Merge2" type="AnimatedSprite2D" parent="VBoxContainer"]
+position = Vector2(88, -29)
+scale = Vector2(2, 2)
+
+[node name="michi1Merge" type="AnimatedSprite2D" parent="VBoxContainer"]
+position = Vector2(193, -29)
+scale = Vector2(2, 2)
+
+[node name="TextMerge" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+auto_translate = false
+text = "Merge these Michis?"
+label_settings = ExtResource("3_a30cj")
+horizontal_alignment = 1
 
 [node name="Confirm" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 texture_normal = ExtResource("2_twh65")
+stretch_mode = 0
 
 [node name="merge" type="Label" parent="VBoxContainer/Confirm"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 1.5
-offset_right = 135.0
-offset_bottom = 48.5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -23.5
+offset_right = 66.5
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Merge"
 label_settings = SubResource("LabelSettings_0vfj1")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="BotonVideoXl" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(131, 284)
+texture = ExtResource("6_hkoh1")
+
 [node name="Cancel" type="TextureButton" parent="VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("4_b8tlo")
+stretch_mode = 0
 
 [node name="cancel" type="Label" parent="VBoxContainer/Cancel"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 1.5
-offset_right = 135.0
-offset_bottom = 48.5
+offset_left = 58.0
+offset_top = 3.0
+offset_right = 191.0
+offset_bottom = 50.0
 text = "Cancel"
 label_settings = SubResource("LabelSettings_0vfj1")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="max" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = " Max Category:"
+label_settings = ExtResource("7_euhe2")
+
+[node name="Min" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Min Category:"
+label_settings = ExtResource("7_euhe2")
 
 [connection signal="button_down" from="VBoxContainer/Confirm" to="." method="_on_confirm_button_down"]
 [connection signal="button_down" from="VBoxContainer/Cancel" to="." method="_on_cancel_button_down"]

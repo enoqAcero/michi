@@ -1,8 +1,7 @@
-res://itemInventario.tscn
-res://Items/Scripts/itemInventario.gd
-res://Michis/Scripts/Michi.gd
 res://Scenes/Test.tscn
 res://MichiPedia.tscn
 res://Michis/michiMonio.tscn
-res://GlobalAssets/Scripts/GlobalVariables.gd
-res://inventario.tscn
+res://itemInventario.tscn
+res://Scenes/Scripts/Test.gd
+res://Save/Michis/MichiSave0.tres
+res://Save/Michis/MichiSave1.tres

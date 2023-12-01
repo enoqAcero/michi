@@ -1,18 +1,19 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://c6nusb1jpnf0w"]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_qxukt"]
 
 [resource]
 script = ExtResource("1_qxukt")
 active = 1
-category = "categoria5"
-type = "Unicornio"
-categoryLevel = 5
+category = "categoria3"
+type = "Hipster"
+categoryLevel = 3
 fusionLevel = 1
-globalPos = Vector2(31.076, 387.115)
-name = "Unicornio4"
-food = -324.68
-fun = -324.68
-clean = -324.68
-comfort = -324.68
-exercise = -324.68
+globalPos = Vector2(137.862, 515.395)
+name = "Hipster4"
+food = -180.5
+fun = -230.5
+clean = -230.5
+comfort = -212.94
+exercise = -230.5
+roomNumber = 2

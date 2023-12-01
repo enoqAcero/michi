@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_1gsca")
-active = 1
-globalPos = Vector2(452.071, 1226.02)
+active = 0
+globalPos = Vector2(134, 520)
 index = 0
+roomNumber = 1

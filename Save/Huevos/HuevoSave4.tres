@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_bt2fe")
-active = 0
+active = 1
 categoria = 1
 id = 0
-globalPos = Vector2(181, 600)
-taps = 0
+globalPos = Vector2(425, 713)
+taps = 5
+roomNumber = 1

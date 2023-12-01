@@ -71,4 +71,3 @@ func update(michi : MichiData, huevo : HuevoData, type : int):
 		$exercise.visible = false
 		
 	
-

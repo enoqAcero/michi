@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_ippm8")
 active = 0
-globalPos = Vector2(224.896, 733.996)
+globalPos = Vector2(155.012, 285.186)
 index = 0
+roomNumber = 1

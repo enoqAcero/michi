@@ -17,7 +17,8 @@ signal poopAndPee
 signal pisNumber
 signal poopNumber
 signal changeMichiScriptToMichiRun
-
+signal michiPair
 signal michiDexUpdate
 
 signal addCoins
+

@@ -1,18 +1,19 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://c6678gomxa3eh"]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_ngat0"]
 
 [resource]
 script = ExtResource("1_ngat0")
 active = 1
-category = "categoria8"
-type = "Alien"
-categoryLevel = 8
+category = "categoria3"
+type = "Lentes"
+categoryLevel = 3
 fusionLevel = 1
-globalPos = Vector2(429.061, 260.677)
-name = "Alien2"
-food = -797.22
-fun = -807.22
-clean = -807.22
-comfort = -807.22
-exercise = -807.22
+globalPos = Vector2(183.136, 418.002)
+name = "Pablu"
+food = -1522.38
+fun = -1572.38
+clean = -1572.38
+comfort = -1562.54
+exercise = -1572.38
+roomNumber = 1

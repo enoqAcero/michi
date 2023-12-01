@@ -1,18 +1,19 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://b8chyyxj2441j"]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_qo86p"]
 
 [resource]
 script = ExtResource("1_qo86p")
 active = 1
-category = "categoria3"
-type = "Bufanda"
-categoryLevel = 3
+category = "categoria7"
+type = "Navidad"
+categoryLevel = 7
 fusionLevel = 1
-globalPos = Vector2(1755.15, 993.562)
-name = "Bufanda3"
-food = -30.84
-fun = -30.84
-clean = -30.84
-comfort = -30.84
-exercise = -30.84
+globalPos = Vector2(80.2202, 449.618)
+name = "Navidad3"
+food = -12.84
+fun = -12.84
+clean = -12.84
+comfort = -10.44
+exercise = -12.84
+roomNumber = 1

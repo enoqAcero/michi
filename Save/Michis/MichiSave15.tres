@@ -4,15 +4,16 @@
 
 [resource]
 script = ExtResource("1_pvkh7")
-active = 1
-category = "categoria9"
-type = "Hechicero"
-categoryLevel = 9
+active = 0
+category = ""
+type = ""
+categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(370.922, 535.843)
-name = "Hechicero15"
-food = 22.3
-fun = 12.42
-clean = 12.42
-comfort = 12.42
-exercise = 12.42
+globalPos = Vector2(250, 450)
+name = ""
+food = 100
+fun = 100
+clean = 100
+comfort = 100
+exercise = 100
+roomNumber = 1

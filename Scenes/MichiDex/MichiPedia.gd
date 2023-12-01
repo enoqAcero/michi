@@ -5,7 +5,7 @@ var savePath = "res://Save/MichiDex/michiDexSave.tres"
 var maxMichiNumber = 46#GlobalVariables.maxMichiNumber
 var michiDex : MichiDex
 
-var maxPanel = 46#GlobalVariables.maxMichiNumber
+var maxPanel = maxMichiNumber#GlobalVariables.maxMichiNumber
 var PanelName
 var cornerRadius = 10
 
@@ -16,7 +16,7 @@ func _ready():
 	var botonDex = $"../inventario".get_node( "MichiPedia")
 	botonDex.pressed.connect(_on_button_pressed)
 	SignalManager.michiDexUpdate.connect(michiDexUpdate)
-		
+	
 
 		
 
@@ -71,8 +71,9 @@ func setDex():
 			michi.modulate = Color(1,1,1,1)
 		var label = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(i) + "/MichiContainer/numero")
 		label.text = str(i+1)
-
-
+		var containerName = get_node("ScrollContainer/Control/VBoxContainer/Panel" + str(i) + "/MichiContainer")
+		containerName.add_theme_constant_override("separation", 50)
+		#containerName.set_theme_constant_override("separation", 60)
 
 func _on_button_pressed():
 	if visible == false:

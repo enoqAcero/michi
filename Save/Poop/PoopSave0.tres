@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="PoopData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="PoopData" load_steps=2 format=3 uid="uid://bo6xtbm3rnrom"]
 
 [ext_resource type="Script" path="res://Save/PoopData.gd" id="1_fqx1p"]
 
 [resource]
 script = ExtResource("1_fqx1p")
-active = 1
-globalPos = Vector2(1.33907e+07, 2.90769e+07)
+active = 0
+globalPos = Vector2(354.891, 541.139)
 index = 0
+roomNumber = 1

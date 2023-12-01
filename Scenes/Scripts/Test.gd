@@ -1,4 +1,7 @@
 extends Node2D
+
+var getRoomNumber : ColorGUI
+var roomNumber
 #variables para posicionar los michis y huevos
 var rng = RandomNumberGenerator.new()
 var pos_x
@@ -13,6 +16,8 @@ var savePathPis = "res://Save/Pis/"
 var saveFileNamePis = "PisSave"
 var savePathPoop = "res://Save/Poop/"
 var saveFileNamePoop = "PoopSave"
+var savePathColorGui = "res://Save/GUI/"
+var saveFileColorGui= "SaveGUIColor"
 #guardad que tipo de objeto se esta seleccionando
 var type = 0
 #crea michis del 0 al maxMichiNumber -1 y guardar en array de tipo MichiData. si maxMichiNumber = 5 crea en total 5 michis
@@ -54,9 +59,15 @@ var timerCoinInstance : Array
 var tiempo = 0.0
 var caminadora
 var brincolin
+var nuevoNombre
+var pisCounter = 0
+var poopCounter = 0
+
 
 func _ready():
 	randomize()
+	
+	loadData(0, 4 , 0)
 	#for para cargar todos los michis y huevos en arreglos
 	for i in range(0, maxMichiNumber):
 		loadData(i, 0, 0)
@@ -73,7 +84,8 @@ func _ready():
 		pis.global_position = pisData[i].globalPos
 		pis.name = ("pis"+str(i))
 		pis.z_index = 1
-		if pisData[i].active == 1:
+		if pisData[i].active == 1 and pisData[i].roomNumber == roomNumber:
+			pisCounter += 1
 			add_child(pis)
 			print("se agrego pis:", i, " a la escena")	
 		pisInstance.append(pis)
@@ -84,7 +96,8 @@ func _ready():
 		poop.global_position = poopData[i].globalPos
 		poop.name = ("poop"+str(i))
 		poop.z_index = 1
-		if poopData[i].active == 1:
+		if poopData[i].active == 1 and poopData[i].roomNumber == roomNumber:
+			poopCounter += 1
 			add_child(poop)
 			print("se agrego pis:", i, " a la escena")	
 		poopInstance.append(poop)
@@ -211,7 +224,7 @@ func _ready():
 		michi.global_position = michiData[i].globalPos
 		michi.name = ("michi"+str(i))
 		michi.z_index = 2
-		if michiData[i].active == 1:
+		if michiData[i].active == 1 and michiData[i].roomNumber == roomNumber:
 			add_child(michi)
 			print("se agrego michi:", i, " a la escena")
 		michiInstance.append(michi)
@@ -222,7 +235,8 @@ func _ready():
 		var huevo = load("res://Eggs/Egg.tscn").instantiate()
 		huevo.global_position = huevoData[i].globalPos
 		huevo.name = ("huevo"+str(i))
-		if huevoData[i].active == 1:
+		huevo.z_index = 2
+		if huevoData[i].active == 1 and huevoData[i].roomNumber == roomNumber:
 			add_child(huevo)
 			print("se agrego huevo:", i, " a la escena")	
 		huevoInstance.append(huevo)
@@ -246,7 +260,11 @@ func _ready():
 	SignalManager.poopAndPee.connect(poopAndPee)
 	
 	
+func RestComfort():
+	var piPo = (pisCounter + poopCounter) * 2
+	michiData[michiNumber].comfort -=piPo
 
+	
 	
 
 	
@@ -259,7 +277,7 @@ func _process(_delta):
 	if tiempo % 5 == 0.0:
 		michiData[michiNumber].food = michiData[michiNumber].food - 0.02
 		michiData[michiNumber].fun = michiData[michiNumber].fun - 0.02
-		michiData[michiNumber].comfort = michiData[michiNumber].comfort - 0.02
+		#michiData[michiNumber].comfort = michiData[michiNumber].comfort - 0.02
 		michiData[michiNumber].exercise = michiData[michiNumber].exercise - 0.02
 		michiData[michiNumber].clean = michiData[michiNumber].clean - 0.02
 		
@@ -271,15 +289,14 @@ func _process(_delta):
 
 #cuando se apieta un michi o un huevo aparecen sus stats mandando a llamar la funcion updateStatus
 func _input(_event):
-	var michiIndex
 	if Input.is_action_just_pressed("click"):
 		otherMichiN = 100
 		if not type == -1:	
 			if type == 1:
 				if controlConfirmPlayInstance == 1:
 					var playConfirm = load("res://GUI/ConfirmPlay.tscn").instantiate()
-					playConfirm.global_position = Vector2(147,375.5)
-					#playConfirm.z_index = michiInstance[michiN].get_z_index() + 1
+					playConfirm.global_position = Vector2(250,420)
+					playConfirm.z_index = huevoInstance[huevoNumber].get_z_index() + 1
 					add_child(playConfirm)
 					confirmPlayInstance = playConfirm
 					GlobalVariables.huevoNumber = huevoNumber
@@ -290,6 +307,7 @@ func _input(_event):
 		
 		
 func confirmPlay(control : int):
+	print("Confirm play")
 	if control == 1:
 		save(0)
 		get_tree().change_scene_to_file( "res://Scenes/EggJump.tscn")
@@ -354,6 +372,17 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 			var newPoopData = PoopData.new()
 			ResourceSaver.save(newPoopData, (savePathPoop + saveFileNamePoop + str(number) + ".tres" ))
 			poopData.append(ResourceLoader.load(savePathPoop + saveFileNamePoop + str(number) + ".tres"))
+		
+	elif typeLocal == 4:	
+		if ResourceLoader.exists(savePathColorGui + saveFileColorGui + ".tres"):
+			getRoomNumber = ResourceLoader.load(savePathColorGui + saveFileColorGui + ".tres")
+		else:
+			var newRoomNumber = ColorGUI.new()
+			ResourceSaver.save(newRoomNumber, (savePathColorGui + saveFileColorGui + ".tres" ))
+			getRoomNumber = ResourceLoader.load(savePathColorGui + saveFileColorGui + ".tres")
+			
+		roomNumber = getRoomNumber.roomNumber
+		$Label.text = "Room: " + str(roomNumber)
 
 
 	
@@ -385,7 +414,8 @@ func save(michiN : int): #type 0 = michi, type 1 = huevo
 			poopData[i].globalPos = poopInstance[i].global_position
 		ResourceSaver.save(poopData[i], savePathPoop + saveFileNamePoop + str(i) + ".tres")
 
-		
+	getRoomNumber.roomNumber = roomNumber
+	ResourceSaver.save(getRoomNumber, savePathColorGui + saveFileColorGui + ".tres")
 		
 	SignalManager.itemsCoinSave.emit()
 
@@ -408,7 +438,12 @@ func _on_texture_button_pressed():
 	$CanvasLayer/exercise.set_visible(false)
 	SignalManager.michiEggShowHide.emit(0)
 	
-	
+
+
+func _on_change_name_text_changed():
+	nombreEditado()
+
+
 	
 	
 func editCoinCounter(coins : int):
@@ -418,22 +453,28 @@ func editCoinCounter(coins : int):
 func getNumber(number : String, typeLocal : int): #type 0 = michi, type 1 = huevo
 	if typeLocal == 0:
 		michiNumber = number.to_int()
+		$CanvasLayer/Nombre/edit.show()
+		$PicMichi.sprite_frames = michiInstance[michiNumber].get_node("AnimatedSprite2D").sprite_frames
+
 		#verificar que el numero de michi no sea mayor que el numero maximo de michi posible
 		if maxMichiNumber < michiNumber:
 			michiNumber = maxMichiNumber - 1
 	if typeLocal == 1:
 		huevoNumber = number.to_int()
+		$CanvasLayer/Nombre/edit.hide()
 		#verificar que el numero de huevo no sea mayor que el numero maximo de huevo posible
 		if maxHuevoNumber <= huevoNumber:
 			huevoNumber = maxHuevoNumber - 1
 	if typeLocal == 2:
 		pisNumber = number.to_int()
+		$CanvasLayer/Nombre/edit.hide()
 		#verificar que el numero de huevo no sea mayor que el numero maximo de huevo posible
 		if maxPisNumber <= pisNumber:
 			pisNumber = maxPisNumber - 1
 		recogerPisyPoop(0)
 	if typeLocal == 3:
 		poopNumber = number.to_int()
+		$CanvasLayer/Nombre/edit.hide()
 		#verificar que el numero de huevo no sea mayor que el numero maximo de huevo posible
 		if maxPoopNumber <= poopNumber:
 			poopNumber = maxPoopNumber - 1
@@ -445,19 +486,20 @@ func getNumber(number : String, typeLocal : int): #type 0 = michi, type 1 = huev
 	updateStatus(michiNumber, huevoNumber)
 	
 	
-func merge(michiN : int , otherN : int):
-
-		michiInstance[michiN].visible = false
-		michiInstance[otherN].visible = false
-		if sceneConfirmControl == 0:
-			michiN2 = michiN
-			otherMichiN2 = otherN
-			var confirm = load("res://GUI/ConfirmMerge.tscn").instantiate()
-			confirm.global_position = Vector2(147,375.5)
-			confirm.z_index = michiInstance[michiN].get_z_index() + 1
-			add_child(confirm)
-			confirmInstance.append(confirm)
-			sceneConfirmControl = 1
+func merge(michiN : int, otherN: int):
+	michiInstance[michiN].visible = false
+	michiInstance[otherN].visible = false
+	if sceneConfirmControl == 0:
+		michiN2 = michiN
+		otherMichiN2 = otherN
+		var confirm = load("res://GUI/ConfirmMerge.tscn").instantiate()
+		confirm.global_position = Vector2(240,427)
+		confirm.z_index = michiInstance[michiN].get_z_index() + 1
+		add_child(confirm)
+		SignalManager.michiPair.emit(michiInstance[michiN], michiInstance[otherN])
+		confirmInstance.append(confirm)
+		sceneConfirmControl = 1
+		
 	
 func confirmarMerge(confirmar : int):
 	confirmN = confirmN + 1
@@ -474,7 +516,31 @@ func confirmarMerge(confirmar : int):
 	sceneConfirmControl = 0
 	confirmInstance[confirmN].queue_free()
 	
+func nombreEditado():
+	$CanvasLayer/Nombre.text = $CanvasLayer/Nombre/changeName.text
 	
+	
+func _on_edit_pressed():
+	$CanvasLayer/Nombre/yes.show()
+	$CanvasLayer/Nombre/changeName.show()
+	$CanvasLayer/Nombre/no.show()
+	
+	
+
+func _on_yes_pressed():
+	michiData[michiNumber].name = $CanvasLayer/Nombre/changeName.text
+	$CanvasLayer/Nombre/yes.hide()
+	$CanvasLayer/Nombre/changeName.hide()
+	$CanvasLayer/Nombre/no.hide()
+	$CanvasLayer/Nombre/changeName.text=""
+
+
+func _on_no_pressed():
+	$CanvasLayer/Nombre/yes.hide()
+	$CanvasLayer/Nombre/changeName.hide()
+	$CanvasLayer/Nombre/no.hide()
+	$CanvasLayer/Nombre/changeName.text=""
+
 func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#if control == 0 se fusionaron michis, control == 1 nace huevo
 	randomize()
 	var michi
@@ -947,7 +1013,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 				michiData[NumeroMichi1].categoryLevel = sumaCategorias + 1
 				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias + 1))
 				
-		#hacer nuevo michi categoria 8
+				#hacer nuevo michi categoria 8
 		if sumaCategorias == 8:
 			if probNewMichi > 25 and probNewMichi < 85:
 				var probNewMichiType = rng.randi_range(1,5)
@@ -1032,15 +1098,18 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 			michi.global_position = Vector2(pos_x,pos_y) #verificar que la pos no este ocupada
 		else: 
 			print("Un michi no existe")
+			
 		michi.name = "michi"+str(NumeroMichi1)
 		michiInstance[NumeroMichi1].name = "tempNameMichi1"
 		michi.z_index = 2
 		add_child(michi)
 		michiInstance[NumeroMichi1].queue_free()
 		michiInstance[NumeroMichi1] = michi
+		michiData[NumeroMichi1].roomNumber = roomNumber
 		michiInstance[NumeroMichi2].name = "tempNameMichi2"
 		michiInstance[NumeroMichi2].queue_free()
 		michiData[NumeroMichi2].active = 0
+		
 			
 		#agregar el huevo
 		if huevoIndex < maxHuevoNumber:
@@ -1053,6 +1122,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 			huevoInstance[huevoIndex] = huevo
 			huevoData[huevoIndex].active = 1
 			huevoData[huevoIndex].taps = 5
+			huevoData[huevoIndex].roomNumber = roomNumber
 		
 		save(0)
 			
@@ -1098,10 +1168,10 @@ func naceMichi(huevoN : int):
 	pos_y = rng.randi_range(260, 734)
 	michi.global_position = Vector2(pos_x,pos_y)
 	michi.name = "michi"+str(michiIndex)
-	michi.z_index = 2
 	add_child(michi)
 	michiInstance[michiIndex] = michi
 	michiData[michiIndex].active = 1
+	michiData[michiIndex].roomNumber = roomNumber
 
 	huevoData[huevoN].active = 0
 	huevoInstance[huevoN].queue_free()
@@ -1132,20 +1202,23 @@ func michiEggShowHide(control : int):
 
 func updateMichiStatus(michiN : int):
 	var index_item = GlobalVariables.indexInventario
-	
-	print(" Desde update michi status, item index: ",index_item)
-	print("MichiN: ",michiN)
-	if index_item == 0: michiData[michiN].food += 10
-	if index_item == 1: michiData[michiN].food += 20
-	if index_item == 2: michiData[michiN].food += 30
-	if index_item == 3: michiData[michiN].fun += 10
-	if index_item == 4: michiData[michiN].fun += 20
-	if index_item == 5: michiData[michiN].clean += 10
-	if index_item == 6: michiData[michiN].clean += 20
+	if michiData[michiN].food <= 0: michiData[michiN].food = 0
+	if michiData[michiN].fun <= 0: michiData[michiN].fun = 0
+	if michiData[michiN].clean <= 0: michiData[michiN].clean = 0
+	#print(" Desde update michi status, item index: ",index_item)
+	#print("MichiN: ",michiN)
+	if index_item == 0: michiData[michiN].food += 25
+	if index_item == 1: michiData[michiN].food += 50
+	if index_item == 2: michiData[michiN].food += 75
+	if index_item == 3: michiData[michiN].fun += 25
+	if index_item == 4: michiData[michiN].fun += 50
+	if index_item == 5: michiData[michiN].clean += 25
+	if index_item == 6: michiData[michiN].clean += 50
 	
 	if michiData[michiN].food > 100: michiData[michiN].food = 100
 	if michiData[michiN].fun > 100: michiData[michiN].fun = 100
 	if michiData[michiN].clean > 100: michiData[michiN].clean = 100
+	updateStatus(michiNumber, huevoNumber)
 	
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST:
@@ -1179,6 +1252,7 @@ func poopAndPee(michiN : int):
 				pisInstance[pisIndex] = pis
 				pisInstance[pisIndex].set_z_index(michiInstance[michiIndex].get_z_index() - 1)
 				pisData[pisIndex].active = 1
+				pisData[pisIndex].roomNumber = roomNumber
 	else:
 		var poopIndex
 		for i in range(0, maxPoopNumber):
@@ -1195,6 +1269,7 @@ func poopAndPee(michiN : int):
 				poopInstance[poopIndex] = poop
 				poopInstance[poopIndex].set_z_index(michiInstance[michiIndex].get_z_index() - 1)
 				poopData[poopIndex].active = 1
+				poopData[poopIndex].roomNumber = roomNumber
 				
 	
 func recogerPisyPoop(typeLocal : int): #type = 0 pis, type = 1 poop
@@ -1205,12 +1280,15 @@ func recogerPisyPoop(typeLocal : int): #type = 0 pis, type = 1 poop
 		pisData[pisNumber].active = 0
 		pisInstance[pisNumber].name = "tempnamepis"
 		pisInstance[pisNumber].queue_free()
+		pisCounter -=1
+		
 	if typeLocal == 1:
 		pos = poopInstance[poopNumber].global_position
 		poopData[poopNumber].active = 0
 		poopInstance[poopNumber].name = "tempnamepoop"
 		poopInstance[poopNumber].queue_free()
-	
+		poopCounter -= 1
+		
 	valor = 1
 	SignalManager.addCoins.emit(valor)
 	crearMoneda(pos)
@@ -1271,3 +1349,20 @@ func deleteCoin(coinIndex : int, timerIndex : int):
 	timerCoinInstance[timerIndex].queue_free()
 func freeCoin(index : int):
 	coinInstance[index].queue_free()
+
+
+
+
+
+
+
+
+func _on_prev_pressed():
+	roomNumber -= 1
+	save(0)
+	get_tree().reload_current_scene()
+	
+func _on_next_pressed():
+	roomNumber += 1
+	save(0)
+	get_tree().reload_current_scene()

@@ -1,18 +1,19 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://d138i817xr4in"]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_qwaqc"]
 
 [resource]
 script = ExtResource("1_qwaqc")
 active = 1
-category = "categoria6"
-type = "Fuego"
-categoryLevel = 6
+category = "categoria3"
+type = "Lentes"
+categoryLevel = 3
 fusionLevel = 1
-globalPos = Vector2(449.924, 614.622)
-name = "Fuego8"
-food = -199.56
-fun = -239.56
-clean = -239.56
-comfort = -239.56
-exercise = -239.56
+globalPos = Vector2(438.5, 455.733)
+name = "Lentes8"
+food = -753.76
+fun = -778.76
+clean = -778.76
+comfort = -764.9
+exercise = -778.76
+roomNumber = 2

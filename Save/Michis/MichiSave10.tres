@@ -1,18 +1,19 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://bgnt56ol3x2vb"]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_y4plt"]
 
 [resource]
 script = ExtResource("1_y4plt")
-active = 1
-category = "categoria8"
-type = "Vampiro"
-categoryLevel = 8
+active = 0
+category = "categoria4"
+type = "Arcoiris"
+categoryLevel = 4
 fusionLevel = 1
-globalPos = Vector2(313.384, 519.023)
-name = "Vampiro10"
-food = -672.14
-fun = -672.14
-clean = -672.14
-comfort = -672.14
-exercise = -672.14
+globalPos = Vector2(372.936, 549.936)
+name = "Beto"
+food = -327.72
+fun = -327.72
+clean = -327.72
+comfort = -310.54
+exercise = -327.72
+roomNumber = 2

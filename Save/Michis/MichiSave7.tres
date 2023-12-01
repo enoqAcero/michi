@@ -4,15 +4,16 @@
 
 [resource]
 script = ExtResource("1_hqpvu")
-active = 1
-category = "categoria8"
-type = "Angel"
-categoryLevel = 8
+active = 0
+category = "categoria6"
+type = "Aire"
+categoryLevel = 6
 fusionLevel = 1
-globalPos = Vector2(384.373, 733.919)
-name = "Angel7"
-food = -289.06
-fun = -299.06
-clean = -299.06
-comfort = -299.06
-exercise = -299.06
+globalPos = Vector2(369, 265)
+name = "Aire7"
+food = -15.08
+fun = -14.54
+clean = -56.5
+comfort = 11.56
+exercise = -89.54
+roomNumber = 1

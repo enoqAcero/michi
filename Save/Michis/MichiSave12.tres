@@ -1,18 +1,19 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://dcqtud68igq3"]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_um7sn"]
 
 [resource]
 script = ExtResource("1_um7sn")
-active = 1
-category = "categoria7"
-type = "Pascua"
-categoryLevel = 7
+active = 0
+category = ""
+type = ""
+categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(367.722, 426.525)
-name = "Pascua12"
-food = 75.3
-fun = 45.3
-clean = 25.3
-comfort = 25.3
-exercise = 25.3
+globalPos = Vector2(250, 450)
+name = ""
+food = 100
+fun = 100
+clean = 100
+comfort = 100
+exercise = 100
+roomNumber = 1
