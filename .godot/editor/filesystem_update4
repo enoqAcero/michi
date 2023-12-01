@@ -2,6 +2,5 @@ res://Scenes/Test.tscn
 res://MichiPedia.tscn
 res://Michis/michiMonio.tscn
 res://itemInventario.tscn
-res://Scenes/Scripts/Test.gd
-res://Save/Michis/MichiSave0.tres
-res://Save/Michis/MichiSave1.tres
+res://Save/Michis.gd
+res://Michis/Scripts/Michi.gd

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://c6678gomxa3eh"]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_ngat0"]
 
@@ -9,7 +9,7 @@ category = "categoria3"
 type = "Lentes"
 categoryLevel = 3
 fusionLevel = 1
-globalPos = Vector2(183.136, 418.002)
+globalPos = Vector2(30.9926, 542.483)
 name = "Pablu"
 food = -1522.38
 fun = -1572.38

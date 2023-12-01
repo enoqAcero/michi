@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://b8chyyxj2441j"]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_qo86p"]
 
@@ -9,7 +9,7 @@ category = "categoria7"
 type = "Navidad"
 categoryLevel = 7
 fusionLevel = 1
-globalPos = Vector2(80.2202, 449.618)
+globalPos = Vector2(31.0213, 496.435)
 name = "Navidad3"
 food = -12.84
 fun = -12.84

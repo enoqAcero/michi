@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://ddfe4trppwedu"]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_vhn24"]
 
@@ -9,11 +9,11 @@ category = "categoria4"
 type = "Estrellas"
 categoryLevel = 4
 fusionLevel = 1
-globalPos = Vector2(315.994, 553.334)
+globalPos = Vector2(369.5, 370)
 name = "Estrellas11"
-food = 3.96
-fun = 3.96
-clean = 3.96
+food = 2.38
+fun = 2.38
+clean = 2.38
 comfort = 28.8
-exercise = 3.96
+exercise = 2.38
 roomNumber = 2

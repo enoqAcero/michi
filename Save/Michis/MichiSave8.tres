@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://d138i817xr4in"]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_qwaqc"]
 
@@ -9,7 +9,7 @@ category = "categoria3"
 type = "Lentes"
 categoryLevel = 3
 fusionLevel = 1
-globalPos = Vector2(438.5, 455.733)
+globalPos = Vector2(438.5, 559.733)
 name = "Lentes8"
 food = -753.76
 fun = -778.76

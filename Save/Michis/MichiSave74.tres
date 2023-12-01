@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_uhdqc"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_lbgav"]
 
 [resource]
-script = ExtResource("1_uhdqc")
+script = ExtResource("1_lbgav")
 active = 0
 category = ""
 type = ""

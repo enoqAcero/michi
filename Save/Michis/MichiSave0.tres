@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://6elkyb8t0oo8"]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_ck3t5"]
 
@@ -11,9 +11,9 @@ categoryLevel = 3
 fusionLevel = 1
 globalPos = Vector2(416, 273)
 name = "Miguel"
-food = -932.3
-fun = -982.3
-clean = -982.3
+food = -990.12
+fun = -1040.12
+clean = -1040.12
 comfort = -786.38
-exercise = -982.3
+exercise = -1040.12
 roomNumber = 2
