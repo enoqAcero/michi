@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_joevj")
 colorGui = Color(0.514052, 1, 0.962658, 1)
-roomNumber = 1
+roomNumber = 0

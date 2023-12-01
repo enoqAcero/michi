@@ -82,10 +82,7 @@ animations = [{
 radius = 15.0
 height = 38.0
 
-[node name="RigidBody2D" type="RigidBody2D"]
-center_of_mass_mode = 1
-gravity_scale = 20.0
-freeze = true
+[node name="Huevo" type="CharacterBody2D"]
 script = ExtResource("1_q6dxx")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]

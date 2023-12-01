@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_o0biu")
-active = 0
-category = "categoria3"
-type = "Hipster"
-categoryLevel = 3
+active = 1
+category = "categoria4"
+type = "Dorado"
+categoryLevel = 4
 fusionLevel = 1
-globalPos = Vector2(411.46, 403.648)
-name = "Hipster1"
-food = 77.04
-fun = 93.3
-clean = 94.8
+globalPos = Vector2(379.073, 241.48)
+name = "Dorado1"
+food = -5.9
+fun = 10.36
+clean = 11.86
 comfort = 56.04
-exercise = 52.04
+exercise = -30.9
 roomNumber = 1

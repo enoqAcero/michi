@@ -16,4 +16,6 @@ var michiSelected = false
 var naceMichi = 0
 var michiPath
 var itemSelected = false
+var huevoSelected = false
+var huevoHover = false
 

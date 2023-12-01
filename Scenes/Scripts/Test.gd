@@ -63,20 +63,17 @@ var nuevoNombre
 var pisCounter = 0
 var poopCounter = 0
 
+var animationControl = true
 
 func _ready():
 	randomize()
 	
-	loadData(0, 4 , 0)
-	#for para cargar todos los michis y huevos en arreglos
-	for i in range(0, maxMichiNumber):
-		loadData(i, 0, 0)
-	for i in range(0, maxHuevoNumber):
-		loadData(i, 1, 0)
-	for i in range(0, maxPisNumber):
-		loadData(i, 2 , 0)
-	for i in range(0, maxPoopNumber):
-		loadData(i, 3 , 0)
+	$Transition/ColorRect.self_modulate = Color("#ffffff")
+	$Transition/ColorRect.visible = true
+	$Transition.play("fadeIn")
+	
+		
+	
 		
 	#poner todas la pis
 	for i in range(0, maxPisNumber):
@@ -293,11 +290,12 @@ func _input(_event):
 		otherMichiN = 100
 		if not type == -1:	
 			if type == 1:
+				type = -1
 				if controlConfirmPlayInstance == 1:
 					var playConfirm = load("res://GUI/ConfirmPlay.tscn").instantiate()
 					playConfirm.global_position = Vector2(250,420)
 					playConfirm.z_index = huevoInstance[huevoNumber].get_z_index() + 1
-					add_child(playConfirm)
+					#add_child(playConfirm)
 					confirmPlayInstance = playConfirm
 					GlobalVariables.huevoNumber = huevoNumber
 					controlConfirmPlayInstance = 0
@@ -1352,17 +1350,47 @@ func freeCoin(index : int):
 
 
 
-
-
-
-
-
 func _on_prev_pressed():
 	roomNumber -= 1
+	animationControl = false
+	clearScreen()
+	$Transition/Label.text = "ROOM: "+str(roomNumber)
+	$Transition.play("fadeOut")
 	save(0)
-	get_tree().reload_current_scene()
 	
 func _on_next_pressed():
 	roomNumber += 1
+	animationControl = false
+	clearScreen()
+	$Transition/Label.text = "ROOM: "+str(roomNumber)
+	$Transition.play("fadeOut")
 	save(0)
-	get_tree().reload_current_scene()
+
+
+func clearScreen():
+	for cat in michiInstance:
+		cat.queue_free()
+	for eg in huevoInstance:
+		eg.queue_free()
+	for po in poopInstance:
+		po.queue_free()
+	for pi in pisInstance:
+		pi.queue_free()
+
+func _on_transition_animation_finished(anim_name):
+	if animationControl == false: get_tree().reload_current_scene()
+
+
+func _on_transition_animation_started(anim_name):
+	if animationControl == true:
+		loadData(0, 4 , 0)
+		$Transition/Label.text = "ROOM: "+str(roomNumber)
+		#for para cargar todos los michis y huevos en arreglos
+		for i in range(0, maxMichiNumber):
+			loadData(i, 0, 0)
+		for i in range(0, maxHuevoNumber):
+			loadData(i, 1, 0)
+		for i in range(0, maxPisNumber):
+			loadData(i, 2 , 0)
+		for i in range(0, maxPoopNumber):
+			loadData(i, 3 , 0)

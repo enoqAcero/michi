@@ -1,6 +1,7 @@
 res://Scenes/Test.tscn
-res://MichiPedia.tscn
 res://Michis/michiMonio.tscn
-res://itemInventario.tscn
-res://Save/Michis.gd
-res://Michis/Scripts/Michi.gd
+res://Eggs/Egg.tscn
+res://Eggs/Scripts/Egg.gd
+res://Scenes/Scripts/Test.gd
+res://Scenes/michiRun/main.tscn
+res://NamesMichiDex.tres

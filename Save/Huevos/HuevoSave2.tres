@@ -7,6 +7,6 @@ script = ExtResource("1_w3cdw")
 active = 1
 categoria = 1
 id = 0
-globalPos = Vector2(278, 575)
+globalPos = Vector2(369.196, 740.934)
 taps = 5
 roomNumber = 1

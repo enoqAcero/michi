@@ -17,7 +17,7 @@ var maxMichiNumber = GlobalVariables.maxMichiNumber
 
 var giveItemControl = 0
 
-func _process(delta):
+func _process(_delta):
 	if selected == false:
 		$Area2D/CollisionShape2D.scale.x = 1
 		$Area2D/CollisionShape2D.scale.y = 1
@@ -81,7 +81,7 @@ func _on_area_2d_mouse_exited():
 	giveItemControl = 0
 	
 	
-func _on_area_2d_2_body_entered(body):
+func _on_area_2d_2_body_entered(_body):
 	pass
 
 

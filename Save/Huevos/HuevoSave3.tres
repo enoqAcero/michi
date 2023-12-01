@@ -7,6 +7,6 @@ script = ExtResource("1_lh0yf")
 active = 1
 categoria = 1
 id = 0
-globalPos = Vector2(117, 357)
+globalPos = Vector2(459.98, 366.581)
 taps = 0
 roomNumber = 2
