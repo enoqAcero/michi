@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_qxukt"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_2wl1c"]
 
 [resource]
-script = ExtResource("1_qxukt")
+script = ExtResource("1_2wl1c")
 active = 1
-category = "categoria3"
-type = "Hipster"
-categoryLevel = 3
+category = "categoria8"
+type = "Diablo"
+categoryLevel = 8
 fusionLevel = 1
-globalPos = Vector2(65.7904, 405.594)
-name = "Hipster4"
-food = -186.52
-fun = -236.52
-clean = -236.52
+globalPos = Vector2(257.847, 616.54)
+name = "Diablo4"
+food = -204.2
+fun = -254.2
+clean = -254.2
 comfort = -212.94
-exercise = -236.52
+exercise = -254.2
 roomNumber = 2

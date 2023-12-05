@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_hqpvu"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_bjij6"]
 
 [resource]
-script = ExtResource("1_hqpvu")
-active = 0
-category = "categoria6"
-type = "Aire"
-categoryLevel = 6
+script = ExtResource("1_bjij6")
+active = 1
+category = "categoria8"
+type = "Alien"
+categoryLevel = 8
 fusionLevel = 1
-globalPos = Vector2(369, 265)
-name = "Aire7"
-food = -15.08
-fun = -14.54
-clean = -56.5
+globalPos = Vector2(188.525, 273)
+name = "Alien7"
+food = -126.04
+fun = -125.5
+clean = -167.46
 comfort = 11.56
-exercise = -89.54
-roomNumber = 1
+exercise = -200.5
+roomNumber = 2

@@ -52,6 +52,8 @@ var sceneConfirmControl = 0
 
 var confirmPlayInstance
 var controlConfirmPlayInstance = 1
+var confirmChangeRoom
+var controlMichiChangeRoom = 1
 
 var coinInstance : Array
 var timerCoinInstance : Array
@@ -64,6 +66,9 @@ var pisCounter = 0
 var poopCounter = 0
 
 var animationControl = true
+var doubleClick = false
+var clickCount = 0
+
 
 func _ready():
 	randomize()
@@ -102,7 +107,6 @@ func _ready():
 	#poner todos los michis en escena	
 	for i in range(0, maxMichiNumber): 
 		var michi = load("res://Michis/michiNaranja.tscn").instantiate()
-		
 		
 		#cargar todos los michis de la primera categoria
 		if michiData[i].categoryLevel == 1:
@@ -200,8 +204,8 @@ func _ready():
 				michi = load("res://Michis/michiCyborg.tscn").instantiate()
 			if michiData[i].type == "Diablo":
 				michi = load("res://Michis/michiDiablo.tscn").instantiate()
-			if michiData[i].type == "Vampiro":
-				michi = load("res://Michis/michiVampiro.tscn").instantiate()
+			if michiData[i].type == "Zombie":
+				michi = load("res://Michis/michiZombie.tscn").instantiate()
 		#cargar todos los michis de la categoria 9
 		elif michiData[i].categoryLevel == 9:
 			if michiData[i].type == "Espadachin":
@@ -229,7 +233,34 @@ func _ready():
 
 	#poner todos los huevos en escena
 	for i in range(0, maxHuevoNumber):
-		var huevo = load("res://Eggs/Egg.tscn").instantiate()
+		var huevo
+		
+		if huevoData[i].categoria == 1:
+			huevo = load("res://Eggs/Egg1.tscn").instantiate()
+		if huevoData[i].categoria == 2:
+			huevo = load("res://Eggs/Egg2.tscn").instantiate()
+		if huevoData[i].categoria == 3:
+			huevo = load("res://Eggs/Egg3.tscn").instantiate()
+		if huevoData[i].categoria == 4:
+			huevo = load("res://Eggs/Egg4.tscn").instantiate()
+		if huevoData[i].categoria == 5:
+			huevo = load("res://Eggs/Egg5.tscn").instantiate()
+		if huevoData[i].categoria == 6:
+			huevo = load("res://Eggs/Egg6.tscn").instantiate()
+		if huevoData[i].categoria == 7:
+			huevo = load("res://Eggs/Egg7.tscn").instantiate()
+		if huevoData[i].categoria == 8:
+			huevo = load("res://Eggs/Egg8.tscn").instantiate()
+		if huevoData[i].categoria == 9:
+			huevo = load("res://Eggs/Egg9.tscn").instantiate()
+		if huevoData[i].categoria == 10:
+			huevo = load("res://Eggs/Egg10.tscn").instantiate()
+		if huevoData[i].categoria == 11:
+			huevo = load("res://Eggs/Egg11.tscn").instantiate()
+		if huevoData[i].categoria == 12:
+			huevo = load("res://Eggs/Egg12.tscn").instantiate()
+		
+		
 		huevo.global_position = huevoData[i].globalPos
 		huevo.name = ("huevo"+str(i))
 		huevo.z_index = 2
@@ -287,19 +318,34 @@ func _process(_delta):
 #cuando se apieta un michi o un huevo aparecen sus stats mandando a llamar la funcion updateStatus
 func _input(_event):
 	if Input.is_action_just_pressed("click"):
+		$doubleClick.start()
+		clickCount += 1
+		if clickCount >= 2: doubleClick = true
 		otherMichiN = 100
 		if not type == -1:	
 			if type == 1:
 				type = -1
-				if controlConfirmPlayInstance == 1:
+				if controlConfirmPlayInstance == 1 and doubleClick == true:
 					var playConfirm = load("res://GUI/ConfirmPlay.tscn").instantiate()
 					playConfirm.global_position = Vector2(250,420)
 					playConfirm.z_index = huevoInstance[huevoNumber].get_z_index() + 1
-					#add_child(playConfirm)
+					add_child(playConfirm)
 					confirmPlayInstance = playConfirm
 					GlobalVariables.huevoNumber = huevoNumber
 					controlConfirmPlayInstance = 0
-			
+			if type == 0:
+				type = -1
+				if doubleClick == true:
+					var changeRoom = load("res://GUI/ChangeMichiRoom.tscn").instantiate()
+					changeRoom.global_position = Vector2(0,0)
+					changeRoom.z_index = michiInstance[michiNumber].get_z_index() + 1
+					GlobalVariables.michiNumber = michiNumber
+					var michiPath = ("res://Michis/" + "michi" + michiData[michiNumber].type + ".tscn")
+					GlobalVariables.michiPath = michiPath
+					add_child(changeRoom)
+					confirmChangeRoom = changeRoom
+					GlobalVariables.huevoNumber = huevoNumber
+					
 					
 					
 		
@@ -307,6 +353,8 @@ func _input(_event):
 func confirmPlay(control : int):
 	print("Confirm play")
 	if control == 1:
+		var huevoCat = huevoData[GlobalVariables.huevoNumber].categoria
+		GlobalVariables.huevoPath = ("res://Eggs/Egg" + str(huevoCat) + ".tscn")
 		save(0)
 		get_tree().change_scene_to_file( "res://Scenes/EggJump.tscn")
 		confirmPlayInstance.queue_free()
@@ -380,7 +428,7 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 			getRoomNumber = ResourceLoader.load(savePathColorGui + saveFileColorGui + ".tres")
 			
 		roomNumber = getRoomNumber.roomNumber
-		$Label.text = "Room: " + str(roomNumber)
+
 
 
 	
@@ -550,13 +598,14 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 			break
 			
 	if control == 0:
-		var sumaCategorias
+		var promCategorias
 		var probNewMichi = rng.randi_range(1,100)
-		sumaCategorias = michiData[NumeroMichi1].categoryLevel + michiData[NumeroMichi2].categoryLevel
+		promCategorias = (michiData[NumeroMichi1].categoryLevel + michiData[NumeroMichi2].categoryLevel)/2
+		promCategorias = promCategorias + 1
 		
 		#hacer nuevo michi categoria 2 
-		if sumaCategorias == 2:
-			if probNewMichi > 25 and probNewMichi < 85:
+		if promCategorias == 2:
+			if probNewMichi > 25 and probNewMichi <= 95:
 				var probNewMichiType = rng.randi_range(1,6)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiCalico.tscn").instantiate()
@@ -582,8 +631,8 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiTabby.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Tabby"
 					michiData[NumeroMichi1].name = "Tabby" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias))
+				michiData[NumeroMichi1].categoryLevel = promCategorias
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias))
 				
 			elif probNewMichi <= 25:
 				var probNewMichiType = rng.randi_range(1,5)
@@ -607,9 +656,9 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiNegro.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Negro"
 					michiData[NumeroMichi1].name = "Negro" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias - 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias - 1))
-			elif probNewMichi >= 85:
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 1))
+			elif probNewMichi > 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiBufanda.tscn").instantiate()
@@ -631,12 +680,12 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiMonio.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Monio"
 					michiData[NumeroMichi1].name = "Monio" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias + 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias + 1))
+				michiData[NumeroMichi1].categoryLevel = promCategorias + 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias + 1))
 				
 		#hacer nuevo michi categoria 3
-		if sumaCategorias == 3:
-			if probNewMichi > 25 and probNewMichi < 85:
+		if promCategorias == 3:
+			if probNewMichi > 25 and probNewMichi <= 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiBufanda.tscn").instantiate()
@@ -658,8 +707,8 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiMonio.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Monio"
 					michiData[NumeroMichi1].name = "Monio" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias))
+				michiData[NumeroMichi1].categoryLevel = promCategorias
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias))
 			elif probNewMichi <= 25:
 				var probNewMichiType = rng.randi_range(1,6)
 				if probNewMichiType == 1:
@@ -686,9 +735,9 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiTabby.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Tabby"
 					michiData[NumeroMichi1].name = "Tabby" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias - 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias - 1))
-			elif probNewMichi >= 85:
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 1))
+			elif probNewMichi > 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiNeon.tscn").instantiate()
@@ -710,11 +759,11 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiArcoiris.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Arcoiris"
 					michiData[NumeroMichi1].name = "Arcoiris" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias + 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias + 1))
+				michiData[NumeroMichi1].categoryLevel = promCategorias + 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias + 1))
 		#hacer nuevo michi categoria 4
-		if sumaCategorias == 4:
-			if probNewMichi > 25 and probNewMichi < 85:
+		if promCategorias == 4:
+			if probNewMichi > 25 and probNewMichi <= 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiNeon.tscn").instantiate()
@@ -736,8 +785,8 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiArcoiris.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Arcoiris"
 					michiData[NumeroMichi1].name = "Arcoiris" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias))
+				michiData[NumeroMichi1].categoryLevel = promCategorias
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias))
 			elif probNewMichi <= 25:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
@@ -760,9 +809,9 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiMonio.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Monio"
 					michiData[NumeroMichi1].name = "Monio" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias - 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias - 1))
-			elif probNewMichi >= 85:
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 1))
+			elif probNewMichi > 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiCaballero.tscn").instantiate()
@@ -784,11 +833,11 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiUnicornio.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Unicornio"
 					michiData[NumeroMichi1].name = "Unicornio" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias + 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias + 1))
+				michiData[NumeroMichi1].categoryLevel = promCategorias + 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias + 1))
 		#hacer nuevo michi categoria 5
-		if sumaCategorias == 5:
-			if probNewMichi > 25 and probNewMichi < 85:
+		if promCategorias == 5:
+			if probNewMichi > 25 and probNewMichi <= 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiCaballero.tscn").instantiate()
@@ -810,8 +859,8 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiUnicornio.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Unicornio"
 					michiData[NumeroMichi1].name = "Unicornio" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias))
+				michiData[NumeroMichi1].categoryLevel = promCategorias
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias))
 			elif probNewMichi <= 25:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
@@ -834,9 +883,9 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiArcoiris.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Arcoiris"
 					michiData[NumeroMichi1].name = "Arcoiris" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias - 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias - 1))
-			elif probNewMichi >= 85:
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 1))
+			elif probNewMichi > 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiAgua.tscn").instantiate()
@@ -858,12 +907,12 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiTierra.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Tierra"
 					michiData[NumeroMichi1].name = "Tierra" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias + 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias + 1))
+				michiData[NumeroMichi1].categoryLevel = promCategorias + 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias + 1))
 				
 		#hacer nuevo michi categoria 6
-		if sumaCategorias == 6:
-			if probNewMichi > 25 and probNewMichi < 85:
+		if promCategorias == 6:
+			if probNewMichi > 25 and probNewMichi <= 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiAgua.tscn").instantiate()
@@ -885,8 +934,8 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiTierra.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Tierra"
 					michiData[NumeroMichi1].name = "Tierra" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias))
+				michiData[NumeroMichi1].categoryLevel = promCategorias
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias))
 			elif probNewMichi <= 25:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
@@ -909,9 +958,9 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiUnicornio.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Unicornio"
 					michiData[NumeroMichi1].name = "Unicornio" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias - 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias - 1))
-			elif probNewMichi >= 85:
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 1))
+			elif probNewMichi > 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiChino.tscn").instantiate()
@@ -933,12 +982,12 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiStPatrick.tscn").instantiate()
 					michiData[NumeroMichi1].type = "StPatrick"
 					michiData[NumeroMichi1].name = "StPatrick" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias + 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias + 1))
+				michiData[NumeroMichi1].categoryLevel = promCategorias + 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias + 1))
 				
 			#hacer nuevo michi categoria 7
-		if sumaCategorias == 7:
-			if probNewMichi > 25 and probNewMichi < 85:
+		if promCategorias == 7:
+			if probNewMichi > 25 and probNewMichi <= 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiChino.tscn").instantiate()
@@ -960,8 +1009,8 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiStPatrick.tscn").instantiate()
 					michiData[NumeroMichi1].type = "StPatrick"
 					michiData[NumeroMichi1].name = "StPatrick" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias))
+				michiData[NumeroMichi1].categoryLevel = promCategorias
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias))
 			elif probNewMichi <= 25:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
@@ -984,9 +1033,9 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiTierra.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Tierra"
 					michiData[NumeroMichi1].name = "Tierra" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias - 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias - 1))
-			elif probNewMichi >= 85:
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 1))
+			elif probNewMichi > 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiAlien.tscn").instantiate()
@@ -1005,15 +1054,15 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michiData[NumeroMichi1].type = "Diablo"
 					michiData[NumeroMichi1].name = "Diablo" + str(NumeroMichi1)
 				if probNewMichiType == 5:
-					michi = load("res://Michis/michiVampiro.tscn").instantiate()
-					michiData[NumeroMichi1].type = "Vampiro"
-					michiData[NumeroMichi1].name = "Vampiro" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias + 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias + 1))
+					michi = load("res://Michis/michiZombie.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Zombie"
+					michiData[NumeroMichi1].name = "Zombie" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias + 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias + 1))
 				
 				#hacer nuevo michi categoria 8
-		if sumaCategorias == 8:
-			if probNewMichi > 25 and probNewMichi < 85:
+		if promCategorias == 8:
+			if probNewMichi > 25 and probNewMichi <= 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiAlien.tscn").instantiate()
@@ -1032,11 +1081,11 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michiData[NumeroMichi1].type = "Diablo"
 					michiData[NumeroMichi1].name = "Diablo" + str(NumeroMichi1)
 				if probNewMichiType == 5:
-					michi = load("res://Michis/michiVampiro.tscn").instantiate()
-					michiData[NumeroMichi1].type = "Vampiro"
-					michiData[NumeroMichi1].name = "Vampiro" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias))
+					michi = load("res://Michis/michiZombie.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Zombie"
+					michiData[NumeroMichi1].name = "Zombie" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias))
 			elif probNewMichi <= 25:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
@@ -1059,9 +1108,9 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiStPatrick.tscn").instantiate()
 					michiData[NumeroMichi1].type = "StPatrick"
 					michiData[NumeroMichi1].name = "StPatrick" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias - 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias - 1))
-			elif probNewMichi >= 85:
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 1))
+			elif probNewMichi > 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
 					michi = load("res://Michis/michiEspadachin.tscn").instantiate()
@@ -1083,8 +1132,8 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 					michi = load("res://Michis/michiSuperAlien.tscn").instantiate()
 					michiData[NumeroMichi1].type = "SuperAlien"
 					michiData[NumeroMichi1].name = "SuperAlien" + str(NumeroMichi1)
-				michiData[NumeroMichi1].categoryLevel = sumaCategorias + 1
-				michiData[NumeroMichi1].category = ("categoria"+str(sumaCategorias + 1))
+				michiData[NumeroMichi1].categoryLevel = promCategorias + 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias + 1))
 		
 		
 			
@@ -1109,18 +1158,73 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 		michiData[NumeroMichi2].active = 0
 		
 			
+
 		#agregar el huevo
-		if huevoIndex < maxHuevoNumber:
-			var huevo = load("res://Eggs/Egg.tscn").instantiate()
-			pos_x = rng.randi_range(30,450)
-			pos_y = rng.randi_range(260, 734)
-			huevo.global_position = Vector2(pos_x,pos_y)
-			huevo.name = "huevo"+str(huevoIndex)
-			add_child(huevo)
-			huevoInstance[huevoIndex] = huevo
-			huevoData[huevoIndex].active = 1
-			huevoData[huevoIndex].taps = 5
-			huevoData[huevoIndex].roomNumber = roomNumber
+		var probNewEgg = rng.randi_range(1,100)
+		if probNewEgg > 70:
+			if huevoIndex < maxHuevoNumber:
+				var probNewEggType = rng.randf_range(1.0,100.0)
+				var huevo
+				var categoriaHuevo
+				#1
+				if probNewEggType <= 25:
+					huevo = load("res://Eggs/Egg1.tscn").instantiate()
+					categoriaHuevo = 1
+					#2
+				elif probNewEggType <= 43 and probNewEggType > 25:
+					huevo = load("res://Eggs/Egg2.tscn").instantiate()
+					categoriaHuevo = 2
+					#3
+				elif probNewEggType <= 58 and probNewEggType > 43:
+					huevo = load("res://Eggs/Egg3.tscn").instantiate()
+					categoriaHuevo = 3
+					#4
+				elif probNewEggType <= 70 and probNewEggType > 58:
+					huevo = load("res://Eggs/Egg4.tscn").instantiate()
+					categoriaHuevo = 4
+					#5
+				elif probNewEggType <= 79 and probNewEggType > 70:
+					huevo = load("res://Eggs/Egg5.tscn").instantiate()
+					categoriaHuevo = 5
+					#6
+				elif probNewEggType <= 86 and probNewEggType > 79:
+					huevo = load("res://Eggs/Egg6.tscn").instantiate()
+					categoriaHuevo = 6
+					#7
+				elif probNewEggType <= 91 and probNewEggType > 86:
+					huevo = load("res://Eggs/Egg7.tscn").instantiate()
+					categoriaHuevo = 7
+					#8
+				elif probNewEggType <= 95 and probNewEggType > 91:
+					huevo = load("res://Eggs/Egg8.tscn").instantiate()
+					categoriaHuevo = 8
+					#9
+				elif probNewEggType <= 98 and probNewEggType > 95:
+					huevo = load("res://Eggs/Egg9.tscn").instantiate()
+					categoriaHuevo = 9
+					#10
+				elif probNewEggType <= 99 and probNewEggType > 98:
+					huevo = load("res://Eggs/Egg10.tscn").instantiate()
+					categoriaHuevo = 10
+					#11
+				elif probNewEggType <= 99.7 and probNewEggType > 99:
+					huevo = load("res://Eggs/Egg11.tscn").instantiate()
+					categoriaHuevo = 11
+					#12
+				elif probNewEggType <= 100 and probNewEggType > 99.7:
+					huevo = load("res://Eggs/Egg12.tscn").instantiate()
+					categoriaHuevo = 12
+					
+				pos_x = rng.randi_range(30,450)
+				pos_y = rng.randi_range(260, 734)
+				huevo.global_position = Vector2(pos_x,pos_y)
+				huevo.name = "huevo"+str(huevoIndex)
+				add_child(huevo)
+				huevoInstance[huevoIndex] = huevo
+				huevoData[huevoIndex].active = 1
+				huevoData[huevoIndex].taps = 5
+				huevoData[huevoIndex].roomNumber = roomNumber
+				huevoData[huevoIndex].categoria = categoriaHuevo
 		
 		save(0)
 			
@@ -1131,6 +1235,7 @@ func naceMichi(huevoN : int):
 	var michiIndex = 101
 	var michi
 	var probNewMichiType = GlobalVariables.probNewMichiType
+	var michiCategory = GlobalVariables.michiCategory
 	
 	for i in range(0, maxMichiNumber):
 		if michiData[i].active == 0:
@@ -1138,28 +1243,194 @@ func naceMichi(huevoN : int):
 			break
 		
 	
-	if probNewMichiType == 1:
-		michi = load("res://Michis/michiBlanco.tscn").instantiate()
-		michiData[michiIndex].type = "Blanco"
-		michiData[michiIndex].name = "Blanco" + str(michiIndex)
-	if probNewMichiType == 2:
-		michi = load("res://Michis/michiCafe.tscn").instantiate()
-		michiData[michiIndex].type = "Cafe"
-		michiData[michiIndex].name = "Cafe" + str(michiIndex)
-	if probNewMichiType == 3:
-		michi = load("res://Michis/michiGris.tscn").instantiate()
-		michiData[michiIndex].type = "Gris"
-		michiData[michiIndex].name = "Gris" + str(michiIndex)
-	if probNewMichiType == 4:
-		michi = load("res://Michis/michiNaranja.tscn").instantiate()
-		michiData[michiIndex].type = "Naranja"
-		michiData[michiIndex].name = "Naranja" + str(michiIndex)
-	if probNewMichiType == 5:
-		michi = load("res://Michis/michiNegro.tscn").instantiate()
-		michiData[michiIndex].type = "Negro"
-		michiData[michiIndex].name = "Negro" + str(michiIndex)
-	michiData[michiIndex].categoryLevel = 1
-	michiData[michiIndex].category = ("categoria1")
+	if michiCategory == 1:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiBlanco.tscn").instantiate()
+			michiData[michiIndex].type = "Blanco"
+			michiData[michiIndex].name = "Blanco" + str(michiIndex)
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiCafe.tscn").instantiate()
+			michiData[michiIndex].type = "Cafe"
+			michiData[michiIndex].name = "Cafe" + str(michiIndex)
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiGris.tscn").instantiate()
+			michiData[michiIndex].type = "Gris"
+			michiData[michiIndex].name = "Gris" + str(michiIndex)
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiNaranja.tscn").instantiate()
+			michiData[michiIndex].type = "Naranja"
+			michiData[michiIndex].name = "Naranja" + str(michiIndex)
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiNegro.tscn").instantiate()
+			michiData[michiIndex].type = "Negro"
+			michiData[michiIndex].name = "Negro" + str(michiIndex)
+			
+	if michiCategory == 2:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiCalico.tscn").instantiate()
+			michiData[michiIndex].type = "Calico"
+			michiData[michiIndex].name = "Calico" + str(michiIndex)
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiEgipcio.tscn").instantiate()
+			michiData[michiIndex].type = "Egipcio"
+			michiData[michiIndex].name = "Egipcio" + str(michiIndex)
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiManchado.tscn").instantiate()
+			michiData[michiIndex].type = "Manchado"
+			michiData[michiIndex].name = "Manchado" + str(michiIndex)
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiPersa.tscn").instantiate()
+			michiData[michiIndex].type = "Persa"
+			michiData[michiIndex].name = "Persa" + str(michiIndex)
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiSiames.tscn").instantiate()
+			michiData[michiIndex].type = "Siames"
+			michiData[michiIndex].name = "Siames" + str(michiIndex)
+		if probNewMichiType == 6:
+			michi = load("res://Michis/michiTabby.tscn").instantiate()
+			michiData[michiIndex].type = "Tabby"
+			michiData[michiIndex].name = "Tabby" + str(michiIndex)
+
+
+	if michiCategory == 3:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiBufanda.tscn").instantiate()
+			michiData[michiIndex].type = "Bufanda"
+			michiData[michiIndex].name = "Bufanda" + str(michiIndex)
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiGirly.tscn").instantiate()
+			michiData[michiIndex].type = "Girly"
+			michiData[michiIndex].name = "Girly" + str(michiIndex)
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiHipster.tscn").instantiate()
+			michiData[michiIndex].type = "Hipster"
+			michiData[michiIndex].name = "Hipster" + str(michiIndex)
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiLentes.tscn").instantiate()
+			michiData[michiIndex].type = "Lentes"
+			michiData[michiIndex].name = "Lentes" + str(michiIndex)
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiMonio.tscn").instantiate()
+			michiData[michiIndex].type = "Monio"
+			michiData[michiIndex].name = "Monio" + str(michiIndex)
+
+	if michiCategory == 4:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiNeon.tscn").instantiate()
+			michiData[michiIndex].type = "Neon"
+			michiData[michiIndex].name = "Neon" + str(michiIndex)
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiEstrellas.tscn").instantiate()
+			michiData[michiIndex].type = "Estrellas"
+			michiData[michiIndex].name = "Estrellas" + str(michiIndex)
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiDorado.tscn").instantiate()
+			michiData[michiIndex].type = "Dorado"
+			michiData[michiIndex].name = "Dorado" + str(michiIndex)
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiCristal.tscn").instantiate()
+			michiData[michiIndex].type = "Cristal"
+			michiData[michiIndex].name = "Cristal" + str(michiIndex)
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiArcoiris.tscn").instantiate()
+			michiData[michiIndex].type = "Arcoiris"
+			michiData[michiIndex].name = "Arcoiris" + str(michiIndex)
+
+	if michiCategory == 5:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiCaballero.tscn").instantiate()
+			michiData[michiIndex].type = "Caballero"
+			michiData[michiIndex].name = "Caballero" + str(michiIndex)
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiDragon.tscn").instantiate()
+			michiData[michiIndex].type = "Dragon"
+			michiData[michiIndex].name = "Dragon" + str(michiIndex)
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiPrincesa.tscn").instantiate()
+			michiData[michiIndex].type = "Princesa"
+			michiData[michiIndex].name = "Princesa" + str(michiIndex)
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiSlime.tscn").instantiate()
+			michiData[michiIndex].type = "Slime"
+			michiData[michiIndex].name = "Slime" + str(michiIndex)
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiUnicornio.tscn").instantiate()
+			michiData[michiIndex].type = "Unicornio"
+			michiData[michiIndex].name = "Unicornio" + str(michiIndex)
+
+
+
+	if michiCategory == 6:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiAgua.tscn").instantiate()
+			michiData[michiIndex].type = "Agua"
+			michiData[michiIndex].name = "Agua" + str(michiIndex)
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiAire.tscn").instantiate()
+			michiData[michiIndex].type = "Aire"
+			michiData[michiIndex].name = "Aire" + str(michiIndex)
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiAvatar.tscn").instantiate()
+			michiData[michiIndex].type = "Avatar"
+			michiData[michiIndex].name = "Avatar" + str(michiIndex)
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiFuego.tscn").instantiate()
+			michiData[michiIndex].type = "Fuego"
+			michiData[michiIndex].name = "Fuego" + str(michiIndex)
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiTierra.tscn").instantiate()
+			michiData[michiIndex].type = "Tierra"
+			michiData[michiIndex].name = "Tierra" + str(michiIndex)
+
+	if michiCategory == 7:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiChino.tscn").instantiate()
+			michiData[michiIndex].type = "Chino"
+			michiData[michiIndex].name = "Chino" + str(michiIndex)
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiHalloween.tscn").instantiate()
+			michiData[michiIndex].type = "Halloween"
+			michiData[michiIndex].name = "Halloween" + str(michiIndex)
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiNavidad.tscn").instantiate()
+			michiData[michiIndex].type = "Navidad"
+			michiData[michiIndex].name = "Navidad" + str(michiIndex)
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiPascua.tscn").instantiate()
+			michiData[michiIndex].type = "Pascua"
+			michiData[michiIndex].name = "Pascua" + str(michiIndex)
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiStPatrick.tscn").instantiate()
+			michiData[michiIndex].type = "StPatrick"
+			michiData[michiIndex].name = "StPatrick" + str(michiIndex)
+
+
+	if michiCategory == 8:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiAlien.tscn").instantiate()
+			michiData[michiIndex].type = "Alien"
+			michiData[michiIndex].name = "Alien" + str(michiIndex)
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiAngel.tscn").instantiate()
+			michiData[michiIndex].type = "Angel"
+			michiData[michiIndex].name = "Angel" + str(michiIndex)
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiCyborg.tscn").instantiate()
+			michiData[michiIndex].type = "Cyborg"
+			michiData[michiIndex].name = "Cyborg" + str(michiIndex)
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiDiablo.tscn").instantiate()
+			michiData[michiIndex].type = "Diablo"
+			michiData[michiIndex].name = "Diablo" + str(michiIndex)
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiZombie.tscn").instantiate()
+			michiData[michiIndex].type = "Zombie"
+			michiData[michiIndex].name = "Zombie" + str(michiIndex)
+
+
+
+	michiData[michiIndex].categoryLevel = michiCategory
+	michiData[michiIndex].category = ("categoria" + str(michiCategory))
 	
 	#agrega al michi a la escena
 	pos_x = rng.randi_range(30,450)
@@ -1353,6 +1624,7 @@ func freeCoin(index : int):
 func _on_prev_pressed():
 	roomNumber -= 1
 	animationControl = false
+	if roomNumber <= 0: roomNumber = GlobalVariables.maxRoomNumber
 	clearScreen()
 	$Transition/Label.text = "ROOM: "+str(roomNumber)
 	$Transition.play("fadeOut")
@@ -1361,6 +1633,7 @@ func _on_prev_pressed():
 func _on_next_pressed():
 	roomNumber += 1
 	animationControl = false
+	if roomNumber > 9: roomNumber = 1
 	clearScreen()
 	$Transition/Label.text = "ROOM: "+str(roomNumber)
 	$Transition.play("fadeOut")
@@ -1369,19 +1642,23 @@ func _on_next_pressed():
 
 func clearScreen():
 	for cat in michiInstance:
-		cat.queue_free()
+		if is_instance_valid(cat):
+			cat.queue_free()
 	for eg in huevoInstance:
-		eg.queue_free()
+		if is_instance_valid(eg):
+			eg.queue_free()
 	for po in poopInstance:
-		po.queue_free()
+		if is_instance_valid(po):
+			po.queue_free()
 	for pi in pisInstance:
-		pi.queue_free()
+		if is_instance_valid(pi):
+			pi.queue_free()
 
-func _on_transition_animation_finished(anim_name):
+func _on_transition_animation_finished(_anim_name):
 	if animationControl == false: get_tree().reload_current_scene()
 
 
-func _on_transition_animation_started(anim_name):
+func _on_transition_animation_started(_anim_name):
 	if animationControl == true:
 		loadData(0, 4 , 0)
 		$Transition/Label.text = "ROOM: "+str(roomNumber)
@@ -1394,3 +1671,8 @@ func _on_transition_animation_started(anim_name):
 			loadData(i, 2 , 0)
 		for i in range(0, maxPoopNumber):
 			loadData(i, 3 , 0)
+
+
+func _on_double_click_timeout():
+	clickCount = 0
+	doubleClick = false

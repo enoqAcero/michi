@@ -9,7 +9,6 @@ var hover = false
 var originalPos
 
 func _ready():
-	
 	numeroHuevo = get_name()
 	numeroHuevo = getNumbersFromString(numeroHuevo)
 	
@@ -53,6 +52,10 @@ func _physics_process(_delta):
 					GlobalVariables.huevoSelected = false
 					$Area2D/CollisionShape2D.scale.x = 1
 					$Area2D/CollisionShape2D.scale.y = 1
+					
+	
+	velocity.x = 0
+	velocity.y = 0
 			
 	move_and_slide()
 				

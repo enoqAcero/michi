@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_ck3t5"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_14q7r"]
 
 [resource]
-script = ExtResource("1_ck3t5")
+script = ExtResource("1_14q7r")
 active = 1
-category = "categoria3"
-type = "Girly"
-categoryLevel = 3
+category = "categoria7"
+type = "Navidad"
+categoryLevel = 7
 fusionLevel = 1
-globalPos = Vector2(416, 273)
-name = "Miguel"
-food = -1835.34
-fun = -1885.34
-clean = -1885.34
+globalPos = Vector2(416, 234.001)
+name = "Navidad0"
+food = -2433.9
+fun = -2483.9
+clean = -2483.9
 comfort = -786.38
-exercise = -1885.34
+exercise = -2483.9
 roomNumber = 2

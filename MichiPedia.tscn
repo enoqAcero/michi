@@ -43,9 +43,9 @@
 [ext_resource type="Texture2D" uid="uid://bk00nouestr7h" path="res://Michis/Assets/Categoría 8/Angel/angelFrente.png" id="38_y86o3"]
 [ext_resource type="Texture2D" uid="uid://bffl70u4l26ne" path="res://Michis/Assets/Categoría 8/Cyborg/cyborgFrente.png" id="39_ft83s"]
 [ext_resource type="Texture2D" uid="uid://btsgnd511kxhc" path="res://Michis/Assets/Categoría 8/Diablo/diabloFrente.png" id="40_fntys"]
-[ext_resource type="Texture2D" uid="uid://5x6p14ccc0y7" path="res://Michis/Assets/Categoría 8/Vampiro/draculaFrente.png" id="41_lo14n"]
 [ext_resource type="Texture2D" uid="uid://c7swy0y61xx74" path="res://Michis/Assets/Categoría 9/Espadachin/esapdachinFrente.png" id="42_d6a3s"]
 [ext_resource type="Texture2D" uid="uid://djluhbg2hgiob" path="res://Michis/Assets/Categoría 9/Goma/gomaFrente.png" id="43_thw3w"]
+[ext_resource type="Texture2D" uid="uid://csqbh8ao1ttty" path="res://Michis/Assets/Categoría 8/Zombie/zombieFrente.png" id="44_rmf3n"]
 [ext_resource type="Texture2D" uid="uid://cjw6ifjj31bkk" path="res://Michis/Assets/Categoría 9/Hechicero/hechiceroFrente.png" id="44_yuldk"]
 [ext_resource type="Texture2D" uid="uid://c3lus3qu1mjgo" path="res://Michis/Assets/Categoría 9/Ninja/ninjaFrente.png" id="45_4dvil"]
 [ext_resource type="Texture2D" uid="uid://doug546yqynqt" path="res://Michis/Assets/Categoría 9/SuperAlien/superalienFrente.png" id="46_rrmgc"]
@@ -1394,7 +1394,7 @@ label_settings = ExtResource("3_i0sbo")
 [node name="michi" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/Panel40/MichiContainer"]
 position = Vector2(332, 42)
 scale = Vector2(3, 3)
-texture = ExtResource("41_lo14n")
+texture = ExtResource("44_rmf3n")
 hframes = 2
 
 [node name="Label9" type="Label" parent="ScrollContainer/Control/VBoxContainer"]

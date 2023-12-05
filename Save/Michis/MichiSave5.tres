@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_615kj")
-active = 1
+active = 0
 category = "categoria6"
 type = "Avatar"
 categoryLevel = 6
 fusionLevel = 1
-globalPos = Vector2(444.639, 670.99)
+globalPos = Vector2(173.068, 442.237)
 name = "Avatar5"
-food = -41.48
-fun = -52.78
-clean = -52.78
+food = -50.54
+fun = -61.84
+clean = -61.84
 comfort = 79.44
-exercise = -52.78
+exercise = -61.84
 roomNumber = 1

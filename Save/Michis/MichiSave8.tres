@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_qwaqc"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_xoq5i"]
 
 [resource]
-script = ExtResource("1_qwaqc")
+script = ExtResource("1_xoq5i")
 active = 1
-category = "categoria3"
-type = "Lentes"
-categoryLevel = 3
+category = "categoria7"
+type = "Halloween"
+categoryLevel = 7
 fusionLevel = 1
-globalPos = Vector2(72.2867, 272.081)
-name = "Lentes8"
-food = -770.22
-fun = -795.22
-clean = -795.22
+globalPos = Vector2(421.997, 280.835)
+name = "Halloween8"
+food = -888.5
+fun = -913.5
+clean = -913.5
 comfort = -764.9
-exercise = -795.22
+exercise = -913.5
 roomNumber = 2

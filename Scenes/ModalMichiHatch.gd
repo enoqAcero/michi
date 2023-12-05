@@ -3,13 +3,16 @@ var posMichi = Vector2(262,406)
 var scaleMichi = 2.5
 var savePathHuevo = "res://Save/Huevos/"
 var saveFileNameHuevo = "HuevoSave"
-var huevoData = ResourceLoader.load(savePathHuevo + saveFileNameHuevo + str(GlobalVariables.huevoNumber) + ".tres")
+var huevoData
 var rng = RandomNumberGenerator.new()
 var probNewMichiType
 var michiActual = null
 
+
+
 func _ready():
 	randomize()
+	huevoData = ResourceLoader.load(savePathHuevo + saveFileNameHuevo + str(GlobalVariables.huevoNumber) + ".tres")
 	crearMichi()
 	colorText()
 	
@@ -36,21 +39,138 @@ func crearMichi():
 		
 	var michi
 	probNewMichiType = rng.randi_range(1,5)
-	if probNewMichiType == 1:
-		michi = load("res://Michis/michiBlanco.tscn").instantiate()
-		$labelcat.text ="Category 1 \n White"
-	if probNewMichiType == 2:
-		michi = load("res://Michis/michiCafe.tscn").instantiate()
-		$labelcat.text ="Category 1 \n Brown"
-	if probNewMichiType == 3:
-		michi = load("res://Michis/michiGris.tscn").instantiate()
-		$labelcat.text ="Category 1 \n Gray"
-	if probNewMichiType == 4:
-		michi = load("res://Michis/michiNaranja.tscn").instantiate()
-		$labelcat.text ="Category 1 \n Orange"
-	if probNewMichiType == 5:
-		michi = load("res://Michis/michiNegro.tscn").instantiate()
-		$labelcat.text ="Category 1 \n Black"
+	if huevoData.categoria == 1:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiBlanco.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n White"
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiCafe.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Brown"
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiGris.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Gray"
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiNaranja.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Orange"
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiNegro.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Black"
+	if huevoData.categoria == 2:
+		probNewMichiType = rng.randi_range(1,6)
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiCalico.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Calico"
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiEgipcio.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Sphynx"
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiManchado.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Spoted"
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiPersa.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Persian"
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiSiames.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Siamese"
+		if probNewMichiType == 6:
+			michi = load("res://Michis/michiTabby.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Tabby"
+	if huevoData.categoria == 3:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiBufanda.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Scarf"
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiGirly.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Skirt"
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiHipster.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Hipster"
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiLentes.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Glasses"
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiMonio.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Fancy"
+	if huevoData.categoria == 4:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiArcoiris.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Rainbow"
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiCristal.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Cristal"
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiDorado.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Gold"
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiEstrellas.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Night Sky"
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiNeon.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Neon"
+	if huevoData.categoria == 5:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiCaballero.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Knight"
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiDragon.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Dragon"
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiPrincesa.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Princes"
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiUnicornio.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Unicorn"
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiSlime.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Slime"
+	if huevoData.categoria == 6:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiAgua.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Water"
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiAire.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Air"
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiAvatar.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Avatar"
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiFuego.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Fire"
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiTierra.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Earth"
+	if huevoData.categoria == 7:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiChino.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Chinese New Year"
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiHalloween.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Halloween"
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiNavidad.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Christmas"
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiPascua.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Easter"
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiStPatrick.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n St.Patrick"
+	if huevoData.categoria == 8:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiAlien.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Alien"
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiAngel.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Angel"
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiCyborg.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Cyborg"
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiDiablo.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Devil"
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiZombie.tscn").instantiate()
+			$labelcat.text ="Category " + str(huevoData.categoria) + "\n Zombie"
 
 
 	
@@ -65,6 +185,7 @@ func crearMichi():
 	michiActual = michi  
 
 func _on_hatch_b_pressed():
+	GlobalVariables.michiCategory = huevoData.categoria
 	GlobalVariables.probNewMichiType = probNewMichiType
 	GlobalVariables.naceMichi = 1
 	get_tree().paused= false

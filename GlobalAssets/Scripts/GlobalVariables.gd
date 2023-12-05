@@ -1,6 +1,6 @@
 extends Node
 
-var maxRoomNumber = 2
+var maxRoomNumber = 9
 var maxMichiNumber = 100
 var maxHuevoNumber = 20
 var maxPisNumber = 25
@@ -15,7 +15,9 @@ var michiHover = false
 var michiSelected = false
 var naceMichi = 0
 var michiPath
+var huevoPath
 var itemSelected = false
 var huevoSelected = false
 var huevoHover = false
+var michiCategory
 

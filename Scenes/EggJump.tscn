@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://biw4ojw6o16lx"]
+[gd_scene load_steps=15 format=3 uid="uid://biw4ojw6o16lx"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/EggJump.gd" id="1_k3uh1"]
 [ext_resource type="Texture2D" uid="uid://b34ik1vwl5433" path="res://GUI/Assets/backgroundHuevo.png" id="2_85v5e"]
-[ext_resource type="PackedScene" uid="uid://dxnudimrt850c" path="res://Eggs/Egg.tscn" id="2_c353l"]
 [ext_resource type="PackedScene" uid="uid://wc55lani441q" path="res://Scenes/ModalMichiHatch.tscn" id="3_6y7gt"]
 [ext_resource type="Texture2D" uid="uid://kif1epgau2i6" path="res://GUI/Assets/botonX.png" id="4_t5t0j"]
 [ext_resource type="FontFile" uid="uid://dtjra5b55fol8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="4_xyfhe"]
@@ -58,11 +57,6 @@ position = Vector2(243, 432)
 scale = Vector2(1, 1.24533)
 texture = ExtResource("2_85v5e")
 
-[node name="Huevo" parent="." instance=ExtResource("2_c353l")]
-position = Vector2(236, 652)
-collision_layer = 8
-collision_mask = 8
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 9
 collision_mask = 9
@@ -102,6 +96,7 @@ vertical_alignment = 1
 
 [node name="ModalMichiHatch" parent="." instance=ExtResource("3_6y7gt")]
 visible = false
+z_index = 3
 scale = Vector2(1, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ModalMichiHatch"]
