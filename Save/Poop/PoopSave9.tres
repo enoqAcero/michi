@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_tvcjb")
-active = 1
-globalPos = Vector2(463.3, 520.448)
+active = 0
+globalPos = Vector2(463.218, 747.3)
 index = 0
+roomNumber = 2

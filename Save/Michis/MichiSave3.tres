@@ -4,15 +4,16 @@
 
 [resource]
 script = ExtResource("1_qo86p")
-active = 0
-category = "categoria3"
-type = "Bufanda"
-categoryLevel = 3
+active = 1
+category = "categoria8"
+type = "Zombie"
+categoryLevel = 8
 fusionLevel = 1
-globalPos = Vector2(30.8582, 359.243)
-name = "Kumaru"
-food = -10.44
-fun = -10.44
-clean = -10.44
-comfort = -10.44
-exercise = -10.44
+globalPos = Vector2(278.087, 733.932)
+name = "Zombie3"
+food = -117.76
+fun = -117.76
+clean = -117.76
+comfort = 100
+exercise = -117.76
+roomNumber = 2

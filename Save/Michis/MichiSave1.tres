@@ -1,18 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_o0biu"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_0k6ei"]
 
 [resource]
-script = ExtResource("1_o0biu")
+script = ExtResource("1_0k6ei")
 active = 1
-category = "categoria3"
-type = "Hipster"
-categoryLevel = 3
+category = "categoria7"
+type = "Chino"
+categoryLevel = 7
 fusionLevel = 1
-globalPos = Vector2(449.925, 686)
-name = "Hipster1"
-food = 81.04
-fun = 97.3
-clean = 98.8
-comfort = 56.04
-exercise = 56.04
+globalPos = Vector2(338, 234.001)
+name = "Chino1"
+food = -41.32
+fun = -25.06
+clean = -23.56
+comfort = 100
+exercise = -66.32
+roomNumber = 2

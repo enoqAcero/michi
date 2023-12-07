@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiDex" load_steps=49 format=3 uid="uid://cae87tcvw3pnh"]
+[gd_resource type="Resource" script_class="MichiDex" load_steps=49 format=3 uid="uid://i7kd2qk043eb"]
 
 [ext_resource type="Script" path="res://Save/MichiDex/MichiDex.gd" id="1_2637k"]
 [ext_resource type="Script" path="res://Save/MichiDex/MichisCollected.gd" id="1_il7a5"]
@@ -101,7 +101,7 @@ active = true
 [sub_resource type="Resource" id="Resource_ugkjh"]
 script = ExtResource("1_il7a5")
 type = "Estrellas"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_rkuds"]
 script = ExtResource("1_il7a5")
@@ -126,7 +126,7 @@ active = true
 [sub_resource type="Resource" id="Resource_upt82"]
 script = ExtResource("1_il7a5")
 type = "Slime"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_o5lb6"]
 script = ExtResource("1_il7a5")
@@ -166,7 +166,7 @@ active = true
 [sub_resource type="Resource" id="Resource_uwhdr"]
 script = ExtResource("1_il7a5")
 type = "Halloween"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_jx7yx"]
 script = ExtResource("1_il7a5")
@@ -205,7 +205,7 @@ active = true
 
 [sub_resource type="Resource" id="Resource_0wakh"]
 script = ExtResource("1_il7a5")
-type = "Vampiro"
+type = "Zombie"
 active = true
 
 [sub_resource type="Resource" id="Resource_yvke8"]

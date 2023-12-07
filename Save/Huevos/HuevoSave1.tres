@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_1cays")
-active = 1
-categoria = 1
+active = 0
+categoria = 3
 id = 0
-globalPos = Vector2(180, 423)
+globalPos = Vector2(257.082, 546.867)
 taps = 0
+roomNumber = 2

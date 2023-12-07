@@ -1,18 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_ngat0"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_vsppp"]
 
 [resource]
-script = ExtResource("1_ngat0")
+script = ExtResource("1_vsppp")
 active = 1
 category = "categoria3"
-type = "Lentes"
+type = "Bufanda"
 categoryLevel = 3
 fusionLevel = 1
-globalPos = Vector2(135.072, 494.343)
-name = "Pablu"
-food = -1512.54
-fun = -1562.54
-clean = -1562.54
-comfort = -1562.54
-exercise = -1562.54
+globalPos = Vector2(283.932, 311.867)
+name = "Bufanda2"
+food = -1735.2
+fun = -1785.2
+clean = -1785.2
+comfort = 100
+exercise = -1785.2
+roomNumber = 2

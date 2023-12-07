@@ -282,8 +282,8 @@ func cleanObstacles():
 	itemsInstance.clear()		
 
 func goingUp():
-	michiInstance.scale.x = 1.4
-	michiInstance.scale.y = 1.6
+	michiInstance.scale.x = 1.5
+	michiInstance.scale.y = 1.5
 	michiSprite.play("WalkingUp")
 	paraguasSprite.visible = false
 	goingUpControl = true
@@ -527,12 +527,12 @@ func addMichi():
 	
 	paraguas.global_position = Vector2(-9,-31)
 	paraguas.name = "paraguas"
-	paraguas.z_index = 2
+	paraguas.z_index = -1
 	michiInstance.add_child(paraguas)
 	
 	fuego.global_position = Vector2(-5,13)
 	fuego.name = "fuego"
-	fuego.z_index = 1
+	fuego.z_index = -1
 	michiInstance.add_child(fuego)
 	
 	

@@ -1,0 +1,1177 @@
+[gd_resource type="Resource" script_class="furniture" load_steps=182 format=3]
+
+[ext_resource type="Script" path="res://Save/Furniture/furniture.gd" id="1_iivg7"]
+[ext_resource type="Script" path="res://Save/Furniture/furnitureCollected.gd" id="1_ru22d"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraAmarilla.png" id="2_ds8e8"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraAzul.png" id="3_d6ajb"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraBlanca.png" id="4_a3g5s"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCafe.png" id="5_yqylm"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCyan.png" id="6_b262p"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraMorada.png" id="7_1135i"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraNegra.png" id="8_b7ioa"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraRoja.png" id="9_5j2cg"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraRosa.png" id="10_808bj"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraVerde.png" id="11_qjtv8"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraGrandeAmarilla.png" id="12_mty18"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraGrandeAzul.png" id="13_ructl"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraGrandeCafe.png" id="14_0lsf7"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraGrandeCyan.png" id="15_hhgkc"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraGrandeMorada.png" id="16_rm0l0"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraGrandeNegro.png" id="17_wwa5a"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraGrandeRojo.png" id="18_o44xe"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraGrandeRosa.png" id="19_2ffj7"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraGrandeVerde.png" id="20_0tajt"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfonbraGrandeBlanca.png" id="21_ea7tn"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircAmarillo.png" id="22_5pov5"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircAzul.png" id="23_oty2o"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircBlanca.png" id="24_mrhm3"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircCafe.png" id="25_bleaa"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircMorada.png" id="26_gljuj"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircNegro.png" id="27_rr3um"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircRoja.png" id="28_u8xw6"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircRosa.png" id="29_n2mf7"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircVerde.png" id="30_kg42m"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircNavidad.png" id="31_kpuk8"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircMulti.png" id="32_r0oxw"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircChina.png" id="33_h032q"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/alfombraCircPkm.png" id="34_1einn"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/ArmaFrame.png" id="35_ojcir"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/ChampiFrame.png" id="36_83kgv"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/CreepFrame.png" id="37_w0p4u"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/GameFrame.png" id="38_2787f"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/InfinitFrame.png" id="39_ebxji"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/KingFrame.png" id="40_1p8g1"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/MagigFrame.png" id="41_ny4b7"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/MsFrame.png" id="42_vu02f"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/RingFrame.png" id="43_wyjkr"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/StarsFrame.png" id="44_xjm0i"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/zilaFrame.png" id="45_84pi0"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/Ventana.png" id="46_qifbw"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/VentanaXL.png" id="47_47env"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/VentanaBlanca.png" id="48_2njcb"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/VentanaXLBlanca.png" id="49_8ypr1"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/WindowC.png" id="50_atck2"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/WindowCWhite.png" id="51_ijqmt"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/BigWidow.png" id="52_0ftrx"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/BigWindowWhite.png" id="53_7elgk"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/plant1.png" id="54_gt7jx"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/plant2.png" id="55_yqblu"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/plant3Blue.png" id="56_txsrp"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/plant3Green.png" id="57_4ccc3"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/plant3Orange.png" id="58_1fkek"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/plant3Pink.png" id="59_n2c57"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/plant3Yellow.png" id="60_c8gvx"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/plant4Gira.png" id="61_23to2"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp1.png" id="62_w2ksd"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp2.png" id="63_j8tq6"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp3Amarillo.png" id="64_esdd4"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp3Aqua.png" id="65_bcipj"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp3Azul.png" id="66_ebtbh"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp3Blanco.png" id="67_wmqb0"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp3Morado.png" id="68_sq20f"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp3Naranja.png" id="69_oif4q"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp3Negro.png" id="70_rti4v"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp3Pastel.png" id="71_hvxwr"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp3Rojo.png" id="72_kbvpf"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp3Rosado.png" id="73_fvc3u"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/lamp3Verde.png" id="74_q6t7d"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/mesaCircular.png" id="75_la328"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/mesaCircularBlanca.png" id="76_vggb8"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/MesaCircularMadera.png" id="77_4q4gq"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/mesaCircularWood.png" id="78_rkc1w"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/mesaCircularYellow.png" id="79_4lpfv"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/mesaCuadrada.png" id="80_rqkwr"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/mesaCuadradaBlanca.png" id="81_15tbj"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/mesaCuadradaMadera.png" id="82_37a4x"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/mesaCuadradaWood.png" id="83_aiome"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/mesaCuadradaYellow.png" id="84_253iy"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/MesaXL.png" id="85_ntp5h"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/MesaXLBlanca.png" id="86_642vu"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/MesaXLMadera.png" id="87_om4g2"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/MesaXlWood.png" id="88_rtgyh"]
+[ext_resource type="Texture2D" path="res://Structures/Assets/MesaXLYellow.png" id="89_tnavb"]
+
+[sub_resource type="Resource" id="Resource_3ngqj"]
+script = ExtResource("1_ru22d")
+nameF = "Yellow Carpet"
+countF = 1
+spriteF = ExtResource("2_ds8e8")
+costF = 20
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_b4nn5"]
+script = ExtResource("1_ru22d")
+nameF = "Blue Carpet"
+countF = 0
+spriteF = ExtResource("3_d6ajb")
+costF = 20
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_pa3l1"]
+script = ExtResource("1_ru22d")
+nameF = "White Carpet"
+countF = 0
+spriteF = ExtResource("4_a3g5s")
+costF = 20
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_jaa8i"]
+script = ExtResource("1_ru22d")
+nameF = "Brown Carpet"
+countF = 0
+spriteF = ExtResource("5_yqylm")
+costF = 20
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_ft2p5"]
+script = ExtResource("1_ru22d")
+nameF = "Cyan Carpet"
+countF = 0
+spriteF = ExtResource("6_b262p")
+costF = 20
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_fshl0"]
+script = ExtResource("1_ru22d")
+nameF = "Purple Carpet"
+countF = 0
+spriteF = ExtResource("7_1135i")
+costF = 20
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_jojfy"]
+script = ExtResource("1_ru22d")
+nameF = "Black Carpet"
+countF = 0
+spriteF = ExtResource("8_b7ioa")
+costF = 20
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_somik"]
+script = ExtResource("1_ru22d")
+nameF = "Red Carpet"
+countF = 0
+spriteF = ExtResource("9_5j2cg")
+costF = 20
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_rdfkc"]
+script = ExtResource("1_ru22d")
+nameF = "Pink Carpet"
+countF = 0
+spriteF = ExtResource("10_808bj")
+costF = 20
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_18pof"]
+script = ExtResource("1_ru22d")
+nameF = "Green Carpet"
+countF = 0
+spriteF = ExtResource("11_qjtv8")
+costF = 20
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_uwwph"]
+script = ExtResource("1_ru22d")
+nameF = "Yellow Rug"
+countF = 0
+spriteF = ExtResource("12_mty18")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_3a13b"]
+script = ExtResource("1_ru22d")
+nameF = "Blue Rug"
+countF = 0
+spriteF = ExtResource("13_ructl")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_w8aq0"]
+script = ExtResource("1_ru22d")
+nameF = "Brown Rug"
+countF = 0
+spriteF = ExtResource("14_0lsf7")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_rt5q4"]
+script = ExtResource("1_ru22d")
+nameF = "Cyan Rug"
+countF = 0
+spriteF = ExtResource("15_hhgkc")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_d540k"]
+script = ExtResource("1_ru22d")
+nameF = ""
+countF = 0
+spriteF = ExtResource("16_rm0l0")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_21hu5"]
+script = ExtResource("1_ru22d")
+nameF = "Black Rug"
+countF = 0
+spriteF = ExtResource("17_wwa5a")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_igmtp"]
+script = ExtResource("1_ru22d")
+nameF = "Red Rug"
+countF = 0
+spriteF = ExtResource("18_o44xe")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_q673d"]
+script = ExtResource("1_ru22d")
+nameF = "Pink Rug"
+countF = 0
+spriteF = ExtResource("19_2ffj7")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_r7c1a"]
+script = ExtResource("1_ru22d")
+nameF = "Green Carpet"
+countF = 0
+spriteF = ExtResource("20_0tajt")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_je0cn"]
+script = ExtResource("1_ru22d")
+nameF = "White Rug"
+countF = 0
+spriteF = ExtResource("21_ea7tn")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_etg17"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo A"
+countF = 0
+spriteF = ExtResource("22_5pov5")
+costF = 30
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_nnjfc"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo B"
+countF = 0
+spriteF = ExtResource("23_oty2o")
+costF = 30
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_57g4a"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo C"
+countF = 0
+spriteF = ExtResource("24_mrhm3")
+costF = 30
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_7rcpr"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo A"
+countF = 0
+spriteF = ExtResource("25_bleaa")
+costF = 30
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_x4tyj"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo D"
+countF = 0
+spriteF = ExtResource("26_gljuj")
+costF = 30
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_njbtq"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo E"
+countF = 0
+spriteF = ExtResource("27_rr3um")
+costF = 30
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_3wxu0"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo F"
+countF = 0
+spriteF = ExtResource("28_u8xw6")
+costF = 30
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_o0a8g"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo G"
+countF = 0
+spriteF = ExtResource("29_n2mf7")
+costF = 30
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_km4os"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo H"
+countF = 0
+spriteF = ExtResource("30_kg42m")
+costF = 30
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_g7qdj"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo I"
+countF = 0
+spriteF = ExtResource("31_kpuk8")
+costF = 35
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_0ogdn"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo J"
+countF = 0
+spriteF = ExtResource("32_r0oxw")
+costF = 35
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_bog2k"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo K"
+countF = 0
+spriteF = ExtResource("33_h032q")
+costF = 35
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_y41d4"]
+script = ExtResource("1_ru22d")
+nameF = "Rug Bamboo L"
+countF = 0
+spriteF = ExtResource("34_1einn")
+costF = 35
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_qnjge"]
+script = ExtResource("1_ru22d")
+nameF = "Paint A"
+countF = 0
+spriteF = ExtResource("35_ojcir")
+costF = 10
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_248cx"]
+script = ExtResource("1_ru22d")
+nameF = "Paint B"
+countF = 0
+spriteF = ExtResource("36_83kgv")
+costF = 10
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_4e7v5"]
+script = ExtResource("1_ru22d")
+nameF = "Paint C"
+countF = 0
+spriteF = ExtResource("37_w0p4u")
+costF = 10
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_ew70m"]
+script = ExtResource("1_ru22d")
+nameF = "Paint D"
+countF = 0
+spriteF = ExtResource("38_2787f")
+costF = 10
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_hnn6o"]
+script = ExtResource("1_ru22d")
+nameF = "Paint E"
+countF = 0
+spriteF = ExtResource("39_ebxji")
+costF = 10
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_1trao"]
+script = ExtResource("1_ru22d")
+nameF = "Paint F"
+countF = 0
+spriteF = ExtResource("40_1p8g1")
+costF = 10
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_g7bis"]
+script = ExtResource("1_ru22d")
+nameF = "Paint G"
+countF = 0
+spriteF = ExtResource("41_ny4b7")
+costF = 10
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_ut8jn"]
+script = ExtResource("1_ru22d")
+nameF = "Paint H"
+countF = 0
+spriteF = ExtResource("42_vu02f")
+costF = 10
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_5263o"]
+script = ExtResource("1_ru22d")
+nameF = "Paint I"
+countF = 0
+spriteF = ExtResource("43_wyjkr")
+costF = 10
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_4t1em"]
+script = ExtResource("1_ru22d")
+nameF = "Paint J"
+countF = 0
+spriteF = ExtResource("44_xjm0i")
+costF = 10
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fa4o"]
+
+[sub_resource type="Resource" id="Resource_o4btn"]
+script = ExtResource("1_ru22d")
+nameF = "Paint K"
+countF = 0
+spriteF = ExtResource("45_84pi0")
+costF = 10
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collisionF = SubResource("RectangleShape2D_5fa4o")
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_diar5"]
+script = ExtResource("1_ru22d")
+nameF = "Window A"
+countF = 0
+spriteF = ExtResource("46_qifbw")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_tomng"]
+script = ExtResource("1_ru22d")
+nameF = "Window A XL"
+countF = 0
+spriteF = ExtResource("47_47env")
+costF = 70
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_wysjf"]
+script = ExtResource("1_ru22d")
+nameF = "Window B"
+countF = 0
+spriteF = ExtResource("48_2njcb")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_s7uq3"]
+script = ExtResource("1_ru22d")
+nameF = "Window B XL"
+countF = 0
+spriteF = ExtResource("49_8ypr1")
+costF = 70
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_3pccq"]
+script = ExtResource("1_ru22d")
+nameF = "Window C"
+countF = 0
+spriteF = ExtResource("50_atck2")
+costF = 30
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_yutwe"]
+script = ExtResource("1_ru22d")
+nameF = "White Window C"
+countF = 0
+spriteF = ExtResource("51_ijqmt")
+costF = 30
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_s8gn8"]
+script = ExtResource("1_ru22d")
+nameF = "Big Window"
+countF = 0
+spriteF = ExtResource("52_0ftrx")
+costF = 100
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_c8wmd"]
+script = ExtResource("1_ru22d")
+nameF = "Big White Window "
+countF = 0
+spriteF = ExtResource("53_7elgk")
+costF = 100
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_f80lq"]
+script = ExtResource("1_ru22d")
+nameF = "Plant A"
+countF = 0
+spriteF = ExtResource("54_gt7jx")
+costF = 20
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_slufa"]
+script = ExtResource("1_ru22d")
+nameF = "Plant B"
+countF = 0
+spriteF = ExtResource("55_yqblu")
+costF = 25
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_1lyvv"]
+script = ExtResource("1_ru22d")
+nameF = "Flower Blue"
+countF = 0
+spriteF = ExtResource("56_txsrp")
+costF = 45
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_8esjr"]
+script = ExtResource("1_ru22d")
+nameF = "Flower Green"
+countF = 0
+spriteF = ExtResource("57_4ccc3")
+costF = 45
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_sb1xx"]
+script = ExtResource("1_ru22d")
+nameF = "Flower Orange"
+countF = 0
+spriteF = ExtResource("58_1fkek")
+costF = 0
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_jwr77"]
+script = ExtResource("1_ru22d")
+nameF = "Flower Pink"
+countF = 0
+spriteF = ExtResource("59_n2c57")
+costF = 0
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_hfs75"]
+script = ExtResource("1_ru22d")
+nameF = "Flower Yellow"
+countF = 0
+spriteF = ExtResource("60_c8gvx")
+costF = 0
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_hvddh"]
+script = ExtResource("1_ru22d")
+nameF = "SunFlower"
+countF = 0
+spriteF = ExtResource("61_23to2")
+costF = 55
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_u8bde"]
+script = ExtResource("1_ru22d")
+nameF = "Lamp A"
+countF = 0
+spriteF = ExtResource("62_w2ksd")
+costF = 40
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_ttr3h"]
+script = ExtResource("1_ru22d")
+nameF = "Lamp B"
+countF = 0
+spriteF = ExtResource("63_j8tq6")
+costF = 40
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_al1ns"]
+script = ExtResource("1_ru22d")
+nameF = "Yellow Lamp"
+countF = 0
+spriteF = ExtResource("64_esdd4")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_d5oa2"]
+script = ExtResource("1_ru22d")
+nameF = "Aqua Lamp"
+countF = 0
+spriteF = ExtResource("65_bcipj")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_pioxe"]
+script = ExtResource("1_ru22d")
+nameF = "Blue Lamp"
+countF = 0
+spriteF = ExtResource("66_ebtbh")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_4ddgm"]
+script = ExtResource("1_ru22d")
+nameF = "White Lamp"
+countF = 0
+spriteF = ExtResource("67_wmqb0")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_dkjfp"]
+script = ExtResource("1_ru22d")
+nameF = "Purple lamp"
+countF = 0
+spriteF = ExtResource("68_sq20f")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_f1wj1"]
+script = ExtResource("1_ru22d")
+nameF = "Orange Lamp"
+countF = 0
+spriteF = ExtResource("69_oif4q")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_2udwe"]
+script = ExtResource("1_ru22d")
+nameF = "Black Lamp"
+countF = 0
+spriteF = ExtResource("70_rti4v")
+costF = 0
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_mi282"]
+script = ExtResource("1_ru22d")
+nameF = "Violet Lamp"
+countF = 0
+spriteF = ExtResource("71_hvxwr")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_xhy6t"]
+script = ExtResource("1_ru22d")
+nameF = "Red Lamp"
+countF = 0
+spriteF = ExtResource("72_kbvpf")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_pyns5"]
+script = ExtResource("1_ru22d")
+nameF = "Pink Lamp"
+countF = 0
+spriteF = ExtResource("73_fvc3u")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_4kvsi"]
+script = ExtResource("1_ru22d")
+nameF = "Green Lamp"
+countF = 0
+spriteF = ExtResource("74_q6t7d")
+costF = 50
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_fubey"]
+script = ExtResource("1_ru22d")
+nameF = "Circle Table"
+countF = 0
+spriteF = ExtResource("75_la328")
+costF = 80
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_xohi4"]
+script = ExtResource("1_ru22d")
+nameF = "Circle Table Ash"
+countF = 0
+spriteF = ExtResource("76_vggb8")
+costF = 80
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_xjv2h"]
+script = ExtResource("1_ru22d")
+nameF = "Circle Table Oak"
+countF = 0
+spriteF = ExtResource("77_4q4gq")
+costF = 80
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_2m0ph"]
+script = ExtResource("1_ru22d")
+nameF = "Circle Table Cherry"
+countF = 0
+spriteF = ExtResource("78_rkc1w")
+costF = 80
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_ksg4f"]
+script = ExtResource("1_ru22d")
+nameF = "Circle Table Pine"
+countF = 0
+spriteF = ExtResource("79_4lpfv")
+costF = 80
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_l5his"]
+script = ExtResource("1_ru22d")
+nameF = "Square Table"
+countF = 0
+spriteF = ExtResource("80_rqkwr")
+costF = 100
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_3oigu"]
+script = ExtResource("1_ru22d")
+nameF = "Square Table Ash"
+countF = 0
+spriteF = ExtResource("81_15tbj")
+costF = 100
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_jrknv"]
+script = ExtResource("1_ru22d")
+nameF = "Square Table Oak"
+countF = 0
+spriteF = ExtResource("82_37a4x")
+costF = 100
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_2v3p4"]
+script = ExtResource("1_ru22d")
+nameF = "Square Table Cherry"
+countF = 0
+spriteF = ExtResource("83_aiome")
+costF = 100
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_nvol2"]
+script = ExtResource("1_ru22d")
+nameF = "Square Table Pine"
+countF = 0
+spriteF = ExtResource("84_253iy")
+costF = 100
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_cauw1"]
+script = ExtResource("1_ru22d")
+nameF = "Long Table"
+countF = 0
+spriteF = ExtResource("85_ntp5h")
+costF = 120
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_xvqmt"]
+script = ExtResource("1_ru22d")
+nameF = "Long Table Ash"
+countF = 0
+spriteF = ExtResource("86_642vu")
+costF = 120
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_vuite"]
+script = ExtResource("1_ru22d")
+nameF = "Long Table Oak"
+countF = 0
+spriteF = ExtResource("87_om4g2")
+costF = 120
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_vkphf"]
+script = ExtResource("1_ru22d")
+nameF = "Long Table Cherry"
+countF = 0
+spriteF = ExtResource("88_rtgyh")
+costF = 120
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_s4qdk"]
+script = ExtResource("1_ru22d")
+nameF = "Long Table Pine"
+countF = 0
+spriteF = ExtResource("89_tnavb")
+costF = 120
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_hnu5n"]
+script = ExtResource("1_ru22d")
+nameF = ""
+countF = 0
+costF = 0
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[sub_resource type="Resource" id="Resource_6led5"]
+script = ExtResource("1_ru22d")
+nameF = ""
+countF = 0
+costF = 0
+roomF = 0
+active = false
+posF = Vector2(0, 0)
+collisionBool = false
+collPosF = Transform2D(1, 0, 0, 1, 0, 0)
+
+[resource]
+script = ExtResource("1_iivg7")
+furnitureList = Array[ExtResource("1_ru22d")]([SubResource("Resource_3ngqj"), SubResource("Resource_b4nn5"), SubResource("Resource_pa3l1"), SubResource("Resource_jaa8i"), SubResource("Resource_ft2p5"), SubResource("Resource_fshl0"), SubResource("Resource_jojfy"), SubResource("Resource_somik"), SubResource("Resource_rdfkc"), SubResource("Resource_18pof"), SubResource("Resource_uwwph"), SubResource("Resource_3a13b"), SubResource("Resource_w8aq0"), SubResource("Resource_rt5q4"), SubResource("Resource_d540k"), SubResource("Resource_21hu5"), SubResource("Resource_igmtp"), SubResource("Resource_q673d"), SubResource("Resource_r7c1a"), SubResource("Resource_je0cn"), SubResource("Resource_etg17"), SubResource("Resource_nnjfc"), SubResource("Resource_57g4a"), SubResource("Resource_7rcpr"), SubResource("Resource_x4tyj"), SubResource("Resource_njbtq"), SubResource("Resource_3wxu0"), SubResource("Resource_o0a8g"), SubResource("Resource_km4os"), SubResource("Resource_g7qdj"), SubResource("Resource_0ogdn"), SubResource("Resource_bog2k"), SubResource("Resource_y41d4"), SubResource("Resource_qnjge"), SubResource("Resource_248cx"), SubResource("Resource_4e7v5"), SubResource("Resource_ew70m"), SubResource("Resource_hnn6o"), SubResource("Resource_1trao"), SubResource("Resource_g7bis"), SubResource("Resource_ut8jn"), SubResource("Resource_5263o"), SubResource("Resource_4t1em"), SubResource("Resource_o4btn"), SubResource("Resource_diar5"), SubResource("Resource_tomng"), SubResource("Resource_wysjf"), SubResource("Resource_s7uq3"), SubResource("Resource_3pccq"), SubResource("Resource_yutwe"), SubResource("Resource_s8gn8"), SubResource("Resource_c8wmd"), SubResource("Resource_f80lq"), SubResource("Resource_slufa"), SubResource("Resource_1lyvv"), SubResource("Resource_8esjr"), SubResource("Resource_sb1xx"), SubResource("Resource_jwr77"), SubResource("Resource_hfs75"), SubResource("Resource_hvddh"), SubResource("Resource_u8bde"), SubResource("Resource_ttr3h"), SubResource("Resource_al1ns"), SubResource("Resource_d5oa2"), SubResource("Resource_pioxe"), SubResource("Resource_4ddgm"), SubResource("Resource_dkjfp"), SubResource("Resource_f1wj1"), SubResource("Resource_2udwe"), SubResource("Resource_mi282"), SubResource("Resource_xhy6t"), SubResource("Resource_pyns5"), SubResource("Resource_4kvsi"), SubResource("Resource_fubey"), SubResource("Resource_xohi4"), SubResource("Resource_xjv2h"), SubResource("Resource_2m0ph"), SubResource("Resource_ksg4f"), SubResource("Resource_l5his"), SubResource("Resource_3oigu"), SubResource("Resource_jrknv"), SubResource("Resource_2v3p4"), SubResource("Resource_nvol2"), SubResource("Resource_cauw1"), SubResource("Resource_xvqmt"), SubResource("Resource_vuite"), SubResource("Resource_vkphf"), SubResource("Resource_s4qdk"), SubResource("Resource_hnu5n"), SubResource("Resource_6led5")])

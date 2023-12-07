@@ -7,3 +7,4 @@ script = ExtResource("1_q33ic")
 active = 0
 globalPos = Vector2(347.721, 719.173)
 index = 0
+roomNumber = 1

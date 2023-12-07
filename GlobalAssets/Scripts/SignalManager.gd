@@ -19,6 +19,8 @@ signal poopNumber
 signal changeMichiScriptToMichiRun
 signal michiPair
 signal michiDexUpdate
-
+#signal click
+signal globalTimer1
+signal restComfort
 signal addCoins
 

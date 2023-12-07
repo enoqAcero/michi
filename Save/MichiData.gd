@@ -17,6 +17,7 @@ class_name MichiData
 @export var clean = 100
 @export var comfort = 100
 @export var exercise = 100
+@export var roomNumber = 1
 
 
 

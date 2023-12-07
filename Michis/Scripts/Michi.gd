@@ -61,7 +61,7 @@ func _ready():
 	$Area2D2.set_collision_layer_value(2, false)
 	$Area2D2.set_collision_layer_value(1, true)
 
-func _process(delta):
+func _process(_delta):
 	if selected == false:
 		$Area2D/CollisionShape2D.scale.x = 1
 		$Area2D/CollisionShape2D.scale.y = 1
@@ -89,12 +89,11 @@ func _physics_process(_delta):
 			if player_pos.y > object_pos.y:
 				objectName = area.get_parent()
 				objectName = objectName.name
-				print("ON TOP")
 				if Input.is_action_just_released("click"):
 					merge()
 	
 	if timerControl == 0:
-		$poopAndPeeTimer.set_wait_time(rng.randi_range(100,200))#(30,60))
+		$poopAndPeeTimer.set_wait_time(rng.randi_range(40,60))#(30,60))
 		$poopAndPeeTimer.start()
 		timerControl = 1 
 	#ESTADO DE ANIMO
@@ -108,44 +107,45 @@ func _physics_process(_delta):
 	
 	#DRAG & DROP
 	if GlobalVariables.itemSelected==false:
-		
-		if selected == true:
-			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.scale.x = 3
-			$AnimatedSprite2D.scale.y = 3
-			$StatusGood.scale.x = 1
-			$StatusGood.scale.y = 1
-			$StatusGood.position.x = -29
-			$StatusGood.position.y = -55
-			
-			$".".set_collision_layer_value(1, false) # remove from collision layer
-			$".".set_collision_mask_value(1, false) # remove from collision mask
-			$".".set_collision_layer_value(2, true) # remove from collision layer
-			$".".set_collision_mask_value(2, true) # remove from collision mask
-			
-			
-			$CollisionPolygon2DNormal.disabled = true
-			$CollisionPolygon2DFlip.disabled = true
-			$CollisionShape2D.disabled = false
-			
-			if selected2 == true:
-				if Input.is_action_just_pressed("click"):
-					offset = get_global_mouse_position() - global_position
-					SignalManager.michiNumber.emit(numeroMichi, 0) #mandar una senial con el numero del michi que se esta apretando
-					GlobalVariables.michiSelected = true
-				if Input.is_action_pressed("click"):
-					global_position = get_global_mouse_position() - offset
-					$Area2D/CollisionShape2D.scale.x = 5
-					$Area2D/CollisionShape2D.scale.y = 5
-				if Input.is_action_just_released("click"):
-					global_position = get_global_mouse_position()
-					selected = false
-					GlobalVariables.michiSelected = false
-					$ClickTimer.start()
-					$Area2D/CollisionShape2D.scale.x = 1
-					$Area2D/CollisionShape2D.scale.y = 1
-				walking = false
-				idle = true
+		if GlobalVariables.huevoSelected == false:
+			if selected == true:
+				$AnimatedSprite2D.flip_h = false
+				$AnimatedSprite2D.scale.x = 3
+				$AnimatedSprite2D.scale.y = 3
+				$StatusGood.scale.x = 1
+				$StatusGood.scale.y = 1
+				$StatusGood.position.x = -29
+				$StatusGood.position.y = -55
+				
+				$".".set_collision_layer_value(1, false) # remove from collision layer
+				$".".set_collision_mask_value(1, false) # remove from collision mask
+				$".".set_collision_layer_value(2, true) # remove from collision layer
+				$".".set_collision_mask_value(2, true) # remove from collision mask
+				
+				
+				$CollisionPolygon2DNormal.disabled = true
+				$CollisionPolygon2DFlip.disabled = true
+				$CollisionShape2D.disabled = false
+				
+				if selected2 == true:
+					if Input.is_action_just_pressed("click"):
+						offset = get_global_mouse_position() - global_position
+						SignalManager.restComfort.emit(numeroMichi.to_int())
+						SignalManager.michiNumber.emit(numeroMichi, 0) #mandar una senial con el numero del michi que se esta apretando
+						GlobalVariables.michiSelected = true
+					if Input.is_action_pressed("click"):
+						global_position = get_global_mouse_position() - offset
+						$Area2D/CollisionShape2D.scale.x = 5
+						$Area2D/CollisionShape2D.scale.y = 5
+					if Input.is_action_just_released("click"):
+						global_position = get_global_mouse_position()
+						selected = false
+						GlobalVariables.michiSelected = false
+						$ClickTimer.start()
+						$Area2D/CollisionShape2D.scale.x = 1
+						$Area2D/CollisionShape2D.scale.y = 1
+					walking = false
+					idle = true
 			
 	if selected == false and mergeMichiControl == false:
 		GlobalVariables.mergeMichi = false
@@ -290,10 +290,11 @@ func getNumbersFromString(input_string: String) -> String:
 	return result
 
 
-func _on_area_2d_2_body_entered(body):
+func _on_area_2d_2_body_entered(_body):
 	pass
 
 func _on_poop_and_pee_timer_timeout():
+	print("poop and pee timeout")
 	SignalManager.poopAndPee.emit(numeroMichi.to_int())
 	timerControl = 0
 

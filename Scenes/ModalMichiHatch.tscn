@@ -123,7 +123,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="labelcat" type="RichTextLabel" parent="."]
-z_index = 1
+z_index = 9
 z_as_relative = false
 texture_filter = 1
 layout_mode = 0
@@ -145,22 +145,18 @@ texture = ExtResource("6_ccmgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(240, 500)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cxgod")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(240, 170)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gd7oc")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(410, 330)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fcgnr")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(70, 332.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yhcdr")
 
 [connection signal="pressed" from="HatchB" to="." method="_on_hatch_b_pressed"]

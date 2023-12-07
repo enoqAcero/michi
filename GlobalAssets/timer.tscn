@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwmpwywjm8lld"]
+
+[ext_resource type="Script" path="res://GlobalAssets/Scripts/GlobalTimer.gd" id="1_mqil5"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_mqil5")
+
+[node name="GlobalTimer1" type="Timer" parent="."]
+wait_time = 0.244
+
+[connection signal="timeout" from="GlobalTimer1" to="." method="_on_global_timer_1_timeout"]

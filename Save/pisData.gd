@@ -5,3 +5,4 @@ class_name PisData
 @export var active = 0
 @export var globalPos = Vector2(250,450)
 @export var index = 0
+@export var roomNumber = 1

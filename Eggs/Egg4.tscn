@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://cuot6vuj1c2qm"]
+
+[ext_resource type="Script" path="res://Eggs/Scripts/Egg.gd" id="1_tip7a"]
+[ext_resource type="Texture2D" uid="uid://dc03akrbfrmg0" path="res://Eggs/Assets/Categoría 4/crack1Caregoria4.png" id="2_cu065"]
+[ext_resource type="Texture2D" uid="uid://blxumyw8yqcg6" path="res://Eggs/Assets/Categoría 4/crack2Categoria4.png" id="3_xy7i4"]
+[ext_resource type="Texture2D" uid="uid://dml0idsgyrupl" path="res://Eggs/Assets/Categoría 4/rotoCategoria4.png" id="4_xjvjl"]
+[ext_resource type="Texture2D" uid="uid://cd7v0vvr7fff" path="res://Eggs/Assets/Categoría 4/huevoCategoria4.png" id="5_g03f5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c08la"]
+atlas = ExtResource("2_cu065")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yalfn"]
+atlas = ExtResource("2_cu065")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plmhm"]
+atlas = ExtResource("3_xy7i4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_521pc"]
+atlas = ExtResource("3_xy7i4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h1ps"]
+atlas = ExtResource("4_xjvjl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cli4"]
+atlas = ExtResource("5_g03f5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pykip"]
+atlas = ExtResource("5_g03f5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ekhan"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c08la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yalfn")
+}],
+"loop": true,
+"name": &"crackCat1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plmhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_521pc")
+}],
+"loop": true,
+"name": &"crackCat1v2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h1ps")
+}],
+"loop": true,
+"name": &"crackedCat1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cli4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pykip")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pvock"]
+radius = 15.0
+height = 38.0
+
+[node name="Huevo" type="CharacterBody2D"]
+script = ExtResource("1_tip7a")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ekhan")
+animation = &"crackCat1"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("CapsuleShape2D_pvock")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 0)
+shape = SubResource("CapsuleShape2D_pvock")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

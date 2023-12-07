@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_6a5yt"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_o5vvc"]
 
 [resource]
-script = ExtResource("1_6a5yt")
+script = ExtResource("1_o5vvc")
 active = 0
 category = ""
 type = ""
@@ -16,3 +16,4 @@ fun = 100
 clean = 100
 comfort = 100
 exercise = 100
+roomNumber = 1

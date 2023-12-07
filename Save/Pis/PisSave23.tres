@@ -7,3 +7,4 @@ script = ExtResource("1_wyphr")
 active = 0
 globalPos = Vector2(82.7821, 570.456)
 index = 0
+roomNumber = 1

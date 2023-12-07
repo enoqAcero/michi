@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="IntentoFusion301123"
+config/name="IntentoFusion061223"
 run/main_scene="res://Scenes/Test.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalVariables="*res://GlobalAssets/Scripts/GlobalVariables.gd"
 SignalManager="*res://GlobalAssets/Scripts/SignalManager.gd"
+GlobalTimer="*res://GlobalAssets/timer.tscn"
 
 [display]
 

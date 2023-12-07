@@ -67,17 +67,18 @@ func loadItems():
 func next_item():
 	if item_index < items.size() - 1:
 		item_index += 1
-	else:
-		item_index = 0  # Vuelve al primer item si ya estás en el último.
+	if item_index > 6 : item_index = 0
+# Vuelve al primer item si ya estás en el último.
 	update_item(0)
+	
 	
 
 func previous_item():
-	if item_index > 0:
+	if item_index >= 0:
 		item_index -= 1
-	else:
-		item_index = items.size() - 1  # Vuelve al último item si ya estás en el primero.
+	if item_index < 0 : item_index = 6
 	update_item(0)
+	
 	
 	
 
@@ -86,9 +87,12 @@ func previous_item():
 func update_item(itemCount : int):
 	if itemCount == 1:
 		items[item_index].count = items[item_index].count - 1
+		if items[item_index].count <= 0: items[item_index].count = 0
 		count_label.text =str(items[item_index].count)
 	else:
 		count_label.text =str(items[item_index].count)
+	
+	
 		
 	sprite_node.texture = items[item_index].texture
 	sprite_node.scale = Vector2(0.7,0.7)
