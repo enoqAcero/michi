@@ -1,6 +1,9 @@
 extends Node2D
 var Inventory = preload("res://Inventory/inventory.gd")
+var furnitureResource = preload("res://Save/Furniture/furnitureSave.tres")
 var moneditas = ResourceLoader.load("res://Save/moneditas.tres")#= preload("res://Inventory/bolsa_monedas.tres")
+var label_settings = preload("res://tipoNum.tres")
+var buy_texture = preload("res://GUI/Assets/buyN.png")
 var maxMichiNumber = GlobalVariables.maxMichiNumber
 var monedero_resource
 var inventory_resource
@@ -36,8 +39,12 @@ var items_button
 var furnitures_button
 var bg_furnitures
 var bg_items
+var muebles : furniture
+var NumMueble = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	
 	set_visible(false)
 	
@@ -75,7 +82,57 @@ func _ready():
 	items_button = $Items
 	furnitures_button = $Furnitures
 	items_Container.visible = true
-	
+	# Obtenemos el nodo ScrollContainer y control
+	#var scroll_container = get_node("ScrollContainerNew")
+	#var control_node = get_node("ScrollContainerNew/Controlnew")
+	var vbox = get_node("ScrollContainerNew/Controlnew/VBoxContainer")
+	# Configuramos la separación entre los elementos
+
+	# Recorremos la lista de muebles
+	for fuun in furnitureResource.furnitureList:
+		var item_hbox = HBoxContainer.new()
+		
+		# Texturas muebles
+		var sprite = TextureRect.new()
+		sprite.texture = fuun.spriteF
+		sprite.stretch_mode = TextureRect.STRETCH_KEEP
+		item_hbox.add_child(sprite)
+		
+		var text_vbox = VBoxContainer.new()
+		item_hbox.add_child(text_vbox)
+		
+		# Nombre muebles
+		var name_label = Label.new()
+		name_label.text = fuun.nameF
+		name_label.label_settings = label_settings		
+		text_vbox.add_child(name_label)
+		
+		
+		#Precio muebles
+		var price_label = Label.new()
+		price_label.text = "$%d" % fuun.costF
+		price_label.label_settings = label_settings		
+		text_vbox.add_child(price_label)
+		
+		#cantidad de muebles
+		var count_labelM = Label.new()
+		count_labelM.text = "Cantidad: %d" % fuun.countF
+		count_labelM.label_settings = label_settings
+		text_vbox.add_child(count_labelM)	
+		vbox.add_child(item_hbox)
+		
+		#botón comprar
+		var buy_button = TextureButton.new()
+		buy_button.name = "comprar" + str(NumMueble)
+		buy_button.texture_normal = buy_texture
+		text_vbox.add_child(buy_button)
+
+		# Conectar la señal 'pressed' del botón a la función '_on_comprar_pressed'
+		buy_button.pressed.connect(Callable(_buy_button_pressed).bind(count_labelM, NumMueble))
+		#vbox.add_child(item_hbox)
+		# y pasar 'furniture' y 'count_label' como argumentos.
+		#muebles.furnitureList.append(fuun)
+		NumMueble += 1
 	
 	# Carga los items.
 	
@@ -114,7 +171,18 @@ func _ready():
 	update_item()  
 	
 
+func _buy_button_pressed(count_labelM, NumM):
+	print("esto es NUM: ", NumM)
+	if moneditas.coin >= furnitureResource.furnitureList[NumM].costF:#var botonNombre = 
+		furnitureResource.furnitureList[NumM].countF += 1
+		# Actualizamos el texto del label de cantidad
+		count_labelM.text = "Cantidad: %d" % furnitureResource.furnitureList[NumM].countF 
+		moneditas.coin -=  furnitureResource.furnitureList[NumM].costF 		
+		coins_label.text = str(moneditas.coin)
 
+		
+	
+	
 #actualiza los botones para que este disable si no hay dinero para comprarlos
 func update_buttons():
 	buy_kibble_button.disabled = moneditas.coin < items[0].price
@@ -124,7 +192,13 @@ func update_buttons():
 	buy_laser_button.disabled = moneditas.coin < items[4].price
 	buy_comb_button.disabled = moneditas.coin < items[5].price
 	buy_brush_button.disabled = moneditas.coin < items[6].price
- 
+	#for i in range(0,NumMueble-1):
+		#if moneditas.coin < furnitureResource.furnitureList[i].costF:
+			#var nodoBoton = get_node("comprar" + str(i))
+			#if not nodoBoton == null:
+			#	nodoBoton.disabled
+		#else:
+			#pass#
 
 
 
@@ -136,7 +210,7 @@ func buy_kibble():
 		moneditas.coin -= kibble_item.price
 		coins_label.text = str(moneditas.coin)
 		update_item()
-		update_buttons()  # Imprime un mensaje en la consola
+		update_buttons()
 		
 
 
@@ -262,17 +336,21 @@ func _on_items_pressed(): # Muestra los items y oculta los muebles
 	bg_furnitures.visible = false
 	$Items.visible= false
 	$Furnitures.visible= true
+	$ScrollContainerNew.hide()
+	$ScrollContainerNew/Controlnew.hide()
 func _on_furnitures_pressed():
 	$Items.visible= true
 	items_Container.visible = false
 	bg_furnitures.visible = true
-	furnitures_Container.visible = true
+	$ScrollContainerNew.show()
+	$ScrollContainerNew/Controlnew.show()
 	bg_items.visible = false
 	furnitures_button.visible =false
 
 
 func itemsCoinSave():
 	ResourceSaver.save(moneditas, "res://Save/moneditas.tres")
+	ResourceSaver.save(furnitureResource, "res://Save/Furniture/furnitureSave.tres")
 
 func addCoins(coin : int):
 	moneditas.coin += coin

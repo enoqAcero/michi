@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_2wl1c"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_hnure"]
 
 [resource]
-script = ExtResource("1_2wl1c")
+script = ExtResource("1_hnure")
 active = 1
 category = "categoria8"
 type = "Diablo"
 categoryLevel = 8
 fusionLevel = 1
-globalPos = Vector2(257.847, 616.54)
+globalPos = Vector2(290.875, 368.437)
 name = "Diablo4"
-food = -204.2
-fun = -254.2
-clean = -254.2
-comfort = -212.94
-exercise = -254.2
+food = 83.68
+fun = 0
+clean = 41
+comfort = 60
+exercise = 0
 roomNumber = 2

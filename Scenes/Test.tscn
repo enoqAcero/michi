@@ -1,7 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://dg2rf8of102bf"]
+[gd_scene load_steps=34 format=3 uid="uid://dg2rf8of102bf"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/Test.gd" id="1_1kxl6"]
-[ext_resource type="Texture2D" uid="uid://dbrsaka2lyehh" path="res://Backgrounds/background1.png" id="2_l7pxd"]
+[ext_resource type="Texture2D" uid="uid://dbrsaka2lyehh" path="res://Backgrounds/background1.png" id="2_31unx"]
 [ext_resource type="PackedScene" uid="uid://qtwndjqyub13" path="res://Shop.tscn" id="6_jcj4f"]
 [ext_resource type="PackedScene" uid="uid://j3ostc4r7ccw" path="res://inventario.tscn" id="7_hryy3"]
 [ext_resource type="Texture2D" uid="uid://b0e811a07jixv" path="res://GUI/Assets/GUIshop.png" id="8_hi878"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://dnukbiy0jj2b6" path="res://GUI/Assets/GUIframes2.png" id="16_8jg1p"]
 [ext_resource type="PackedScene" uid="uid://ifhkt1mcmkti" path="res://Structures/Assets/caminadora.tscn" id="16_vialj"]
 [ext_resource type="PackedScene" uid="uid://neoqgd1g1b5e" path="res://Structures/Assets/jumper.tscn" id="17_2octx"]
+[ext_resource type="Texture2D" uid="uid://c3uaqxq1aktgq" path="res://Structures/Assets/BigWindowWhite.png" id="19_hofr7"]
+[ext_resource type="Texture2D" uid="uid://dm5yfcsacmobg" path="res://Structures/Assets/VentanaXL.png" id="20_6j15k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85ul2"]
 size = Vector2(608, 224)
@@ -258,11 +260,11 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_1kxl6")
 metadata/_edit_vertical_guides_ = [241.0]
-metadata/_edit_horizontal_guides_ = [773.0]
+metadata/_edit_horizontal_guides_ = [773.0, 133.0, 240.0]
 
 [node name="Background1" type="Sprite2D" parent="."]
 position = Vector2(240, 431)
-texture = ExtResource("2_l7pxd")
+texture = ExtResource("2_31unx")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 disable_mode = 2
@@ -292,7 +294,9 @@ debug_color = Color(0.00784314, 0.00392157, 0.0705882, 1)
 
 [node name="Shop" parent="." instance=ExtResource("6_jcj4f")]
 visible = false
+light_mask = 16
 visibility_layer = 512
+z_index = 4
 position = Vector2(0, 13)
 
 [node name="inventario" parent="." instance=ExtResource("7_hryy3")]
@@ -479,6 +483,14 @@ texture = SubResource("GradientTexture2D_ihqnm")
 [node name="doubleClick" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="BigWindowWhite" type="Sprite2D" parent="."]
+position = Vector2(289, 183)
+texture = ExtResource("19_hofr7")
+
+[node name="VentanaXl" type="Sprite2D" parent="."]
+position = Vector2(167, 177)
+texture = ExtResource("20_6j15k")
 
 [connection signal="pressed" from="inventario/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="text_changed" from="CanvasLayer/Nombre/changeName" to="." method="_on_change_name_text_changed"]

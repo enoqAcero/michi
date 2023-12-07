@@ -5,14 +5,6 @@ var maxHuevoNumber = GlobalVariables.maxHuevoNumber
 
 var numeroMichi
 
-#Stats del michi
-var comida = 100
-var diversion = 100
-var limpieza = 100
-var comodidad = 100
-var energia = 100
-var promedio = float(comida+diversion+limpieza+comodidad+energia)/5
-
 #Estados del michi
 var idle = false
 var walkingDown = false
@@ -93,16 +85,9 @@ func _physics_process(_delta):
 					merge()
 	
 	if timerControl == 0:
-		$poopAndPeeTimer.set_wait_time(rng.randi_range(40,60))#(30,60))
+		$poopAndPeeTimer.set_wait_time(rng.randi_range(10,20))#(30,60))
 		$poopAndPeeTimer.start()
 		timerControl = 1 
-	#ESTADO DE ANIMO
-	if promedio >= 80:
-		$StatusGood.modulate = Color("#38ff26")
-	elif promedio >= 50:
-		$StatusGood.modulate = Color("#ffff00")
-	else:
-		$StatusGood.modulate = Color("e00000")
 	
 	
 	#DRAG & DROP
@@ -130,6 +115,7 @@ func _physics_process(_delta):
 				if selected2 == true:
 					if Input.is_action_just_pressed("click"):
 						offset = get_global_mouse_position() - global_position
+						SignalManager.restComfort.emit(numeroMichi.to_int())
 						SignalManager.michiNumber.emit(numeroMichi, 0) #mandar una senial con el numero del michi que se esta apretando
 						GlobalVariables.michiSelected = true
 					if Input.is_action_pressed("click"):

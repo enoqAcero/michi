@@ -598,14 +598,16 @@ visible = false
 offset_left = 36.0
 offset_top = 185.0
 offset_right = 461.0
-offset_bottom = 775.0
+offset_bottom = 1352.0
 horizontal_scroll_mode = 0
 
 [node name="Control" type="Control" parent="ScrollContainer"]
+visible = false
 custom_minimum_size = Vector2(405, 2000)
 layout_mode = 2
 
 [node name="SmallBlueRug" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(26, 36)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("20_k6yr1")
@@ -659,6 +661,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="SmallYellowRug" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(169, 36)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("21_ug7y2")
@@ -712,6 +715,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="SmallWhiteRug" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(313, 36)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("22_ko172")
@@ -765,6 +769,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="SmallBrownRug" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(26, 132)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("23_oe8cp")
@@ -818,6 +823,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="SmallCyanRug" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(169, 132)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("24_8ttse")
@@ -871,6 +877,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="SmallPurpleRug" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(26, 228)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("25_xci1c")
@@ -924,6 +931,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="SmallBlackRug" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(169, 228)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("26_i3e3k")
@@ -977,6 +985,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="SmallRedRug" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(313, 133)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("27_nedfs")
@@ -1030,6 +1039,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="SmallPinkRug" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(313, 230)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("28_wq0vw")
@@ -1083,6 +1093,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="SmallGreenRug" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(26, 325)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("29_8g3q3")
@@ -1136,6 +1147,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugYellow" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(169, 324)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("30_qpgtq")
@@ -1189,6 +1201,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugBlue" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(313, 324)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("31_j2bbj")
@@ -1242,6 +1255,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugWhite" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(26, 420)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("32_b3b1k")
@@ -1295,6 +1309,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugBrown" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(169, 420)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("33_nq3n2")
@@ -1348,6 +1363,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugRed" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(313, 421)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("34_r3nu5")
@@ -1401,6 +1417,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugPurple" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(26, 516)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("35_1xjq4")
@@ -1454,6 +1471,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugBlack" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(169, 516)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("36_tg4hp")
@@ -1507,6 +1525,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugPink" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(313, 518)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("37_3hhup")
@@ -1560,6 +1579,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugGreen" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(26, 613)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("38_r07jv")
@@ -1613,6 +1633,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugNewYear" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(169, 616)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("39_m26ve")
@@ -1666,6 +1687,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugCris" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(313, 616)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("40_j65ec")
@@ -1719,6 +1741,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugP" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(26, 712)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("41_cpog1")
@@ -1772,6 +1795,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugMultiColor" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(169, 712)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("42_nhhdu")
@@ -1825,6 +1849,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="CircleRugWater" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(313, 713)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("43_mw2c3")
@@ -1878,12 +1903,14 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="BigRugYellow" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(26, 804)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("44_6on5v")
 
 [node name="buyball" type="TextureButton" parent="ScrollContainer/Control/BigRugYellow"]
 process_mode = 2
+visible = false
 offset_left = 50.6667
 offset_top = -9.33334
 offset_right = 114.667
@@ -1895,6 +1922,7 @@ texture_disabled = ExtResource("14_psrg0")
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/Control/BigRugYellow"]
+visible = false
 offset_left = 78.0
 offset_top = -28.0
 offset_right = 118.0
@@ -1903,6 +1931,7 @@ scale = Vector2(1, 0.7)
 size_flags_stretch_ratio = 0.0
 
 [node name="ballLabelCost" type="Label" parent="ScrollContainer/Control/BigRugYellow"]
+visible = false
 offset_left = 78.0
 offset_top = -31.0
 offset_right = 118.0
@@ -1912,6 +1941,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ballLabelInv" type="Label" parent="ScrollContainer/Control/BigRugYellow"]
+visible = false
 offset_left = 71.065
 offset_top = 41.0
 offset_right = 111.065
@@ -1921,22 +1951,26 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="ScrollContainer/Control/BigRugYellow"]
+visible = false
 position = Vector2(56, -15)
 texture = ExtResource("11_ryjyc")
 hframes = 4
 
 [node name="backpack" type="Sprite2D" parent="ScrollContainer/Control/BigRugYellow"]
+visible = false
 position = Vector2(64, 51.6667)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="BigRugBlue" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(169, 804)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("45_twtaf")
 
 [node name="buylaser" type="TextureButton" parent="ScrollContainer/Control/BigRugBlue"]
 process_mode = 2
+visible = false
 offset_left = 50.6667
 offset_top = -9.33334
 offset_right = 114.667
@@ -1948,6 +1982,7 @@ texture_disabled = ExtResource("14_psrg0")
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/Control/BigRugBlue"]
+visible = false
 offset_left = 78.0
 offset_top = -28.0
 offset_right = 118.0
@@ -1956,6 +1991,7 @@ scale = Vector2(1, 0.7)
 size_flags_stretch_ratio = 0.0
 
 [node name="laserLabelCost" type="Label" parent="ScrollContainer/Control/BigRugBlue"]
+visible = false
 offset_left = 78.0
 offset_top = -31.0
 offset_right = 118.0
@@ -1965,6 +2001,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="laserLabelInv" type="Label" parent="ScrollContainer/Control/BigRugBlue"]
+visible = false
 offset_left = 71.065
 offset_top = 41.0
 offset_right = 111.065
@@ -1974,22 +2011,26 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="ScrollContainer/Control/BigRugBlue"]
+visible = false
 position = Vector2(56, -15)
 texture = ExtResource("11_ryjyc")
 hframes = 4
 
 [node name="backpack" type="Sprite2D" parent="ScrollContainer/Control/BigRugBlue"]
+visible = false
 position = Vector2(64, 51.6667)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="BigRugBrow" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(313, 805)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("46_fifvl")
 
 [node name="buyball" type="TextureButton" parent="ScrollContainer/Control/BigRugBrow"]
 process_mode = 2
+visible = false
 offset_left = 50.6667
 offset_top = -9.33334
 offset_right = 114.667
@@ -2001,6 +2042,7 @@ texture_disabled = ExtResource("14_psrg0")
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/Control/BigRugBrow"]
+visible = false
 offset_left = 78.0
 offset_top = -28.0
 offset_right = 118.0
@@ -2009,6 +2051,7 @@ scale = Vector2(1, 0.7)
 size_flags_stretch_ratio = 0.0
 
 [node name="ballLabelCost" type="Label" parent="ScrollContainer/Control/BigRugBrow"]
+visible = false
 offset_left = 78.0
 offset_top = -31.0
 offset_right = 118.0
@@ -2018,6 +2061,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ballLabelInv" type="Label" parent="ScrollContainer/Control/BigRugBrow"]
+visible = false
 offset_left = 71.065
 offset_top = 41.0
 offset_right = 111.065
@@ -2027,22 +2071,26 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="ScrollContainer/Control/BigRugBrow"]
+visible = false
 position = Vector2(56, -15)
 texture = ExtResource("11_ryjyc")
 hframes = 4
 
 [node name="backpack" type="Sprite2D" parent="ScrollContainer/Control/BigRugBrow"]
+visible = false
 position = Vector2(64, 51.6667)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="BigRugCyan" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(26, 900)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("47_8d1gc")
 
 [node name="buycomb" type="TextureButton" parent="ScrollContainer/Control/BigRugCyan"]
 process_mode = 2
+visible = false
 offset_left = 50.6667
 offset_top = -9.33334
 offset_right = 114.667
@@ -2054,6 +2102,7 @@ texture_disabled = ExtResource("14_psrg0")
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/Control/BigRugCyan"]
+visible = false
 offset_left = 78.0
 offset_top = -28.0
 offset_right = 118.0
@@ -2062,6 +2111,7 @@ scale = Vector2(1, 0.7)
 size_flags_stretch_ratio = 0.0
 
 [node name="combLabelCost" type="Label" parent="ScrollContainer/Control/BigRugCyan"]
+visible = false
 offset_left = 78.0
 offset_top = -31.0
 offset_right = 118.0
@@ -2071,6 +2121,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="combLabelInv" type="Label" parent="ScrollContainer/Control/BigRugCyan"]
+visible = false
 offset_left = 71.065
 offset_top = 41.0
 offset_right = 111.065
@@ -2080,22 +2131,26 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="ScrollContainer/Control/BigRugCyan"]
+visible = false
 position = Vector2(56, -15)
 texture = ExtResource("11_ryjyc")
 hframes = 4
 
 [node name="backpack" type="Sprite2D" parent="ScrollContainer/Control/BigRugCyan"]
+visible = false
 position = Vector2(64, 51.6667)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="BigRugPurple" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(169, 900)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("48_j26pv")
 
 [node name="buybrush" type="TextureButton" parent="ScrollContainer/Control/BigRugPurple"]
 process_mode = 2
+visible = false
 offset_left = 50.6667
 offset_top = -9.33334
 offset_right = 114.667
@@ -2107,6 +2162,7 @@ texture_disabled = ExtResource("14_psrg0")
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/Control/BigRugPurple"]
+visible = false
 offset_left = 78.0
 offset_top = -28.0
 offset_right = 118.0
@@ -2115,6 +2171,7 @@ scale = Vector2(1, 0.7)
 size_flags_stretch_ratio = 0.0
 
 [node name="brushLabelCost" type="Label" parent="ScrollContainer/Control/BigRugPurple"]
+visible = false
 offset_left = 78.0
 offset_top = -31.0
 offset_right = 118.0
@@ -2124,6 +2181,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="brushLabelInv" type="Label" parent="ScrollContainer/Control/BigRugPurple"]
+visible = false
 offset_left = 71.065
 offset_top = 41.0
 offset_right = 111.065
@@ -2133,22 +2191,26 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="ScrollContainer/Control/BigRugPurple"]
+visible = false
 position = Vector2(56, -15)
 texture = ExtResource("11_ryjyc")
 hframes = 4
 
 [node name="backpack" type="Sprite2D" parent="ScrollContainer/Control/BigRugPurple"]
+visible = false
 position = Vector2(64, 51.6667)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="BigRugBlack" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(313, 902)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("49_ay18a")
 
 [node name="buyball" type="TextureButton" parent="ScrollContainer/Control/BigRugBlack"]
 process_mode = 2
+visible = false
 offset_left = 50.6667
 offset_top = -9.33334
 offset_right = 114.667
@@ -2160,6 +2222,7 @@ texture_disabled = ExtResource("14_psrg0")
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/Control/BigRugBlack"]
+visible = false
 offset_left = 78.0
 offset_top = -28.0
 offset_right = 118.0
@@ -2168,6 +2231,7 @@ scale = Vector2(1, 0.7)
 size_flags_stretch_ratio = 0.0
 
 [node name="ballLabelCost" type="Label" parent="ScrollContainer/Control/BigRugBlack"]
+visible = false
 offset_left = 78.0
 offset_top = -31.0
 offset_right = 118.0
@@ -2177,6 +2241,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ballLabelInv" type="Label" parent="ScrollContainer/Control/BigRugBlack"]
+visible = false
 offset_left = 71.065
 offset_top = 41.0
 offset_right = 111.065
@@ -2186,22 +2251,26 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="ScrollContainer/Control/BigRugBlack"]
+visible = false
 position = Vector2(56, -15)
 texture = ExtResource("11_ryjyc")
 hframes = 4
 
 [node name="backpack" type="Sprite2D" parent="ScrollContainer/Control/BigRugBlack"]
+visible = false
 position = Vector2(64, 51.6667)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="BigRugRed" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(26, 997)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("50_0pr10")
 
 [node name="buyball" type="TextureButton" parent="ScrollContainer/Control/BigRugRed"]
 process_mode = 2
+visible = false
 offset_left = 50.6667
 offset_top = -9.33334
 offset_right = 114.667
@@ -2213,6 +2282,7 @@ texture_disabled = ExtResource("14_psrg0")
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/Control/BigRugRed"]
+visible = false
 offset_left = 78.0
 offset_top = -28.0
 offset_right = 118.0
@@ -2221,6 +2291,7 @@ scale = Vector2(1, 0.7)
 size_flags_stretch_ratio = 0.0
 
 [node name="ballLabelCost" type="Label" parent="ScrollContainer/Control/BigRugRed"]
+visible = false
 offset_left = 78.0
 offset_top = -31.0
 offset_right = 118.0
@@ -2230,6 +2301,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ballLabelInv" type="Label" parent="ScrollContainer/Control/BigRugRed"]
+visible = false
 offset_left = 71.065
 offset_top = 41.0
 offset_right = 111.065
@@ -2239,22 +2311,26 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="ScrollContainer/Control/BigRugRed"]
+visible = false
 position = Vector2(56, -15)
 texture = ExtResource("11_ryjyc")
 hframes = 4
 
 [node name="backpack" type="Sprite2D" parent="ScrollContainer/Control/BigRugRed"]
+visible = false
 position = Vector2(64, 51.6667)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="BigRugPink" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(169, 1000)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("51_aqbp8")
 
 [node name="buyFish" type="TextureButton" parent="ScrollContainer/Control/BigRugPink"]
 process_mode = 2
+visible = false
 offset_left = 50.6667
 offset_top = -9.33334
 offset_right = 114.667
@@ -2266,6 +2342,7 @@ texture_disabled = ExtResource("14_psrg0")
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/Control/BigRugPink"]
+visible = false
 offset_left = 78.0
 offset_top = -28.0
 offset_right = 118.0
@@ -2274,6 +2351,7 @@ scale = Vector2(1, 0.7)
 size_flags_stretch_ratio = 0.0
 
 [node name="fishLabelCost" type="Label" parent="ScrollContainer/Control/BigRugPink"]
+visible = false
 offset_left = 78.0
 offset_top = -31.0
 offset_right = 118.0
@@ -2283,6 +2361,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="fishLabelInv" type="Label" parent="ScrollContainer/Control/BigRugPink"]
+visible = false
 offset_left = 71.065
 offset_top = 41.0
 offset_right = 111.065
@@ -2292,22 +2371,26 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="ScrollContainer/Control/BigRugPink"]
+visible = false
 position = Vector2(56, -15)
 texture = ExtResource("11_ryjyc")
 hframes = 4
 
 [node name="backpack" type="Sprite2D" parent="ScrollContainer/Control/BigRugPink"]
+visible = false
 position = Vector2(64, 51.6667)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="BigRugGreen" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(313, 1000)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("52_luqqm")
 
 [node name="buytunacan" type="TextureButton" parent="ScrollContainer/Control/BigRugGreen"]
 process_mode = 2
+visible = false
 offset_left = 50.6667
 offset_top = -9.33334
 offset_right = 114.667
@@ -2319,6 +2402,7 @@ texture_disabled = ExtResource("14_psrg0")
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/Control/BigRugGreen"]
+visible = false
 offset_left = 78.0
 offset_top = -28.0
 offset_right = 118.0
@@ -2327,6 +2411,7 @@ scale = Vector2(1, 0.7)
 size_flags_stretch_ratio = 0.0
 
 [node name="tunacanLabelCost" type="Label" parent="ScrollContainer/Control/BigRugGreen"]
+visible = false
 offset_left = 78.0
 offset_top = -31.0
 offset_right = 118.0
@@ -2336,6 +2421,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="tunacanLabelInv" type="Label" parent="ScrollContainer/Control/BigRugGreen"]
+visible = false
 offset_left = 71.065
 offset_top = 41.0
 offset_right = 111.065
@@ -2345,22 +2431,26 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="ScrollContainer/Control/BigRugGreen"]
+visible = false
 position = Vector2(56, -15)
 texture = ExtResource("11_ryjyc")
 hframes = 4
 
 [node name="backpack" type="Sprite2D" parent="ScrollContainer/Control/BigRugGreen"]
+visible = false
 position = Vector2(64, 51.6667)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
 
 [node name="BigRugWhite" type="Sprite2D" parent="ScrollContainer/Control"]
+visible = false
 position = Vector2(26, 1096)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("53_2s3kf")
 
 [node name="buyball" type="TextureButton" parent="ScrollContainer/Control/BigRugWhite"]
 process_mode = 2
+visible = false
 offset_left = 50.6667
 offset_top = -9.33334
 offset_right = 114.667
@@ -2372,6 +2462,7 @@ texture_disabled = ExtResource("14_psrg0")
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/Control/BigRugWhite"]
+visible = false
 offset_left = 78.0
 offset_top = -28.0
 offset_right = 118.0
@@ -2380,6 +2471,7 @@ scale = Vector2(1, 0.7)
 size_flags_stretch_ratio = 0.0
 
 [node name="ballLabelCost" type="Label" parent="ScrollContainer/Control/BigRugWhite"]
+visible = false
 offset_left = 78.0
 offset_top = -31.0
 offset_right = 118.0
@@ -2389,6 +2481,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ballLabelInv" type="Label" parent="ScrollContainer/Control/BigRugWhite"]
+visible = false
 offset_left = 71.065
 offset_top = 41.0
 offset_right = 111.065
@@ -2398,14 +2491,40 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="ScrollContainer/Control/BigRugWhite"]
+visible = false
 position = Vector2(56, -15)
 texture = ExtResource("11_ryjyc")
 hframes = 4
 
 [node name="backpack" type="Sprite2D" parent="ScrollContainer/Control/BigRugWhite"]
+visible = false
 position = Vector2(64, 51.6667)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_my0hn")
+
+[node name="ScrollContainerNew" type="ScrollContainer" parent="."]
+process_mode = 3
+visible = false
+custom_minimum_size = Vector2(389, 553)
+layout_direction = 1
+offset_left = 38.0
+offset_top = 189.0
+offset_right = 462.0
+offset_bottom = 742.0
+
+[node name="Controlnew" type="Control" parent="ScrollContainerNew"]
+process_mode = 3
+clip_contents = true
+custom_minimum_size = Vector2(418, 12758)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainerNew/Controlnew"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 89.0
+offset_right = 325.0
+offset_bottom = 419.0
+theme_override_constants/separation = 3
 
 [connection signal="pressed" from="bgFurnitures/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Sprite2D/Button" to="." method="_on_button_pressed"]

@@ -34,7 +34,7 @@ func _input(_event):
 	randomize()
 	if controlTap == 0:
 		if Input.is_action_just_pressed("click"):
-			force_x = rng.randi_range(-220,200)
+			force_x = rng.randi_range(-220,210)
 			huevoInstance.velocity.x = force_x
 			huevoInstance.velocity.y = force_y
 			globalPos = huevoInstance.global_position

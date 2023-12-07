@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiDex" load_steps=49 format=3 uid="uid://i7kd2qk043eb"]
+[gd_resource type="Resource" script_class="MichiDex" load_steps=49 format=3]
 
 [ext_resource type="Script" path="res://Save/MichiDex/MichiDex.gd" id="1_2637k"]
 [ext_resource type="Script" path="res://Save/MichiDex/MichisCollected.gd" id="1_il7a5"]
@@ -196,7 +196,7 @@ active = true
 [sub_resource type="Resource" id="Resource_fyiia"]
 script = ExtResource("1_il7a5")
 type = "Cyborg"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_8itpp"]
 script = ExtResource("1_il7a5")

@@ -77,9 +77,29 @@ func _ready():
 	$Transition/ColorRect.visible = true
 	$Transition.play("fadeIn")
 	
+	AgregarTodo()
 		
+	caminadora = $Caminadora3000Azul.get_node("Area2D")
+	caminadora.body_entered.connect(michiRunner)
+	brincolin = $jumper3000.get_node("Area2D")
+	brincolin.body_entered.connect(michiJumper)
 	
-		
+	
+	SignalManager.michiNumber.connect(getNumber, 0)
+	SignalManager.huevoNumber.connect(getNumber, 1)
+	SignalManager.merge.connect(merge)
+	SignalManager.mergeConfirm.connect(confirmarMerge)
+	SignalManager.michiEggShowHide.connect(michiEggShowHide)
+	SignalManager.updateMichiStatus.connect(updateMichiStatus)
+	SignalManager.save.connect(save)
+	SignalManager.confirmPlay.connect(confirmPlay)
+	SignalManager.pisNumber.connect(getNumber, 2)
+	SignalManager.poopNumber.connect(getNumber, 3)
+	SignalManager.poopAndPee.connect(poopAndPee)
+	SignalManager.globalTimer1.connect(updateMichiStatusBars)
+	SignalManager.restComfort.connect(restComfort)
+	
+func AgregarTodo():
 	#poner todas la pis
 	for i in range(0, maxPisNumber):
 		var pis = load("res://Interactives/pis.tscn").instantiate()
@@ -269,28 +289,19 @@ func _ready():
 			print("se agrego huevo:", i, " a la escena")	
 		huevoInstance.append(huevo)
 		
-		
-	caminadora = $Caminadora3000Azul.get_node("Area2D")
-	caminadora.body_entered.connect(michiRunner)
-	brincolin = $jumper3000.get_node("Area2D")
-	brincolin.body_entered.connect(michiJumper)
+	updateMichiStatusBars()
+
 	
-	SignalManager.michiNumber.connect(getNumber, 0)
-	SignalManager.huevoNumber.connect(getNumber, 1)
-	SignalManager.merge.connect(merge)
-	SignalManager.mergeConfirm.connect(confirmarMerge)
-	SignalManager.michiEggShowHide.connect(michiEggShowHide)
-	SignalManager.updateMichiStatus.connect(updateMichiStatus)
-	SignalManager.save.connect(save)
-	SignalManager.confirmPlay.connect(confirmPlay)
-	SignalManager.pisNumber.connect(getNumber, 2)
-	SignalManager.poopNumber.connect(getNumber, 3)
-	SignalManager.poopAndPee.connect(poopAndPee)
+func restComfort(numero:int):
+	var piPo = (pisCounter + poopCounter) * 4
+	michiData[numero].comfort = 100 - piPo
+	if michiData[numero].comfort <= 0: michiData[numero].comfort = 0
 	
-	
-func RestComfort():
-	var piPo = (pisCounter + poopCounter) * 2
-	michiData[michiNumber].comfort -=piPo
+func originRestComfort ():
+	var piPo = (pisCounter + poopCounter) * 4
+	for i in range(0,maxMichiNumber): 
+		michiData[i].comfort = 100 - piPo
+		if michiData[i].comfort <= 0: michiData[i].comfort = 0
 
 	
 	
@@ -351,7 +362,6 @@ func _input(_event):
 		
 		
 func confirmPlay(control : int):
-	print("Confirm play")
 	if control == 1:
 		var huevoCat = huevoData[GlobalVariables.huevoNumber].categoria
 		GlobalVariables.huevoPath = ("res://Eggs/Egg" + str(huevoCat) + ".tscn")
@@ -418,7 +428,6 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 			var newPoopData = PoopData.new()
 			ResourceSaver.save(newPoopData, (savePathPoop + saveFileNamePoop + str(number) + ".tres" ))
 			poopData.append(ResourceLoader.load(savePathPoop + saveFileNamePoop + str(number) + ".tres"))
-		
 	elif typeLocal == 4:	
 		if ResourceLoader.exists(savePathColorGui + saveFileColorGui + ".tres"):
 			getRoomNumber = ResourceLoader.load(savePathColorGui + saveFileColorGui + ".tres")
@@ -428,8 +437,6 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 			getRoomNumber = ResourceLoader.load(savePathColorGui + saveFileColorGui + ".tres")
 			
 		roomNumber = getRoomNumber.roomNumber
-
-
 
 	
 	
@@ -1219,6 +1226,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 				pos_y = rng.randi_range(260, 734)
 				huevo.global_position = Vector2(pos_x,pos_y)
 				huevo.name = "huevo"+str(huevoIndex)
+				huevo.z_index = 2
 				add_child(huevo)
 				huevoInstance[huevoIndex] = huevo
 				huevoData[huevoIndex].active = 1
@@ -1469,11 +1477,17 @@ func michiEggShowHide(control : int):
 				huevoInstance[i].modulate.a = 1
 				
 
+
 func updateMichiStatus(michiN : int):
+	
+	
+	var huevoD = HuevoData.new()
+			
 	var index_item = GlobalVariables.indexInventario
-	if michiData[michiN].food <= 0: michiData[michiN].food = 0
-	if michiData[michiN].fun <= 0: michiData[michiN].fun = 0
-	if michiData[michiN].clean <= 0: michiData[michiN].clean = 0
+	
+	print("dar item")
+	print("indexInventario: ",index_item)
+	
 	#print(" Desde update michi status, item index: ",index_item)
 	#print("MichiN: ",michiN)
 	if index_item == 0: michiData[michiN].food += 25
@@ -1488,6 +1502,8 @@ func updateMichiStatus(michiN : int):
 	if michiData[michiN].fun > 100: michiData[michiN].fun = 100
 	if michiData[michiN].clean > 100: michiData[michiN].clean = 100
 	updateStatus(michiNumber, huevoNumber)
+	SignalManager.manageStatusBars.emit(michiData[michiN], huevoD, 0)
+
 	
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST:
@@ -1518,6 +1534,7 @@ func poopAndPee(michiN : int):
 				pis.global_position = michiInstance[michiN].global_position
 				pis.name = "pis"+str(pisIndex)
 				add_child(pis)
+				pisCounter +=1
 				pisInstance[pisIndex] = pis
 				pisInstance[pisIndex].set_z_index(michiInstance[michiIndex].get_z_index() - 1)
 				pisData[pisIndex].active = 1
@@ -1535,11 +1552,12 @@ func poopAndPee(michiN : int):
 				poop.global_position = michiInstance[michiN].global_position
 				poop.name = "poop"+str(poopIndex)
 				add_child(poop)
+				poopCounter += 1
 				poopInstance[poopIndex] = poop
 				poopInstance[poopIndex].set_z_index(michiInstance[michiIndex].get_z_index() - 1)
 				poopData[poopIndex].active = 1
 				poopData[poopIndex].roomNumber = roomNumber
-				
+	if not michiInstance[michiNumber] == null: restComfort(michiNumber)			
 	
 func recogerPisyPoop(typeLocal : int): #type = 0 pis, type = 1 poop
 	var pos = Vector2(0,0)
@@ -1561,7 +1579,8 @@ func recogerPisyPoop(typeLocal : int): #type = 0 pis, type = 1 poop
 	valor = 1
 	SignalManager.addCoins.emit(valor)
 	crearMoneda(pos)
-
+	restComfort(michiNumber)
+	
 func michiRunner(body):
 	for i in range(0, maxMichiNumber):
 		if body.get_name() == ("michi"+str(i)):
@@ -1620,7 +1639,6 @@ func freeCoin(index : int):
 	coinInstance[index].queue_free()
 
 
-
 func _on_prev_pressed():
 	roomNumber -= 1
 	animationControl = false
@@ -1671,8 +1689,53 @@ func _on_transition_animation_started(_anim_name):
 			loadData(i, 2 , 0)
 		for i in range(0, maxPoopNumber):
 			loadData(i, 3 , 0)
+		originRestComfort()
 
 
 func _on_double_click_timeout():
 	clickCount = 0
 	doubleClick = false
+
+func updateMichiStatusBars():
+	randomize()
+	
+	var huevoIndex = 101
+	for i in range(0, maxHuevoNumber):
+		if huevoData[i].active == 1:
+			huevoIndex = i
+			break
+	
+	for i in range(0, maxMichiNumber):
+		var prob1 = rng.randi_range(1,100)
+		if prob1 > 70:
+			var prob2 = rng.randi_range(1,3)
+			michiData[i].food -= prob2
+			prob2 = rng.randi_range(1,3)
+			michiData[i].fun -= prob2
+			prob2 = rng.randi_range(1,3)
+			michiData[i].clean -= prob2
+			michiData[i].exercise -= 1
+			
+		if michiData[i].food < 0: michiData[i].food = 0
+		if michiData[i].fun < 0: michiData[i].fun = 0
+		if michiData[i].clean < 0: michiData[i].clean = 0
+		if michiData[i].exercise < 0: michiData[i].exercise = 0
+		
+		if 	michiNumber == i:
+			SignalManager.manageStatusBars.emit(michiData[i], huevoData[huevoIndex], 0)
+			
+		var promedio = (michiData[i].food + michiData[i].fun + michiData[i].clean + michiData[i].exercise)
+		#ESTADO DE ANIMO
+		if not michiInstance[i] == null:
+			var statusGoodNode = michiInstance[i].get_node("StatusGood")
+			if promedio >= 80:
+				statusGoodNode.modulate = Color("#38ff26")
+			elif promedio >= 50:
+				statusGoodNode.modulate = Color("#ffff00")
+			else:
+				statusGoodNode.modulate = Color("e00000")
+
+
+
+
+

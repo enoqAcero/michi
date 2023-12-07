@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="HuevoData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="HuevoData" load_steps=2 format=3 uid="uid://dg421muv5pyay"]
 
 [ext_resource type="Script" path="res://Save/HuevoData.gd" id="1_bt2fe"]
 

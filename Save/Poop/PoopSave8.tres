@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_6smfi")
 active = 0
-globalPos = Vector2(250.736, 650.99)
+globalPos = Vector2(119.204, 747.3)
 index = 0
-roomNumber = 1
+roomNumber = 2
