@@ -4,13 +4,13 @@
 
 [resource]
 script = ExtResource("1_2uk51")
-active = 0
-category = "categoria5"
-type = "Unicornio"
-categoryLevel = 5
+active = 1
+category = "categoria2"
+type = "Manchado"
+categoryLevel = 2
 fusionLevel = 1
-globalPos = Vector2(136, 377)
-name = "Unicornio9"
+globalPos = Vector2(449.997, 628.592)
+name = "Manchado9"
 food = 0
 fun = 0
 clean = 0

@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="HuevoData" load_steps=2 format=3 uid="uid://n5sujdbs0e4h"]
+[gd_resource type="Resource" script_class="HuevoData" load_steps=2 format=3 uid="uid://dywi65i5rp3hm"]
 
 [ext_resource type="Script" path="res://Save/HuevoData.gd" id="1_w3cdw"]
 
 [resource]
 script = ExtResource("1_w3cdw")
 active = 1
-categoria = 2
+categoria = 5
 id = 0
-globalPos = Vector2(406, 586)
-taps = 1
-roomNumber = 1
+globalPos = Vector2(322, 649)
+taps = 0
+roomNumber = 2

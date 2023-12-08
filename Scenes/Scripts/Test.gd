@@ -243,6 +243,10 @@ func AgregarTodo():
 		
 				
 		michi.global_position = michiData[i].globalPos
+		while michi.global_position <= $Caminadora3000Azul.global_position + Vector2(50,50) and michi.global_position >= $Caminadora3000Azul.global_position - Vector2(50,50) or michi.global_position <= $jumper3000.global_position + Vector2(50,50) and michi.global_position >= $jumper3000.global_position - Vector2(50,50):
+			pos_x = rng.randi_range(30,450)
+			pos_y = rng.randi_range(260, 734)
+			michi.global_position = Vector2(pos_x,pos_y)
 		michi.name = ("michi"+str(i))
 		michi.z_index = 2
 		if michiData[i].active == 1 and michiData[i].roomNumber == roomNumber:
@@ -1156,6 +1160,10 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 		michi.name = "michi"+str(NumeroMichi1)
 		michiInstance[NumeroMichi1].name = "tempNameMichi1"
 		michi.z_index = 2
+		while michi.global_position <= $Caminadora3000Azul.global_position + Vector2(50,50) and michi.global_position >= $Caminadora3000Azul.global_position - Vector2(50,50) or michi.global_position <= $jumper3000.global_position + Vector2(50,50) and michi.global_position >= $jumper3000.global_position - Vector2(50,50):
+			pos_x = rng.randi_range(30,450)
+			pos_y = rng.randi_range(260, 734)
+			michi.global_position = Vector2(pos_x,pos_y)
 		add_child(michi)
 		michiInstance[NumeroMichi1].queue_free()
 		michiInstance[NumeroMichi1] = michi
@@ -1168,7 +1176,7 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 
 		#agregar el huevo
 		var probNewEgg = rng.randi_range(1,100)
-		if probNewEgg > 70:
+		if probNewEgg <= 70:
 			if huevoIndex < maxHuevoNumber:
 				var probNewEggType = rng.randf_range(1.0,100.0)
 				var huevo
@@ -1444,6 +1452,11 @@ func naceMichi(huevoN : int):
 	pos_x = rng.randi_range(30,450)
 	pos_y = rng.randi_range(260, 734)
 	michi.global_position = Vector2(pos_x,pos_y)
+	while michi.global_position <= $Caminadora3000Azul.global_position + Vector2(50,50) and michi.global_position >= $Caminadora3000Azul.global_position - Vector2(50,50) or michi.global_position <= $jumper3000.global_position + Vector2(50,50) and michi.global_position >= $jumper3000.global_position - Vector2(50,50):
+		pos_x = rng.randi_range(30,450)
+		pos_y = rng.randi_range(260, 734)
+		michi.global_position = Vector2(pos_x,pos_y)
+		
 	michi.name = "michi"+str(michiIndex)
 	add_child(michi)
 	michiInstance[michiIndex] = michi

@@ -36,7 +36,7 @@ active = true
 [sub_resource type="Resource" id="Resource_cfuye"]
 script = ExtResource("1_il7a5")
 type = "Egipcio"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_vbd3u"]
 script = ExtResource("1_il7a5")

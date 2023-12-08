@@ -5,12 +5,12 @@
 [resource]
 script = ExtResource("1_vhn24")
 active = 0
-category = "categoria4"
-type = "Estrellas"
-categoryLevel = 4
+category = "categoria5"
+type = "Slime"
+categoryLevel = 5
 fusionLevel = 1
-globalPos = Vector2(340.285, 337.383)
-name = "Estrellas11"
+globalPos = Vector2(133.929, 289)
+name = "Slime11"
 food = 0
 fun = 0
 clean = 0

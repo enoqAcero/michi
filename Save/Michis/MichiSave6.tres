@@ -1,19 +1,19 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://c83ckvksukh1m"]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_jd4ql"]
 
 [resource]
 script = ExtResource("1_jd4ql")
-active = 0
-category = "categoria6"
-type = "Fuego"
-categoryLevel = 6
+active = 1
+category = "categoria7"
+type = "Halloween"
+categoryLevel = 7
 fusionLevel = 1
-globalPos = Vector2(151, 322)
-name = "Fuego6"
+globalPos = Vector2(253.664, 733.999)
+name = "Halloween6"
 food = 0
 fun = 0
 clean = 0
-comfort = 100
+comfort = 88
 exercise = 0
 roomNumber = 2

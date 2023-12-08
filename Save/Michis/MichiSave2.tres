@@ -1,19 +1,19 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://c1yi5t6eag8xt"]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_vsppp"]
 
 [resource]
 script = ExtResource("1_vsppp")
 active = 1
-category = "categoria6"
-type = "Tierra"
-categoryLevel = 6
+category = "categoria4"
+type = "Estrellas"
+categoryLevel = 4
 fusionLevel = 1
-globalPos = Vector2(275.446, 474.394)
-name = "Tierra2"
+globalPos = Vector2(449.997, 470)
+name = "Estrellas2"
 food = 0
 fun = 0
-clean = 96
-comfort = 100
+clean = 0
+comfort = 88
 exercise = 0
 roomNumber = 2

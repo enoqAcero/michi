@@ -260,7 +260,7 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_1kxl6")
 metadata/_edit_vertical_guides_ = [241.0]
-metadata/_edit_horizontal_guides_ = [773.0, 133.0, 240.0]
+metadata/_edit_horizontal_guides_ = [773.0, 133.0, 240.0, 353.0, 407.0]
 
 [node name="Background1" type="Sprite2D" parent="."]
 position = Vector2(240, 431)
@@ -431,10 +431,10 @@ visible = false
 z_index = 3
 
 [node name="Caminadora3000Azul" parent="." instance=ExtResource("16_vialj")]
-position = Vector2(-11, 195)
+position = Vector2(143, 378)
 
 [node name="jumper3000" parent="." instance=ExtResource("17_2octx")]
-position = Vector2(2, 770)
+position = Vector2(330, 550)
 
 [node name="PicMichi" type="AnimatedSprite2D" parent="."]
 position = Vector2(246, 86)
@@ -485,11 +485,11 @@ wait_time = 0.3
 one_shot = true
 
 [node name="BigWindowWhite" type="Sprite2D" parent="."]
-position = Vector2(289, 183)
+position = Vector2(306, 181)
 texture = ExtResource("19_hofr7")
 
 [node name="VentanaXl" type="Sprite2D" parent="."]
-position = Vector2(167, 177)
+position = Vector2(136, 180)
 texture = ExtResource("20_6j15k")
 
 [connection signal="pressed" from="inventario/TextureButton" to="." method="_on_texture_button_pressed"]

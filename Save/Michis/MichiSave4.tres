@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://d1u7ct4bmdoqq"]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_hnure"]
 
@@ -9,11 +9,11 @@ category = "categoria8"
 type = "Diablo"
 categoryLevel = 8
 fusionLevel = 1
-globalPos = Vector2(290.875, 368.437)
+globalPos = Vector2(377, 381)
 name = "Diablo4"
-food = 83.68
+food = 0
 fun = 0
-clean = 41
-comfort = 60
+clean = 0
+comfort = 88
 exercise = 0
 roomNumber = 2

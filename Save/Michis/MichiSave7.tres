@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://bba38f1t1e70h"]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_bjij6"]
 
@@ -9,11 +9,11 @@ category = "categoria8"
 type = "Alien"
 categoryLevel = 8
 fusionLevel = 1
-globalPos = Vector2(233.148, 564.897)
+globalPos = Vector2(171.274, 624.622)
 name = "Alien7"
 food = 0
 fun = 0
-clean = 94
+clean = 0
 comfort = 100
 exercise = 0
 roomNumber = 2
