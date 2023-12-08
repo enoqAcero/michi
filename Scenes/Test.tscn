@@ -22,16 +22,16 @@
 [ext_resource type="Texture2D" uid="uid://dm5yfcsacmobg" path="res://Structures/Assets/VentanaXL.png" id="20_6j15k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85ul2"]
-size = Vector2(608, 224)
+size = Vector2(608, 410)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fijw6"]
-size = Vector2(96, 992)
+size = Vector2(504, 992)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6s6ux"]
-size = Vector2(96, 992)
+size = Vector2(527, 1106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fuiv"]
-size = Vector2(608, 192)
+size = Vector2(1318, 563)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aa6xu"]
 size = Vector2(842, 64)
@@ -272,19 +272,19 @@ collision_layer = 65535
 collision_mask = 65535
 
 [node name="CollisionShapeTop" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(259, 102)
+position = Vector2(259, 9)
 shape = SubResource("RectangleShape2D_85ul2")
 
 [node name="CollisionShapeLeft" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-45, 419)
+position = Vector2(-249, 419)
 shape = SubResource("RectangleShape2D_fijw6")
 
 [node name="CollisionShapeRight" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(526, 436)
+position = Vector2(741.5, 379)
 shape = SubResource("RectangleShape2D_6s6ux")
 
 [node name="CollisionShapeBottom" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(243, 856)
+position = Vector2(296, 1041.5)
 shape = SubResource("RectangleShape2D_1fuiv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
