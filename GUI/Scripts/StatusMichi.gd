@@ -23,43 +23,43 @@ func update(michi : MichiData, huevo : HuevoData, type : int):
 		$clean.value = michi.clean
 		$comfort.value = michi.comfort
 		$exercise.value = michi.exercise
+			
+		if $food.value >= 70:
+			$food.set_tint_progress(Color("#02e606"))
+		elif $food.value >= 40:
+			$food.set_tint_progress(Color("#f7ff0f"))
+		elif $food.value < 40:
+			$food.set_tint_progress(Color("#ff0000"))
+			
+		if $fun.value >= 70:
+			$fun.set_tint_progress(Color("#02e606"))
+		elif $fun.value >= 40:
+			$fun.set_tint_progress(Color("#f7ff0f"))
+		elif $fun.value < 40:
+			$fun.set_tint_progress(Color("#ff0000"))
+			
+		if $clean.value >= 70:
+			$clean.set_tint_progress(Color("#02e606"))
+		elif $clean.value >= 40:
+			$clean.set_tint_progress(Color("#f7ff0f"))
+		elif $clean.value < 40:
+			$clean.set_tint_progress(Color("#ff0000"))
+			
+		if $comfort.value >= 70:
+			$comfort.set_tint_progress(Color("#02e606"))
+		elif $comfort.value >= 40:
+			$comfort.set_tint_progress(Color("#f7ff0f"))
+		elif $comfort.value < 40:
+			$comfort.set_tint_progress(Color("#ff0000"))
 		
-	if $food.value >= 70:
-		$food.set_tint_progress(Color("#02e606"))
-	elif $food.value >= 40:
-		$food.set_tint_progress(Color("#f7ff0f"))
-	elif $food.value < 40:
-		$food.set_tint_progress(Color("#ff0000"))
-		
-	if $fun.value >= 70:
-		$fun.set_tint_progress(Color("#02e606"))
-	elif $fun.value >= 40:
-		$fun.set_tint_progress(Color("#f7ff0f"))
-	elif $fun.value < 40:
-		$fun.set_tint_progress(Color("#ff0000"))
-		
-	if $clean.value >= 70:
-		$clean.set_tint_progress(Color("#02e606"))
-	elif $clean.value >= 40:
-		$clean.set_tint_progress(Color("#f7ff0f"))
-	elif $clean.value < 40:
-		$clean.set_tint_progress(Color("#ff0000"))
-		
-	if $comfort.value >= 70:
-		$comfort.set_tint_progress(Color("#02e606"))
-	elif $comfort.value >= 40:
-		$comfort.set_tint_progress(Color("#f7ff0f"))
-	elif $comfort.value < 40:
-		$comfort.set_tint_progress(Color("#ff0000"))
-	
-	if $exercise.value >= 70:
-		$exercise.set_tint_progress(Color("#02e606"))
-	elif $exercise.value >= 40:
-		$exercise.set_tint_progress(Color("#f7ff0f"))
-	elif $exercise.value < 40:
-		$exercise.set_tint_progress(Color("#ff0000"))
-		
-		
+		if $exercise.value >= 70:
+			$exercise.set_tint_progress(Color("#02e606"))
+		elif $exercise.value >= 40:
+			$exercise.set_tint_progress(Color("#f7ff0f"))
+		elif $exercise.value < 40:
+			$exercise.set_tint_progress(Color("#ff0000"))
+			
+			
 		
 		
 	elif type == 1:

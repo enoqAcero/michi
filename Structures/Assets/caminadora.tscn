@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ifhkt1mcmkti"]
+[gd_scene load_steps=7 format=3 uid="uid://ifhkt1mcmkti"]
 
 [ext_resource type="Texture2D" uid="uid://dsty1d2ijkd18" path="res://Structures/Assets/Caminadora3000Azul.png" id="1_wab3b"]
 [ext_resource type="Script" path="res://Structures/Assets/cc.gd" id="2_m1is3"]
@@ -8,6 +8,15 @@ radius = 43.0116
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7mrfe"]
 radius = 27.0
+
+[sub_resource type="Gradient" id="Gradient_ft4s8"]
+offsets = PackedFloat32Array(0, 0.696774)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a5t3s"]
+gradient = SubResource("Gradient_ft4s8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Caminadora3000Azul" type="CharacterBody2D"]
 position = Vector2(157, 56)
@@ -26,3 +35,11 @@ shape = SubResource("CircleShape2D_6eydu")
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_7mrfe")
 debug_color = Color(0.843137, 0.341176, 0.458824, 0.419608)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 5)
+scale = Vector2(2.66113, 2.49512)
+color = Color(1, 1, 0.611765, 1)
+energy = 0.5
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_a5t3s")

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var horizontalForce = 40
+var horizontalForce = 600
 var gravity  = 700
 var jumpForce = 0
 var prevJumpForce = 0
@@ -13,12 +13,25 @@ var maxVelocity = 1000
 var area1
 var area2
 
+var joystick = get_parent().get_node("CanvasLayer/JoyStick")
+var direction
 
 func _ready():
+
 	$StatusGood.visible = false
 	$CollisionPolygon2DFlip.disabled = false
+	
+	
+	#$".".set_light_mask(1, false)
+	#$".".set_light_mask(2, true)
 
 func _physics_process(delta):
+	direction = joystick.posVector
+	if direction:
+		velocity.x = direction.x * horizontalForce
+	else: 
+		velocity.x = 0
+	
 	if velocity.y > maxVelocity:
 		velocity.y = maxVelocity
 	else:

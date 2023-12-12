@@ -21,7 +21,7 @@ var score = 0
 
 var screenSize : Vector2
 
-var minJumpForce = 700
+var minJumpForce = 1800
 var newMinForce
 var maxJumpForce = 5000
 var jumpForce
@@ -71,6 +71,13 @@ var tuna = preload("res://Scenes/michiJump/tuna.tscn")
 var obs1 = preload("res://Scenes/michiJump/obs1.tscn")
 var obs2 = preload("res://Scenes/michiJump/obs2.tscn")
 var obs3 = preload("res://Scenes/michiJump/obs3.tscn")
+var obsMeteor1 = preload("res://Scenes/michiJump/obsMeteor1.tscn")
+var obsMeteor2 = preload("res://Scenes/michiJump/obsMeteor2.tscn")
+var obsMeteor3 = preload("res://Scenes/michiJump/obsMeteor3.tscn")
+var obsMeteor4 = preload("res://Scenes/michiJump/obsMeteor4.tscn")
+
+var obsScriptPath = preload("res://Scenes/michiJump/scripts/obsPlatform.gd")
+#var obsMeteorScriptPath = preload("res://Scenes/michiJump/scripts/obsPlatform.gd")
 
 
 var items = []
@@ -79,20 +86,27 @@ var itemCount = [0, 0, 0, 0, 0, 0, 0, 0]
 
 #var Obstacles := [wetSign,cactus,poo,bee,baseball,globo]
 var Obstacles := [obs1, obs2, obs3]
+var ObstaclesMeteor := [obsMeteor1, obsMeteor2, obsMeteor3, obsMeteor4]
 var itemObstacles := [kibble, fish, tuna, ball, laser, comb, brush]
 
 var obstaclesInstance : Array
 var itemsInstance : Array
 
-var obstacleXpos := [20, 460]
+var obstacleXpos := [150, 350]
 var controlObstacles = 0
 
+var finalCoins = 0
+var coinWonLabel 
+
+
+
 func _ready():
+	GlobalVariables.michiSelected = false
 	addMichi()
 	
 	loadData()
 	loadItems()
-	
+	$Label.visible = true
 	trampolineSprite = $Floor.get_node("AnimatedSprite2D")
 	screenSize = get_window().size
 	
@@ -102,9 +116,10 @@ func _ready():
 	$Floor.get_node("Area2D3").body_entered.connect(controlAnimationEnter)
 	$Floor.get_node("Area2D3").body_exited.connect(controlAnimationExit)
 	
-	$CanvasLayer/Control.get_node("VBoxContainer/Confirm").pressed.connect(newGame)
-	$CanvasLayer/Control.get_node("VBoxContainer/Cancel").pressed.connect(exit)
-	
+	$CanvasLayer/Control.get_node("VBoxContainer/HBoxContainer/Confirm").pressed.connect(playAgain)
+	$CanvasLayer/Control.get_node("VBoxContainer/HBoxContainer/Cancel").pressed.connect(exit)
+	$CanvasLayer/Control.get_node("VBoxContainer/Video").pressed.connect(video)
+	coinWonLabel = $CanvasLayer/Control.get_node("VBoxContainer/HBoxContainer2/Label")
 	
 	
 func newGame():
@@ -120,6 +135,7 @@ func newGame():
 	michiPos = 0
 	prevMichiPos = 0
 	
+	finalCoins = 0
 	score = 0
 	maxHeight = 0
 	michiMinPos = 0
@@ -165,14 +181,32 @@ func _process(_delta):
 			michiMinPos = michiInstance.global_position.y
 			
 	if gameRunning == true:
+		
+		$Label.visible = false
+		$CanvasLayer/JoyStick.visible = true
 		if cameraStart == false:
-			if cameraUpControl == false:
-				if Input.is_action_pressed("up"):
-					cameraOffset -= cameraSpeed
-			if cameraDownControl == false:
-				if Input.is_action_pressed("down"):
-					cameraOffset += cameraSpeed
-
+			var direction = $CanvasLayer/JoyStick.posVector
+			if direction:
+				if cameraUpControl == false:	
+					if direction.y < 0:
+						cameraOffset += (direction.y * cameraSpeed)	
+					if Input.is_action_pressed("up"):
+						cameraOffset -= cameraSpeed
+						
+				if cameraDownControl == false:
+					if direction.y > 0:
+						cameraOffset += (direction.y * cameraSpeed)	
+					if Input.is_action_pressed("down"):
+						cameraOffset += cameraSpeed
+						
+						
+				print("dierction: ", direction.y)
+				print ("offset: ", cameraOffset)
+			else:
+				direction.y = 0
+				
+			
+						
 		if falling == false and posMichi > 500:
 			getFallingStatus()	
 			
@@ -236,7 +270,7 @@ func _process(_delta):
 				
 		
 		for obs in obstaclesInstance:
-			if obs.position.y < ($Camera2D.position.y - screenSize.y):
+			if obs.position.y < ($Camera2D.position.y - screenSize.y * 3):
 				removeObstacle(obs, 0)
 
 		for itm in itemsInstance:
@@ -269,7 +303,6 @@ func getFallingStatus():
 	if michiPos <= 0: michiPos = 1
 	if michiPos < prevMichiPos:
 		falling = true
-		print("Faaaaallling")
 	prevMichiPos = michiPos
 	
 	
@@ -347,18 +380,38 @@ func generateObstacles():
 		
 		
 		var prob = rng.randi_range(0, 100)
-		if prob < 70:
+		if prob < 60:
 			var obs_type = Obstacles[randi() % Obstacles.size()]
 			var obs = obs_type.instantiate()
+			obs.set_script(obsScriptPath)
 			var obs_x = posX
 			var obs_y = posY
 			obs.global_position = Vector2(obs_x,obs_y)
-			obs.speedY = rng.randi_range(2, 4)
+			obs.speedX = rng.randf_range(0.2, 1.5)
+			obs.speedY = rng.randf_range(3.5, 4.5)
 			var hue = posMichi/float(score)
 			var color = Color.from_hsv(hue,1,1)
 			obs.modulate = color
 			addObstacle(obs, 0)
-		elif prob > 100:#>=70 and prob < 95:
+		if prob >= 60 and prob < 80:
+			var obs_type = ObstaclesMeteor[randi() % Obstacles.size()]
+			var obs = obs_type.instantiate()
+			obs.set_script(obsScriptPath)
+			posY = -posMichi - 1000
+			
+			print("Meteor added")
+			print("michi pos: ", -posMichi)
+			print("meteor pos: ",posY)
+			
+			
+			var obs_x = posX
+			var obs_y = posY
+			obs.global_position = Vector2(obs_x,obs_y)
+			obs.speedX = rng.randf_range(0.2, 2)
+			obs.speedY = rng.randf_range(7.5, 9.5)
+			obs.scale = Vector2(0.5,0.5)
+			addObstacle(obs, 0)
+		elif prob >=80 and prob < 95:
 			var coinInstance = coin.instantiate()
 			coinInstance.global_position = Vector2(posX, posY)
 			coinInstance.speedY = rng.randi_range(2, 4)
@@ -397,7 +450,6 @@ func addObstacle(obs, control : int):
 		obs.body_entered.connect(hitObstacle)
 		add_child(obs)
 		obstaclesInstance.append(obs)
-		print("obstacle added")
 	else:
 		obs.body_entered.connect(Callable(collect).bind(obs))
 		add_child(obs)
@@ -418,7 +470,6 @@ func hitObstacle(body):
 func collect(body, obs):
 	if body.name == "michi":
 		if obs.is_in_group("item"):
-			print("collectable itme")
 			for itm in itemsInstance:
 				if itm == obs:
 					handleItemCollection(itm)
@@ -455,22 +506,32 @@ func handleItemCollection(item):
 func _on_obstacle_timer_timeout():
 	if gameRunning == true:
 		randomize()
-		var minTime = 0.3
-		var maxTime = 1.5
+		var minTime = 0.5
+		var maxTime = 1.2
 		controlObstacles = 1 
 		$ObstacleTimer.set_wait_time(rng.randf_range(minTime, maxTime))
 		
 		
 func gameOver():
+	$Label.visible = false
+	$CanvasLayer/JoyStick.visible = false
 	if highScoreData.highScore < score:
 		highScoreData.highScore = score
 		save()
-	var wait = 1
-	wait = itemsCoinSave()
-	if wait == 1: 
-		$CanvasLayer/Control.visible = true
-		get_tree().paused = true
-		gameRunning = false
+	
+	if score >= 10000: finalCoins = int((score/120) * 1.5)
+	elif score >= 8000: finalCoins = int((score/120) * 1.4)
+	elif score >= 6000: finalCoins = int((score/120) * 1.3)
+	elif score >= 4000: finalCoins = int((score/120) * 1.2)
+	elif score >= 2000: finalCoins = int((score/120) * 1.1)
+	elif score < 2000: finalCoins = int(score/120)
+	finalCoins += itemCount[0]
+	coinWonLabel.text = str(finalCoins)
+	$CanvasLayer/Control.visible = true
+	get_tree().paused = true
+	gameRunning = false
+		
+		
 
 func loadData():
 	if ResourceLoader.exists(savePathHighScore + saveFileHighScore + ".tres"):
@@ -486,6 +547,8 @@ func save():
 	ResourceSaver.save(highScoreData, savePathHighScore + saveFileHighScore + ".tres")
 	
 func exit():
+	itemsCoinSave()
+	GlobalVariables.michiSelected = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/Test.tscn")
 
@@ -579,7 +642,7 @@ func loadItems():
 		
 func itemsCoinSave():
 	
-	monedas.coin += itemCount[0]
+	monedas.coin += finalCoins
 	for i in range(0, itemCount.size() - 1):
 		items[i].count += itemCount[i+1]
 		
@@ -592,4 +655,10 @@ func itemsCoinSave():
 	ResourceSaver.save(items[5], "res://Save/comb_item.tres") 
 	ResourceSaver.save(items[6], "res://Save/brush_item.tres") 
 	
-	return 1
+func playAgain():
+	itemsCoinSave()
+	newGame()
+	
+func video():
+	finalCoins = finalCoins * 2
+	itemsCoinSave()

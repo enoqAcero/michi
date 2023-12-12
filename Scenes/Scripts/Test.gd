@@ -10,6 +10,9 @@ var pos_y
 #variables para guardar datos
 var savePathMichi = "res://Save/Michis/"
 var saveFileNameMichi = "MichiSave"
+var textureHeart = preload("res://Michis/Status/Assets/statusHeart.png")
+var textureBall = preload("res://Michis/Status/Assets/statusWhite.png")
+
 var savePathHuevo = "res://Save/Huevos/"
 var saveFileNameHuevo = "HuevoSave"
 var savePathPis = "res://Save/Pis/"
@@ -59,7 +62,9 @@ var coinInstance : Array
 var timerCoinInstance : Array
 
 var tiempo = 0.0
-var caminadora
+var caminadora 
+var caminadoraLuz
+var brincolinLuz 
 var brincolin
 var nuevoNombre
 var pisCounter = 0
@@ -77,8 +82,14 @@ func _ready():
 	$Transition/ColorRect.visible = true
 	$Transition.play("fadeIn")
 	
+	GlobalVariables.michiSelected = false
+	GlobalVariables.itemSelected = false
+	GlobalVariables.michiHover = false
+	
 	AgregarTodo()
-		
+	caminadoraLuz = $Caminadora3000Azul.get_node("PointLight2D")
+	brincolinLuz = $jumper3000.get_node("PointLight2D")
+	
 	caminadora = $Caminadora3000Azul.get_node("Area2D")
 	caminadora.body_entered.connect(michiRunner)
 	brincolin = $jumper3000.get_node("Area2D")
@@ -228,21 +239,61 @@ func AgregarTodo():
 				michi = load("res://Michis/michiZombie.tscn").instantiate()
 		#cargar todos los michis de la categoria 9
 		elif michiData[i].categoryLevel == 9:
+			if michiData[i].type == "Cleopatra":
+				michi = load("res://Michis/michiCleopatra.tscn").instantiate()
+			if michiData[i].type == "Elvis":
+				michi = load("res://Michis/michiElvis.tscn").instantiate()
+			if michiData[i].type == "Khalo":
+				michi = load("res://Michis/michiKhalo.tscn").instantiate()
+			if michiData[i].type == "MJ":
+				michi = load("res://Michis/michiMJ.tscn").instantiate()
+			if michiData[i].type == "Swifty":
+				michi = load("res://Michis/michiSwifty.tscn").instantiate()
+		#cargar todos los michis de la categoria 10
+		elif michiData[i].categoryLevel == 10:
+			if michiData[i].type == "Cthulhu":
+				michi = load("res://Michis/michiCthulhu.tscn").instantiate()
+			if michiData[i].type == "Dracula":
+				michi = load("res://Michis/michiDracula.tscn").instantiate()
+			if michiData[i].type == "Frankenstein":
+				michi = load("res://Michis/michiFrankenstein.tscn").instantiate()
+			if michiData[i].type == "ReyArturo":
+				michi = load("res://Michis/michiReyArturo.tscn").instantiate()
+			if michiData[i].type == "SherlockHolmes":
+				michi = load("res://Michis/michiSherlockHolmes.tscn").instantiate()
+		#cargar todos los michis de la categoria 11
+		elif michiData[i].categoryLevel == 11:
 			if michiData[i].type == "Espadachin":
 				michi = load("res://Michis/michiEspadachin.tscn").instantiate()
-			if michiData[i].type == "Goma":
-				michi = load("res://Michis/michiGoma.tscn").instantiate()
 			if michiData[i].type == "Hechicero":
 				michi = load("res://Michis/michiHechicero.tscn").instantiate()
 			if michiData[i].type == "Ninja":
 				michi = load("res://Michis/michiNinja.tscn").instantiate()
+			if michiData[i].type == "Pirata":
+				michi = load("res://Michis/michiPirata.tscn").instantiate()
 			if michiData[i].type == "SuperAlien":
 				michi = load("res://Michis/michiSuperAlien.tscn").instantiate()
+		#cargar todos los michis de la categoria 12
+		elif michiData[i].categoryLevel == 12:
+			if michiData[i].type == "Aladdin":
+				michi = load("res://Michis/michiAladdin.tscn").instantiate()
+			if michiData[i].type == "BlancaNieves":
+				michi = load("res://Michis/michiBlancaNieves.tscn").instantiate()
+			if michiData[i].type == "Cenicienta":
+				michi = load("res://Michis/michiCenicienta.tscn").instantiate()
+			if michiData[i].type == "Cheshire":
+				michi = load("res://Michis/michiCheshire.tscn").instantiate()
+			if michiData[i].type == "Rapunzel":
+				michi = load("res://Michis/michiRapunzel.tscn").instantiate()
 		
 		
 		
 				
 		michi.global_position = michiData[i].globalPos
+		if michi.global_position.y < 211 or michi.global_position.y > 759 or michi.global_position.x < 15 or michi.global_position.x > 465:
+			pos_x = rng.randi_range(30,450)
+			pos_y = rng.randi_range(260, 734)
+			michi.global_position = Vector2(pos_x,pos_y)
 		while michi.global_position <= $Caminadora3000Azul.global_position + Vector2(50,50) and michi.global_position >= $Caminadora3000Azul.global_position - Vector2(50,50) or michi.global_position <= $jumper3000.global_position + Vector2(50,50) and michi.global_position >= $jumper3000.global_position - Vector2(50,50):
 			pos_x = rng.randi_range(30,450)
 			pos_y = rng.randi_range(260, 734)
@@ -313,21 +364,16 @@ func originRestComfort ():
 	
 	
 func _process(_delta):
-	
-	tiempo = Time.get_ticks_usec() / 1000000
-	#print(tiempo)
-	
-	if tiempo % 5 == 0.0:
-		michiData[michiNumber].food = michiData[michiNumber].food - 0.02
-		michiData[michiNumber].fun = michiData[michiNumber].fun - 0.02
-		#michiData[michiNumber].comfort = michiData[michiNumber].comfort - 0.02
-		michiData[michiNumber].exercise = michiData[michiNumber].exercise - 0.02
-		michiData[michiNumber].clean = michiData[michiNumber].clean - 0.02
-		
 	if GlobalVariables.naceMichi == 1:
 		naceMichi(GlobalVariables.huevoNumber)
 		GlobalVariables.huevoNumber = 101
 		GlobalVariables.naceMichi = 0
+	if GlobalVariables.michiSelected == true:
+		caminadoraLuz.show()
+		brincolinLuz.show()
+	else: 
+		caminadoraLuz.hide()
+		brincolinLuz.hide()
 	
 
 #cuando se apieta un michi o un huevo aparecen sus stats mandando a llamar la funcion updateStatus
@@ -1124,29 +1170,373 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 			elif probNewMichi > 95:
 				var probNewMichiType = rng.randi_range(1,5)
 				if probNewMichiType == 1:
+					michi = load("res://Michis/michiCleopatra.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cleopatra"
+					michiData[NumeroMichi1].name = "Cleopatra" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiElvis.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Elvis"
+					michiData[NumeroMichi1].name = "Elvis" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiKhalo.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Khalo"
+					michiData[NumeroMichi1].name = "Khalo" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiMJ.tscn").instantiate()
+					michiData[NumeroMichi1].type = "MJ"
+					michiData[NumeroMichi1].name = "MJ" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiSwifty.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Swifty"
+					michiData[NumeroMichi1].name = "Swifty" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias + 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias + 1))
+		#hacer nuevo michi categoria 9
+		if promCategorias == 9:
+			if probNewMichi > 25 and probNewMichi <= 95:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiCleopatra.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cleopatra"
+					michiData[NumeroMichi1].name = "Cleopatra" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiElvis.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Elvis"
+					michiData[NumeroMichi1].name = "Elvis" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiKhalo.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Khalo"
+					michiData[NumeroMichi1].name = "Khalo" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiMJ.tscn").instantiate()
+					michiData[NumeroMichi1].type = "MJ"
+					michiData[NumeroMichi1].name = "MJ" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiSwifty.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Swifty"
+					michiData[NumeroMichi1].name = "Swifty" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias))
+			elif probNewMichi <= 25:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiAlien.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Alien"
+					michiData[NumeroMichi1].name = "Alien" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiAngel.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Angel"
+					michiData[NumeroMichi1].name = "Angel" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiCyborg.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cyborg"
+					michiData[NumeroMichi1].name = "Cyborg" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiDiablo.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Diablo"
+					michiData[NumeroMichi1].name = "Diablo" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiZombie.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Zombie"
+					michiData[NumeroMichi1].name = "Zombie" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 1))
+			elif probNewMichi > 95:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiCthulhu.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cthulhu"
+					michiData[NumeroMichi1].name = "Cthulhu" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiDracula.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Dracula"
+					michiData[NumeroMichi1].name = "Dracula" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiFrankenstein.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Frankenstein"
+					michiData[NumeroMichi1].name = "Frankenstein" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiReyArturo.tscn").instantiate()
+					michiData[NumeroMichi1].type = "ReyArturo"
+					michiData[NumeroMichi1].name = "ReyArturo" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiSherlockHolmes.tscn").instantiate()
+					michiData[NumeroMichi1].type = "SherlockHolmes"
+					michiData[NumeroMichi1].name = "SherlockHolmes" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias + 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias + 1))
+		#hacer nuevo michi categoria 10
+		if promCategorias == 10:
+			if probNewMichi > 25 and probNewMichi <= 95:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiCthulhu.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cthulhu"
+					michiData[NumeroMichi1].name = "Cthulhu" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiDracula.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Dracula"
+					michiData[NumeroMichi1].name = "Dracula" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiFrankenstein.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Frankenstein"
+					michiData[NumeroMichi1].name = "Frankenstein" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiReyArturo.tscn").instantiate()
+					michiData[NumeroMichi1].type = "ReyArturo"
+					michiData[NumeroMichi1].name = "ReyArturo" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiSherlockHolmes.tscn").instantiate()
+					michiData[NumeroMichi1].type = "SherlockHolmes"
+					michiData[NumeroMichi1].name = "SherlockHolmes" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias))
+			elif probNewMichi <= 25:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiCleopatra.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cleopatra"
+					michiData[NumeroMichi1].name = "Cleopatra" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiElvis.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Elvis"
+					michiData[NumeroMichi1].name = "Elvis" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiKhalo.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Khalo"
+					michiData[NumeroMichi1].name = "Khalo" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiMJ.tscn").instantiate()
+					michiData[NumeroMichi1].type = "MJ"
+					michiData[NumeroMichi1].name = "MJ" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiSwifty.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Swifty"
+					michiData[NumeroMichi1].name = "Swifty" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 1))
+			elif probNewMichi > 95:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
 					michi = load("res://Michis/michiEspadachin.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Espadachin"
 					michiData[NumeroMichi1].name = "Espadachin" + str(NumeroMichi1)
 				if probNewMichiType == 2:
-					michi = load("res://Michis/michiGoma.tscn").instantiate()
-					michiData[NumeroMichi1].type = "Goma"
-					michiData[NumeroMichi1].name = "Goma" + str(NumeroMichi1)
-				if probNewMichiType == 3:
 					michi = load("res://Michis/michiHechicero.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Hechicero"
 					michiData[NumeroMichi1].name = "Hechicero" + str(NumeroMichi1)
-				if probNewMichiType == 4:
+				if probNewMichiType == 3:
 					michi = load("res://Michis/michiNinja.tscn").instantiate()
 					michiData[NumeroMichi1].type = "Ninja"
 					michiData[NumeroMichi1].name = "Ninja" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiPirata.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Pirata"
+					michiData[NumeroMichi1].name = "Pirata" + str(NumeroMichi1)
 				if probNewMichiType == 5:
 					michi = load("res://Michis/michiSuperAlien.tscn").instantiate()
 					michiData[NumeroMichi1].type = "SuperAlien"
 					michiData[NumeroMichi1].name = "SuperAlien" + str(NumeroMichi1)
 				michiData[NumeroMichi1].categoryLevel = promCategorias + 1
 				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias + 1))
-		
-		
+		#hacer nuevo michi categoria 11
+		if promCategorias == 11:
+			if probNewMichi > 25 and probNewMichi <= 95:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiEspadachin.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Espadachin"
+					michiData[NumeroMichi1].name = "Espadachin" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiHechicero.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Hechicero"
+					michiData[NumeroMichi1].name = "Hechicero" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiNinja.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Ninja"
+					michiData[NumeroMichi1].name = "Ninja" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiPirata.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Pirata"
+					michiData[NumeroMichi1].name = "Pirata" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiSuperAlien.tscn").instantiate()
+					michiData[NumeroMichi1].type = "SuperAlien"
+					michiData[NumeroMichi1].name = "SuperAlien" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias))
+			elif probNewMichi <= 25:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiCthulhu.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cthulhu"
+					michiData[NumeroMichi1].name = "Cthulhu" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiDracula.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Dracula"
+					michiData[NumeroMichi1].name = "Dracula" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiFrankenstein.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Frankenstein"
+					michiData[NumeroMichi1].name = "Frankenstein" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiReyArturo.tscn").instantiate()
+					michiData[NumeroMichi1].type = "ReyArturo"
+					michiData[NumeroMichi1].name = "ReyArturo" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiSherlockHolmes.tscn").instantiate()
+					michiData[NumeroMichi1].type = "SherlockHolmes"
+					michiData[NumeroMichi1].name = "SherlockHolmes" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 1))
+			elif probNewMichi > 95:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiAladdin.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Aladdin"
+					michiData[NumeroMichi1].name = "Aladdin" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiBlancaNieves.tscn").instantiate()
+					michiData[NumeroMichi1].type = "BlancaNieves"
+					michiData[NumeroMichi1].name = "BlancaNieves" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiCenicienta.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cenicienta"
+					michiData[NumeroMichi1].name = "Cenicienta" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiCheshire.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cheshire"
+					michiData[NumeroMichi1].name = "Cheshire" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiRapunzel.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Rapunzel"
+					michiData[NumeroMichi1].name = "Rapunzel" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias + 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias + 1))
+		#hacer nuevo michi categoria 12
+		if promCategorias == 12:
+			if probNewMichi > 25 and probNewMichi <= 100:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiAladdin.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Aladdin"
+					michiData[NumeroMichi1].name = "Aladdin" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiBlancaNieves.tscn").instantiate()
+					michiData[NumeroMichi1].type = "BlancaNieves"
+					michiData[NumeroMichi1].name = "BlancaNieves" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiCenicienta.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cenicienta"
+					michiData[NumeroMichi1].name = "Cenicienta" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiCheshire.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cheshire"
+					michiData[NumeroMichi1].name = "Cheshire" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiRapunzel.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Rapunzel"
+					michiData[NumeroMichi1].name = "Rapunzel" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias))
+			elif probNewMichi <= 25:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiEspadachin.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Espadachin"
+					michiData[NumeroMichi1].name = "Espadachin" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiHechicero.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Hechicero"
+					michiData[NumeroMichi1].name = "Hechicero" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiNinja.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Ninja"
+					michiData[NumeroMichi1].name = "Ninja" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiPirata.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Pirata"
+					michiData[NumeroMichi1].name = "Pirata" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiSuperAlien.tscn").instantiate()
+					michiData[NumeroMichi1].type = "SuperAlien"
+					michiData[NumeroMichi1].name = "SuperAlien" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 1))
+		#hacer nuevo michi categoria > 13
+		if promCategorias >= 13:
+			if probNewMichi > 50:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiAladdin.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Aladdin"
+					michiData[NumeroMichi1].name = "Aladdin" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiBlancaNieves.tscn").instantiate()
+					michiData[NumeroMichi1].type = "BlancaNieves"
+					michiData[NumeroMichi1].name = "BlancaNieves" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiCenicienta.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cenicienta"
+					michiData[NumeroMichi1].name = "Cenicienta" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiCheshire.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cheshire"
+					michiData[NumeroMichi1].name = "Cheshire" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiRapunzel.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Rapunzel"
+					michiData[NumeroMichi1].name = "Rapunzel" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 1
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 1))
+			elif probNewMichi <= 50 and probNewMichi > 20:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiEspadachin.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Espadachin"
+					michiData[NumeroMichi1].name = "Espadachin" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiHechicero.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Hechicero"
+					michiData[NumeroMichi1].name = "Hechicero" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiNinja.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Ninja"
+					michiData[NumeroMichi1].name = "Ninja" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiPirata.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Pirata"
+					michiData[NumeroMichi1].name = "Pirata" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiSuperAlien.tscn").instantiate()
+					michiData[NumeroMichi1].type = "SuperAlien"
+					michiData[NumeroMichi1].name = "SuperAlien" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 2
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 2))
+			elif probNewMichi <= 20:
+				var probNewMichiType = rng.randi_range(1,5)
+				if probNewMichiType == 1:
+					michi = load("res://Michis/michiCthulhu.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Cthulhu"
+					michiData[NumeroMichi1].name = "Cthulhu" + str(NumeroMichi1)
+				if probNewMichiType == 2:
+					michi = load("res://Michis/michiDracula.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Dracula"
+					michiData[NumeroMichi1].name = "Dracula" + str(NumeroMichi1)
+				if probNewMichiType == 3:
+					michi = load("res://Michis/michiFrankenstein.tscn").instantiate()
+					michiData[NumeroMichi1].type = "Frankenstein"
+					michiData[NumeroMichi1].name = "Frankenstein" + str(NumeroMichi1)
+				if probNewMichiType == 4:
+					michi = load("res://Michis/michiReyArturo.tscn").instantiate()
+					michiData[NumeroMichi1].type = "ReyArturo"
+					michiData[NumeroMichi1].name = "ReyArturo" + str(NumeroMichi1)
+				if probNewMichiType == 5:
+					michi = load("res://Michis/michiSherlockHolmes.tscn").instantiate()
+					michiData[NumeroMichi1].type = "SherlockHolmes"
+					michiData[NumeroMichi1].name = "SherlockHolmes" + str(NumeroMichi1)
+				michiData[NumeroMichi1].categoryLevel = promCategorias - 3
+				michiData[NumeroMichi1].category = ("categoria"+str(promCategorias - 3))
 			
 		SignalManager.michiDexUpdate.emit(michiData[NumeroMichi1].type)
 		#agrega al michi a la escena
@@ -1442,6 +1832,91 @@ func naceMichi(huevoN : int):
 			michi = load("res://Michis/michiZombie.tscn").instantiate()
 			michiData[michiIndex].type = "Zombie"
 			michiData[michiIndex].name = "Zombie" + str(michiIndex)
+			
+	if michiCategory == 9:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiCleopatra.tscn").instantiate()
+			michiData[michiIndex].type = "Cleopatra"
+			michiData[michiIndex].name = "Cleopatra" + str(michiIndex)
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiElvis.tscn").instantiate()
+			michiData[michiIndex].type = "Elvis"
+			michiData[michiIndex].name = "Elvis" + str(michiIndex)
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiKhalo.tscn").instantiate()
+			michiData[michiIndex].type = "Khalo"
+			michiData[michiIndex].name = "Khalo" + str(michiIndex)
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiMJ.tscn").instantiate()
+			michiData[michiIndex].type = "MJ"
+			michiData[michiIndex].name = "MJ" + str(michiIndex)
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiSwifty.tscn").instantiate()
+			michiData[michiIndex].type = "Swifty"
+			michiData[michiIndex].name = "Swifty" + str(michiIndex)
+	if michiCategory == 10:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiCthulhu.tscn").instantiate()
+			michiData[michiIndex].type = "Cthulhu"
+			michiData[michiIndex].name = "Cthulhu" + str(michiIndex)
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiDracula.tscn").instantiate()
+			michiData[michiIndex].type = "Dracula"
+			michiData[michiIndex].name = "Dracula" + str(michiIndex)
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiFrankenstein.tscn").instantiate()
+			michiData[michiIndex].type = "Frankenstein"
+			michiData[michiIndex].name = "Frankenstein" + str(michiIndex)
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiReyArturo.tscn").instantiate()
+			michiData[michiIndex].type = "ReyArturo"
+			michiData[michiIndex].name = "ReyArturo" + str(michiIndex)
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiSherlockHolmes.tscn").instantiate()
+			michiData[michiIndex].type = "Swifty"
+			michiData[michiIndex].name = "Swifty" + str(michiIndex)
+	if michiCategory == 11:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiEspadachin.tscn").instantiate()
+			michiData[michiIndex].type = "Espadachin"
+			michiData[michiIndex].name = "Espadachin" + str(michiIndex)
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiHechicero.tscn").instantiate()
+			michiData[michiIndex].type = "Hechicero"
+			michiData[michiIndex].name = "Hechicero" + str(michiIndex)
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiNinja.tscn").instantiate()
+			michiData[michiIndex].type = "Ninja"
+			michiData[michiIndex].name = "Ninja" + str(michiIndex)
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiPirata.tscn").instantiate()
+			michiData[michiIndex].type = "Pirata"
+			michiData[michiIndex].name = "Pirata" + str(michiIndex)
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiSuperAlien.tscn").instantiate()
+			michiData[michiIndex].type = "SuperAlien"
+			michiData[michiIndex].name = "SuperAlien" + str(michiIndex)
+	if michiCategory == 12:
+		if probNewMichiType == 1:
+			michi = load("res://Michis/michiAladdin.tscn").instantiate()
+			michiData[michiIndex].type = "Aladdin"
+			michiData[michiIndex].name = "Aladdin" + str(michiIndex)
+		if probNewMichiType == 2:
+			michi = load("res://Michis/michiBlancaNieves.tscn").instantiate()
+			michiData[michiIndex].type = "BlancaNieves"
+			michiData[michiIndex].name = "BlancaNieves" + str(michiIndex)
+		if probNewMichiType == 3:
+			michi = load("res://Michis/michiCenicienta.tscn").instantiate()
+			michiData[michiIndex].type = "Cenicienta"
+			michiData[michiIndex].name = "Cenicienta" + str(michiIndex)
+		if probNewMichiType == 4:
+			michi = load("res://Michis/michiCheshire.tscn").instantiate()
+			michiData[michiIndex].type = "Cheshire"
+			michiData[michiIndex].name = "Cheshire" + str(michiIndex)
+		if probNewMichiType == 5:
+			michi = load("res://Michis/michiRapunzel.tscn").instantiate()
+			michiData[michiIndex].type = "Rapunzel"
+			michiData[michiIndex].name = "Rapunzel" + str(michiIndex)
 
 
 
@@ -1720,7 +2195,8 @@ func updateMichiStatusBars():
 	
 	for i in range(0, maxMichiNumber):
 		var prob1 = rng.randi_range(1,100)
-		if prob1 > 70:
+		if prob1 > 95:
+			print("DESCONTAR STAT MICHI")
 			var prob2 = rng.randi_range(1,3)
 			michiData[i].food -= prob2
 			prob2 = rng.randi_range(1,3)
@@ -1729,24 +2205,34 @@ func updateMichiStatusBars():
 			michiData[i].clean -= prob2
 			michiData[i].exercise -= 1
 			
-		if michiData[i].food < 0: michiData[i].food = 0
-		if michiData[i].fun < 0: michiData[i].fun = 0
-		if michiData[i].clean < 0: michiData[i].clean = 0
-		if michiData[i].exercise < 0: michiData[i].exercise = 0
+			if michiData[i].food < 0: michiData[i].food = 0
+			if michiData[i].fun < 0: michiData[i].fun = 0
+			if michiData[i].clean < 0: michiData[i].clean = 0
+			if michiData[i].exercise < 0: michiData[i].exercise = 0
 		
-		if 	michiNumber == i:
-			SignalManager.manageStatusBars.emit(michiData[i], huevoData[huevoIndex], 0)
+			if 	michiNumber == i and not huevoIndex == 101:
+				SignalManager.manageStatusBars.emit(michiData[i], huevoData[huevoIndex], 0)
 			
-		var promedio = (michiData[i].food + michiData[i].fun + michiData[i].clean + michiData[i].exercise)
-		#ESTADO DE ANIMO
+		var promedio = ((michiData[i].food + michiData[i].fun + michiData[i].clean + michiData[i].exercise + michiData[i].comfort)/5)
+			#ESTADO DE ANIMO
+			
+				
 		if not michiInstance[i] == null:
 			var statusGoodNode = michiInstance[i].get_node("StatusGood")
-			if promedio >= 80:
-				statusGoodNode.modulate = Color("#38ff26")
-			elif promedio >= 50:
-				statusGoodNode.modulate = Color("#ffff00")
+			if promedio >= 90:
+				statusGoodNode.texture = textureHeart
+				statusGoodNode.modulate = Color(1,1,1,1)
 			else:
-				statusGoodNode.modulate = Color("e00000")
+				statusGoodNode.texture = textureBall
+				if promedio >= 70:
+					statusGoodNode.modulate = Color("#38ff26")
+				elif promedio >= 40:
+					statusGoodNode.modulate = Color("#ffff00")
+				else:
+					statusGoodNode.modulate = Color("e00000")
+					
+			
+			
 
 
 

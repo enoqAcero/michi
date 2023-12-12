@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://de2brvdupv2xk"]
+
+[ext_resource type="Texture2D" uid="uid://bb7di4uhsggm6" path="res://Scenes/michiJump/Assets/asteroide1.png" id="1_06flm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dw34e"]
+radius = 77.0065
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_06flm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_dw34e")

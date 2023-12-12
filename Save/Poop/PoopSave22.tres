@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_pf2ek")
-active = 0
-globalPos = Vector2(463.03, 623.107)
+active = 1
+globalPos = Vector2(316.368, 690.457)
 index = 0
-roomNumber = 1
+roomNumber = 2

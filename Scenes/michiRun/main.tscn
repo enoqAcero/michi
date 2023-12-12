@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dojpx24r227o0"]
+[gd_scene load_steps=7 format=3 uid="uid://dojpx24r227o0"]
 
 [ext_resource type="Script" path="res://Scenes/michiRun/Scripts/MichiRun.gd" id="1_lh3ho"]
 [ext_resource type="Texture2D" uid="uid://cq481kl05sqgd" path="res://Scenes/michiRun/Assets/BackgroundRunner3.png" id="2_0gxel"]
 [ext_resource type="PackedScene" uid="uid://c5m6bw6qmw8hf" path="res://Scenes/michiRun/floor.tscn" id="3_oy1kh"]
+[ext_resource type="LabelSettings" uid="uid://dypmi2e3x2wsf" path="res://NamesMichiDex.tres" id="5_ar0wx"]
 [ext_resource type="PackedScene" uid="uid://bik6ywrptyw0d" path="res://GUI/PlayAgainChromeGame.tscn" id="5_b2m4n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fuwfy"]
@@ -59,5 +60,15 @@ horizontal_alignment = 1
 [node name="ObstacleTimer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 150.0
+offset_top = 259.0
+offset_right = 335.0
+offset_bottom = 321.0
+text = "Click to Start"
+label_settings = ExtResource("5_ar0wx")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]

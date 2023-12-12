@@ -57,9 +57,13 @@ const maxSpeed : int = 7
 var screenSize : Vector2
 var score : float
 
+var finalCoins = 0
+var coinWonLabel
+
 
 
 func _ready():
+	GlobalVariables.michiSelected = false
 	addMichi()
 	
 	loadData()
@@ -67,18 +71,22 @@ func _ready():
 	
 	$Camera2D/Score.text = "0"
 	screenSize = get_window().size
-	$Camera2D/Control.get_node("VBoxContainer/Confirm").pressed.connect(newGame)
-	$Camera2D/Control.get_node("VBoxContainer/Cancel").pressed.connect(exit)
+	$Camera2D/Control.get_node("VBoxContainer/HBoxContainer/Confirm").pressed.connect(playAgain)
+	$Camera2D/Control.get_node("VBoxContainer/HBoxContainer/Cancel").pressed.connect(exit)
+	$Camera2D/Control.get_node("VBoxContainer/Video").pressed.connect(video)
+	
+	coinWonLabel = $Camera2D/Control.get_node("VBoxContainer/HBoxContainer2/Label")
 	
 func newGame():
-	
 	$Camera2D/Control.visible = false
+	$Label.visible = true
 	get_tree().paused = false
 	gameRunning = false
 	
 	speed = startSpeed
 	score = 0
 	controlObstacles = 0
+	finalCoins = 0
 	
 	
 	for i in range (0, itemCount.size() - 1):
@@ -102,6 +110,7 @@ func newGame():
 		
 func _process(_delta):
 	if gameRunning == true:
+		$Label.visible = false
 		michiSprite.play("WalkingSide")
 		#update move speed
 		speed = startSpeed + (score / 800)
@@ -258,16 +267,24 @@ func handleItemCollection(item):
 		
 		
 func gameOver():
+	$Label.visible = false
 	if highScoreData.highScore < score:
 		highScoreData.highScore = score
 		save()
-	var wait = 0
-	wait = itemsCoinSave()
-	if wait == 1: 
-		$Camera2D/Control.visible = true
-		get_tree().paused = true
-		gameRunning = false
 	
+	if score >= 10000: finalCoins = int((score/120) * 1.5)
+	elif score >= 8000: finalCoins = int((score/120) * 1.4)
+	elif score >= 6000: finalCoins = int((score/120) * 1.3)
+	elif score >= 4000: finalCoins = int((score/120) * 1.2)
+	elif score >= 2000: finalCoins = int((score/120) * 1.1)
+	elif score < 2000: finalCoins = int(score/120)
+	finalCoins += itemCount[0]
+	coinWonLabel.text = str(finalCoins)
+	
+	$Camera2D/Control.visible = true
+	get_tree().paused = true
+	gameRunning = false
+
 
 
 
@@ -294,6 +311,8 @@ func save():
 	ResourceSaver.save(highScoreData, savePathHighScore + saveFileHighScore + ".tres")
 	
 func exit():
+	itemsCoinSave()
+	GlobalVariables.michiSelected = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/Test.tscn")
 
@@ -334,7 +353,7 @@ func loadItems():
 		
 func itemsCoinSave():
 	
-	monedas.coin += itemCount[0]
+	monedas.coin += finalCoins
 	for i in range(0, itemCount.size() - 1):
 		items[i].count += itemCount[i+1]
 		
@@ -347,4 +366,10 @@ func itemsCoinSave():
 	ResourceSaver.save(items[5], "res://Save/comb_item.tres") 
 	ResourceSaver.save(items[6], "res://Save/brush_item.tres") 
 	
-	return 1
+func playAgain():
+	itemsCoinSave()
+	newGame()
+	
+func video():
+	finalCoins = finalCoins * 2
+	itemsCoinSave()

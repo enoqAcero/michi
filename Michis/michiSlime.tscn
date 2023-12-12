@@ -1,51 +1,51 @@
 [gd_scene load_steps=18 format=3 uid="uid://dekgskxlhq7jv"]
 
 [ext_resource type="Script" path="res://Michis/Scripts/Michi.gd" id="1_rdyf3"]
-[ext_resource type="Texture2D" uid="uid://qhhvdvgce6el" path="res://Michis/Assets/Categoría 4/Arcoiris/arcoirisFrente.png" id="2_avpkl"]
-[ext_resource type="Texture2D" uid="uid://ukwp3rm58v2s" path="res://Michis/Assets/Categoría 4/Arcoiris/rainbowLateral.png" id="3_6ibe2"]
-[ext_resource type="Texture2D" uid="uid://dc6rres1ej3j2" path="res://Michis/Assets/Categoría 4/Arcoiris/rainbowEspalda.png" id="4_sbda6"]
+[ext_resource type="Texture2D" uid="uid://b0r77pnfe5qcx" path="res://Michis/Assets/Categoría 5/Slime/slimeFrente.png" id="2_a5dn5"]
+[ext_resource type="Texture2D" uid="uid://cs8dkbstcnav4" path="res://Michis/Assets/Categoría 5/Slime/slimeLateral.png" id="3_7rek1"]
+[ext_resource type="Texture2D" uid="uid://d3fgasfsfxw1i" path="res://Michis/Assets/Categoría 5/Slime/slimeEspalda.png" id="4_ex3y4"]
 [ext_resource type="Texture2D" uid="uid://cgkrqkv8qr6we" path="res://Michis/Status/Assets/statusWhite.png" id="5_fvhxm"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xh674"]
-atlas = ExtResource("2_avpkl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ch2x"]
+atlas = ExtResource("2_a5dn5")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kd2c3"]
-atlas = ExtResource("2_avpkl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_67khh"]
+atlas = ExtResource("2_a5dn5")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_onuep"]
-atlas = ExtResource("2_avpkl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_08w3l"]
+atlas = ExtResource("2_a5dn5")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0vgnj"]
-atlas = ExtResource("2_avpkl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_26taq"]
+atlas = ExtResource("2_a5dn5")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2pu4m"]
-atlas = ExtResource("3_6ibe2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_oras6"]
+atlas = ExtResource("3_7rek1")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lwa3l"]
-atlas = ExtResource("3_6ibe2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5rh0"]
+atlas = ExtResource("3_7rek1")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ne1t0"]
-atlas = ExtResource("4_sbda6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyitl"]
+atlas = ExtResource("4_ex3y4")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_77i7r"]
-atlas = ExtResource("4_sbda6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6gtx"]
+atlas = ExtResource("4_ex3y4")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sirv6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xh674")
+"texture": SubResource("AtlasTexture_8ch2x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kd2c3")
+"texture": SubResource("AtlasTexture_67khh")
 }],
 "loop": true,
 "name": &"Idle",
@@ -53,10 +53,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_onuep")
+"texture": SubResource("AtlasTexture_08w3l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0vgnj")
+"texture": SubResource("AtlasTexture_26taq")
 }],
 "loop": true,
 "name": &"WalkingDown",
@@ -64,10 +64,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2pu4m")
+"texture": SubResource("AtlasTexture_oras6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lwa3l")
+"texture": SubResource("AtlasTexture_c5rh0")
 }],
 "loop": true,
 "name": &"WalkingSide",
@@ -75,10 +75,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ne1t0")
+"texture": SubResource("AtlasTexture_lyitl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_77i7r")
+"texture": SubResource("AtlasTexture_d6gtx")
 }],
 "loop": true,
 "name": &"WalkingUp",

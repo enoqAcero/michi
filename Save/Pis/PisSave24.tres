@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_8og82")
-active = 0
-globalPos = Vector2(111.003, 490.605)
+active = 1
+globalPos = Vector2(235.031, 337.253)
 index = 0
-roomNumber = 1
+roomNumber = 2

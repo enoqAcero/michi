@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3 uid="uid://c856ebneqp5db"]
+[gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Save/MichiData.gd" id="1_8eumy"]
 
@@ -9,11 +9,11 @@ category = "categoria5"
 type = "Dragon"
 categoryLevel = 5
 fusionLevel = 1
-globalPos = Vector2(201.559, 688.956)
+globalPos = Vector2(436.924, 547.515)
 name = "Dragon0"
-food = -1.56
-fun = -1.56
-clean = -1.56
-comfort = 88
-exercise = -1.56
+food = 0
+fun = 0
+clean = 0
+comfort = 100
+exercise = 0
 roomNumber = 2

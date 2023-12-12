@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://27l63ashmf12"]
+[gd_scene load_steps=26 format=3 uid="uid://27l63ashmf12"]
 
 [ext_resource type="PackedScene" uid="uid://clbjx81rr0ism" path="res://Scenes/michiJump/floor.tscn" id="1_aauf1"]
 [ext_resource type="Script" path="res://Scenes/michiJump/scripts/jump.gd" id="1_wxfx5"]
@@ -12,12 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://gevff4sjth55" path="res://Scenes/michiJump/Assets/backJumper6.png" id="11_5i6iu"]
 [ext_resource type="PackedScene" uid="uid://bik6ywrptyw0d" path="res://GUI/PlayAgainChromeGame.tscn" id="11_31c22"]
 [ext_resource type="Texture2D" uid="uid://bmahf1ovuq06x" path="res://Scenes/michiJump/Assets/Moon.png" id="12_17qsc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4n0m"]
-size = Vector2(188, 1571)
+[ext_resource type="LabelSettings" uid="uid://dypmi2e3x2wsf" path="res://NamesMichiDex.tres" id="13_jysfw"]
+[ext_resource type="PackedScene" uid="uid://dlhrq3v3gsti6" path="res://Scenes/michiJump/JoyStick.tscn" id="14_xy8ar"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebwcu"]
-size = Vector2(204, 1566)
+size = Vector2(204, 4756)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4n0m"]
+size = Vector2(188, 4804)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jhjo"]
 size = Vector2(845, 240)
@@ -57,12 +59,11 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Jump" type="Node2D" groups=["ball", "brush", "coin", "comb", "fish", "item", "kibble", "laser", "tuna"]]
 script = ExtResource("1_wxfx5")
 metadata/_edit_horizontal_guides_ = [854.0, -1492.0]
-metadata/_edit_vertical_guides_ = [249.0, -367.0]
+metadata/_edit_vertical_guides_ = [249.0, 690.0, 353.0]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-1, 8.74228e-08)
 motion_offset = Vector2(0, 1)
 motion_mirroring = Vector2(0, 854)
 
@@ -105,16 +106,19 @@ limit_left = 0
 limit_right = 480
 limit_bottom = 854
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
+[node name="Right" type="StaticBody2D" parent="Camera2D"]
 position = Vector2(-240, -427)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
-position = Vector2(-94, 362.5)
-shape = SubResource("RectangleShape2D_m4n0m")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
-position = Vector2(583, 359)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera2D/Right"]
+position = Vector2(583, -1236)
 shape = SubResource("RectangleShape2D_ebwcu")
+
+[node name="Left" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(-240, -427)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/Left"]
+position = Vector2(-94, -1254)
+shape = SubResource("RectangleShape2D_m4n0m")
 
 [node name="arriba" type="Area2D" parent="Camera2D"]
 
@@ -170,6 +174,9 @@ offset_top = 19.0
 offset_right = 1.0
 offset_bottom = 19.0
 
+[node name="JoyStick" parent="CanvasLayer" instance=ExtResource("14_xy8ar")]
+position = Vector2(43, 47)
+
 [node name="Floor" parent="." instance=ExtResource("1_aauf1")]
 position = Vector2(0, 803)
 metadata/_edit_horizontal_guides_ = [28.0]
@@ -191,16 +198,26 @@ color = Color(1, 0.466667, 0, 1)
 energy = 13.12
 texture = SubResource("GradientTexture2D_yggf0")
 
-[node name="PointLight2D3" type="PointLight2D" parent="."]
-position = Vector2(427, -3914)
-scale = Vector2(14.416, 13.3555)
-color = Color(0.788235, 1, 1, 1)
-texture = SubResource("GradientTexture2D_5sbqq")
-
 [node name="Moon" type="Sprite2D" parent="."]
 position = Vector2(428, -3916)
 scale = Vector2(3.39063, 3.32813)
 texture = ExtResource("12_17qsc")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Moon"]
+position = Vector2(-0.29493, 0.901367)
+scale = Vector2(4.25172, 4.01291)
+color = Color(0.788235, 1, 1, 1)
+texture = SubResource("GradientTexture2D_5sbqq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 158.0
+offset_top = 200.0
+offset_right = 343.0
+offset_bottom = 262.0
+text = "Click to Start"
+label_settings = ExtResource("13_jysfw")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Camera2D/arriba" to="." method="_on_arriba_body_entered"]
 [connection signal="body_exited" from="Camera2D/arriba" to="." method="_on_arriba_body_exited"]

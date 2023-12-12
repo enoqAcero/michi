@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MichiDex" load_steps=49 format=3]
+[gd_resource type="Resource" script_class="MichiDex" load_steps=64 format=3 uid="uid://cegjivqauaqcf"]
 
 [ext_resource type="Script" path="res://Save/MichiDex/MichiDex.gd" id="1_2637k"]
 [ext_resource type="Script" path="res://Save/MichiDex/MichisCollected.gd" id="1_il7a5"]
@@ -210,29 +210,104 @@ active = true
 
 [sub_resource type="Resource" id="Resource_yvke8"]
 script = ExtResource("1_il7a5")
-type = "Espadachin"
+type = "Cleopatra"
 active = false
 
 [sub_resource type="Resource" id="Resource_pgs5j"]
 script = ExtResource("1_il7a5")
-type = "Goma"
+type = "Elvis"
 active = false
 
 [sub_resource type="Resource" id="Resource_70v6t"]
 script = ExtResource("1_il7a5")
-type = "Hechicero"
+type = "Khalo"
 active = false
 
 [sub_resource type="Resource" id="Resource_3iajb"]
 script = ExtResource("1_il7a5")
-type = "Ninja"
+type = "MJ"
 active = false
 
 [sub_resource type="Resource" id="Resource_ndlwv"]
 script = ExtResource("1_il7a5")
-type = "SuperAlien"
+type = "Swifty"
 active = false
+
+[sub_resource type="Resource" id="Resource_jife6"]
+script = ExtResource("1_il7a5")
+type = "Cthulhu"
+active = false
+
+[sub_resource type="Resource" id="Resource_t6wye"]
+script = ExtResource("1_il7a5")
+type = "Dracula"
+active = false
+
+[sub_resource type="Resource" id="Resource_7pb11"]
+script = ExtResource("1_il7a5")
+type = "Frankenstein"
+active = false
+
+[sub_resource type="Resource" id="Resource_uq3ru"]
+script = ExtResource("1_il7a5")
+type = "ReyArturo"
+active = false
+
+[sub_resource type="Resource" id="Resource_yk6hk"]
+script = ExtResource("1_il7a5")
+type = "SherlockHolmes"
+active = false
+
+[sub_resource type="Resource" id="Resource_qrsi5"]
+script = ExtResource("1_il7a5")
+type = "Espadachin"
+active = true
+
+[sub_resource type="Resource" id="Resource_huu3k"]
+script = ExtResource("1_il7a5")
+type = "Hechicero"
+active = false
+
+[sub_resource type="Resource" id="Resource_ldxol"]
+script = ExtResource("1_il7a5")
+type = "Ninja"
+active = true
+
+[sub_resource type="Resource" id="Resource_cnpoh"]
+script = ExtResource("1_il7a5")
+type = "Pirata"
+active = false
+
+[sub_resource type="Resource" id="Resource_3ldpv"]
+script = ExtResource("1_il7a5")
+type = "SuperAlien"
+active = true
+
+[sub_resource type="Resource" id="Resource_48gcj"]
+script = ExtResource("1_il7a5")
+type = "Aladdin"
+active = false
+
+[sub_resource type="Resource" id="Resource_tc0sq"]
+script = ExtResource("1_il7a5")
+type = "BlancaNieves"
+active = true
+
+[sub_resource type="Resource" id="Resource_7etp8"]
+script = ExtResource("1_il7a5")
+type = "Cenicienta"
+active = false
+
+[sub_resource type="Resource" id="Resource_i0qn4"]
+script = ExtResource("1_il7a5")
+type = "Cheshire"
+active = true
+
+[sub_resource type="Resource" id="Resource_pe0po"]
+script = ExtResource("1_il7a5")
+type = "Rapunzel"
+active = true
 
 [resource]
 script = ExtResource("1_2637k")
-michiIndex = Array[ExtResource("1_il7a5")]([SubResource("Resource_8hg7c"), SubResource("Resource_4yoj2"), SubResource("Resource_palaw"), SubResource("Resource_vn22e"), SubResource("Resource_6vj7m"), SubResource("Resource_3clkr"), SubResource("Resource_cfuye"), SubResource("Resource_vbd3u"), SubResource("Resource_2lj3a"), SubResource("Resource_2icgx"), SubResource("Resource_01ppw"), SubResource("Resource_vvyp2"), SubResource("Resource_lvcu3"), SubResource("Resource_kqel3"), SubResource("Resource_1qu1r"), SubResource("Resource_ugwn6"), SubResource("Resource_kt5ht"), SubResource("Resource_o4i2b"), SubResource("Resource_voha4"), SubResource("Resource_ugkjh"), SubResource("Resource_rkuds"), SubResource("Resource_dfbf3"), SubResource("Resource_gmuei"), SubResource("Resource_6em16"), SubResource("Resource_upt82"), SubResource("Resource_o5lb6"), SubResource("Resource_b15q5"), SubResource("Resource_khxop"), SubResource("Resource_vv25v"), SubResource("Resource_ypplg"), SubResource("Resource_hd6fo"), SubResource("Resource_fuv07"), SubResource("Resource_uwhdr"), SubResource("Resource_jx7yx"), SubResource("Resource_l7hqp"), SubResource("Resource_5mp0x"), SubResource("Resource_42yh0"), SubResource("Resource_jt8hu"), SubResource("Resource_fyiia"), SubResource("Resource_8itpp"), SubResource("Resource_0wakh"), SubResource("Resource_yvke8"), SubResource("Resource_pgs5j"), SubResource("Resource_70v6t"), SubResource("Resource_3iajb"), SubResource("Resource_ndlwv")])
+michiIndex = Array[ExtResource("1_il7a5")]([SubResource("Resource_8hg7c"), SubResource("Resource_4yoj2"), SubResource("Resource_palaw"), SubResource("Resource_vn22e"), SubResource("Resource_6vj7m"), SubResource("Resource_3clkr"), SubResource("Resource_cfuye"), SubResource("Resource_vbd3u"), SubResource("Resource_2lj3a"), SubResource("Resource_2icgx"), SubResource("Resource_01ppw"), SubResource("Resource_vvyp2"), SubResource("Resource_lvcu3"), SubResource("Resource_kqel3"), SubResource("Resource_1qu1r"), SubResource("Resource_ugwn6"), SubResource("Resource_kt5ht"), SubResource("Resource_o4i2b"), SubResource("Resource_voha4"), SubResource("Resource_ugkjh"), SubResource("Resource_rkuds"), SubResource("Resource_dfbf3"), SubResource("Resource_gmuei"), SubResource("Resource_6em16"), SubResource("Resource_upt82"), SubResource("Resource_o5lb6"), SubResource("Resource_b15q5"), SubResource("Resource_khxop"), SubResource("Resource_vv25v"), SubResource("Resource_ypplg"), SubResource("Resource_hd6fo"), SubResource("Resource_fuv07"), SubResource("Resource_uwhdr"), SubResource("Resource_jx7yx"), SubResource("Resource_l7hqp"), SubResource("Resource_5mp0x"), SubResource("Resource_42yh0"), SubResource("Resource_jt8hu"), SubResource("Resource_fyiia"), SubResource("Resource_8itpp"), SubResource("Resource_0wakh"), SubResource("Resource_yvke8"), SubResource("Resource_pgs5j"), SubResource("Resource_70v6t"), SubResource("Resource_3iajb"), SubResource("Resource_ndlwv"), SubResource("Resource_jife6"), SubResource("Resource_t6wye"), SubResource("Resource_7pb11"), SubResource("Resource_uq3ru"), SubResource("Resource_yk6hk"), SubResource("Resource_qrsi5"), SubResource("Resource_huu3k"), SubResource("Resource_ldxol"), SubResource("Resource_cnpoh"), SubResource("Resource_3ldpv"), SubResource("Resource_48gcj"), SubResource("Resource_tc0sq"), SubResource("Resource_7etp8"), SubResource("Resource_i0qn4"), SubResource("Resource_pe0po")])

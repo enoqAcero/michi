@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_vhn24")
-active = 0
-category = "categoria5"
-type = "Slime"
-categoryLevel = 5
+active = 1
+category = "categoria9"
+type = "MJ"
+categoryLevel = 9
 fusionLevel = 1
-globalPos = Vector2(133.929, 289)
-name = "Slime11"
+globalPos = Vector2(140.87, 733.941)
+name = "MJ11"
 food = 0
 fun = 0
 clean = 0
 comfort = 100
 exercise = 0
-roomNumber = 2
+roomNumber = 1

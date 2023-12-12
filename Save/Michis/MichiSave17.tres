@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_fu1um")
-active = 0
-category = ""
-type = ""
-categoryLevel = 1
+active = 1
+category = "categoria11"
+type = "Espadachin"
+categoryLevel = 11
 fusionLevel = 1
-globalPos = Vector2(250, 450)
-name = ""
+globalPos = Vector2(422.864, 564.131)
+name = "Espadachin17"
 food = 0
 fun = 0
 clean = 0
 comfort = 100
 exercise = 0
-roomNumber = 1
+roomNumber = 3
