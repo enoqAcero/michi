@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_vhn24"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_v68o6"]
 
 [resource]
-script = ExtResource("1_vhn24")
+script = ExtResource("1_v68o6")
 active = 1
 category = "categoria9"
 type = "MJ"
 categoryLevel = 9
 fusionLevel = 1
-globalPos = Vector2(140.87, 733.941)
+globalPos = Vector2(89, 439)
 name = "MJ11"
 food = 0
 fun = 0
 clean = 0
 comfort = 100
 exercise = 0
-roomNumber = 1
+roomNumber = 4

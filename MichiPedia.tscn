@@ -1639,7 +1639,7 @@ label_settings = ExtResource("3_i0sbo")
 position = Vector2(340, 42)
 scale = Vector2(3, 3)
 texture = ExtResource("51_wevd2")
-hframes = 2
+hframes = 26
 
 [node name="Panel48" type="Panel" parent="ScrollContainer/Control/VBoxContainer"]
 clip_contents = true

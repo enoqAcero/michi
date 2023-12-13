@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_34yn1"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_8d6hb"]
 
 [resource]
-script = ExtResource("1_34yn1")
+script = ExtResource("1_8d6hb")
 active = 1
 category = "categoria12"
 type = "BlancaNieves"
 categoryLevel = 12
 fusionLevel = 1
-globalPos = Vector2(66, 344)
+globalPos = Vector2(254.5, 515)
 name = "BlancaNieves12"
 food = 0
 fun = 0
