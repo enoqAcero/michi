@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="fusionP100"
+config/name="michi"
 run/main_scene="res://Scenes/Test.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"

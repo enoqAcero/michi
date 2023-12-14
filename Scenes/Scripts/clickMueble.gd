@@ -29,7 +29,7 @@ func _process(_delta):
 			if mueble.countF > 0:
 				SignalManager.muebleSignal.emit(indexMueble,-1)
 			mueble.countF -= 1
-			mueble.furnitureInScene[roomNumber.roomNumber] += 1
+			mueble.furnitureInScene[roomNumber.roomNumber - 1] += 1
 			if mueble.countF <= 0 :
 				mueble.countF = 0
 				queue_free()

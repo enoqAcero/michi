@@ -1,15 +1,8 @@
 res://Scenes/Test.tscn
-res://Scenes/Scripts/Test.gd
 res://Save/Furniture/furnitureSave.tres
+res://Scenes/Scripts/Test.gd
 res://Scenes/InventarioMuebles.gd
 res://Scenes/InventarioMuebles.tscn
 res://Save/Furniture/resetInventory.tscn
-res://Save/Furniture/resetInventory.gd
 res://Save/GUI/SaveGUIColor.tres
 res://Scenes/Scripts/clickMueble.gd
-res://Save/Furniture/furnitureCollected.gd
-res://Michis/michiAgua.tscn
-res://Michis/Scripts/Michi.gd
-res://Save/moneditas.tres
-res://inventario.gd
-res://inventario.tscn

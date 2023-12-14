@@ -511,13 +511,11 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 #salvar el juego
 func salvaMueble():
 	#salva mueble
-	
 #try 3
 	for fur in (furnitureInstance):
 		for i in range (0,furnitureData.furnitureList.size()):
 			for j in range (0,furnitureData.furnitureList[i].active.size()):
 				if fur.name == ("Mueble"+str(i)+"_"+str(j)):
-					furnitureData.furnitureList[i].counterF = 0
 					furnitureData.furnitureList[i].posF[j] = fur.global_position
 #try 2
 	#for i in range(0, furnitureData.furnitureList.size()):
@@ -2358,7 +2356,9 @@ func ponerMueble(indexMueble : int, controlM : int):
 				
 	var pos = Vector2 (200,500)
 	if controlM == -1:
-		character.name = "Mueble" + str(indexMueble) + "_" + str(furnitureData.furnitureList[indexMueble].counterF)
+		var nombreIndex2 = furnitureData.furnitureList[indexMueble].active.size()
+		character.name = "Mueble" + str(indexMueble) + "_" + str(nombreIndex2)
+		print("se cargo mueble:", character.name)
 	# Establece la posición global del mueble en la coordenada (200, 500).
 		print("Agregar mueble con click")
 		if furnitureData.furnitureList[indexMueble].active.is_empty():
@@ -2383,7 +2383,7 @@ func ponerMueble(indexMueble : int, controlM : int):
 		character.global_position = pos
 		
 		
-	if not controlM == -1 :
+	if not controlM == -1:
 		character.name = "Mueble" + str(indexMueble) + "_" + str(controlM)
 		print("se cargo mueble:", character.name)
 		character.global_position = furnitureData.furnitureList[indexMueble].posF[controlM]
