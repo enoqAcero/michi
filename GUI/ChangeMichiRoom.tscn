@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciw00nnf2gedt"]
+[gd_scene load_steps=12 format=3 uid="uid://ciw00nnf2gedt"]
 
 [ext_resource type="Script" path="res://GUI/Scripts/ChangeMichiRoom.gd" id="1_e8nl3"]
 [ext_resource type="PackedScene" uid="uid://b0ljrh2tqay0g" path="res://GUI/ConfirmRelease.tscn" id="2_4wvxr"]
+[ext_resource type="Texture2D" uid="uid://cuohiodmirl7c" path="res://GUI/Assets/modalFrame.png" id="2_ltias"]
+[ext_resource type="LabelSettings" uid="uid://dypmi2e3x2wsf" path="res://NamesMichiDex.tres" id="2_uctpi"]
+[ext_resource type="Texture2D" uid="uid://3bdd777b63wy" path="res://GUI/Assets/GUIizquierda.png" id="3_6hffc"]
+[ext_resource type="LabelSettings" uid="uid://d3fxyev510uey" path="res://tipoNum.tres" id="3_7122s"]
+[ext_resource type="Texture2D" uid="uid://btgfsyrmhevd" path="res://GUI/Assets/GUIderecha.png" id="4_hbc5n"]
+[ext_resource type="Texture2D" uid="uid://dvx30jvfpc53i" path="res://GUI/Assets/botonCancelar.png" id="8_csn7y"]
+[ext_resource type="Texture2D" uid="uid://bomclqgfd6v7c" path="res://GUI/Assets/BotonPlace.png" id="8_ryvfu"]
+[ext_resource type="FontFile" uid="uid://dtjra5b55fol8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="11_nfeu6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vqlbt"]
+font = ExtResource("11_nfeu6")
+font_size = 26
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_offset = Vector2(0, 0)
 
 [node name="Control" type="Control"]
 process_mode = 2
@@ -12,6 +28,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e8nl3")
+
+[node name="ModalFrame" type="Sprite2D" parent="."]
+position = Vector2(238.5, 447.75)
+scale = Vector2(1.75117, 1.71525)
+texture = ExtResource("2_ltias")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -24,12 +45,14 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Change to Room: "
+label_settings = ExtResource("2_uctpi")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="roomN" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "1"
+label_settings = ExtResource("3_7122s")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -37,52 +60,116 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="prev" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="prev" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+texture_filter = 2
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 0
-text = "<"
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 3.3
+texture_normal = ExtResource("3_6hffc")
 
-[node name="next" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="next" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+texture_filter = 2
 custom_minimum_size = Vector2(100, 100)
 layout_direction = 2
 layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 8
-text = ">"
-
-[node name="place" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-text = "Place"
-
-[node name="placeGo" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-text = "Place and Go"
-
-[node name="release" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-text = "Release"
-
-[node name="cancel" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-text = "Cancel"
+size_flags_horizontal = 0
+size_flags_vertical = 4
+size_flags_stretch_ratio = 1.26
+texture_normal = ExtResource("4_hbc5n")
 
 [node name="Control" parent="." instance=ExtResource("2_4wvxr")]
 z_index = 8
 layout_mode = 2
-offset_left = 56.0
-offset_top = 389.0
-offset_right = 460.0
-offset_bottom = 389.0
+offset_left = 70.0
+offset_top = 392.0
+offset_right = 474.0
+offset_bottom = 392.0
+
+[node name="place" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+offset_left = -43.0
+offset_top = 482.0
+offset_right = 361.0
+offset_bottom = 534.0
+texture_normal = ExtResource("8_ryvfu")
+stretch_mode = 5
+
+[node name="placeGo" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+offset_left = 117.0
+offset_top = 483.0
+offset_right = 521.0
+offset_bottom = 535.0
+texture_normal = ExtResource("8_ryvfu")
+stretch_mode = 5
+
+[node name="release" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+offset_left = 117.0
+offset_top = 550.0
+offset_right = 521.0
+offset_bottom = 602.0
+texture_normal = ExtResource("8_csn7y")
+stretch_mode = 3
+
+[node name="cancel" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+offset_left = -43.0
+offset_top = 550.0
+offset_right = 361.0
+offset_bottom = 602.0
+texture_normal = ExtResource("8_csn7y")
+stretch_mode = 5
+
+[node name="PlaceLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 492.0
+offset_right = 189.0
+offset_bottom = 525.0
+text = "Place"
+label_settings = ExtResource("3_7122s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReleaseLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 560.0
+offset_right = 372.0
+offset_bottom = 595.0
+text = "RELEASE"
+label_settings = SubResource("LabelSettings_vqlbt")
+
+[node name="placeNGoLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 263.0
+offset_top = 492.0
+offset_right = 378.0
+offset_bottom = 525.0
+text = "Place & Go"
+label_settings = ExtResource("3_7122s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cancel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 559.0
+offset_right = 197.0
+offset_bottom = 592.0
+text = "Cancel"
+label_settings = ExtResource("3_7122s")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/next" to="." method="_on_next_pressed"]
-[connection signal="pressed" from="VBoxContainer/place" to="." method="_on_place_pressed"]
-[connection signal="pressed" from="VBoxContainer/placeGo" to="." method="_on_place_go_pressed"]
-[connection signal="pressed" from="VBoxContainer/release" to="." method="_on_release_pressed"]
-[connection signal="pressed" from="VBoxContainer/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="place" to="." method="_on_place_pressed"]
+[connection signal="pressed" from="placeGo" to="." method="_on_place_go_pressed"]
+[connection signal="pressed" from="release" to="." method="_on_release_pressed"]
+[connection signal="pressed" from="cancel" to="." method="_on_cancel_pressed"]

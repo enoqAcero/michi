@@ -5,14 +5,14 @@
 [resource]
 script = ExtResource("1_vsppp")
 active = 1
-category = "categoria4"
-type = "Estrellas"
-categoryLevel = 4
+category = "categoria6"
+type = "Fuego"
+categoryLevel = 6
 fusionLevel = 1
-globalPos = Vector2(86, 535)
-name = "Estrellas2"
+globalPos = Vector2(371.5, 429)
+name = "pepito"
 food = 0
-fun = 0
+fun = 11
 clean = 0
 comfort = 100
 exercise = 0

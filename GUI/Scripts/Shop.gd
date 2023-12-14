@@ -4,6 +4,7 @@ var furnitureResource = preload("res://Save/Furniture/furnitureSave.tres")
 var moneditas = ResourceLoader.load("res://Save/moneditas.tres")#= preload("res://Inventory/bolsa_monedas.tres")
 var label_settings = preload("res://tipoNum.tres")
 var buy_texture = preload("res://GUI/Assets/buyN.png")
+
 var maxMichiNumber = GlobalVariables.maxMichiNumber
 var monedero_resource
 var inventory_resource
@@ -95,6 +96,10 @@ func _ready():
 		# Texturas muebles
 		var sprite = TextureRect.new()
 		sprite.texture = fuun.spriteF
+		#if fuun.frameNum > 1:
+			#var frame_width = sprite.texture.get_width() / fuun.frameNum
+			#sprite.region_enabled = true
+			#sprite.region_rect = Rect2(0, 0, frame_width, sprite.texture.get_height())
 		sprite.stretch_mode = TextureRect.STRETCH_KEEP
 		item_hbox.add_child(sprite)
 		
@@ -133,7 +138,7 @@ func _ready():
 		# y pasar 'furniture' y 'count_label' como argumentos.
 		#muebles.furnitureList.append(fuun)
 		NumMueble += 1
-	
+
 	# Carga los items.
 	
 	var kibble_item = ResourceLoader.load ("res://Save/kibble_item.tres")
@@ -170,7 +175,7 @@ func _ready():
 	items = inventory_resource.items
 	update_item()  
 	
-
+#boton de muebles para comprar
 func _buy_button_pressed(count_labelM, NumM):
 	print("esto es NUM: ", NumM)
 	if moneditas.coin >= furnitureResource.furnitureList[NumM].costF:#var botonNombre = 
@@ -179,7 +184,7 @@ func _buy_button_pressed(count_labelM, NumM):
 		count_labelM.text = "Cantidad: %d" % furnitureResource.furnitureList[NumM].countF 
 		moneditas.coin -=  furnitureResource.furnitureList[NumM].costF 		
 		coins_label.text = str(moneditas.coin)
-
+		ResourceSaver.save(furnitureResource, "res://Save/Furniture/furnitureSave.tres") 
 		
 	
 	
@@ -282,6 +287,7 @@ func buy_brush():
 
 
 func _on_button_pressed():
+	ResourceSaver.save(furnitureResource, "res://Save/Furniture/furnitureSave.tres")
 	set_visible(false)
 	get_tree().paused=false
 	get_node("../inventario/Item").set_visible(true)
@@ -295,6 +301,7 @@ func _on_button_pressed():
 	get_node("../CanvasLayer/comfort").set_visible(true)
 	get_node("../CanvasLayer/exercise").set_visible(true)
 	SignalManager.michiEggShowHide.emit(1)
+
 	
 	
 	
@@ -351,7 +358,7 @@ func _on_furnitures_pressed():
 func itemsCoinSave():
 	ResourceSaver.save(moneditas, "res://Save/moneditas.tres")
 	ResourceSaver.save(furnitureResource, "res://Save/Furniture/furnitureSave.tres")
-
+	
 func addCoins(coin : int):
 	moneditas.coin += coin
 	coins_label.text = str(moneditas.coin)

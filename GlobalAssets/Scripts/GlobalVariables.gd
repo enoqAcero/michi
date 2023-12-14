@@ -20,4 +20,6 @@ var itemSelected = false
 var huevoSelected = false
 var huevoHover = false
 var michiCategory
-
+var muebleSelected = false
+var muebleHover = false
+var lockMuebles = true

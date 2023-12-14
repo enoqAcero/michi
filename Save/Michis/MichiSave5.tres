@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_lts2t"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_u7ci3"]
 
 [resource]
-script = ExtResource("1_lts2t")
+script = ExtResource("1_u7ci3")
 active = 1
-category = "categoria4"
-type = "Cristal"
-categoryLevel = 4
+category = "categoria12"
+type = "BlancaNieves"
+categoryLevel = 12
 fusionLevel = 1
-globalPos = Vector2(74.3029, 335.844)
-name = "Cristal5"
+globalPos = Vector2(114, 452)
+name = "BlancaNieves5"
 food = 0
 fun = 0
 clean = 0
 comfort = 100
 exercise = 0
-roomNumber = 4
+roomNumber = 1

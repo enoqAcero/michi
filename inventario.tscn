@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://j3ostc4r7ccw"]
+[gd_scene load_steps=16 format=3 uid="uid://j3ostc4r7ccw"]
 
 [ext_resource type="Script" path="res://inventario.gd" id="1_uqm7j"]
 [ext_resource type="PackedScene" uid="uid://cmtkxo7xmhpgo" path="res://itemInventario.tscn" id="2_c6u18"]
 [ext_resource type="Texture2D" uid="uid://b54monjd0qe01" path="res://GUI/Assets/GUIbottomBackground.png" id="2_qevul"]
+[ext_resource type="PackedScene" uid="uid://ktcvksdwhi1y" path="res://Scenes/InventarioMuebles.tscn" id="3_laf26"]
 [ext_resource type="Texture2D" uid="uid://cmjqoipmu1ij1" path="res://GUI/Assets/MidFrameInv.png" id="3_nmr0w"]
 [ext_resource type="Texture2D" uid="uid://btgfsyrmhevd" path="res://GUI/Assets/GUIderecha.png" id="4_n4hfh"]
 [ext_resource type="Texture2D" uid="uid://3bdd777b63wy" path="res://GUI/Assets/GUIizquierda.png" id="5_8jk0t"]
@@ -10,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dnc4jn856pqd8" path="res://GUI/Assets/counterSpace.png" id="7_uxart"]
 [ext_resource type="Texture2D" uid="uid://dtfn083gavxw4" path="res://GUI/Assets/GUIajustes.png" id="9_hkiqj"]
 [ext_resource type="Texture2D" uid="uid://4l8gf2swekpy" path="res://GUI/Assets/GUIMichipedia.png" id="10_ynigk"]
-[ext_resource type="Texture2D" uid="uid://cocb4h55y82d1" path="res://GUI/Assets/GUIcuartos.png" id="11_65xsr"]
 [ext_resource type="PackedScene" uid="uid://dlx3w8bgupss6" path="res://Furniture&rooms.tscn" id="12_6jiyk"]
 [ext_resource type="PackedScene" uid="uid://cjvq3s7i27bku" path="res://Settings.tscn" id="13_0wt88"]
+[ext_resource type="Texture2D" uid="uid://b73v4qgxwf6h" path="res://GUI/Assets/GUIdecorar.png" id="13_rh8hd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hx5q4"]
 font = ExtResource("7_irrhm")
@@ -32,6 +33,11 @@ metadata/_edit_vertical_guides_ = [240.0]
 visible = false
 z_index = 1
 position = Vector2(130, 724)
+
+[node name="InvMuebles" parent="." instance=ExtResource("3_laf26")]
+visible = false
+z_index = 1
+position = Vector2(-4, 8)
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 process_mode = 3
@@ -122,11 +128,20 @@ offset_bottom = 846.0
 texture_normal = ExtResource("10_ynigk")
 
 [node name="Rooms" type="TextureButton" parent="."]
-offset_left = 99.0
+z_as_relative = false
+offset_left = 105.0
+offset_top = 785.0
+offset_right = 156.0
+offset_bottom = 845.0
+texture_normal = ExtResource("13_rh8hd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -42.0
 offset_top = 778.0
-offset_right = 158.0
-offset_bottom = 846.0
-texture_normal = ExtResource("11_65xsr")
+offset_right = 488.0
+offset_bottom = 847.0
+color = Color(0.811765, 0.847059, 0.862745, 1)
 
 [connection signal="pressed" from="next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

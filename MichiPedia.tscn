@@ -77,7 +77,7 @@ texture = ExtResource("2_dxm1k")
 offset_left = 25.0
 offset_top = 137.0
 offset_right = 450.0
-offset_bottom = 768.0
+offset_bottom = 693.0
 scroll_vertical = 100
 
 [node name="Control" type="Control" parent="ScrollContainer"]

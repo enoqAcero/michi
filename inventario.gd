@@ -2,11 +2,11 @@ extends Node2D
 var coins = 100
 var item_index = 0
 var Inventory = preload("res://Inventory/inventory.gd")
+var furnitureResource = preload("res://Save/Furniture/furnitureSave.tres")
 var inventory_resource
 var items = []
 var sprite_node
 var count_label
-
 
 
 
@@ -41,7 +41,9 @@ func _ready():
 	SignalManager.updateItems.connect(update_item)
 	
 	
-	
+
+
+
 
 func itemsCoinSave():
 	ResourceSaver.save(items[0], "res://Save/kibble_item.tres")
@@ -114,13 +116,57 @@ func _on_back_pressed():
 
 
 func _on_rooms_pressed():
-	if $bgFurnitures_Rooms.visible:
-		$bgFurnitures_Rooms.hide()
+	var topGui = get_parent().get_node("ColorRectTopGUI")
+	var canvaTop = get_parent().get_node("CanvasLayer")
+	var shopB = get_parent().get_node("inventario/TextureButton")
+	var limpiarH = get_parent()
+	var nextE = get_parent().get_node("next")
+	var prevE = get_parent().get_node("prev")
+	if $InvMuebles.visible:
+		$InvMuebles.hide()
+		$Rooms.global_position = Vector2 (105,785)
+		shopB.show()
+		prevE.show()
+		nextE.show()
+		$ColorRect.hide()
+		$next.show()
+		$back.show()
+		$Item.show()
+		$Settings.show()
+		$MichiPedia.show()
+		$CounterSpace.show()
+		$Label.show()
+		topGui.hide()
+		canvaTop.show()
+		#get_tree().reload_current_scene()
+		limpiarH.clearScreenJustShow()
+		limpiarH.salvaMueble()
+		GlobalVariables.lockMuebles = true
+		
+
 	else:
-		$bgFurnitures_Rooms.show()
-	
-
-
+		$InvMuebles.show()
+		$next.hide()
+		$back.hide()
+		$Item.hide()
+		$Settings.hide()
+		$MichiPedia.hide()
+		$CounterSpace.hide()
+		$Label.hide()
+		$Rooms.global_position = Vector2 (220,60)
+		$Rooms.z_index = 2
+		shopB.hide()
+		prevE.hide()
+		nextE.hide()
+		$ColorRect.show()
+		limpiarH.clearScreenJustHide()
+		topGui.show()
+		canvaTop.hide()
+		GlobalVariables.lockMuebles = false
+		#var actualizarMuebles = get_node("InvMuebles")
+		#print("esto es el nodo", actualizarMuebles)
+		#actualizarMuebles.mostrarMuebleInv()
+		
 func _on_settings_pressed():
 	if $setting.visible:
 		$setting.hide()

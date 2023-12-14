@@ -1,18 +1,16 @@
 extends Node2D
-
+#var furnitureResource = preload("res://Save/Furniture/furnitureSave.tres")
 var getRoomNumber : ColorGUI
 var roomNumber
 #variables para posicionar los michis y huevos
 var rng = RandomNumberGenerator.new()
 var pos_x
 var pos_y
-
+var textureHeart = preload("res://Michis/Status/Assets/statusHeart.png")
+var textureBall = preload("res://Michis/Status/Assets/statusWhite.png")
 #variables para guardar datos
 var savePathMichi = "res://Save/Michis/"
 var saveFileNameMichi = "MichiSave"
-var textureHeart = preload("res://Michis/Status/Assets/statusHeart.png")
-var textureBall = preload("res://Michis/Status/Assets/statusWhite.png")
-
 var savePathHuevo = "res://Save/Huevos/"
 var saveFileNameHuevo = "HuevoSave"
 var savePathPis = "res://Save/Pis/"
@@ -21,6 +19,9 @@ var savePathPoop = "res://Save/Poop/"
 var saveFileNamePoop = "PoopSave"
 var savePathColorGui = "res://Save/GUI/"
 var saveFileColorGui= "SaveGUIColor"
+var furnitureData : furniture
+var furnitureInstance = []
+var furnitureInstanceId = 0
 #guardad que tipo de objeto se esta seleccionando
 var type = 0
 #crea michis del 0 al maxMichiNumber -1 y guardar en array de tipo MichiData. si maxMichiNumber = 5 crea en total 5 michis
@@ -62,9 +63,9 @@ var coinInstance : Array
 var timerCoinInstance : Array
 
 var tiempo = 0.0
-var caminadora 
+var caminadora
 var caminadoraLuz
-var brincolinLuz 
+var brincolinLuz
 var brincolin
 var nuevoNombre
 var pisCounter = 0
@@ -95,7 +96,7 @@ func _ready():
 	brincolin = $jumper3000.get_node("Area2D")
 	brincolin.body_entered.connect(michiJumper)
 	
-	
+	SignalManager.muebleSignal.connect(ponerMueble, 0)
 	SignalManager.michiNumber.connect(getNumber, 0)
 	SignalManager.huevoNumber.connect(getNumber, 1)
 	SignalManager.merge.connect(merge)
@@ -120,7 +121,6 @@ func AgregarTodo():
 		if pisData[i].active == 1 and pisData[i].roomNumber == roomNumber:
 			pisCounter += 1
 			add_child(pis)
-			print("se agrego pis:", i, " a la escena")	
 		pisInstance.append(pis)
 		
 	#poner todas las mierdas
@@ -132,8 +132,8 @@ func AgregarTodo():
 		if poopData[i].active == 1 and poopData[i].roomNumber == roomNumber:
 			poopCounter += 1
 			add_child(poop)
-			print("se agrego pis:", i, " a la escena")	
 		poopInstance.append(poop)
+	
 	
 	#poner todos los michis en escena	
 	for i in range(0, maxMichiNumber): 
@@ -302,7 +302,6 @@ func AgregarTodo():
 		michi.z_index = 2
 		if michiData[i].active == 1 and michiData[i].roomNumber == roomNumber:
 			add_child(michi)
-			print("se agrego michi:", i, " a la escena")
 		michiInstance.append(michi)
 		
 
@@ -341,9 +340,19 @@ func AgregarTodo():
 		huevo.z_index = 2
 		if huevoData[i].active == 1 and huevoData[i].roomNumber == roomNumber:
 			add_child(huevo)
-			print("se agrego huevo:", i, " a la escena")	
 		huevoInstance.append(huevo)
 		
+		
+	#agregar los muebles en pantalla
+	for i in range(0, furnitureData.furnitureList.size()):
+		furnitureData.furnitureList[i].counterF = 0
+		for j in range (0,furnitureData.furnitureList[i].active.size()):
+			if furnitureData.furnitureList[i].active[j] == 1:
+				if furnitureData.furnitureList[i].roomF[j] == roomNumber:
+					print("mandar a poner mueble: ",furnitureData.furnitureList[i].nameF)
+					ponerMueble(i,j)
+		
+
 	updateMichiStatusBars()
 
 	
@@ -363,6 +372,7 @@ func originRestComfort ():
 
 	
 	
+	
 func _process(_delta):
 	if GlobalVariables.naceMichi == 1:
 		naceMichi(GlobalVariables.huevoNumber)
@@ -375,6 +385,7 @@ func _process(_delta):
 		caminadoraLuz.hide()
 		brincolinLuz.hide()
 	
+
 
 #cuando se apieta un michi o un huevo aparecen sus stats mandando a llamar la funcion updateStatus
 func _input(_event):
@@ -487,11 +498,50 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 			getRoomNumber = ResourceLoader.load(savePathColorGui + saveFileColorGui + ".tres")
 			
 		roomNumber = getRoomNumber.roomNumber
-
-	
+		
+	elif typeLocal == 5:
+		if ResourceLoader.exists("res://Save/Furniture/furnitureSave.tres"):
+			furnitureData = (ResourceLoader.load("res://Save/Furniture/furnitureSave.tres"))
+		else:
+			var newfurnitureData = furniture.new()
+			ResourceSaver.save(newfurnitureData, ("res://Save/Furniture/furnitureSave.tres" ))
+			furnitureData = (ResourceLoader.load("res://Save/Furniture/furnitureSave.tres"))
 	
 
 #salvar el juego
+func salvaMueble():
+	#salva mueble
+	
+#try 3
+	for fur in (furnitureInstance):
+		for i in range (0,furnitureData.furnitureList.size()):
+			for j in range (0,furnitureData.furnitureList[i].active.size()):
+				if fur.name == ("Mueble"+str(i)+"_"+str(j)):
+					furnitureData.furnitureList[i].counterF = 0
+					furnitureData.furnitureList[i].posF[j] = fur.global_position
+#try 2
+	#for i in range(0, furnitureData.furnitureList.size()):
+		#furnitureData.furnitureList[i].counterF = 0
+		#for j in range (0,furnitureData.furnitureList[i].active.size()):
+			#if furnitureData.furnitureList[i].active[j] == 1:
+				#if furnitureData.furnitureList[i].roomF[j] == roomNumber:
+					#print("Se salvo mueble: ", furnitureInstance[furnitureData.furnitureList[i].instanceID[j]].name)
+					#print("instance position antes: ",furnitureData.furnitureList[i].posF[j])
+					#print("instance id: ",furnitureData.furnitureList[i].instanceID[j])
+					#if furnitureInstance[furnitureData.furnitureList[i].instanceID[j]].name == ("Mueble"+str(i)+"_"+str(j)):
+						#furnitureData.furnitureList[i].posF[j] = furnitureInstance[furnitureData.furnitureList[i].instanceID[j]].global_position
+						#print("instance position despues: ",furnitureData.furnitureList[i].posF[j])
+						
+#try 1
+	#for i in range(0, furnitureData.furnitureList.size()):
+		#for j in range (0, furnitureData.furnitureList[i].active.size()):
+			#if furnitureData.furnitureList[i].active[j] == 1:
+				#if furnitureData.furnitureList[i].roomF[j] == roomNumber:
+					#print("Instance name: ", furnitureInstance[furnitureData.furnitureList[i].instanceID[j]].name)
+					#print("instance position antes: ",furnitureData.furnitureList[i].posF[j])
+					#furnitureData.furnitureList[i].posF[j] = furnitureInstance[furnitureData.furnitureList[i].instanceID[j]].global_position
+					#print("instance position despues: ",furnitureData.furnitureList[i].posF[j])
+	ResourceSaver.save(furnitureData, "res://Save/Furniture/furnitureSave.tres")
 func save(michiN : int): #type 0 = michi, type 1 = huevo
 	#salva los michis
 	for i in range(0, maxMichiNumber):
@@ -519,7 +569,8 @@ func save(michiN : int): #type 0 = michi, type 1 = huevo
 
 	getRoomNumber.roomNumber = roomNumber
 	ResourceSaver.save(getRoomNumber, savePathColorGui + saveFileColorGui + ".tres")
-		
+	
+			
 	SignalManager.itemsCoinSave.emit()
 
 func _on_texture_button_pressed():
@@ -581,7 +632,6 @@ func getNumber(number : String, typeLocal : int): #type 0 = michi, type 1 = huev
 		#verificar que el numero de huevo no sea mayor que el numero maximo de huevo posible
 		if maxPoopNumber <= poopNumber:
 			poopNumber = maxPoopNumber - 1
-		print("poop")
 		recogerPisyPoop(1)
 	type = typeLocal #actualizar el tipo de objeto selectionado a nivel de script
 	
@@ -606,8 +656,6 @@ func merge(michiN : int, otherN: int):
 	
 func confirmarMerge(confirmar : int):
 	confirmN = confirmN + 1
-	print ("michiNumber: ",michiN2)
-	print ("other michiNumber: ", otherMichiN2)
 	if confirmar == 1:
 		#michiInstance[michiN2].queue_free()
 		michiInstance[otherMichiN2].queue_free()
@@ -1973,11 +2021,6 @@ func updateMichiStatus(michiN : int):
 			
 	var index_item = GlobalVariables.indexInventario
 	
-	print("dar item")
-	print("indexInventario: ",index_item)
-	
-	#print(" Desde update michi status, item index: ",index_item)
-	#print("MichiN: ",michiN)
 	if index_item == 0: michiData[michiN].food += 25
 	if index_item == 1: michiData[michiN].food += 50
 	if index_item == 2: michiData[michiN].food += 75
@@ -1996,6 +2039,7 @@ func updateMichiStatus(michiN : int):
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		save(0)
+		salvaMueble()
 
 
 func poopAndPee(michiN : int):
@@ -2107,9 +2151,6 @@ func crearMoneda(pos : Vector2):
 	coinInstance.append(moneda)
 	coinIndex = coinInstance.size() - 1
 	
-	print(coinIndex)
-	print(timerIndex)
-	
 	if coinIndex == null:
 		coinIndex = 0
 	if timerIndex == null:
@@ -2129,21 +2170,22 @@ func freeCoin(index : int):
 
 func _on_prev_pressed():
 	roomNumber -= 1
+	save(0) 
 	animationControl = false
 	if roomNumber <= 0: roomNumber = GlobalVariables.maxRoomNumber
-	clearScreen()
+	clearScreenJustHide()
 	$Transition/Label.text = "ROOM: "+str(roomNumber)
 	$Transition.play("fadeOut")
-	save(0)
+
 	
 func _on_next_pressed():
 	roomNumber += 1
+	save(0) 
 	animationControl = false
 	if roomNumber > 9: roomNumber = 1
-	clearScreen()
+	clearScreenJustHide()
 	$Transition/Label.text = "ROOM: "+str(roomNumber)
 	$Transition.play("fadeOut")
-	save(0)
 
 
 func clearScreen():
@@ -2159,14 +2201,49 @@ func clearScreen():
 	for pi in pisInstance:
 		if is_instance_valid(pi):
 			pi.queue_free()
+	for fur in furnitureInstance:
+		if is_instance_valid(fur):
+			fur.queue_free()
+
+func clearScreenJustHide():
+	for cat in michiInstance:
+		if is_instance_valid(cat):
+			cat.hide()
+	for eg in huevoInstance:
+		if is_instance_valid(eg):
+			eg.hide()
+	for po in poopInstance:
+		if is_instance_valid(po):
+			po.hide()
+	for pi in pisInstance:
+		if is_instance_valid(pi):
+			pi.hide()
+			
+
+func clearScreenJustShow():
+	for cat in michiInstance:
+		if is_instance_valid(cat):
+			cat.show()
+	for eg in huevoInstance:
+		if is_instance_valid(eg):
+			eg.show()
+	for po in poopInstance:
+		if is_instance_valid(po):
+			po.show()
+	for pi in pisInstance:
+		if is_instance_valid(pi):
+			pi.show()
+
 
 func _on_transition_animation_finished(_anim_name):
-	if animationControl == false: get_tree().reload_current_scene()
+	if animationControl == false: 
+		get_tree().reload_current_scene()
 
 
 func _on_transition_animation_started(_anim_name):
 	if animationControl == true:
 		loadData(0, 4 , 0)
+		loadData(0,5,0)
 		$Transition/Label.text = "ROOM: "+str(roomNumber)
 		#for para cargar todos los michis y huevos en arreglos
 		for i in range(0, maxMichiNumber):
@@ -2177,7 +2254,10 @@ func _on_transition_animation_started(_anim_name):
 			loadData(i, 2 , 0)
 		for i in range(0, maxPoopNumber):
 			loadData(i, 3 , 0)
+			
 		originRestComfort()
+		
+		
 
 
 func _on_double_click_timeout():
@@ -2196,7 +2276,6 @@ func updateMichiStatusBars():
 	for i in range(0, maxMichiNumber):
 		var prob1 = rng.randi_range(1,100)
 		if prob1 > 95:
-			print("DESCONTAR STAT MICHI")
 			var prob2 = rng.randi_range(1,3)
 			michiData[i].food -= prob2
 			prob2 = rng.randi_range(1,3)
@@ -2231,10 +2310,97 @@ func updateMichiStatusBars():
 				else:
 					statusGoodNode.modulate = Color("e00000")
 					
+
+#controlM 0 click, 1 recurso
+func ponerMueble(indexMueble : int, controlM : int):
+	var newIndex
+	
+	var dragMueble = preload("res://Scenes/dragMuebles.gd")
+	var character = CharacterBody2D.new()
+	
+
+	# Crea un Sprite2D para el mueble.
+	var sprite = Sprite2D.new()
+	sprite.texture = furnitureData.furnitureList[indexMueble].spriteF
+	# Si el mueble tiene más de un frame, ajusta la región del sprite para mostrar solo el primer frame.
+	if furnitureData.furnitureList[indexMueble].frameNum > 1:
+		var frame_width = sprite.texture.get_width() / furnitureData.furnitureList[indexMueble].frameNum
+		sprite.region_enabled = true
+		sprite.region_rect = Rect2(0, 0, frame_width, sprite.texture.get_height())
+	character.add_child(sprite)
+	
+	var area1 = Area2D.new()
+	area1.name = "areaMueble"
+	character.add_child(area1)
+	
+	var colision1 = CollisionShape2D.new()
+	var new_shape = CircleShape2D.new()
+	new_shape.radius = 35
+	colision1.set_shape(new_shape) 
+	colision1.name = "collisionShape"
+	area1.add_child(colision1)
+	
+	
+	# Asigna el script clickmueble al character.
+	var clickMuebleScript = preload("res://Scenes/Scripts/clickMueble.gd")
+	character.set_script(clickMuebleScript)
+
+	# Establece el índice del mueble en el script.
+	character.indexMueble = indexMueble
+	
+
+	
+	for i in range (0,furnitureData.furnitureList[indexMueble].active.size()):
+		newIndex = i+1
+		if furnitureData.furnitureList[indexMueble].active[i] == 0:
+			break
 			
+				
+	var pos = Vector2 (200,500)
+	if controlM == -1:
+		character.name = "Mueble" + str(indexMueble) + "_" + str(furnitureData.furnitureList[indexMueble].counterF)
+	# Establece la posición global del mueble en la coordenada (200, 500).
+		print("Agregar mueble con click")
+		if furnitureData.furnitureList[indexMueble].active.is_empty():
+			print("primer mueble")
+			furnitureData.furnitureList[indexMueble].active.append(1)
+			furnitureData.furnitureList[indexMueble].posF.append(pos)
+			furnitureData.furnitureList[indexMueble].instanceID.append(furnitureInstanceId)
+			furnitureData.furnitureList[indexMueble].roomF.append(roomNumber)
+		else:
+			print("new index: ",newIndex)
+			if newIndex == furnitureData.furnitureList[indexMueble].active.size():
+				print("nuevo mueble")
+				furnitureData.furnitureList[indexMueble].active.append(1)
+				furnitureData.furnitureList[indexMueble].posF.append(pos)
+				furnitureData.furnitureList[indexMueble].instanceID.append(furnitureInstanceId)
+				furnitureData.furnitureList[indexMueble].roomF.append(roomNumber)
+			elif furnitureData.furnitureList[indexMueble].active[newIndex] == 0:
+				print("remplazar mueble")
+				furnitureData.furnitureList[indexMueble].posF[newIndex] = pos
+				furnitureData.furnitureList[indexMueble].instanceID[newIndex] = furnitureInstanceId
 			
+		character.global_position = pos
+		
+		
+	if not controlM == -1 :
+		character.name = "Mueble" + str(indexMueble) + "_" + str(controlM)
+		print("se cargo mueble:", character.name)
+		character.global_position = furnitureData.furnitureList[indexMueble].posF[controlM]
+		#print("Counter Mueble: ",counterMueble)
+		#if furnitureData.furnitureList[indexMueble].active[counterMueble] == 1:
+			#if furnitureData.furnitureList[indexMueble].roomF[counterMueble] == roomNumber:
+				#print("mueble puesto de recurso")
+				#print("Pos mueble de recurso: ", furnitureData.furnitureList[indexMueble].posF[counterMueble])
+				#character.global_position = furnitureData.furnitureList[indexMueble].posF[counterMueble]
+		
+	
+	character.set_script(dragMueble)
+	add_child(character)
 
-
-
-
-
+	furnitureInstance.append(character)
+	furnitureInstanceId += 1
+	furnitureData.furnitureList[indexMueble].counterF +=1
+	
+	
+	

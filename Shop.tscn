@@ -599,7 +599,6 @@ offset_left = 36.0
 offset_top = 185.0
 offset_right = 461.0
 offset_bottom = 1352.0
-horizontal_scroll_mode = 0
 
 [node name="Control" type="Control" parent="ScrollContainer"]
 visible = false

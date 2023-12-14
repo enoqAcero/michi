@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_sg3al")
 active = 1
-globalPos = Vector2(436.924, 275.159)
+globalPos = Vector2(268.192, 352.55)
 index = 0
 roomNumber = 2

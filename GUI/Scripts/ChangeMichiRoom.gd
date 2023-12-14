@@ -4,7 +4,7 @@ var getRoomNumber
 var michiData
 var michiNumber = GlobalVariables.michiNumber
 var michiPath = GlobalVariables.michiPath
-var michiPos = Vector2(216,43)
+var michiPos = Vector2(218,50)
 var michiInstance
 var michiSprite
 var roomNumber
@@ -48,7 +48,7 @@ func addMichi():
 	var michi
 	michi = michiLoad.instantiate()
 	michi.global_position = michiPos
-	michi.scale = Vector2(2, 2)
+	michi.scale = Vector2(1.6, 1.6)
 	michi.z_index = 5
 	michi.set_script(michiScriptPath)
 	$VBoxContainer/HBoxContainer.add_child(michi)

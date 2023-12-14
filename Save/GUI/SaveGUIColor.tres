@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="ColorGUI" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="ColorGUI" load_steps=2 format=3 uid="uid://duvte8tccnmed"]
 
 [ext_resource type="Script" path="res://Save/GUI/guiColor.gd" id="1_joevj"]
 
 [resource]
 script = ExtResource("1_joevj")
-colorGui = Color(0.811467, 0.0463628, 1, 1)
-roomNumber = 1
+colorGui = Color(0.763003, 0.361379, 1, 1)
+roomNumber = 6

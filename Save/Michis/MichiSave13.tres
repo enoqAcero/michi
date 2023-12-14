@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_jg4he"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_y60o1"]
 
 [resource]
-script = ExtResource("1_jg4he")
-active = 1
-category = "categoria12"
-type = "Cheshire"
-categoryLevel = 12
+script = ExtResource("1_y60o1")
+active = 0
+category = ""
+type = ""
+categoryLevel = 1
 fusionLevel = 1
-globalPos = Vector2(71.9982, 381.845)
-name = "Cheshire13"
+globalPos = Vector2(250, 450)
+name = ""
 food = 0
 fun = 0
 clean = 0
 comfort = 100
 exercise = 0
-roomNumber = 4
+roomNumber = 1

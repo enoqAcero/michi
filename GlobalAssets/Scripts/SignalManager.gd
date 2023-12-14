@@ -23,4 +23,5 @@ signal michiDexUpdate
 signal globalTimer1
 signal restComfort
 signal addCoins
+signal muebleSignal
 
