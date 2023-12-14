@@ -32,7 +32,7 @@ func _process(_delta):
 			mueble.furnitureInScene[roomNumber.roomNumber - 1] += 1
 			if mueble.countF <= 0 :
 				mueble.countF = 0
-				queue_free()
+				get_parent().queue_free()
 			labelContadorMuebles.text = str (mueble.countF)  
 
 	

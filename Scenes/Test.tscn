@@ -1,11 +1,19 @@
-[gd_scene load_steps=32 format=3 uid="uid://dg2rf8of102bf"]
+[gd_scene load_steps=44 format=3 uid="uid://dg2rf8of102bf"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/Test.gd" id="1_1kxl6"]
 [ext_resource type="Texture2D" uid="uid://dbrsaka2lyehh" path="res://Backgrounds/background1.png" id="2_31unx"]
+[ext_resource type="Texture2D" uid="uid://3br4exifb0d" path="res://Backgrounds/cuarto2.png" id="4_pttkt"]
+[ext_resource type="Texture2D" uid="uid://didkxoqqomabu" path="res://Backgrounds/background3.png" id="5_b8s5m"]
+[ext_resource type="Texture2D" uid="uid://c0mc8pvpqaetm" path="res://Backgrounds/background4.png" id="6_7px4c"]
 [ext_resource type="PackedScene" uid="uid://qtwndjqyub13" path="res://Shop.tscn" id="6_jcj4f"]
 [ext_resource type="PackedScene" uid="uid://j3ostc4r7ccw" path="res://inventario.tscn" id="7_hryy3"]
+[ext_resource type="Texture2D" uid="uid://1yajbnlrcqic" path="res://Backgrounds/cuarto5.png" id="7_vgp73"]
+[ext_resource type="Texture2D" uid="uid://cit8aga6ah5rs" path="res://Backgrounds/background6.png" id="8_4xh23"]
 [ext_resource type="Texture2D" uid="uid://b0e811a07jixv" path="res://GUI/Assets/GUIshop.png" id="8_hi878"]
 [ext_resource type="Texture2D" uid="uid://baem2g3768nh2" path="res://GUI/Assets/top (1).png" id="9_fgtxa"]
+[ext_resource type="Texture2D" uid="uid://b8vrw1v2fxan4" path="res://Backgrounds/background7.png" id="9_ie6on"]
+[ext_resource type="Texture2D" uid="uid://bwh8mclnxs7c5" path="res://Backgrounds/cuarto8.png" id="10_do13q"]
+[ext_resource type="Texture2D" uid="uid://wif5sakt2bph" path="res://Backgrounds/pixil-frame-1.png" id="11_jqvn7"]
 [ext_resource type="LabelSettings" uid="uid://d3fxyev510uey" path="res://tipoNum.tres" id="11_vojtj"]
 [ext_resource type="Texture2D" uid="uid://clovrf8frejun" path="res://GUI/Assets/edit.png" id="12_dg26b"]
 [ext_resource type="Script" path="res://GUI/Scripts/StatusMichi.gd" id="12_va7yt"]
@@ -18,6 +26,10 @@
 [ext_resource type="Texture2D" uid="uid://dnukbiy0jj2b6" path="res://GUI/Assets/GUIframes2.png" id="16_8jg1p"]
 [ext_resource type="PackedScene" uid="uid://ifhkt1mcmkti" path="res://Structures/Assets/caminadora.tscn" id="16_vialj"]
 [ext_resource type="PackedScene" uid="uid://neoqgd1g1b5e" path="res://Structures/Assets/jumper.tscn" id="17_2octx"]
+[ext_resource type="PackedScene" uid="uid://cu5pm8ll1rsm7" path="res://Scenes/michiJump/JoyStickTest.tscn" id="19_u0ggn"]
+[ext_resource type="Texture2D" uid="uid://by1qefhvyc7er" path="res://Structures/Assets/alfombraN.png" id="28_ke000"]
+[ext_resource type="Texture2D" uid="uid://qwtly14bn7od" path="res://Structures/Assets/alfombraXLnegra.png" id="29_yhnq8"]
+[ext_resource type="Texture2D" uid="uid://dio3oppqewl0q" path="res://Structures/Assets/alfombraR.png" id="30_tdl26"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85ul2"]
 size = Vector2(608, 224)
@@ -258,11 +270,55 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_1kxl6")
 metadata/_edit_vertical_guides_ = [241.0]
-metadata/_edit_horizontal_guides_ = [773.0, 133.0, 240.0]
+metadata/_edit_horizontal_guides_ = [773.0, 133.0, 240.0, 814.0]
+
+[node name="JoyStickTest" parent="." instance=ExtResource("19_u0ggn")]
+visible = false
 
 [node name="Background1" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(240, 431)
 texture = ExtResource("2_31unx")
+
+[node name="Background2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(240, 431)
+texture = ExtResource("4_pttkt")
+
+[node name="Background3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(240, 431)
+texture = ExtResource("5_b8s5m")
+
+[node name="Background4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(240, 431)
+texture = ExtResource("6_7px4c")
+
+[node name="Background5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(240, 431)
+texture = ExtResource("7_vgp73")
+
+[node name="Background6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(240, 431)
+texture = ExtResource("8_4xh23")
+
+[node name="Background7" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(240, 431)
+texture = ExtResource("9_ie6on")
+
+[node name="Background8" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(240, 431)
+texture = ExtResource("10_do13q")
+
+[node name="Background9" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(240, 431)
+texture = ExtResource("11_jqvn7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 disable_mode = 2
@@ -295,7 +351,9 @@ visible = false
 light_mask = 16
 visibility_layer = 512
 z_index = 4
-position = Vector2(0, 13)
+position = Vector2(0, 17)
+metadata/_edit_vertical_guides_ = [128.0, 160.0, 256.0, 32.0, 288.0]
+metadata/_edit_horizontal_guides_ = [384.0, 288.0, 480.0]
 
 [node name="TopGui" type="Sprite2D" parent="."]
 position = Vector2(240, 90)
@@ -427,6 +485,7 @@ visible = false
 z_index = 3
 
 [node name="Caminadora3000Azul" parent="." instance=ExtResource("16_vialj")]
+z_index = 1
 position = Vector2(199, 337)
 
 [node name="inventario" parent="." instance=ExtResource("7_hryy3")]
@@ -441,23 +500,12 @@ offset_bottom = 846.0
 texture_normal = ExtResource("8_hi878")
 
 [node name="jumper3000" parent="." instance=ExtResource("17_2octx")]
+z_index = 1
 position = Vector2(244, 701)
 
 [node name="PicMichi" type="AnimatedSprite2D" parent="."]
 position = Vector2(246, 86)
 scale = Vector2(1.5, 1.5)
-
-[node name="prev" type="Button" parent="."]
-offset_left = -99.0
-offset_top = 571.0
-offset_right = 29.0
-offset_bottom = 637.0
-
-[node name="next" type="Button" parent="."]
-offset_left = 451.0
-offset_top = 573.0
-offset_right = 558.0
-offset_bottom = 633.0
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
@@ -466,6 +514,7 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
 self_modulate = Color(1, 1, 1, 0)
+z_index = 1
 offset_top = 129.0
 offset_right = 489.0
 offset_bottom = 772.0
@@ -491,13 +540,23 @@ texture = SubResource("GradientTexture2D_ihqnm")
 wait_time = 0.3
 one_shot = true
 
+[node name="AlfombraN" type="Sprite2D" parent="."]
+position = Vector2(242, 695)
+texture = ExtResource("28_ke000")
+
+[node name="AlfombraXLnegra" type="Sprite2D" parent="."]
+position = Vector2(195, 368)
+texture = ExtResource("29_yhnq8")
+
+[node name="AlfombraR" type="Sprite2D" parent="."]
+position = Vector2(331, 560)
+texture = ExtResource("30_tdl26")
+
 [connection signal="text_changed" from="CanvasLayer/Nombre/changeName" to="." method="_on_change_name_text_changed"]
 [connection signal="pressed" from="CanvasLayer/Nombre/edit" to="." method="_on_edit_pressed"]
 [connection signal="pressed" from="CanvasLayer/Nombre/yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="CanvasLayer/Nombre/no" to="." method="_on_no_pressed"]
 [connection signal="pressed" from="inventario/TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="prev" to="." method="_on_prev_pressed"]
-[connection signal="pressed" from="next" to="." method="_on_next_pressed"]
 [connection signal="animation_finished" from="Transition" to="." method="_on_transition_animation_finished"]
 [connection signal="animation_started" from="Transition" to="." method="_on_transition_animation_started"]
 [connection signal="timeout" from="doubleClick" to="." method="_on_double_click_timeout"]

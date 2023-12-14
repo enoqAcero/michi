@@ -216,7 +216,7 @@ active = false
 [sub_resource type="Resource" id="Resource_pgs5j"]
 script = ExtResource("1_il7a5")
 type = "Elvis"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_70v6t"]
 script = ExtResource("1_il7a5")
@@ -256,7 +256,7 @@ active = false
 [sub_resource type="Resource" id="Resource_yk6hk"]
 script = ExtResource("1_il7a5")
 type = "SherlockHolmes"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_qrsi5"]
 script = ExtResource("1_il7a5")
@@ -286,7 +286,7 @@ active = true
 [sub_resource type="Resource" id="Resource_48gcj"]
 script = ExtResource("1_il7a5")
 type = "Aladdin"
-active = false
+active = true
 
 [sub_resource type="Resource" id="Resource_tc0sq"]
 script = ExtResource("1_il7a5")

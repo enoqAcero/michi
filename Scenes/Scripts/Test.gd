@@ -75,8 +75,11 @@ var animationControl = true
 var doubleClick = false
 var clickCount = 0
 
+var btnControl = false
+var stopJoyStick = false
 
 func _ready():
+	$JoyStickTest.visible = false
 	randomize()
 	
 	$Transition/ColorRect.self_modulate = Color("#ffffff")
@@ -386,6 +389,46 @@ func _process(_delta):
 		brincolinLuz.hide()
 	
 
+	if GlobalVariables.michiSelected == true:
+		stopJoyStick = true
+	if GlobalVariables.huevoSelected == true:
+		stopJoyStick = true
+	if GlobalVariables.muebleSelected == true:
+		stopJoyStick = true
+		
+	var slide = $JoyStickTest.posVector
+	if slide:
+		print("joystickPos: ", slide.x)
+		if stopJoyStick == false:
+			stopJoyStick = true		
+			if slide.x > 0.8:
+				roomNumber -= 1
+				animationControl = false
+				if roomNumber <= 0: roomNumber = GlobalVariables.maxRoomNumber
+				save(0) 
+				$JoyStickTest.visible = false
+				slide.x = 0
+				stopJoyStick = true
+				clearScreenJustHide()
+				$Transition/Label.text = "ROOM: "+str(roomNumber)
+				$Transition.play("fadeOut")
+			elif slide.x < -0.8:
+				roomNumber += 1
+				animationControl = false
+				if roomNumber > 9: roomNumber = 1
+				save(0) 
+				$JoyStickTest.visible = false
+				slide.x = 0
+				stopJoyStick = true
+				clearScreenJustHide()
+				$Transition/Label.text = "ROOM: "+str(roomNumber)
+				$Transition.play("fadeOut")
+
+	else:
+		stopJoyStick = true
+		slide.y = 0
+		slide.x = 0
+		
 
 #cuando se apieta un michi o un huevo aparecen sus stats mandando a llamar la funcion updateStatus
 func _input(_event):
@@ -417,8 +460,10 @@ func _input(_event):
 					add_child(changeRoom)
 					confirmChangeRoom = changeRoom
 					GlobalVariables.huevoNumber = huevoNumber
-					
-					
+		
+	if Input.is_action_just_released("click"):			
+		if GlobalVariables.michiSelected == false and GlobalVariables.huevoSelected == false and GlobalVariables.muebleSelected == false:
+			stopJoyStick = false
 					
 		
 		
@@ -572,24 +617,51 @@ func save(michiN : int): #type 0 = michi, type 1 = huevo
 	SignalManager.itemsCoinSave.emit()
 
 func _on_texture_button_pressed():
-	$Shop.set_visible(true)
-	var itemInventario = $inventario.get_node("Item")
-	var labelInventario = $inventario.get_node("Label")
-	var nextInventario = $inventario.get_node("next")
-	var backInventario = $inventario.get_node("back")
-	backInventario.hide()
-	nextInventario.hide()
-	labelInventario.hide()
-	itemInventario.hide()
-	get_tree().paused =true
-	$CanvasLayer/Nombre.set_visible(false)
-	$CanvasLayer/food.set_visible(false)
-	$CanvasLayer/fun.set_visible(false)
-	$CanvasLayer/clean.set_visible(false)
-	$CanvasLayer/comfort.set_visible(false)
-	$CanvasLayer/exercise.set_visible(false)
-	SignalManager.michiEggShowHide.emit(0)
-	
+	if btnControl == false:
+		btnControl = true
+		$Shop.set_visible(true)
+		var itemInventario = $inventario.get_node("Item")
+		var labelInventario = $inventario.get_node("Label")
+		var nextInventario = $inventario.get_node("next")
+		var backInventario = $inventario.get_node("back")
+		backInventario.hide()
+		nextInventario.hide()
+		labelInventario.hide()
+		itemInventario.hide()
+		var parentOfBtn = $inventario
+		parentOfBtn.get_node("next").disabled = true
+		parentOfBtn.get_node("back").disabled = true
+		parentOfBtn.get_node("Settings").disabled = true
+		parentOfBtn.get_node("MichiPedia").disabled = true
+		parentOfBtn.get_node("Rooms").disabled = true
+		$CanvasLayer/Nombre.set_visible(false)
+		$CanvasLayer/food.set_visible(false)
+		$CanvasLayer/fun.set_visible(false)
+		$CanvasLayer/clean.set_visible(false)
+		$CanvasLayer/comfort.set_visible(false)
+		$CanvasLayer/exercise.set_visible(false)
+		SignalManager.michiEggShowHide.emit(0)
+	elif btnControl == true:
+		btnControl = false
+		salvaMueble()
+		$Shop.set_visible(false)
+		$Shop.get_node("../inventario/Item").set_visible(true)
+		$Shop.get_node("../inventario/back").set_visible(true)
+		$Shop.get_node("../inventario/next").set_visible(true)
+		$Shop.get_node("../inventario/Label").set_visible(true)
+		$Shop.get_node("../CanvasLayer/Nombre").set_visible(true)
+		$Shop.get_node("../CanvasLayer/food").set_visible(true)
+		$Shop.get_node("../CanvasLayer/fun").set_visible(true)
+		$Shop.get_node("../CanvasLayer/clean").set_visible(true)
+		$Shop.get_node("../CanvasLayer/comfort").set_visible(true)
+		$Shop.get_node("../CanvasLayer/exercise").set_visible(true)
+		var parentOfBtn = $inventario
+		parentOfBtn.get_node("next").disabled = false
+		parentOfBtn.get_node("back").disabled = false
+		parentOfBtn.get_node("Settings").disabled = false
+		parentOfBtn.get_node("MichiPedia").disabled = false
+		parentOfBtn.get_node("Rooms").disabled = false
+		SignalManager.michiEggShowHide.emit(1)
 
 
 func _on_change_name_text_changed():
@@ -647,7 +719,8 @@ func merge(michiN : int, otherN: int):
 		confirm.global_position = Vector2(240,427)
 		confirm.z_index = michiInstance[michiN].get_z_index() + 1
 		add_child(confirm)
-		SignalManager.michiPair.emit(michiInstance[michiN], michiInstance[otherN])
+		var promMichis = (michiData[michiN].categoryLevel + michiData[otherN].categoryLevel + 1)/2
+		SignalManager.michiPair.emit(michiInstance[michiN], michiInstance[otherN], promMichis)
 		confirmInstance.append(confirm)
 		sceneConfirmControl = 1
 		
@@ -1767,11 +1840,11 @@ func naceMichi(huevoN : int):
 			michiData[michiIndex].name = "Monio" + str(michiIndex)
 
 	if michiCategory == 4:
-		if probNewMichiType == 1:
+		if probNewMichiType == 5:
 			michi = load("res://Michis/michiNeon.tscn").instantiate()
 			michiData[michiIndex].type = "Neon"
 			michiData[michiIndex].name = "Neon" + str(michiIndex)
-		if probNewMichiType == 2:
+		if probNewMichiType == 4:
 			michi = load("res://Michis/michiEstrellas.tscn").instantiate()
 			michiData[michiIndex].type = "Estrellas"
 			michiData[michiIndex].name = "Estrellas" + str(michiIndex)
@@ -1779,11 +1852,11 @@ func naceMichi(huevoN : int):
 			michi = load("res://Michis/michiDorado.tscn").instantiate()
 			michiData[michiIndex].type = "Dorado"
 			michiData[michiIndex].name = "Dorado" + str(michiIndex)
-		if probNewMichiType == 4:
+		if probNewMichiType == 2:
 			michi = load("res://Michis/michiCristal.tscn").instantiate()
 			michiData[michiIndex].type = "Cristal"
 			michiData[michiIndex].name = "Cristal" + str(michiIndex)
-		if probNewMichiType == 5:
+		if probNewMichiType == 1:
 			michi = load("res://Michis/michiArcoiris.tscn").instantiate()
 			michiData[michiIndex].type = "Arcoiris"
 			michiData[michiIndex].name = "Arcoiris" + str(michiIndex)
@@ -2166,25 +2239,6 @@ func freeCoin(index : int):
 	coinInstance[index].queue_free()
 
 
-func _on_prev_pressed():
-	roomNumber -= 1
-	save(0) 
-	animationControl = false
-	if roomNumber <= 0: roomNumber = GlobalVariables.maxRoomNumber
-	clearScreenJustHide()
-	$Transition/Label.text = "ROOM: "+str(roomNumber)
-	$Transition.play("fadeOut")
-
-	
-func _on_next_pressed():
-	roomNumber += 1
-	save(0) 
-	animationControl = false
-	if roomNumber > 9: roomNumber = 1
-	clearScreenJustHide()
-	$Transition/Label.text = "ROOM: "+str(roomNumber)
-	$Transition.play("fadeOut")
-
 
 func clearScreen():
 	for cat in michiInstance:
@@ -2253,10 +2307,26 @@ func _on_transition_animation_started(_anim_name):
 		for i in range(0, maxPoopNumber):
 			loadData(i, 3 , 0)
 			
+		if roomNumber == 1:
+			$Background1.visible = true
+		elif roomNumber == 2:
+			$Background2.visible = true
+		elif roomNumber == 3:
+			$Background3.visible = true
+		elif roomNumber == 4:
+			$Background4.visible = true
+		elif roomNumber == 5:
+			$Background5.visible = true
+		elif roomNumber == 6:
+			$Background6.visible = true
+		elif roomNumber == 7:
+			$Background7.visible = true
+		elif roomNumber == 8:
+			$Background8.visible = true
+		elif roomNumber == 9:
+			$Background9.visible = true
 		originRestComfort()
-		
-		
-
+		$JoyStickTest.visible = true
 
 func _on_double_click_timeout():
 	clickCount = 0
@@ -2396,6 +2466,8 @@ func ponerMueble(indexMueble : int, controlM : int):
 		
 	
 	character.set_script(dragMueble)
+	character.z_index = $jumper3000.z_index - 1
+	print("zindex: ", character.z_index)
 	add_child(character)
 
 	furnitureInstance.append(character)
@@ -2404,3 +2476,5 @@ func ponerMueble(indexMueble : int, controlM : int):
 	
 	
 	
+
+

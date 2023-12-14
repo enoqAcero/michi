@@ -1,7 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://d37p6x473dtam"]
+[gd_scene load_steps=11 format=3 uid="uid://d37p6x473dtam"]
 
 [ext_resource type="Script" path="res://Interactives/Scripts/pisAmarila.gd" id="1_jy28i"]
 [ext_resource type="Texture2D" uid="uid://bgvqv55cr0kgk" path="res://Interactives/pisAmarilla.png" id="2_qf40l"]
+[ext_resource type="Texture2D" uid="uid://diimxnw5btgsg" path="res://Interactives/pissow.png" id="3_oatus"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auvwv"]
+atlas = ExtResource("3_oatus")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r42tt"]
+atlas = ExtResource("3_oatus")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noqmb"]
+atlas = ExtResource("3_oatus")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32mm7"]
+atlas = ExtResource("3_oatus")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tq7fh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auvwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r42tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noqmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32mm7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_02555"]
 radius = 9.0
@@ -16,7 +53,13 @@ collision_layer = 0
 script = ExtResource("1_jy28i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_qf40l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tq7fh")
+autoplay = "default"
+frame_progress = 0.656344
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)

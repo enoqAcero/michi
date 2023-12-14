@@ -19,6 +19,7 @@ outline_color = Color(0, 0, 0, 1)
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_phk22")
 metadata/_edit_horizontal_guides_ = [362.0]
+metadata/_edit_vertical_guides_ = [240.0]
 
 [node name="modalSettings" type="CanvasGroup" parent="."]
 
@@ -108,10 +109,10 @@ texture = ExtResource("9_sso66")
 [node name="ColorPicker" type="ColorPicker" parent="."]
 visible = false
 z_index = 1
-offset_left = 260.0
-offset_top = 333.0
-offset_right = 466.0
-offset_bottom = 709.0
+offset_left = 95.0
+offset_top = 308.0
+offset_right = 385.0
+offset_bottom = 684.0
 picker_shape = 2
 sampler_visible = false
 color_modes_visible = false
@@ -120,6 +121,7 @@ hex_visible = false
 presets_visible = false
 
 [node name="ConfirmColor" type="TextureButton" parent="ColorPicker"]
+layout_direction = 2
 layout_mode = 2
 texture_normal = ExtResource("4_t8q54")
 stretch_mode = 5

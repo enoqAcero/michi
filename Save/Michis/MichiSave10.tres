@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_y4plt")
-active = 0
-category = "categoria1"
-type = "Cafe"
-categoryLevel = 1
+active = 1
+category = "categoria6"
+type = "Avatar"
+categoryLevel = 6
 fusionLevel = 1
-globalPos = Vector2(233, 264.576)
-name = "Cafe10"
+globalPos = Vector2(449.924, 307.568)
+name = "Avatar10"
 food = 0
 fun = 0
 clean = 0
 comfort = 100
 exercise = 0
-roomNumber = 2
+roomNumber = 1

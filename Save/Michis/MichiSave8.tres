@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1_xoq5i")
-active = 0
-category = "categoria6"
-type = "Fuego"
-categoryLevel = 6
+active = 1
+category = "categoria5"
+type = "Caballero"
+categoryLevel = 5
 fusionLevel = 1
-globalPos = Vector2(87, 683)
-name = "Fuego8"
+globalPos = Vector2(369.7, 574.278)
+name = "Caballero8"
 food = 0
 fun = 0
 clean = 0
 comfort = 100
 exercise = 0
-roomNumber = 2
+roomNumber = 1

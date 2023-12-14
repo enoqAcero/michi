@@ -120,14 +120,15 @@ func _on_rooms_pressed():
 	var canvaTop = get_parent().get_node("CanvasLayer")
 	var shopB = get_parent().get_node("inventario/TextureButton")
 	var limpiarH = get_parent()
-	var nextE = get_parent().get_node("next")
-	var prevE = get_parent().get_node("prev")
 	if $InvMuebles.visible:
+		$MichiPedia.disabled = false
+		$back.disabled = false
+		$next.disabled = false
+		get_parent().get_node("inventario/TextureButton") .disabled = false
+		$InvMuebles.mostrarMuebleInv(false)
 		$InvMuebles.hide()
 		$Rooms.global_position = Vector2 (105,785)
 		shopB.show()
-		prevE.show()
-		nextE.show()
 		$ColorRect.hide()
 		$next.show()
 		$back.show()
@@ -145,6 +146,11 @@ func _on_rooms_pressed():
 		
 
 	else:
+		$MichiPedia.disabled = true
+		$back.disabled = true
+		$next.disabled = true
+		get_parent().get_node("inventario/TextureButton") .disabled = true
+		$InvMuebles.mostrarMuebleInv(true)
 		$InvMuebles.show()
 		$next.hide()
 		$back.hide()
@@ -156,8 +162,6 @@ func _on_rooms_pressed():
 		$Rooms.global_position = Vector2 (220,60)
 		$Rooms.z_index = 2
 		shopB.hide()
-		prevE.hide()
-		nextE.hide()
 		$ColorRect.show()
 		limpiarH.clearScreenJustHide()
 		topGui.show()
@@ -170,5 +174,15 @@ func _on_rooms_pressed():
 func _on_settings_pressed():
 	if $setting.visible:
 		$setting.hide()
+		$MichiPedia.disabled = false
+		$Rooms.disabled = false
+		$back.disabled = false
+		$next.disabled = false
+		get_parent().get_node("inventario/TextureButton") .disabled = false
 	else:
+		$MichiPedia.disabled = true
+		$Rooms.disabled = true
+		$back.disabled = true
+		$next.disabled = true
+		get_parent().get_node("inventario/TextureButton") .disabled = true
 		$setting.show()

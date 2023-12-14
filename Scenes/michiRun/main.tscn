@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dojpx24r227o0"]
 
 [ext_resource type="Script" path="res://Scenes/michiRun/Scripts/MichiRun.gd" id="1_lh3ho"]
-[ext_resource type="Texture2D" uid="uid://cq481kl05sqgd" path="res://Scenes/michiRun/Assets/BackgroundRunner3.png" id="2_0gxel"]
+[ext_resource type="Texture2D" uid="uid://cf26mxfeocrtf" path="res://Scenes/michiRun/Assets/BackgroundRunner4.png" id="2_rcwg0"]
 [ext_resource type="PackedScene" uid="uid://c5m6bw6qmw8hf" path="res://Scenes/michiRun/floor.tscn" id="3_oy1kh"]
 [ext_resource type="LabelSettings" uid="uid://dypmi2e3x2wsf" path="res://NamesMichiDex.tres" id="5_ar0wx"]
 [ext_resource type="PackedScene" uid="uid://bik6ywrptyw0d" path="res://GUI/PlayAgainChromeGame.tscn" id="5_b2m4n"]
@@ -22,7 +22,7 @@ motion_mirroring = Vector2(3000, 0)
 
 [node name="BackgroundRunner3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(1500, 474)
-texture = ExtResource("2_0gxel")
+texture = ExtResource("2_rcwg0")
 
 [node name="Floor" parent="." instance=ExtResource("3_oy1kh")]
 

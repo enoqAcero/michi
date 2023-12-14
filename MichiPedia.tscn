@@ -69,8 +69,8 @@
 script = ExtResource("1_68rj2")
 
 [node name="Bg-black" type="Sprite2D" parent="."]
-position = Vector2(221, 452.5)
-scale = Vector2(1, 0.706858)
+position = Vector2(221, 453)
+scale = Vector2(1, 0.707964)
 texture = ExtResource("2_dxm1k")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_avpuf")
-active = 1
-globalPos = Vector2(125.996, 747.243)
+active = 0
+globalPos = Vector2(125.995, 747.237)
 index = 0
 roomNumber = 2

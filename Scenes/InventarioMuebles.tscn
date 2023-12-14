@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ktcvksdwhi1y"]
+[gd_scene load_steps=3 format=3 uid="uid://ktcvksdwhi1y"]
 
 [ext_resource type="Script" path="res://Scenes/InventarioMuebles.gd" id="1_j4hen"]
-[ext_resource type="Texture2D" uid="uid://b0e811a07jixv" path="res://GUI/Assets/GUIshop.png" id="2_1qx2l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohmit"]
 
@@ -18,7 +17,7 @@ vertical_scroll_mode = 0
 [node name="Control" type="Control" parent="ScrollContainer"]
 z_index = 1
 clip_contents = true
-custom_minimum_size = Vector2(2000, 94)
+custom_minimum_size = Vector2(3000, 94)
 layout_mode = 2
 
 [node name="VBoxContainer" type="HBoxContainer" parent="ScrollContainer/Control"]
@@ -28,20 +27,6 @@ offset_top = 56.0
 offset_right = 475.0
 offset_bottom = 109.0
 theme_override_constants/separation = 82
-
-[node name="HBoxContainer" type="VBoxContainer" parent="ScrollContainer/Control/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="Sprite2D" type="Sprite2D" parent="ScrollContainer/Control/VBoxContainer/HBoxContainer"]
-visible = false
-position = Vector2(45, 61)
-texture = ExtResource("2_1qx2l")
-
-[node name="Label" type="Label" parent="ScrollContainer/Control/VBoxContainer/HBoxContainer"]
-visible = false
-layout_mode = 2
-text = "cantidad"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ohmit")

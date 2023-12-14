@@ -78,9 +78,19 @@ func setDex():
 func _on_button_pressed():
 	if visible == false:
 		set_visible(true)
-		get_tree().paused=true
+		var parentOfBtn = get_parent().get_node("inventario")
+		parentOfBtn.get_node("next").disabled = true
+		parentOfBtn.get_node("back").disabled = true
+		parentOfBtn.get_node("Settings").disabled = true
+		parentOfBtn.get_node("Rooms").disabled = true
+		get_parent().get_node("inventario/TextureButton").disabled = true
 
 	elif visible == true:
 		set_visible(false)
-		get_tree().paused=false
+		var parentOfBtn = get_parent().get_node("inventario")
+		parentOfBtn.get_node("next").disabled = false
+		parentOfBtn.get_node("back").disabled = false
+		parentOfBtn.get_node("Settings").disabled = false
+		parentOfBtn.get_node("Rooms").disabled = false
+		get_parent().get_node("inventario/TextureButton").disabled = false
 		

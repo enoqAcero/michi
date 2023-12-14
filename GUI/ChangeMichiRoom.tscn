@@ -28,6 +28,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e8nl3")
+metadata/_edit_horizontal_guides_ = [509.0, 536.0, 576.0]
+metadata/_edit_vertical_guides_ = [225.0, 253.0, 240.0]
 
 [node name="ModalFrame" type="Sprite2D" parent="."]
 position = Vector2(238.5, 447.75)
@@ -90,29 +92,29 @@ offset_bottom = 392.0
 [node name="place" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-offset_left = -43.0
-offset_top = 482.0
-offset_right = 361.0
-offset_bottom = 534.0
+offset_left = 90.0
+offset_top = 483.0
+offset_right = 228.0
+offset_bottom = 535.0
 texture_normal = ExtResource("8_ryvfu")
 stretch_mode = 5
 
 [node name="placeGo" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-offset_left = 117.0
-offset_top = 483.0
-offset_right = 521.0
-offset_bottom = 535.0
+offset_left = 251.0
+offset_top = 482.0
+offset_right = 389.0
+offset_bottom = 534.0
 texture_normal = ExtResource("8_ryvfu")
 stretch_mode = 5
 
 [node name="release" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-offset_left = 117.0
+offset_left = 253.0
 offset_top = 550.0
-offset_right = 521.0
+offset_right = 390.0
 offset_bottom = 602.0
 texture_normal = ExtResource("8_csn7y")
 stretch_mode = 3
@@ -120,9 +122,9 @@ stretch_mode = 3
 [node name="cancel" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-offset_left = -43.0
+offset_left = 90.0
 offset_top = 550.0
-offset_right = 361.0
+offset_right = 227.0
 offset_bottom = 602.0
 texture_normal = ExtResource("8_csn7y")
 stretch_mode = 5

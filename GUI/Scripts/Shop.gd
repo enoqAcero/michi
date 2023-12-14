@@ -35,7 +35,6 @@ var brush_price_label
 var coins_label
 var michiCoin
 var items_Container
-var furnitures_Container
 var items_button
 var furnitures_button
 var bg_furnitures
@@ -77,7 +76,6 @@ func _ready():
 	coins_label = $coinCounter
 	michiCoin = $MichiCoin
 	items_Container = $GridContainer
-	furnitures_Container = $ScrollContainer
 	bg_furnitures = $bgFurnitures
 	bg_items = $"Bg-store"
 	items_button = $Items
@@ -286,21 +284,7 @@ func buy_brush():
 		update_buttons()
 
 
-func _on_button_pressed():
-	ResourceSaver.save(furnitureResource, "res://Save/Furniture/furnitureSave.tres")
-	set_visible(false)
-	get_tree().paused=false
-	get_node("../inventario/Item").set_visible(true)
-	get_node("../inventario/back").set_visible(true)
-	get_node("../inventario/next").set_visible(true)
-	get_node("../inventario/Label").set_visible(true)
-	get_node("../CanvasLayer/Nombre").set_visible(true)
-	get_node("../CanvasLayer/food").set_visible(true)
-	get_node("../CanvasLayer/fun").set_visible(true)
-	get_node("../CanvasLayer/clean").set_visible(true)
-	get_node("../CanvasLayer/comfort").set_visible(true)
-	get_node("../CanvasLayer/exercise").set_visible(true)
-	SignalManager.michiEggShowHide.emit(1)
+
 
 	
 	
@@ -338,13 +322,13 @@ func _on_buytunacan_pressed():
 #cambia de pestañas entre items y muebles
 func _on_items_pressed(): # Muestra los items y oculta los muebles
 	items_Container.visible = true
-	furnitures_Container.visible = false
 	bg_items.visible = true
 	bg_furnitures.visible = false
 	$Items.visible= false
 	$Furnitures.visible= true
 	$ScrollContainerNew.hide()
 	$ScrollContainerNew/Controlnew.hide()
+	
 func _on_furnitures_pressed():
 	$Items.visible= true
 	items_Container.visible = false

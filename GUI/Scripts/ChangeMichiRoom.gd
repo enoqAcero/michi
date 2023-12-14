@@ -15,8 +15,6 @@ var confirmLabel
 func _ready():
 	readyControl()
 	GlobalVariables.michiSelected = true
-	get_parent().get_node("prev").visible = false
-	get_parent().get_node("next").visible = false
 	get_tree().paused = true
 	loadData()
 	addMichi()
@@ -84,8 +82,6 @@ func _on_place_go_pressed():
 	save(2)
 	
 func _on_cancel_pressed():
-	get_parent().get_node("prev").visible = true
-	get_parent().get_node("next").visible = true
 	get_tree().paused = false
 	GlobalVariables.michiSelected = false
 	queue_free()
@@ -102,8 +98,6 @@ func save(control : int):
 		
 	
 func exit():
-	get_parent().get_node("prev").visible = true
-	get_parent().get_node("next").visible = true
 	get_tree().paused = false
 	GlobalVariables.michiSelected = false
 	get_tree().change_scene_to_file("res://Scenes/Test.tscn")

@@ -85,7 +85,7 @@ func _physics_process(_delta):
 					merge()
 	
 	if timerControl == 0:
-		$poopAndPeeTimer.set_wait_time(rng.randi_range(10,20))#(30,60))
+		$poopAndPeeTimer.set_wait_time(rng.randi_range(30,60))#(30,60))
 		$poopAndPeeTimer.start()
 		timerControl = 1 
 	

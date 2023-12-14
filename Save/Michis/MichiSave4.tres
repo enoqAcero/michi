@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_p46ks"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_uo8xa"]
 
 [resource]
-script = ExtResource("1_p46ks")
+script = ExtResource("1_uo8xa")
 active = 1
-category = "categoria8"
-type = "Diablo"
-categoryLevel = 8
+category = "categoria9"
+type = "Elvis"
+categoryLevel = 9
 fusionLevel = 1
-globalPos = Vector2(88, 675)
-name = "ramiro"
+globalPos = Vector2(136.546, 366.608)
+name = "Elvis4"
 food = 0
 fun = 0
 clean = 0
 comfort = 100
 exercise = 0
-roomNumber = 1
+roomNumber = 9
