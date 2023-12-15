@@ -27,9 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://ifhkt1mcmkti" path="res://Structures/Assets/caminadora.tscn" id="16_vialj"]
 [ext_resource type="PackedScene" uid="uid://neoqgd1g1b5e" path="res://Structures/Assets/jumper.tscn" id="17_2octx"]
 [ext_resource type="PackedScene" uid="uid://cu5pm8ll1rsm7" path="res://Scenes/michiJump/JoyStickTest.tscn" id="19_u0ggn"]
-[ext_resource type="Texture2D" uid="uid://by1qefhvyc7er" path="res://Structures/Assets/alfombraN.png" id="28_ke000"]
-[ext_resource type="Texture2D" uid="uid://qwtly14bn7od" path="res://Structures/Assets/alfombraXLnegra.png" id="29_yhnq8"]
-[ext_resource type="Texture2D" uid="uid://dio3oppqewl0q" path="res://Structures/Assets/alfombraR.png" id="30_tdl26"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85ul2"]
 size = Vector2(608, 224)
@@ -94,7 +91,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_2jsv2"]
 resource_name = "fadeIn"
-length = 0.5
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -102,7 +99,7 @@ tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -114,7 +111,7 @@ tracks/1/path = NodePath("Transition/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -126,7 +123,7 @@ tracks/2/path = NodePath("Transition/Label:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -134,38 +131,38 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Transition/Label:theme_override_colors/font_color")
+tracks/3/path = NodePath("Transition/PointLight2D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [null, Color(0, 0, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Transition/PointLight2D:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Transition/PointLight2D:color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.4),
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Transition/PointLight2D:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 0.247059, 0.827451, 1), Color(1, 0.247059, 0.827451, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Transition/Label:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_g0fce"]
@@ -244,11 +241,28 @@ tracks/5/keys = {
 "values": [Color(1, 0.247059, 0.827451, 0), Color(1, 0.247059, 0.827451, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_5uga8"]
+resource_name = "noAnim"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o7i01"]
 _data = {
 "RESET": SubResource("Animation_u7bl2"),
 "fadeIn": SubResource("Animation_2jsv2"),
-"fadeOut": SubResource("Animation_g0fce")
+"fadeOut": SubResource("Animation_g0fce"),
+"noAnim": SubResource("Animation_5uga8")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_va1ey"]
@@ -264,6 +278,15 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ihqnm"]
 gradient = SubResource("Gradient_4x6nf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_ah3tw"]
+offsets = PackedFloat32Array(0, 0.679083)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_46n7j"]
+gradient = SubResource("Gradient_ah3tw")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -521,6 +544,7 @@ offset_bottom = 772.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="Transition"]
+z_index = 2
 offset_left = 1.0
 offset_top = 371.0
 offset_right = 480.0
@@ -540,17 +564,15 @@ texture = SubResource("GradientTexture2D_ihqnm")
 wait_time = 0.3
 one_shot = true
 
-[node name="AlfombraN" type="Sprite2D" parent="."]
-position = Vector2(242, 695)
-texture = ExtResource("28_ke000")
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-238, 286)
+scale = Vector2(2.11719, 2)
+texture = SubResource("GradientTexture2D_46n7j")
 
-[node name="AlfombraXLnegra" type="Sprite2D" parent="."]
-position = Vector2(195, 368)
-texture = ExtResource("29_yhnq8")
-
-[node name="AlfombraR" type="Sprite2D" parent="."]
-position = Vector2(331, 560)
-texture = ExtResource("30_tdl26")
+[node name="lightTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [connection signal="text_changed" from="CanvasLayer/Nombre/changeName" to="." method="_on_change_name_text_changed"]
 [connection signal="pressed" from="CanvasLayer/Nombre/edit" to="." method="_on_edit_pressed"]
@@ -560,3 +582,4 @@ texture = ExtResource("30_tdl26")
 [connection signal="animation_finished" from="Transition" to="." method="_on_transition_animation_finished"]
 [connection signal="animation_started" from="Transition" to="." method="_on_transition_animation_started"]
 [connection signal="timeout" from="doubleClick" to="." method="_on_double_click_timeout"]
+[connection signal="timeout" from="lightTimer" to="." method="_on_light_timer_timeout"]

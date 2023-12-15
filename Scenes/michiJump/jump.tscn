@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cq0qtgdk6as2c" path="res://Scenes/michiJump/Assets/backJumper5.png" id="10_i53j0"]
 [ext_resource type="Texture2D" uid="uid://gevff4sjth55" path="res://Scenes/michiJump/Assets/backJumper6.png" id="11_5i6iu"]
 [ext_resource type="PackedScene" uid="uid://bik6ywrptyw0d" path="res://GUI/PlayAgainChromeGame.tscn" id="11_31c22"]
-[ext_resource type="Texture2D" uid="uid://bmahf1ovuq06x" path="res://Scenes/michiJump/Assets/Moon.png" id="12_17qsc"]
+[ext_resource type="Texture2D" uid="uid://cmqgk1giw3svt" path="res://Scenes/michiJump/Assets/moon2.png" id="13_8pdi7"]
 [ext_resource type="LabelSettings" uid="uid://dypmi2e3x2wsf" path="res://NamesMichiDex.tres" id="13_jysfw"]
 [ext_resource type="PackedScene" uid="uid://dlhrq3v3gsti6" path="res://Scenes/michiJump/JoyStick.tscn" id="14_xy8ar"]
 
@@ -186,12 +186,16 @@ wait_time = 4.0
 autostart = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(-367.594, -1489.41)
 scale = Vector2(36.1436, 36.6748)
 color = Color(1, 0.847059, 0.270588, 1)
 texture = SubResource("GradientTexture2D_tkqq8")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(-60, -1487)
 scale = Vector2(3.46008, 3.27259)
 color = Color(1, 0.466667, 0, 1)
@@ -199,9 +203,11 @@ energy = 13.12
 texture = SubResource("GradientTexture2D_yggf0")
 
 [node name="Moon" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(428, -3916)
 scale = Vector2(3.39063, 3.32813)
-texture = ExtResource("12_17qsc")
+texture = ExtResource("13_8pdi7")
 
 [node name="PointLight2D3" type="PointLight2D" parent="Moon"]
 position = Vector2(-0.29493, 0.901367)

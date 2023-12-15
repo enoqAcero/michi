@@ -23,3 +23,4 @@ var michiCategory
 var muebleSelected = false
 var muebleHover = false
 var lockMuebles = true
+var animControl = false

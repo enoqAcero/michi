@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_y60o1")
-active = 1
+active = 0
 category = "categoria4"
 type = "Arcoiris"
 categoryLevel = 4
 fusionLevel = 1
-globalPos = Vector2(225.87, 400.931)
+globalPos = Vector2(125.96, 571.356)
 name = "Arcoiris13"
 food = 0
 fun = 0

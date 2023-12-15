@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://neoqgd1g1b5e"]
+[gd_scene load_steps=7 format=3 uid="uid://neoqgd1g1b5e"]
 
 [ext_resource type="Texture2D" uid="uid://cqkn4mppo30bd" path="res://Structures/Assets/j-michiBlanco.png" id="1_l3mfw"]
+[ext_resource type="Script" path="res://Scenes/dragMiniGamesFurniture.gd" id="1_uifhg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6eydu"]
 radius = 36.0139
@@ -19,6 +20,8 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="jumper3000" type="CharacterBody2D"]
 position = Vector2(157, 56)
+disable_mode = 1
+script = ExtResource("1_uifhg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_l3mfw")
@@ -38,6 +41,5 @@ debug_color = Color(0.843137, 0.341176, 0.458824, 0.419608)
 position = Vector2(0, -5)
 scale = Vector2(2.66113, 2.49512)
 color = Color(1, 1, 0.611765, 1)
-energy = 0.5
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_1yvlx")

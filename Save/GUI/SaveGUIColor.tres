@@ -6,3 +6,5 @@
 script = ExtResource("1_joevj")
 colorGui = Color(0.763003, 0.361379, 1, 1)
 roomNumber = 1
+posRunner = [Vector2(127, 565), Vector2(330, 647), Vector2(176.229, 408.355), Vector2(240, 400), Vector2(240, 400), Vector2(80, 300), Vector2(389, 666), Vector2(90, 351), Vector2(195.085, 337.013)]
+posJumper = [Vector2(396, 562), Vector2(189.001, 294.247), Vector2(309.936, 399.968), Vector2(240, 400), Vector2(240, 400), Vector2(390, 301), Vector2(86, 670), Vector2(91, 611), Vector2(134, 686)]

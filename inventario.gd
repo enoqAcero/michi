@@ -121,6 +121,7 @@ func _on_rooms_pressed():
 	var shopB = get_parent().get_node("inventario/TextureButton")
 	var limpiarH = get_parent()
 	if $InvMuebles.visible:
+		#GlobalVariables.animControl = false
 		$MichiPedia.disabled = false
 		$back.disabled = false
 		$next.disabled = false
@@ -139,13 +140,14 @@ func _on_rooms_pressed():
 		$Label.show()
 		topGui.hide()
 		canvaTop.show()
-		#get_tree().reload_current_scene()
-		limpiarH.clearScreenJustShow()
+		get_tree().reload_current_scene()
+		#limpiarH.clearScreenJustShow()
 		limpiarH.salvaMueble()
 		GlobalVariables.lockMuebles = true
 		
 
 	else:
+		GlobalVariables.animControl = true
 		$MichiPedia.disabled = true
 		$back.disabled = true
 		$next.disabled = true
@@ -163,7 +165,7 @@ func _on_rooms_pressed():
 		$Rooms.z_index = 2
 		shopB.hide()
 		$ColorRect.show()
-		limpiarH.clearScreenJustHide()
+		limpiarH.clearScreen()
 		topGui.show()
 		canvaTop.hide()
 		GlobalVariables.lockMuebles = false

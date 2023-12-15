@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_6dtgg")
-active = 1
+active = 0
 category = "categoria4"
 type = "Estrellas"
 categoryLevel = 4
 fusionLevel = 1
-globalPos = Vector2(31.6294, 733.997)
+globalPos = Vector2(205.5, 257)
 name = "Estrellas14"
 food = 0
 fun = 0

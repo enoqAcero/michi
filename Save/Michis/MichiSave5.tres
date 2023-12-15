@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="MichiData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_am6sh"]
+[ext_resource type="Script" path="res://Save/MichiData.gd" id="1_ysv1y"]
 
 [resource]
-script = ExtResource("1_am6sh")
+script = ExtResource("1_ysv1y")
 active = 1
 category = "categoria10"
 type = "Dracula"
 categoryLevel = 10
 fusionLevel = 1
-globalPos = Vector2(449.997, 711.5)
+globalPos = Vector2(172.081, 648.056)
 name = "Dracula5"
 food = 0
 fun = 0
 clean = 0
 comfort = 100
 exercise = 0
-roomNumber = 9
+roomNumber = 1

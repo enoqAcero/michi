@@ -1,16 +1,17 @@
-[gd_scene load_steps=47 format=3 uid="uid://qtwndjqyub13"]
+[gd_scene load_steps=66 format=3 uid="uid://qtwndjqyub13"]
 
 [ext_resource type="Script" path="res://GUI/Scripts/Shop.gd" id="1_0mwgk"]
+[ext_resource type="Texture2D" uid="uid://dqom2sbv3a1kl" path="res://GUI/Assets/tiendagif.png" id="2_j33fk"]
 [ext_resource type="Texture2D" uid="uid://bafatwru8b66g" path="res://GUI/Assets/backgroundTienda.png" id="2_mnudf"]
 [ext_resource type="Texture2D" uid="uid://cio5sqapxrvrq" path="res://GUI/Assets/backgroundFurniture (1).png" id="3_avcqx"]
 [ext_resource type="Texture2D" uid="uid://q7yvscm470y0" path="res://GUI/Assets/sombrasTienda.png" id="3_udmsc"]
 [ext_resource type="Texture2D" uid="uid://ce0jn6pal7i80" path="res://GUI/Assets/GUItopTienda.png" id="6_qagll"]
+[ext_resource type="Texture2D" uid="uid://ckrk75xfjkurr" path="res://GUI/Assets/botonFurniture2.png" id="8_3wx4h"]
 [ext_resource type="Texture2D" uid="uid://br3lbbjhdklff" path="res://GUI/Assets/botonFurniture (1).png" id="8_6h01d"]
 [ext_resource type="Texture2D" uid="uid://4wbknax3rg5w" path="res://Items/Assets/fish.png" id="8_7lixr"]
 [ext_resource type="Texture2D" uid="uid://b0c2juy08dxjs" path="res://Items/Assets/Kibble.png" id="8_s26xb"]
 [ext_resource type="Texture2D" uid="uid://bkljwms08vqbs" path="res://GUI/Assets/buyN.png" id="9_uednt"]
 [ext_resource type="Texture2D" uid="uid://cnf16sdumiprn" path="res://GUI/Assets/buyP.png" id="10_8irbi"]
-[ext_resource type="Texture2D" uid="uid://bsvet88t05jsy" path="res://GlobalAssets/Assets/michiCoin.png" id="11_ryjyc"]
 [ext_resource type="Texture2D" uid="uid://8kmk6a6jj61g" path="res://Items/Assets/TunaCan.png" id="12_1se1l"]
 [ext_resource type="Texture2D" uid="uid://esdmpocsp8wd" path="res://Items/Assets/inventory.png" id="12_my0hn"]
 [ext_resource type="Texture2D" uid="uid://b6lntnyi7c8eg" path="res://Items/Assets/Ball.png" id="13_kxer1"]
@@ -20,6 +21,134 @@
 [ext_resource type="Texture2D" uid="uid://brtguq2yk1a6c" path="res://Items/Assets/Brush.png" id="16_ojpov"]
 [ext_resource type="Texture2D" uid="uid://bsyrptag5257i" path="res://GlobalAssets/Assets/newmichiCoin.png" id="20_uio1c"]
 [ext_resource type="FontFile" uid="uid://dtjra5b55fol8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="21_wds0h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xalbt"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(0, 0, 480, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk35d"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(480, 0, 480, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8h85"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(960, 0, 480, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyqc7"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(1440, 0, 480, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej8r2"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(1920, 0, 480, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xctm5"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(2400, 0, 480, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_364pv"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(2880, 0, 480, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxfle"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(3360, 0, 480, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2egba"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(3840, 0, 480, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i25mc"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(4320, 0, 480, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14nxx"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(4800, 0, 480, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6e7d"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(5280, 0, 480, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4aot"]
+atlas = ExtResource("2_j33fk")
+region = Rect2(5760, 0, 480, 750)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hj2s7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xalbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk35d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8h85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyqc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ej8r2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xctm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_364pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxfle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2egba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i25mc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14nxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6e7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4aot")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt8f1"]
+atlas = ExtResource("8_3wx4h")
+region = Rect2(0, 0, 97, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1ja1"]
+atlas = ExtResource("8_3wx4h")
+region = Rect2(97, 0, 97, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riqkd"]
+atlas = ExtResource("8_3wx4h")
+region = Rect2(194, 0, 97, 171)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1dgrg"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_lt8f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1ja1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riqkd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fwt36"]
 font_size = 20
@@ -214,15 +343,23 @@ script = ExtResource("1_0mwgk")
 metadata/_edit_vertical_guides_ = [128.0, 240.0, 32.0]
 metadata/_edit_horizontal_guides_ = [384.0, 288.0, 480.0, 814.0]
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(240, 436)
+scale = Vector2(1, 0.856)
+sprite_frames = SubResource("SpriteFrames_hj2s7")
+autoplay = "default"
+frame_progress = 0.163616
+
 [node name="Bg-store" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.992157)
-position = Vector2(237.5, 436.5)
+position = Vector2(237.5, 435.5)
 scale = Vector2(1.01042, 0.854667)
 texture = ExtResource("2_mnudf")
 
 [node name="Bg-store2" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.352941)
-position = Vector2(237.5, 437)
+position = Vector2(241, 438)
 scale = Vector2(1.01042, 0.856)
 texture = ExtResource("3_udmsc")
 
@@ -261,6 +398,12 @@ offset_right = 473.0
 offset_bottom = 373.0
 texture_normal = ExtResource("8_6h01d")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Furnitures"]
+position = Vector2(43, 81)
+sprite_frames = SubResource("SpriteFrames_1dgrg")
+autoplay = "default"
+frame_progress = 0.763063
 
 [node name="GridContainer" type="GridContainer" parent="."]
 offset_left = 27.0
@@ -316,8 +459,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="GridContainer/kibble"]
 position = Vector2(56, -15)
-texture = ExtResource("11_ryjyc")
-hframes = 4
+texture = ExtResource("20_uio1c")
+hframes = 16
 
 [node name="backpack" type="Sprite2D" parent="GridContainer/kibble"]
 position = Vector2(64, 51.6667)
@@ -369,8 +512,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="GridContainer/fish"]
 position = Vector2(56, -15)
-texture = ExtResource("11_ryjyc")
-hframes = 4
+texture = ExtResource("20_uio1c")
+hframes = 16
 
 [node name="backpack" type="Sprite2D" parent="GridContainer/fish"]
 position = Vector2(64, 51.6667)
@@ -422,8 +565,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="GridContainer/tunacan"]
 position = Vector2(56, -15)
-texture = ExtResource("11_ryjyc")
-hframes = 4
+texture = ExtResource("20_uio1c")
+hframes = 16
 
 [node name="backpack" type="Sprite2D" parent="GridContainer/tunacan"]
 position = Vector2(64, 51.6667)
@@ -475,8 +618,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="GridContainer/ball"]
 position = Vector2(56, -15)
-texture = ExtResource("11_ryjyc")
-hframes = 4
+texture = ExtResource("20_uio1c")
+hframes = 16
 
 [node name="backpack" type="Sprite2D" parent="GridContainer/ball"]
 position = Vector2(64, 51.6667)
@@ -528,8 +671,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="GridContainer/laser"]
 position = Vector2(56, -15)
-texture = ExtResource("11_ryjyc")
-hframes = 4
+texture = ExtResource("20_uio1c")
+hframes = 16
 
 [node name="backpack" type="Sprite2D" parent="GridContainer/laser"]
 position = Vector2(64, 51.6667)
@@ -581,8 +724,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="GridContainer/comb"]
 position = Vector2(56, -15)
-texture = ExtResource("11_ryjyc")
-hframes = 4
+texture = ExtResource("20_uio1c")
+hframes = 16
 
 [node name="backpack" type="Sprite2D" parent="GridContainer/comb"]
 position = Vector2(64, 51.6667)
@@ -634,8 +777,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MichiCoin" type="Sprite2D" parent="GridContainer/brush"]
 position = Vector2(56, -15)
-texture = ExtResource("11_ryjyc")
-hframes = 4
+texture = ExtResource("20_uio1c")
+hframes = 16
 
 [node name="backpack" type="Sprite2D" parent="GridContainer/brush"]
 position = Vector2(64, 51.6667)

@@ -8,6 +8,7 @@ var pos_x
 var pos_y
 var textureHeart = preload("res://Michis/Status/Assets/statusHeart.png")
 var textureBall = preload("res://Michis/Status/Assets/statusWhite.png")
+
 #variables para guardar datos
 var savePathMichi = "res://Save/Michis/"
 var saveFileNameMichi = "MichiSave"
@@ -77,15 +78,29 @@ var clickCount = 0
 
 var btnControl = false
 var stopJoyStick = false
+var scriptJumperYcam = preload("res://Scenes/dragMiniGamesFurniture.gd")
+var scriptJumperYcamNot = preload("res://Scenes/NotdragMiniGamesFurniture.gd")
+var lightMichiNumber = 0
+var lightControl = false
 
 func _ready():
 	$JoyStickTest.visible = false
+	
 	randomize()
 	
-	$Transition/ColorRect.self_modulate = Color("#ffffff")
-	$Transition/ColorRect.visible = true
-	$Transition.play("fadeIn")
+	if GlobalVariables.animControl == false:
+		$Transition/ColorRect.self_modulate = Color("#ffffff")
+		$Transition/ColorRect.visible = true
+		$Transition/Label.visible = true
+		GlobalVariables.animControl = false
+		$Transition.play("fadeIn")
+	else:
+		$Transition/ColorRect.visible = false
+		$Transition/Label.visible = false
+		$Transition/PointLight2D.visible = false
+		$Transition.play("noAnim")
 	
+		
 	GlobalVariables.michiSelected = false
 	GlobalVariables.itemSelected = false
 	GlobalVariables.michiHover = false
@@ -305,6 +320,7 @@ func AgregarTodo():
 		michi.z_index = 2
 		if michiData[i].active == 1 and michiData[i].roomNumber == roomNumber:
 			add_child(michi)
+			lightMichiNumber = i
 		michiInstance.append(michi)
 		
 
@@ -372,10 +388,13 @@ func originRestComfort ():
 
 	
 	
+func _physics_process(delta):
+	if GlobalVariables.animControl == false:
+		if lightControl == true:
+			if is_instance_valid(michiInstance[lightMichiNumber]):
+				$PointLight2D.global_position = michiInstance[lightMichiNumber].global_position
 
-	
-	
-	
+		
 func _process(_delta):
 	if GlobalVariables.naceMichi == 1:
 		naceMichi(GlobalVariables.huevoNumber)
@@ -396,6 +415,15 @@ func _process(_delta):
 	if GlobalVariables.muebleSelected == true:
 		stopJoyStick = true
 		
+	if GlobalVariables.animControl == true:
+		$Caminadora3000Azul.set_script(scriptJumperYcam)
+		$jumper3000.set_script(scriptJumperYcam)
+		$JoyStickTest.visible = false
+		stopJoyStick = true
+	else:
+		$Caminadora3000Azul.set_script(scriptJumperYcamNot)
+		$jumper3000.set_script(scriptJumperYcamNot)
+		
 	var slide = $JoyStickTest.posVector
 	if slide:
 		print("joystickPos: ", slide.x)
@@ -411,6 +439,8 @@ func _process(_delta):
 				stopJoyStick = true
 				clearScreenJustHide()
 				$Transition/Label.text = "ROOM: "+str(roomNumber)
+				$Transition/Label.visible = true
+				$Transition/Label.self_modulate = Color(1,1,1,1)
 				$Transition.play("fadeOut")
 			elif slide.x < -0.8:
 				roomNumber += 1
@@ -422,13 +452,16 @@ func _process(_delta):
 				stopJoyStick = true
 				clearScreenJustHide()
 				$Transition/Label.text = "ROOM: "+str(roomNumber)
+				$Transition/Label.visible = true
+				$Transition/Label.self_modulate = Color(1,1,1,1)
 				$Transition.play("fadeOut")
 
 	else:
 		stopJoyStick = true
 		slide.y = 0
 		slide.x = 0
-		
+	
+	
 
 #cuando se apieta un michi o un huevo aparecen sus stats mandando a llamar la funcion updateStatus
 func _input(_event):
@@ -557,6 +590,8 @@ func loadData(number : int, typeLocal : int, controlMichiData : int):
 func salvaMueble():
 	#salva mueble
 #try 3
+	getRoomNumber.posJumper[roomNumber - 1] = $jumper3000.global_position
+	getRoomNumber.posRunner[roomNumber - 1] = $Caminadora3000Azul.global_position
 	for fur in (furnitureInstance):
 		for i in range (0,furnitureData.furnitureList.size()):
 			for j in range (0,furnitureData.furnitureList[i].active.size()):
@@ -586,32 +621,35 @@ func salvaMueble():
 					#print("instance position despues: ",furnitureData.furnitureList[i].posF[j])
 	ResourceSaver.save(furnitureData, "res://Save/Furniture/furnitureSave.tres")
 func save(michiN : int): #type 0 = michi, type 1 = huevo
+	GlobalVariables.animControl = false
 	#salva los michis
-	for i in range(0, maxMichiNumber):
-		if michiData[i].active == 1:
-			if not michiN == i:
-				michiData[i].globalPos = michiInstance[i].global_position
-		ResourceSaver.save(michiData[i], savePathMichi + saveFileNameMichi + str(i) + ".tres")
+	if GlobalVariables.animControl == false:
+		for i in range(0, maxMichiNumber):
+			if michiData[i].active == 1:
+				if not michiN == i:
+					if is_instance_valid(michiInstance[i]):
+						michiData[i].globalPos = michiInstance[i].global_position
+			ResourceSaver.save(michiData[i], savePathMichi + saveFileNameMichi + str(i) + ".tres")
 
-	#salva los huevos
-	for i in range(0, maxHuevoNumber):
-		if huevoData[i].active == 1:
-			huevoData[i].globalPos = huevoInstance[i].global_position
-		ResourceSaver.save(huevoData[i], savePathHuevo + saveFileNameHuevo + str(i) + ".tres")
+		#salva los huevos
+		for i in range(0, maxHuevoNumber):
+			if huevoData[i].active == 1:
+				huevoData[i].globalPos = huevoInstance[i].global_position
+			ResourceSaver.save(huevoData[i], savePathHuevo + saveFileNameHuevo + str(i) + ".tres")
 
-	#salva la pis
-	for i in range(0, maxPisNumber):
-		if pisData[i].active == 1:
-			pisData[i].globalPos = pisInstance[i].global_position
-		ResourceSaver.save(pisData[i], savePathPis + saveFileNamePis + str(i) + ".tres")
-	#salva la mierda
-	for i in range(0, maxPoopNumber):
-		if poopData[i].active == 1:
-			poopData[i].globalPos = poopInstance[i].global_position
-		ResourceSaver.save(poopData[i], savePathPoop + saveFileNamePoop + str(i) + ".tres")
+		#salva la pis
+		for i in range(0, maxPisNumber):
+			if pisData[i].active == 1:
+				pisData[i].globalPos = pisInstance[i].global_position
+			ResourceSaver.save(pisData[i], savePathPis + saveFileNamePis + str(i) + ".tres")
+		#salva la mierda
+		for i in range(0, maxPoopNumber):
+			if poopData[i].active == 1:
+				poopData[i].globalPos = poopInstance[i].global_position
+			ResourceSaver.save(poopData[i], savePathPoop + saveFileNamePoop + str(i) + ".tres")
 
-	getRoomNumber.roomNumber = roomNumber
-	ResourceSaver.save(getRoomNumber, savePathColorGui + saveFileColorGui + ".tres")
+		getRoomNumber.roomNumber = roomNumber
+		ResourceSaver.save(getRoomNumber, savePathColorGui + saveFileColorGui + ".tres")
 	
 			
 	SignalManager.itemsCoinSave.emit()
@@ -1680,7 +1718,10 @@ func agregarMichiyHuevo(NumeroMichi1 : int, NumeroMichi2 : int, control : int):#
 		michiInstance[NumeroMichi2].name = "tempNameMichi2"
 		michiInstance[NumeroMichi2].queue_free()
 		michiData[NumeroMichi2].active = 0
-		
+		$PointLight2D.show()
+		$PointLight2D.global_position = michiInstance[NumeroMichi1].global_position
+		lightMichiNumber = NumeroMichi1
+		$lightTimer.start()
 			
 
 		#agregar el huevo
@@ -2056,6 +2097,10 @@ func naceMichi(huevoN : int):
 	michiInstance[michiIndex] = michi
 	michiData[michiIndex].active = 1
 	michiData[michiIndex].roomNumber = roomNumber
+	$PointLight2D.show()
+	$PointLight2D.global_position = michiInstance[michiIndex].global_position
+	lightMichiNumber = michiIndex
+	$lightTimer.start()
 
 	huevoData[huevoN].active = 0
 	huevoInstance[huevoN].queue_free()
@@ -2253,9 +2298,9 @@ func clearScreen():
 	for pi in pisInstance:
 		if is_instance_valid(pi):
 			pi.queue_free()
-	for fur in furnitureInstance:
-		if is_instance_valid(fur):
-			fur.queue_free()
+	#for fur in furnitureInstance:
+		#if is_instance_valid(fur):
+			#fur.queue_free()
 
 func clearScreenJustHide():
 	for cat in michiInstance:
@@ -2288,6 +2333,8 @@ func clearScreenJustShow():
 
 
 func _on_transition_animation_finished(_anim_name):
+	GlobalVariables.animControl = false
+	$Transition/Label.visible = false
 	if animationControl == false: 
 		get_tree().reload_current_scene()
 
@@ -2325,8 +2372,13 @@ func _on_transition_animation_started(_anim_name):
 			$Background8.visible = true
 		elif roomNumber == 9:
 			$Background9.visible = true
+			
+		$Caminadora3000Azul.global_position = getRoomNumber.posRunner[roomNumber-1]
+		$jumper3000.global_position = getRoomNumber.posJumper[roomNumber-1]
 		originRestComfort()
+		GlobalVariables.animControl = false
 		$JoyStickTest.visible = true
+		lightControl = true
 
 func _on_double_click_timeout():
 	clickCount = 0
@@ -2475,6 +2527,8 @@ func ponerMueble(indexMueble : int, controlM : int):
 	furnitureData.furnitureList[indexMueble].counterF +=1
 	
 	
-	
 
 
+
+func _on_light_timer_timeout():
+	$PointLight2D.hide()
